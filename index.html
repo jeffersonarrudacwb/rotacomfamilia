@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A1F44" />
+  <title>Rota com Família — Viagens, milhas e roteiros para a família toda</title>
+  <meta name="description" content="Conteúdo, ebooks, cursos e assessoria para famílias que querem viajar mais gastando menos, usando milhas, pontos e estratégias inteligentes." />
+  <meta property="og:title" content="Rota com Família" />
+  <meta property="og:description" content="A rota mais inteligente para sua família viajar pelo mundo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep:   '#15170C',   // oliva-noite (bg base)
+              navy:   '#1F2113',   // oliva escuro
+              blue:   '#2A2C18',   // oliva-musgo
+              leaf:   '#6B7445',   // sálvia/musgo claro
+              fern:   '#A9B47E',   // sálvia clara
+              sky:    '#F4E4C1',   // papel pergaminho
+              azure:  '#E3B04B',   // âmbar mostarda
+              orange: '#D4A437',   // ouro mostarda (CTA — cor do canal)
+              flame:  '#B8732A',   // âmbar queimado (gradient)
+              cream:  '#FAF1DA'    // creme quente
+            }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          },
+          boxShadow: {
+            glow: '0 30px 80px -20px rgba(212,164,55,0.5)',
+            soft: '0 20px 60px -20px rgba(15,18,10,0.55)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-brand-deep text-white font-sans antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- ============== PROGRESS + NAV ============== -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] w-0 bg-gradient-to-r from-brand-orange to-brand-flame z-[100]"></div>
+
+  <header id="nav" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <span class="brand-emblem">
+          <svg viewBox="0 0 32 32" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="13" stroke-width="1.4"/>
+            <path d="M16 3v26M3 16h26"/>
+            <path d="M11 16l5-7 5 7-5 13z" fill="currentColor" stroke="none" opacity="0.85"/>
+          </svg>
+        </span>
+        <span class="brand-wordmark">
+          <span class="bw-top">Rota</span><span class="bw-middle">com</span><span class="bw-bot">Família</span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/80">
+        <a class="nav-link" href="#blog">Blog</a>
+        <a class="nav-link" href="#produtos">Produtos</a>
+        <a class="nav-link" href="#alertas">Rotas</a>
+        <a class="nav-link" href="#apps">Rota Apps</a>
+        <a class="nav-link" href="#sobre">Sobre</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#newsletter" class="hidden sm:inline-flex btn-ghost">Guia grátis</a>
+        <a href="#produtos" class="btn-primary">Comece agora</a>
+        <button id="menu-toggle" class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-brand-deep/95 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-5 py-5 grid gap-3 text-base">
+        <a href="#blog" class="py-2">Blog</a>
+        <a href="#produtos" class="py-2">Produtos</a>
+        <a href="#alertas" class="py-2">Rotas</a>
+        <a href="#apps" class="py-2">Rota Apps</a>
+        <a href="#sobre" class="py-2">Sobre</a>
+        <a href="#newsletter" class="btn-primary mt-2 justify-center">Pegar guia grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== HERO ============== -->
+  <section id="top" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 z-0">
+      <img id="hero-bg"
+           src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=2400&q=80"
+           alt="Família viajando ao pôr do sol"
+           class="h-full w-full object-cover scale-110" />
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-deep/60 via-brand-deep/55 to-brand-deep"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,164,55,0.32),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(184,115,42,0.22),transparent_55%)]"></div>
+    </div>
+
+    <!-- Floating glow blobs -->
+    <div class="pointer-events-none absolute -top-32 -left-20 h-[420px] w-[420px] rounded-full bg-brand-orange/30 blur-[120px]"></div>
+    <div class="pointer-events-none absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-brand-sky/30 blur-[120px]"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-24 w-full">
+      <div class="max-w-4xl">
+        <div class="reveal flex items-center gap-2 mb-6">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80">
+            <span class="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+            Conteúdo, milhas e emissão de passagens para a família
+          </span>
+        </div>
+
+        <h1 class="reveal font-display font-extrabold leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-8xl">
+          A rota mais
+          <span class="block bg-gradient-to-r from-brand-orange via-brand-flame to-amber-300 bg-clip-text text-transparent">
+            inteligente
+          </span>
+          para sua família viajar.
+        </h1>
+
+        <p class="reveal mt-7 max-w-2xl text-lg sm:text-xl text-white/75 leading-relaxed">
+          Conteúdo, milhas, cursos e ferramentas para transformar pontos em memórias inesquecíveis — sem complicação e com a família junto.
+        </p>
+
+        <div class="reveal mt-10 flex flex-col sm:flex-row gap-4">
+          <a href="#blog" class="btn-primary btn-lg group">
+            <span>Explorar o Blog</span>
+            <svg viewBox="0 0 24 24" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#produtos" class="btn-secondary btn-lg group">
+            <span>Ver Produtos & Cursos</span>
+            <svg viewBox="0 0 24 24" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="reveal mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl">
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-white"><span data-counter="9">0</span></div>
+            <div class="text-xs uppercase tracking-wider text-white/60 mt-1">países visitados</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-white"><span data-counter="12">0</span>+</div>
+            <div class="text-xs uppercase tracking-wider text-white/60 mt-1">viagens em família</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-white"><span data-counter="1">0</span>M+</div>
+            <div class="text-xs uppercase tracking-wider text-white/60 mt-1">milhas gerenciadas</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-white"><span data-counter="100">0</span>+</div>
+            <div class="text-xs uppercase tracking-wider text-white/60 mt-1">emissões realizadas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#blog" class="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center text-white/70 hover:text-white transition-colors">
+      <span class="text-[11px] uppercase tracking-[0.3em]">Role para descobrir</span>
+      <span class="mt-3 h-10 w-6 rounded-full border border-white/40 flex items-start justify-center p-1">
+        <span class="h-2 w-1 rounded-full bg-white animate-scrollhint"></span>
+      </span>
+    </a>
+  </section>
+
+  <!-- ============== BLOG / CATEGORIAS ============== -->
+  <section id="blog" class="section-pad relative">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-deep to-[#1F2113]"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+        <div class="reveal max-w-2xl">
+          <span class="eyebrow">Conteúdo & Blog</span>
+          <h2 class="section-title">Tudo o que sua família precisa saber <span class="text-brand-orange">antes de embarcar</span>.</h2>
+        </div>
+        <a href="#" class="reveal btn-secondary self-start lg:self-auto">Ver todos os artigos
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Category chips -->
+      <div class="reveal flex flex-wrap gap-3 mb-12">
+        <button class="chip chip-active">Tudo</button>
+        <button class="chip">Relatos em família</button>
+        <button class="chip">Dicas práticas</button>
+        <button class="chip">Cartões e pontos</button>
+        <button class="chip">Estratégias de milhas</button>
+        <button class="chip">Roteiros & destinos</button>
+        <button class="chip">Voos baratos</button>
+      </div>
+
+      <!-- Article grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="reveal post-card">
+          <div class="post-media">
+            <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1200&q=80" alt="Família em Orlando" />
+            <span class="post-tag">Relatos em família</span>
+          </div>
+          <div class="post-body">
+            <h3>10 dias em Orlando com 2 crianças: o roteiro completo</h3>
+            <p>Como gastamos R$ 4.300 em uma viagem que custaria R$ 38 mil, do hotel ao Disney+.</p>
+            <div class="post-meta"><span>Jefferson</span><span>12 min</span></div>
+          </div>
+        </article>
+
+        <article class="reveal post-card">
+          <div class="post-media">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80" alt="Cartões de crédito" />
+            <span class="post-tag">Cartões & pontos</span>
+          </div>
+          <div class="post-body">
+            <h3>Os 5 melhores cartões para acumular pontos em 2026</h3>
+            <p>Comparativo atualizado de anuidade, pontuação, transferências bônus e benefícios para família.</p>
+            <div class="post-meta"><span>Equipe Rota</span><span>9 min</span></div>
+          </div>
+        </article>
+
+        <article class="reveal post-card">
+          <div class="post-media">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80" alt="Avião decolando" />
+            <span class="post-tag">Estratégias de milhas</span>
+          </div>
+          <div class="post-body">
+            <h3>Como emitir 4 passagens executivas com 250 mil pontos</h3>
+            <p>O método que usamos para a Europa em 2025 — passo a passo replicável.</p>
+            <div class="post-meta"><span>Jefferson</span><span>14 min</span></div>
+          </div>
+        </article>
+
+        <article class="reveal post-card">
+          <div class="post-media">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Praia" />
+            <span class="post-tag">Roteiros & destinos</span>
+          </div>
+          <div class="post-body">
+            <h3>Nordeste com filhos: 7 destinos que valem cada centavo</h3>
+            <p>De Pipa a Maragogi, com mapa, hotéis testados e dicas que ninguém te conta.</p>
+            <div class="post-meta"><span>Família Rota</span><span>11 min</span></div>
+          </div>
+        </article>
+
+        <article class="reveal post-card">
+          <div class="post-media">
+            <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1200&q=80" alt="Mochila e mapa" />
+            <span class="post-tag">Dicas práticas</span>
+          </div>
+          <div class="post-body">
+            <h3>Checklist definitivo da bagagem de mão com crianças</h3>
+            <p>Imprima, marque e nunca mais esqueça o essencial em embarques longos.</p>
+            <div class="post-meta"><span>Equipe Rota</span><span>6 min</span></div>
+          </div>
+        </article>
+
+        <article class="reveal post-card">
+          <div class="post-media">
+            <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80" alt="Quadro de aeroporto" />
+            <span class="post-tag">Voos baratos</span>
+          </div>
+          <div class="post-body">
+            <h3>GRU → LIS por R$ 1.890 — encontramos 14 datas em junho</h3>
+            <p>Compilamos os melhores preços da semana com janelas familiares.</p>
+            <div class="post-meta"><span>Alertas Rota</span><span>3 min</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CARTÕES, MILHAS & DICAS ============== -->
+  <section id="cartoes" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#1F2113] to-[#2A2C18]"></div>
+    <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(212,164,55,0.16),transparent_55%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="grid lg:grid-cols-[1fr_1.6fr] gap-12 items-end mb-14">
+        <div class="reveal">
+          <span class="eyebrow text-brand-fern">Cartões · Milhas · Dicas</span>
+          <h2 class="section-title">O que aprendemos <span class="text-brand-orange">viajando</span> — em formato direto.</h2>
+        </div>
+        <p class="reveal text-white/70 text-lg lg:pb-2">
+          Sem enrolação e sem promessa milagrosa. Estas são as quatro coisas que mais transformaram a forma da nossa família viajar — e que você pode aplicar a partir de hoje, mesmo que esteja começando do zero em milhas.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="reveal tip-card">
+          <div class="tip-num">01</div>
+          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 11h20M6 16h4"/></svg></div>
+          <h3>Seu primeiro cartão de pontos</h3>
+          <p>Escolher o cartão certo é 80% do jogo. Veja o comparativo dos melhores cartões pra começar a acumular sem complicação.</p>
+          <span class="tip-cta">Ver comparativo →</span>
+        </div>
+
+        <div class="reveal tip-card">
+          <div class="tip-num">02</div>
+          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+          <h3>Acumule sem gastar mais</h3>
+          <p>Use o que você já paga todo mês — luz, mercado, mensalidades, escola — pra virar milhas. É o método que a gente aplica em casa.</p>
+          <span class="tip-cta">Como funciona →</span>
+        </div>
+
+        <div class="reveal tip-card">
+          <div class="tip-num">03</div>
+          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></svg></div>
+          <h3>Calendário de bônus</h3>
+          <p>Saiba quando esperar bônus de 100%+ em transferências de Livelo, Esfera, Smiles e Latam Pass. O timing certo dobra suas milhas.</p>
+          <span class="tip-cta">Próximas datas →</span>
+        </div>
+
+        <div class="reveal tip-card">
+          <div class="tip-num">04</div>
+          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></div>
+          <h3>Custo por milha</h3>
+          <p>A regra simples que usamos antes de toda emissão: vale pagar com pontos ou em reais? Sem essa conta, você joga dinheiro fora.</p>
+          <span class="tip-cta">Aprender a regra →</span>
+        </div>
+      </div>
+
+      <!-- Bottom strip: programas que monitoramos -->
+      <div class="reveal mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="text-sm text-white/65">
+          <span class="font-semibold text-white">Programas que acompanhamos de perto:</span>
+        </div>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="program-pill">Livelo</span>
+          <span class="program-pill">Esfera</span>
+          <span class="program-pill">Latam Pass</span>
+          <span class="program-pill">Smiles</span>
+          <span class="program-pill">Azul Fidelidade</span>
+          <span class="program-pill">TudoAzul</span>
+          <span class="program-pill">Iupp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PRODUTOS & SERVIÇOS ============== -->
+  <section id="produtos" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#1F2113] to-[#2A2C18]"></div>
+    <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(244,228,193,0.12),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(184,115,42,0.18),transparent_45%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="reveal eyebrow">Produtos & Serviços</span>
+        <h2 class="reveal section-title">Três caminhos. <span class="text-brand-orange">Um destino:</span> sua próxima viagem.</h2>
+        <p class="reveal mt-5 text-white/70 text-lg">Aprenda com conteúdo, contrate uma assessoria sob medida, ou domine tudo nos nossos cursos.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+
+        <!-- Pillar 1: Ebooks -->
+        <div class="reveal product-card group">
+          <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="h-7 w-7"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg></div>
+          <h3 class="product-title">Ebooks</h3>
+          <p class="product-desc">Guias práticos e baixáveis sobre milhas, cartões e roteiros — atualizados a cada trimestre.</p>
+          <ul class="product-list">
+            <li>Manual completo de pontos 2026</li>
+            <li>Roteiros prontos: EUA, Europa, Caribe</li>
+            <li>Bônus: planilhas e calculadoras</li>
+          </ul>
+          <a href="#" class="product-cta">
+            Ver ebooks
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Pillar 2: Assessoria -->
+        <div class="reveal product-card product-card-featured">
+          <div class="product-badge">Mais procurado</div>
+          <div class="product-icon product-icon-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="h-7 w-7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></div>
+          <h3 class="product-title">Assessoria personalizada</h3>
+          <p class="product-desc">Nosso time analisa sua carteira de pontos e desenha a viagem ideal para a sua família — do voo ao último passeio.</p>
+          <ul class="product-list">
+            <li>Diagnóstico completo de pontos</li>
+            <li>Plano de emissão e transferências</li>
+            <li>Acompanhamento até o embarque</li>
+          </ul>
+          <a href="#" class="product-cta product-cta-orange">
+            Falar com um consultor
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Pillar 3: Cursos -->
+        <div class="reveal product-card group">
+          <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="h-7 w-7"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M21 7v6M7 9.5V14c0 1.5 2.5 3 5 3s5-1.5 5-3V9.5"/></svg></div>
+          <h3 class="product-title">Cursos online</h3>
+          <p class="product-desc">Aprenda no seu ritmo a acumular milhas, escolher cartões e montar roteiros econômicos do zero.</p>
+          <ul class="product-list">
+            <li>Trilha completa: Iniciante → Avançado</li>
+            <li>Comunidade exclusiva no Telegram</li>
+            <li>Certificado e suporte vitalício</li>
+          </ul>
+          <a href="#" class="product-cta">
+            Ver os cursos
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ROTAS EM DESTAQUE (curadoria manual) ============== -->
+  <section id="alertas" class="section-pad relative">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#2A2C18] to-[#061A12]"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+        <div class="reveal max-w-2xl">
+          <span class="eyebrow">Rotas em destaque</span>
+          <h2 class="section-title">Promoções que <span class="text-brand-orange">vale a pena</span> aproveitar agora.</h2>
+          <p class="mt-4 text-white/70 max-w-xl">Seleção manual feita pela nossa família. Nada de algoritmo — só rotas que realmente compensam, atualizadas quando encontramos oportunidades.</p>
+        </div>
+        <div class="reveal hidden lg:flex items-center gap-2 text-xs text-white/55">
+          <span class="h-2 w-2 rounded-full bg-brand-fern animate-pulse"></span>
+          Atualizado por Jefferson
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <article class="reveal flight-card">
+          <div class="flight-route"><span>GRU</span><svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M14 5l7 7-7 7"/></svg><span>JNB</span></div>
+          <div class="flight-price">85k pts <span class="flight-old">R$ 8.400</span></div>
+          <div class="flight-info"><span>Latam · 1 conexão</span><span>Jul/2026 — safari!</span></div>
+          <div class="flight-bar"><div style="width: 22%"></div></div>
+          <div class="flight-foot"><span class="text-brand-orange font-semibold">Próxima viagem</span><a href="#newsletter" class="text-white/80 hover:text-white">Quero saber →</a></div>
+        </article>
+
+        <article class="reveal flight-card">
+          <div class="flight-route"><span>GRU</span><svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M14 5l7 7-7 7"/></svg><span>LIS</span></div>
+          <div class="flight-price">60k pts <span class="flight-old">R$ 5.100</span></div>
+          <div class="flight-info"><span>TAP · direto</span><span>Set a Nov/2026</span></div>
+          <div class="flight-bar"><div style="width: 30%"></div></div>
+          <div class="flight-foot"><span class="text-brand-orange font-semibold">Voamos!</span><a href="#newsletter" class="text-white/80 hover:text-white">Quero saber →</a></div>
+        </article>
+
+        <article class="reveal flight-card">
+          <div class="flight-route"><span>GRU</span><svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M14 5l7 7-7 7"/></svg><span>MCO</span></div>
+          <div class="flight-price">55k pts <span class="flight-old">R$ 4.800</span></div>
+          <div class="flight-info"><span>Latam · 1 conexão</span><span>Out a Dez/2026</span></div>
+          <div class="flight-bar"><div style="width: 28%"></div></div>
+          <div class="flight-foot"><span class="text-brand-orange font-semibold">Família ama</span><a href="#newsletter" class="text-white/80 hover:text-white">Quero saber →</a></div>
+        </article>
+
+        <article class="reveal flight-card">
+          <div class="flight-route"><span>GRU</span><svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M14 5l7 7-7 7"/></svg><span>EZE</span></div>
+          <div class="flight-price">15k pts <span class="flight-old">R$ 1.900</span></div>
+          <div class="flight-info"><span>Latam · direto</span><span>Ano todo</span></div>
+          <div class="flight-bar"><div style="width: 25%"></div></div>
+          <div class="flight-foot"><span class="text-brand-orange font-semibold">Curta</span><a href="#newsletter" class="text-white/80 hover:text-white">Quero saber →</a></div>
+        </article>
+
+        <article class="reveal flight-card">
+          <div class="flight-route"><span>GRU</span><svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M14 5l7 7-7 7"/></svg><span>PUJ</span></div>
+          <div class="flight-price">45k pts <span class="flight-old">R$ 3.800</span></div>
+          <div class="flight-info"><span>Copa · 1 conexão</span><span>Baixa: mai/jun</span></div>
+          <div class="flight-bar"><div style="width: 27%"></div></div>
+          <div class="flight-foot"><span class="text-brand-orange font-semibold">All-inclusive</span><a href="#newsletter" class="text-white/80 hover:text-white">Quero saber →</a></div>
+        </article>
+
+        <article class="reveal flight-card">
+          <div class="flight-route"><span>GRU</span><svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M14 5l7 7-7 7"/></svg><span>MAD</span></div>
+          <div class="flight-price">65k pts <span class="flight-old">R$ 5.600</span></div>
+          <div class="flight-info"><span>Iberia · direto</span><span>Set a Nov/2026</span></div>
+          <div class="flight-bar"><div style="width: 28%"></div></div>
+          <div class="flight-foot"><span class="text-brand-orange font-semibold">Top Europa</span><a href="#newsletter" class="text-white/80 hover:text-white">Quero saber →</a></div>
+        </article>
+      </div>
+
+      <!-- CTA emissão de passagens -->
+      <div class="reveal mt-12 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-5">
+        <div>
+          <h3 class="font-display text-xl sm:text-2xl font-bold">Quer que eu emita sua passagem?</h3>
+          <p class="text-white/70 mt-1 text-sm sm:text-base">Faço emissão para outras pessoas — nacional e internacional, com pontos seus ou meus. Pagamento em reais, sem dor de cabeça.</p>
+        </div>
+        <a href="https://wa.me/5541999999999?text=Quero%20emitir%20uma%20passagem%20com%20a%20Rota" class="btn-primary whitespace-nowrap">Falar comigo no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ROTA APPS ============== -->
+  <section id="apps" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#061A12] via-[#0A2418] to-[#061A12]"></div>
+    <!-- Tech grid overlay -->
+    <div class="absolute inset-0 -z-10 opacity-[0.07] bg-[linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+    <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(227,176,75,0.22),transparent_60%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="reveal inline-flex items-center gap-2 rounded-full border border-brand-sky/30 bg-brand-sky/10 px-3 py-1 text-xs font-semibold text-brand-sky uppercase tracking-wider">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-sky animate-pulse"></span> Rota Apps
+        </span>
+        <h2 class="reveal section-title mt-4">Tecnologia que <span class="bg-gradient-to-r from-brand-sky to-brand-orange bg-clip-text text-transparent">acelera</span> sua próxima viagem.</h2>
+        <p class="reveal mt-5 text-white/70 text-lg">Aplicativos próprios desenvolvidos pelo grupo Rota com Família, pensados para viajantes e criadores.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+
+        <!-- App 1: Milhas -->
+        <div class="reveal app-card">
+          <div class="app-phone">
+            <div class="phone-frame">
+              <div class="phone-screen app-screen-milhas">
+                <div class="screen-status"><span>9:41</span><span class="flex gap-1"><span class="h-1 w-3 bg-white rounded-sm"></span><span class="h-2 w-2 rounded-full bg-white"></span></span></div>
+                <div class="text-[10px] uppercase tracking-widest text-white/60 mt-3">Saldo total</div>
+                <div class="text-2xl font-bold mt-1">412.380 pts</div>
+                <div class="mt-3 grid grid-cols-2 gap-2">
+                  <div class="rounded-lg bg-white/10 p-2"><div class="text-[9px] text-white/60">Livelo</div><div class="text-sm font-semibold">189.4k</div></div>
+                  <div class="rounded-lg bg-white/10 p-2"><div class="text-[9px] text-white/60">Esfera</div><div class="text-sm font-semibold">120.9k</div></div>
+                  <div class="rounded-lg bg-white/10 p-2"><div class="text-[9px] text-white/60">Latam</div><div class="text-sm font-semibold">78.1k</div></div>
+                  <div class="rounded-lg bg-white/10 p-2"><div class="text-[9px] text-white/60">Smiles</div><div class="text-sm font-semibold">24.0k</div></div>
+                </div>
+                <div class="mt-3 rounded-xl bg-brand-orange/90 p-2 text-[10px] font-semibold">Promoção: 100% bônus Livelo →</div>
+              </div>
+            </div>
+          </div>
+          <div class="app-meta">
+            <div class="app-tag">Lista de espera</div>
+            <h3>Rota Milhas</h3>
+            <p>Centralize todos os seus programas, receba alertas de bônus e descubra o melhor uso para cada ponto.</p>
+            <div class="app-platforms">
+              <span class="badge-store">iOS</span>
+              <span class="badge-store">Android</span>
+            </div>
+            <a href="#" class="btn-primary mt-5">Entrar na lista</a>
+          </div>
+        </div>
+
+        <!-- App 2: Teleprompter -->
+        <div class="reveal app-card">
+          <div class="app-phone">
+            <div class="phone-frame">
+              <div class="phone-screen app-screen-prompter">
+                <div class="screen-status"><span>9:41</span><span class="text-red-400">● REC</span></div>
+                <div class="mt-6 text-[13px] leading-snug font-medium">
+                  Olá pessoal, hoje vou mostrar pra vocês <span class="bg-brand-orange/80 px-1 rounded">como acumulei 1 milhão de pontos</span> em apenas 8 meses, e o melhor: <span class="opacity-50">sem gastar nada além das contas que já pago todo mês...</span>
+                </div>
+                <div class="absolute bottom-3 left-3 right-3">
+                  <div class="flex items-center justify-between text-[10px] mb-1"><span>Velocidade 1.2x</span><span>Fonte 22pt</span></div>
+                  <div class="h-1.5 rounded-full bg-white/20"><div class="h-full w-2/5 rounded-full bg-brand-orange"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="app-meta">
+            <div class="app-tag app-tag-blue">Disponível</div>
+            <h3>Rota Prompter</h3>
+            <p>Teleprompter profissional para criadores: controle de velocidade, inversão de tela, fonte ajustável e modo de gravação integrado.</p>
+            <div class="app-platforms">
+              <span class="badge-store">iOS</span>
+              <span class="badge-store">Android</span>
+            </div>
+            <a href="#" class="btn-primary mt-5">Baixar agora</a>
+          </div>
+        </div>
+
+        <!-- App 3: Future -->
+        <div class="reveal app-card app-card-coming">
+          <div class="app-phone">
+            <div class="phone-frame">
+              <div class="phone-screen flex flex-col items-center justify-center text-center">
+                <svg viewBox="0 0 24 24" class="h-10 w-10 text-white/30" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+                <div class="mt-3 text-xs text-white/50">Em desenvolvimento</div>
+              </div>
+            </div>
+          </div>
+          <div class="app-meta">
+            <div class="app-tag app-tag-muted">Em breve</div>
+            <h3>Próximo app Rota</h3>
+            <p>Estamos construindo a próxima ferramenta para o universo de viagens e criadores. Inscreva-se para receber em primeira mão.</p>
+            <div class="app-platforms">
+              <span class="badge-store opacity-50">iOS</span>
+              <span class="badge-store opacity-50">Android</span>
+            </div>
+            <a href="#" class="btn-secondary mt-5">Quero saber antes</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apps sob demanda CTA -->
+      <div class="reveal mt-16 rounded-3xl border border-white/10 bg-gradient-to-br from-brand-blue/30 via-white/5 to-brand-orange/20 p-8 sm:p-12 relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-brand-orange/30 blur-3xl"></div>
+        <div class="relative grid lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="eyebrow text-white/80">Desenvolvimento sob demanda</span>
+            <h3 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 leading-tight">Aplicativos personalizados para influenciadores e criadores.</h3>
+            <p class="mt-4 text-white/75 text-lg">Do conceito ao lançamento na loja, criamos apps com a identidade do seu canal — comunidade, conteúdo exclusivo, integração com plataformas, monetização e mais.</p>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+              <a href="#contato" class="btn-primary">Solicitar proposta</a>
+              <button id="open-apps-modal" class="btn-ghost">Como funciona</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div class="rounded-2xl bg-white/5 border border-white/10 p-5"><div class="text-2xl font-bold text-brand-orange">UX/UI</div><div class="text-white/70 mt-1">Identidade visual sob medida</div></div>
+            <div class="rounded-2xl bg-white/5 border border-white/10 p-5"><div class="text-2xl font-bold text-brand-orange">iOS+Android</div><div class="text-white/70 mt-1">Apps nativos performáticos</div></div>
+            <div class="rounded-2xl bg-white/5 border border-white/10 p-5"><div class="text-2xl font-bold text-brand-orange">Lançamento</div><div class="text-white/70 mt-1">Publicação nas duas lojas</div></div>
+            <div class="rounded-2xl bg-white/5 border border-white/10 p-5"><div class="text-2xl font-bold text-brand-orange">Suporte</div><div class="text-white/70 mt-1">Manutenção e novas versões</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== NEWSLETTER ============== -->
+  <section id="newsletter" class="section-pad relative">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#061A12] to-[#1F2113]"></div>
+
+    <div class="max-w-5xl mx-auto px-5 sm:px-8">
+      <div class="reveal relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-brand-orange via-brand-flame to-amber-500 p-1">
+        <div class="rounded-[22px] bg-brand-deep p-8 sm:p-14 relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 h-64 w-64 rounded-full bg-brand-orange/30 blur-3xl"></div>
+          <div class="grid md:grid-cols-2 gap-10 items-center relative">
+            <div>
+              <span class="eyebrow text-brand-orange">Guia gratuito</span>
+              <h2 class="font-display text-3xl sm:text-5xl font-extrabold mt-3 leading-tight">
+                Comece com milhas <span class="text-brand-orange">em 7 dias</span>.
+              </h2>
+              <p class="mt-4 text-white/80">Receba nosso guia oficial com o passo-a-passo para acumular suas primeiras 100 mil milhas + dicas semanais por email.</p>
+              <ul class="mt-6 grid gap-3 text-white/85">
+                <li class="flex items-center gap-2"><span class="check-dot"></span> Trilha completa do iniciante</li>
+                <li class="flex items-center gap-2"><span class="check-dot"></span> Lista dos cartões certos pra você</li>
+                <li class="flex items-center gap-2"><span class="check-dot"></span> Bônus: planilha de controle</li>
+              </ul>
+            </div>
+            <form class="grid gap-3">
+              <label class="block">
+                <span class="text-xs uppercase tracking-wider text-white/60">Seu nome</span>
+                <input type="text" placeholder="Como prefere ser chamado" class="newsletter-input" required />
+              </label>
+              <label class="block">
+                <span class="text-xs uppercase tracking-wider text-white/60">Seu melhor email</span>
+                <input type="email" placeholder="voce@email.com" class="newsletter-input" required />
+              </label>
+              <button type="submit" class="btn-primary btn-lg justify-center">Quero o guia grátis</button>
+              <p class="text-xs text-white/50">Sem spam. Cancele quando quiser.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SOBRE / HISTÓRIA / FAMÍLIA ============== -->
+  <section id="sobre" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#1F2113] to-[#061A12]"></div>
+    <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(212,164,55,0.16),transparent_50%),radial-gradient(circle_at_85%_85%,rgba(244,228,193,0.10),transparent_50%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+      <!-- Intro -->
+      <div class="grid lg:grid-cols-2 gap-14 items-center mb-24">
+        <div class="reveal relative">
+          <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-soft relative">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=85" alt="Horizonte de montanhas e céu" class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.3em] text-white/70">Próximo destino</div>
+                <div class="font-display font-bold text-xl">África do Sul 🦁</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Passport card -->
+          <div class="absolute -bottom-6 -right-6 hidden sm:block passport-card">
+            <div class="flex items-center gap-2 mb-3">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-fern" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V4z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+              <span class="text-[10px] uppercase tracking-[0.25em] text-white/70 font-semibold">Nosso passaporte</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 max-w-[220px] text-2xl">
+              <span>🇦🇷</span><span>🇺🇸</span><span>🇨🇱</span>
+              <span>🇵🇾</span><span>🇩🇴</span><span>🇵🇹</span>
+              <span>🇪🇸</span><span>🇿🇦</span><span>🇧🇷</span>
+            </div>
+            <div class="mt-2 font-display text-2xl font-extrabold leading-none">9 países <span class="text-brand-orange text-sm font-bold">+1</span></div>
+            <div class="text-[11px] text-white/60 mt-0.5">em 2 anos como família</div>
+          </div>
+        </div>
+
+        <div>
+          <span class="reveal eyebrow">Quem somos</span>
+          <h2 class="reveal section-title">Uma família comum, com <span class="text-brand-orange">o mundo</span> como roteiro.</h2>
+          <p class="reveal mt-5 text-white/80 text-lg leading-relaxed">
+            Para a gente — Kharol, Jefferson e Derek — viajar nunca foi só sair de casa. É a forma que encontramos de viver junto, descobrir novas culturas e colecionar lembranças que não cabem em foto. A vontade de explorar sempre esteve aí, mas foi <strong class="text-white">depois da pandemia que ela ganhou urgência</strong>: a gente decidiu não esperar mais.
+          </p>
+          <p class="reveal mt-4 text-white/70 leading-relaxed">
+            De 2024 pra cá já cruzamos a América, o Caribe, a Europa e estamos prestes a pisar na África. A cada destino aprendemos algo novo sobre milhas, pontos e planejamento — e a Rota com Família é o nosso jeito de devolver isso pra outras famílias que querem o mesmo: <strong class="text-white">ver o mundo sem pesar no bolso</strong>.
+          </p>
+
+          <!-- Family roles -->
+          <div class="reveal mt-8 grid sm:grid-cols-3 gap-4">
+            <div class="family-card">
+              <div class="family-avatar">K</div>
+              <h4>Kharol</h4>
+              <p class="text-white/65 text-sm">Esposa, mãe e a voz por trás do nosso conteúdo — vídeos, fotos e a inspiração de cada viagem.</p>
+            </div>
+            <div class="family-card">
+              <div class="family-avatar">J</div>
+              <h4>Jefferson</h4>
+              <p class="text-white/65 text-sm">Cabeça financeira e técnica — milhas, planejamento, emissão e os apps da Rota.</p>
+            </div>
+            <div class="family-card">
+              <div class="family-avatar">D</div>
+              <h4>Derek</h4>
+              <p class="text-white/65 text-sm">12 anos, curioso e parceiro pra qualquer aventura — o melhor companheiro de viagem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline header -->
+      <div class="reveal text-center max-w-3xl mx-auto mb-12">
+        <span class="eyebrow text-brand-fern">Nosso passaporte</span>
+        <h3 class="font-display text-3xl sm:text-5xl font-extrabold mt-3 leading-tight">As viagens que <span class="text-brand-orange">viramos rota</span>.</h3>
+        <p class="mt-4 text-white/70">Cada destino abaixo foi vivido pela nossa família — muitos com nossos pais, sogra ou irmão. É a nossa coleção pessoal de memórias.</p>
+      </div>
+
+      <!-- Trip timeline grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Jan · 2024</div>
+          <h4>Argentina</h4>
+          <p class="trip-people">Buenos Aires entre cafés portenhos e o tango da Boca.</p>
+          <div class="trip-emoji">🇦🇷</div>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Mai · 2024</div>
+          <h4>Los Angeles · Las Vegas · Minneapolis</h4>
+          <p class="trip-people">A costa oeste americana — do mar de LA ao deserto de Vegas.</p>
+          <div class="trip-emoji">🇺🇸</div>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Dez · 2024</div>
+          <h4>Las Vegas · LA · Nova York</h4>
+          <p class="trip-people">Três cidades em uma viagem — luzes, Hollywood e Times Square.</p>
+          <div class="trip-emoji">🇺🇸</div>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Abr · 2025</div>
+          <h4>Chile</h4>
+          <p class="trip-people">Santiago e a Cordilheira dos Andes ao alcance dos olhos.</p>
+          <div class="trip-emoji">🇨🇱</div>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Set · 2025</div>
+          <h4>Assunção, Paraguai</h4>
+          <p class="trip-people">Bate-volta surpreendente com clima de descoberta.</p>
+          <div class="trip-emoji">🇵🇾</div>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Dez · 2025</div>
+          <h4>Punta Cana</h4>
+          <p class="trip-people">Caribe em modo resort all-inclusive — só descanso.</p>
+          <div class="trip-emoji">🇩🇴</div>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Jan · 2026</div>
+          <h4>Orlando</h4>
+          <p class="trip-people">Parques, Disney e dias inteiros de pura adrenalina.</p>
+          <div class="trip-emoji">🎢</div>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Abr · 2026</div>
+          <h4>Portugal & Espanha</h4>
+          <p class="trip-people">Lisboa, Porto, Madrid — a porta de entrada perfeita para a Europa.</p>
+          <div class="trip-emoji">🇵🇹</div>
+        </div>
+
+        <div class="reveal trip-card trip-card-next">
+          <div class="trip-date">2026 <span class="trip-soon">Próxima</span></div>
+          <h4>África do Sul · Safari</h4>
+          <p class="trip-people">Savana, fauna selvagem e a aventura mais marcante da nossa vida.</p>
+          <div class="trip-emoji">🦁</div>
+        </div>
+      </div>
+
+      <!-- Brazil resorts -->
+      <div class="reveal mt-16 rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <span class="eyebrow text-brand-sky">No Brasil também</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold mt-2">Resorts e hotéis que já viramos casa.</h3>
+            <p class="mt-2 text-white/65 max-w-xl">Lugares que testamos pessoalmente e voltaríamos com a família sem pensar duas vezes.</p>
+          </div>
+          <span class="text-sm text-white/55 hidden md:inline">Curadoria por experiência própria 🌿</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="hotel-card">
+            <div class="hotel-name">Fazzenda Park <span class="hotel-region">SC</span></div>
+            <p>Resort fazenda em Santa Catarina, com pensão completa e parque aquático climatizado interno.</p>
+          </div>
+          <div class="hotel-card">
+            <div class="hotel-name">Enotel <span class="hotel-region">PE</span></div>
+            <p>All-inclusive pé na areia em Porto de Galinhas — gastronomia, mar e tranquilidade.</p>
+          </div>
+          <div class="hotel-card hotel-card-favorite">
+            <div class="hotel-name">Bourbon Atibaia <span class="hotel-region">SP</span></div>
+            <p>Refúgio na serra paulista que viramos casa — voltamos várias vezes pela estrutura familiar.</p>
+            <span class="hotel-badge">Favorito da família</span>
+          </div>
+          <div class="hotel-card">
+            <div class="hotel-name">Hotel Fazenda Dona Francisca <span class="hotel-region">SC</span></div>
+            <p>Tranquilidade total no interior catarinense, ar de fazenda e clima acolhedor de família.</p>
+          </div>
+          <div class="hotel-card">
+            <div class="hotel-name">Termas de Jurema <span class="hotel-region">PR</span></div>
+            <p>Águas termais e refúgio em Iretama — descanso de verdade para recarregar.</p>
+          </div>
+        </div>
+
+        <!-- Booking & Airbnb -->
+        <div class="mt-8 pt-7 border-t border-white/10">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="text-sm text-white/65">
+              <span class="font-semibold text-white">Pelo mundo afora</span>, reservamos pelos nossos preferidos:
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://www.booking.com" target="_blank" rel="noopener" class="platform-pill">
+                <span class="platform-dot bg-blue-500"></span> Booking
+                <span class="platform-desc">Para hotéis no mundo todo</span>
+              </a>
+              <a href="https://www.airbnb.com" target="_blank" rel="noopener" class="platform-pill">
+                <span class="platform-dot bg-pink-500"></span> Airbnb
+                <span class="platform-desc">Estadias com clima de casa</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service callout: emissão de passagens -->
+      <div class="reveal mt-12 grid md:grid-cols-[1.4fr_1fr] gap-0 rounded-3xl overflow-hidden border border-white/10">
+        <div class="p-8 sm:p-10 bg-gradient-to-br from-brand-navy via-brand-blue to-brand-leaf relative">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_60%)]"></div>
+          <div class="relative">
+            <span class="eyebrow text-brand-cream/80">Serviço</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold mt-2 leading-tight">Emito passagens para outras famílias também.</h3>
+            <p class="mt-3 text-white/85 leading-relaxed max-w-lg">Nacional ou internacional, com seus pontos ou com os meus. Você paga em reais, eu cuido de tudo — da estratégia à emissão final.</p>
+            <a href="https://wa.me/5541999999999?text=Quero%20emitir%20uma%20passagem%20com%20a%20Rota" class="btn-primary mt-6">Falar com Jefferson</a>
+          </div>
+        </div>
+        <div class="bg-brand-deep p-8 sm:p-10 grid gap-4 content-center">
+          <div class="flex items-center gap-3"><span class="check-dot"></span><span>Diagnóstico gratuito da sua carteira</span></div>
+          <div class="flex items-center gap-3"><span class="check-dot"></span><span>Melhor combinação de programas</span></div>
+          <div class="flex items-center gap-3"><span class="check-dot"></span><span>Emissão na hora certa, sem stress</span></div>
+          <div class="flex items-center gap-3"><span class="check-dot"></span><span>Suporte até o embarque</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== DEPOIMENTOS ============== -->
+  <section class="section-pad relative">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#061A12] to-[#1F2113]"></div>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="reveal eyebrow">Histórias reais</span>
+        <h2 class="reveal section-title">Famílias que <span class="text-brand-orange">já mudaram</span> a forma de viajar.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <figure class="reveal testimonial">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://i.pravatar.cc/100?img=47" alt="" class="h-12 w-12 rounded-full object-cover" />
+            <div><div class="font-semibold">Carolina M.</div><div class="text-xs text-white/60">Mãe de 2 — Porto Alegre</div></div>
+          </div>
+          <blockquote>"Em 6 meses saí do zero e levei minha família pra Orlando. Os cursos da Rota foram divisor de águas."</blockquote>
+          <div class="stars">★★★★★</div>
+        </figure>
+
+        <figure class="reveal testimonial">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://i.pravatar.cc/100?img=12" alt="" class="h-12 w-12 rounded-full object-cover" />
+            <div><div class="font-semibold">Rafael S.</div><div class="text-xs text-white/60">Pai e empreendedor — SP</div></div>
+          </div>
+          <blockquote>"A assessoria pagou-se 10 vezes só com a viagem da lua de mel. Atendimento humano e técnico."</blockquote>
+          <div class="stars">★★★★★</div>
+        </figure>
+
+        <figure class="reveal testimonial">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://i.pravatar.cc/100?img=32" alt="" class="h-12 w-12 rounded-full object-cover" />
+            <div><div class="font-semibold">Luiza A.</div><div class="text-xs text-white/60">Família com 3 filhos — RJ</div></div>
+          </div>
+          <blockquote>"Os alertas de voos me avisaram de uma promoção que economizou R$ 9 mil em passagens. Surreal."</blockquote>
+          <div class="stars">★★★★★</div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer id="contato" class="relative pt-20 pb-10 border-t border-white/10 bg-[#0A0B05]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2.5">
+            <span class="brand-emblem">
+              <svg viewBox="0 0 32 32" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="16" cy="16" r="13" stroke-width="1.4"/>
+                <path d="M16 3v26M3 16h26"/>
+                <path d="M11 16l5-7 5 7-5 13z" fill="currentColor" stroke="none" opacity="0.85"/>
+              </svg>
+            </span>
+            <span class="brand-wordmark">
+              <span class="bw-top">Rota</span><span class="bw-middle">com</span><span class="bw-bot">Família</span>
+            </span>
+          </div>
+          <p class="mt-5 text-white/65 max-w-sm">A rota mais inteligente para a sua família viajar pelo mundo. Conteúdo, milhas, cursos e tecnologia.</p>
+          <div class="mt-6 flex gap-3">
+            <a href="https://www.instagram.com/kharol.antunes/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram da Kharol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube Rota com Família"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
+            <a href="https://www.tiktok.com/@rotacomfamilia" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok Rota com Família"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M14 4v9a4 4 0 1 1-4-4"/><path d="M14 4c.5 2.5 2.5 4 5 4"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-h">Conteúdo</h5>
+          <ul class="footer-list">
+            <li><a href="#blog">Relatos em família</a></li>
+            <li><a href="#blog">Dicas práticas</a></li>
+            <li><a href="#cartoes">Cartões e pontos</a></li>
+            <li><a href="#cartoes">Estratégias de milhas</a></li>
+            <li><a href="#blog">Roteiros & destinos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-h">Produtos</h5>
+          <ul class="footer-list">
+            <li><a href="#produtos">Ebooks</a></li>
+            <li><a href="#produtos">Assessoria</a></li>
+            <li><a href="#produtos">Cursos online</a></li>
+            <li><a href="#alertas">Rotas em destaque</a></li>
+            <li><a href="#apps">Rota Apps</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-h">A Família</h5>
+          <ul class="footer-list">
+            <li><a href="#sobre">Nossa história</a></li>
+            <li><a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener">Canal no YouTube</a></li>
+            <li><a href="https://www.instagram.com/kharol.antunes/" target="_blank" rel="noopener">Instagram da Kharol</a></li>
+            <li><a href="https://wa.me/5541999999999?text=Quero%20emitir%20uma%20passagem%20com%20a%20Rota" target="_blank" rel="noopener">Emitir passagem</a></li>
+            <li><a href="mailto:contato@rotacomfamilia.com">contato@rotacomfamilia.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-14 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+        <div>© 2026 Rota com Família. Todos os direitos reservados.</div>
+        <div>Feito com ♥ em Curitiba — pra famílias do Brasil inteiro.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============== MODAL: ARTIGO EM BREVE ============== -->
+  <div id="article-modal" class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>
+    <div class="relative max-w-xl w-full rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-brand-deep to-[#103D2E] shadow-2xl">
+      <button data-close class="absolute top-3 right-3 z-10 h-9 w-9 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center">×</button>
+      <div class="aspect-[16/9] overflow-hidden relative">
+        <img id="article-modal-img" src="" alt="" class="h-full w-full object-cover" />
+        <span id="article-modal-tag" class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur border border-white/15"></span>
+      </div>
+      <div class="p-7">
+        <h3 id="article-modal-title" class="font-display text-2xl font-extrabold leading-tight">Título</h3>
+        <p id="article-modal-excerpt" class="mt-3 text-white/75 leading-relaxed">Conteúdo</p>
+        <div class="mt-6 rounded-2xl border border-brand-orange/30 bg-brand-orange/10 p-5">
+          <div class="flex items-start gap-3">
+            <svg viewBox="0 0 24 24" class="h-5 w-5 mt-0.5 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+            <div>
+              <div class="font-semibold">Esse artigo está sendo preparado.</div>
+              <div class="text-sm text-white/70 mt-1">Cadastre seu email e a gente te avisa assim que publicar — sem spam.</div>
+            </div>
+          </div>
+          <a href="#newsletter" data-close class="btn-primary mt-4 w-full justify-center">Quero ser avisado</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== MODAL: APPS SOB DEMANDA ============== -->
+  <div id="apps-modal" class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>
+    <div class="relative max-w-2xl w-full rounded-3xl border border-white/10 bg-gradient-to-br from-brand-deep to-[#103D2E] p-8 shadow-2xl">
+      <button data-close class="absolute top-4 right-4 h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">×</button>
+      <span class="eyebrow">Apps sob demanda</span>
+      <h3 class="font-display text-3xl font-extrabold mt-2">Como construímos seu app</h3>
+      <ol class="mt-6 grid gap-4">
+        <li class="flex gap-4"><span class="step-num">1</span><div><div class="font-semibold">Descoberta</div><div class="text-white/70 text-sm">Entendemos sua audiência, objetivos e a melhor proposta de valor para o app.</div></div></li>
+        <li class="flex gap-4"><span class="step-num">2</span><div><div class="font-semibold">Design & Protótipo</div><div class="text-white/70 text-sm">UI/UX com a identidade do seu canal e protótipo navegável aprovado em conjunto.</div></div></li>
+        <li class="flex gap-4"><span class="step-num">3</span><div><div class="font-semibold">Desenvolvimento</div><div class="text-white/70 text-sm">Apps nativos iOS + Android, integrações, monetização e área de comunidade.</div></div></li>
+        <li class="flex gap-4"><span class="step-num">4</span><div><div class="font-semibold">Lançamento & Suporte</div><div class="text-white/70 text-sm">Publicação nas duas lojas, métricas e evolução contínua do produto.</div></div></li>
+      </ol>
+      <div class="mt-7 flex gap-3">
+        <a href="mailto:apps@rotacomfamilia.com" class="btn-primary">Solicitar proposta</a>
+        <button data-close class="btn-ghost">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
