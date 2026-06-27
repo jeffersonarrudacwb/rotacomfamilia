@@ -1053,3 +1053,353 @@ body {
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ============================================================
+   SUBPAGES (ebooks, assessoria, cursos)
+   ============================================================ */
+
+.section-pad-sm {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 640px) {
+  .section-pad-sm { padding-top: 5.5rem; padding-bottom: 5.5rem; }
+}
+
+/* ---------- EBOOK COVER MOCKUP ---------- */
+.ebook-cover-wrap {
+  perspective: 1400px;
+  display: flex;
+  justify-content: center;
+}
+.ebook-cover {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  transform: rotateY(-18deg) rotateX(4deg);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+}
+.ebook-cover:hover { transform: rotateY(-10deg) rotateX(2deg); }
+.ebook-spine {
+  position: absolute;
+  left: -10px; top: 8px; bottom: 8px;
+  width: 18px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.15));
+  transform: rotateY(90deg) translateZ(9px);
+  border-radius: 2px 0 0 2px;
+}
+.ebook-front {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: 4px 8px 8px 4px;
+  background: linear-gradient(155deg, #1F2014 0%, #14150D 70%, #2A2B19 100%);
+  border: 1px solid rgba(212,164,55,0.25);
+  box-shadow:
+    0 30px 60px -20px rgba(0,0,0,0.7),
+    inset 0 0 0 6px rgba(212,164,55,0.08),
+    inset 0 0 80px rgba(212,164,55,0.06);
+  padding: 1.5rem 1.6rem 1.4rem;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.ebook-front::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(212,164,55,0.18), transparent 55%);
+  pointer-events: none;
+}
+.ebook-front::after {
+  content: '';
+  position: absolute;
+  left: 8px; right: 8px; bottom: 8px; top: 8px;
+  border: 1px solid rgba(212,164,55,0.12);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ---------- EBOOK BULLETS ---------- */
+.ebook-bullet {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.96rem;
+}
+.ebook-bullet::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.5rem;
+  width: 0.85rem; height: 0.85rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--orange), var(--flame));
+  box-shadow: 0 0 0 4px rgba(212,164,55,0.12);
+}
+
+/* ---------- EBOOK MINI CARDS ---------- */
+.ebook-mini {
+  padding: 1.4rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+.ebook-mini:hover {
+  background: rgba(212,164,55,0.06);
+  border-color: rgba(212,164,55,0.3);
+  transform: translateY(-3px);
+}
+.ebook-mini h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-top: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+.ebook-mini p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 0.8rem;
+}
+.ebook-mini-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(212,164,55,0.15);
+  color: var(--orange);
+  border: 1px solid rgba(212,164,55,0.3);
+}
+.ebook-mini-meta {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Space Grotesk', monospace;
+}
+.ebook-mini-open {
+  background: linear-gradient(160deg, rgba(212,164,55,0.08), rgba(255,255,255,0.02));
+  border-style: dashed;
+  border-color: rgba(212,164,55,0.3);
+}
+
+/* ---------- TARGET CARDS (assessoria) ---------- */
+.target-card {
+  padding: 1.6rem 1.4rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+.target-card:hover {
+  background: rgba(212,164,55,0.05);
+  border-color: rgba(212,164,55,0.25);
+  transform: translateY(-4px);
+}
+.target-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.9rem;
+}
+.target-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+.target-card p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ---------- STEP CARDS (assessoria) ---------- */
+.step-card {
+  position: relative;
+  padding: 1.8rem 1.4rem 1.4rem;
+  border-radius: 20px;
+  background: linear-gradient(165deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+.step-card:hover {
+  border-color: rgba(212,164,55,0.35);
+  transform: translateY(-4px);
+}
+.step-num {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(180deg, var(--orange), rgba(212,164,55,0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+.step-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 0.55rem;
+}
+.step-card p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ---------- FAQ ITEMS ---------- */
+.faq-item {
+  border-radius: 14px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.faq-item[open] {
+  background: rgba(212,164,55,0.06);
+  border-color: rgba(212,164,55,0.25);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.3rem;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--orange);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  padding: 0 1.3rem 1.2rem;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* ---------- COURSE CARDS (cursos) ---------- */
+.course-card {
+  position: relative;
+  padding: 1.7rem 1.5rem 1.5rem;
+  border-radius: 22px;
+  background: linear-gradient(170deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+  display: flex;
+  flex-direction: column;
+}
+.course-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,164,55,0.3);
+}
+.course-card-featured {
+  background: linear-gradient(170deg, rgba(212,164,55,0.12), rgba(255,255,255,0.015));
+  border-color: rgba(212,164,55,0.35);
+}
+.course-card-featured::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 23px;
+  background: linear-gradient(135deg, var(--orange), var(--flame));
+  z-index: -1;
+  opacity: 0.5;
+}
+.course-badge {
+  position: absolute;
+  top: -10px; right: 1.3rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--orange), var(--flame));
+  color: var(--deep);
+  box-shadow: 0 6px 14px -4px rgba(212,164,55,0.5);
+}
+.course-level {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.8);
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+.course-level-orange {
+  background: rgba(212,164,55,0.15);
+  border-color: rgba(212,164,55,0.35);
+  color: var(--orange);
+}
+.course-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+.course-card > p {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+}
+.course-modules {
+  list-style: none;
+  padding: 0; margin: 0 0 1.2rem;
+  display: flex; flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+.course-modules li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.4;
+}
+.course-modules li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.5rem;
+  width: 0.55rem; height: 0.55rem;
+  border-radius: 999px;
+  background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(212,164,55,0.18);
+}
+.course-meta {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+}

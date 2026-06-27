@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#14150D" />
+
+  <title>Cursos online — Rota com Família</title>
+  <meta name="description" content="Cursos online de milhas, escolha de cartões e roteiros econômicos com a família Antunes Arruda." />
+
+  <meta property="og:title" content="Cursos online — Rota com Família" />
+  <meta property="og:description" content="Aprenda no seu ritmo a acumular milhas, escolher cartões e montar roteiros econômicos." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { brand: {
+          deep:'#14150D', navy:'#1F2014', blue:'#2A2B19',
+          leaf:'#7A8A5F', fern:'#A9B47E',
+          sky:'#F4E4C1', azure:'#E3B04B',
+          orange:'#D4A437', flame:'#C8732E', cream:'#FAF1DA'
+        }},
+        fontFamily: {
+          display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['"Space Grotesk"', 'monospace'],
+          serif: ['"Playfair Display"', 'serif']
+        }
+      }}
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-brand-deep text-white font-sans antialiased selection:bg-brand-orange selection:text-brand-deep">
+
+  <header class="sticky top-0 z-50 bg-brand-deep/90 backdrop-blur border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <span class="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange to-brand-flame shadow-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" class="h-5 w-5"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/><circle cx="12" cy="13" r="2.2" fill="white"/></svg>
+        </span>
+        <span class="font-serif font-extrabold tracking-tight text-lg leading-none">
+          Rota<span class="text-brand-orange">.</span>com Família
+        </span>
+      </a>
+      <a href="index.html" class="text-sm text-white/70 hover:text-white transition-colors">← Voltar pro site</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative section-pad overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-deep via-[#1F2014] to-brand-deep"></div>
+    <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(212,164,55,0.18),transparent_55%)]"></div>
+
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+      <span class="reveal eyebrow text-brand-orange">🎓 Cursos online</span>
+      <h1 class="reveal font-serif font-extrabold text-4xl sm:text-6xl mt-4 leading-[1.05]">
+        Do zero ao primeiro voo <span class="bg-gradient-to-r from-brand-orange via-brand-flame to-amber-300 bg-clip-text text-transparent">internacional com milhas</span>.
+      </h1>
+      <p class="reveal mt-6 text-white/75 text-lg max-w-2xl mx-auto leading-relaxed">
+        Estamos preparando a trilha completa para você acumular milhas, escolher os cartões certos e montar roteiros econômicos — no seu ritmo, com a metodologia que aplicamos todos os meses na nossa família.
+      </p>
+      <div class="reveal inline-flex items-center gap-2 mt-7 rounded-full bg-brand-orange/15 border border-brand-orange/30 px-4 py-2 text-sm font-semibold text-brand-orange">
+        <span class="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+        Estreia prevista: 2º semestre de 2026
+      </div>
+    </div>
+  </section>
+
+  <!-- Trilha -->
+  <section class="section-pad-sm relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-deep to-[#1F2014]"></div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="reveal eyebrow text-brand-fern">A trilha</span>
+        <h2 class="reveal font-serif font-extrabold text-3xl sm:text-4xl mt-3">3 cursos. Uma jornada.</h2>
+        <p class="reveal mt-4 text-white/65">Você pode começar pelo nível que combina com você, ou seguir a trilha do início.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+
+        <div class="reveal course-card">
+          <div class="course-level">Iniciante</div>
+          <h3>Pontos do Zero</h3>
+          <p>Pra quem nunca acumulou nada — entende programas, escolhe o primeiro cartão e faz sua primeira emissão nacional com milhas.</p>
+          <ul class="course-modules">
+            <li>Como funcionam Livelo, Esfera, Smiles, Latam Pass</li>
+            <li>Qual cartão escolher pra começar</li>
+            <li>Sua primeira transferência com bônus</li>
+            <li>Primeira emissão: passagem nacional</li>
+          </ul>
+          <div class="course-meta">≈ 4 horas · 18 aulas</div>
+        </div>
+
+        <div class="reveal course-card course-card-featured">
+          <div class="course-badge">Mais procurado</div>
+          <div class="course-level course-level-orange">Intermediário</div>
+          <h3>Milhas para Viagem Internacional</h3>
+          <p>O coração do nosso método: como acumular o suficiente pra levar a família pra fora — EUA, Europa ou Caribe.</p>
+          <ul class="course-modules">
+            <li>Plano de acumulação de 6 e 12 meses</li>
+            <li>Estratégia multi-programa</li>
+            <li>Quando esperar bônus de 100%+</li>
+            <li>Emissão internacional passo a passo</li>
+            <li>Casos reais: Orlando, Lisboa, Madrid</li>
+          </ul>
+          <div class="course-meta">≈ 8 horas · 32 aulas</div>
+        </div>
+
+        <div class="reveal course-card">
+          <div class="course-level">Avançado</div>
+          <h3>Roteiros Econômicos</h3>
+          <p>Vai além da passagem: como montar a viagem inteira pagando o menor preço sem perder qualidade na experiência.</p>
+          <ul class="course-modules">
+            <li>Hotéis com pontos (Booking, IHG, Marriott)</li>
+            <li>Carros, transfers e seguro inteligentes</li>
+            <li>Dinheiro pro exterior sem cair em armadilha</li>
+            <li>Roteiro real abertura financeira completa</li>
+          </ul>
+          <div class="course-meta">≈ 6 horas · 22 aulas</div>
+        </div>
+      </div>
+
+      <!-- Bonus -->
+      <div class="reveal mt-10 rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+        <div class="flex items-center gap-5">
+          <div class="h-14 w-14 rounded-2xl bg-brand-orange/15 border border-brand-orange/30 inline-flex items-center justify-center text-2xl">🎁</div>
+          <div>
+            <h4 class="font-serif font-bold text-xl">Bônus para quem entrar no lançamento</h4>
+            <p class="text-white/65 mt-1 text-sm max-w-2xl">Comunidade exclusiva, planilhas de controle, atualização gratuita por 12 meses, e mentoria coletiva ao vivo no primeiro mês.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-orange via-brand-flame to-amber-600 opacity-90"></div>
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center relative">
+      <h2 class="reveal font-serif font-extrabold text-3xl sm:text-5xl text-brand-deep leading-tight">
+        Entra na lista de espera.
+      </h2>
+      <p class="reveal mt-5 text-brand-deep/80 text-lg">Quem entrar na lista de espera recebe <strong>40% de desconto</strong> no primeiro lote, em primeira mão.</p>
+
+      <form class="reveal mt-7 flex flex-col sm:flex-row gap-3 max-w-md mx-auto" data-waitlist="cursos-2026">
+        <input type="email" required placeholder="Seu melhor email" class="flex-1 rounded-xl bg-brand-deep/95 border border-brand-deep px-4 py-3.5 text-white placeholder-white/50 focus:outline-none focus:border-brand-deep transition" />
+        <button class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-deep px-6 py-3.5 text-white font-bold hover:bg-black transition whitespace-nowrap">Entrar na lista</button>
+      </form>
+      <p class="reveal text-xs text-brand-deep/70 mt-3">Sem spam. Você só recebe email quando tiver novidade real sobre o curso.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-pad-sm relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#1F2014] to-brand-deep"></div>
+    <div class="max-w-3xl mx-auto px-5 sm:px-8">
+      <h2 class="reveal font-serif font-extrabold text-3xl sm:text-4xl text-center">Dúvidas comuns.</h2>
+      <div class="mt-10 space-y-3">
+        <details class="reveal faq-item">
+          <summary>Quanto vai custar?</summary>
+          <p>Ainda estamos definindo o preço final. Quem entrar na lista de espera trava 40% de desconto no primeiro lote, independente do valor final divulgado.</p>
+        </details>
+        <details class="reveal faq-item">
+          <summary>É curso ao vivo ou gravado?</summary>
+          <p>Conteúdo principal é gravado (você assiste no seu ritmo). Mas no primeiro mês temos mentorias ao vivo gratuitas pra tirar dúvidas em grupo.</p>
+        </details>
+        <details class="reveal faq-item">
+          <summary>Quanto tempo tenho de acesso?</summary>
+          <p>Acesso vitalício ao conteúdo que você comprar, com atualização gratuita por 12 meses. Renovação opcional depois disso.</p>
+        </details>
+        <details class="reveal faq-item">
+          <summary>Tem certificado?</summary>
+          <p>Sim, certificado de conclusão em PDF para cada curso, válido para o seu currículo ou LinkedIn.</p>
+        </details>
+        <details class="reveal faq-item">
+          <summary>Por que esperar — não posso só ler conteúdo grátis?</summary>
+          <p>Pode! Nosso blog e canal são totalmente gratuitos. O curso é pra quem quer o passo-a-passo organizado, planilhas prontas e suporte. Mas se o conteúdo gratuito te basta, ele tá lá pra ser usado.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative bg-[#0A0B05] border-t border-white/5 py-14">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-4 gap-10">
+      <div>
+        <a href="index.html" class="flex items-center gap-2.5">
+          <span class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-orange to-brand-flame inline-flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" class="h-5 w-5"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/><circle cx="12" cy="13" r="2.2" fill="white"/></svg>
+          </span>
+          <span class="font-serif font-extrabold text-lg">Rota<span class="text-brand-orange">.</span>com Família</span>
+        </a>
+        <p class="mt-4 text-sm text-white/60 leading-relaxed">A rota mais inteligente para sua família viajar pelo mundo. Conteúdo, milhas, cursos e tecnologia.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.instagram.com/kharol.antunes/" target="_blank" rel="noopener" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
+          <a href="https://www.tiktok.com/@rotacomfamilia" target="_blank" rel="noopener" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M14 4v9a4 4 0 1 1-4-4"/><path d="M14 4c.5 2.5 2.5 4 5 4"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5 class="footer-h">Produtos</h5>
+        <ul class="footer-list">
+          <li><a href="ebooks.html">Ebooks</a></li>
+          <li><a href="assessoria.html">Assessoria</a></li>
+          <li><a href="cursos.html">Cursos online</a></li>
+          <li><a href="index.html#alertas">Rotas em destaque</a></li>
+          <li><a href="index.html#apps">Rota Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-h">Conteúdo</h5>
+        <ul class="footer-list">
+          <li><a href="index.html#blog">Relatos em família</a></li>
+          <li><a href="index.html#cartoes">Cartões e pontos</a></li>
+          <li><a href="index.html#cartoes">Estratégias de milhas</a></li>
+          <li><a href="index.html#blog">Roteiros & destinos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-h">A Família</h5>
+        <ul class="footer-list">
+          <li><a href="index.html#sobre">Nossa história</a></li>
+          <li><a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener">Canal no YouTube</a></li>
+          <li><a href="mailto:contato@rotacomfamilia.com">contato@rotacomfamilia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row gap-3 justify-between text-xs text-white/45">
+      <p>© <span id="year"></span> Rota com Família · Antunes Arruda</p>
+      <p>Feito com 🧭 no Brasil</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('form[data-waitlist]').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = f.querySelector('button');
+        const o = btn.textContent;
+        btn.textContent = '✓ Você está na lista!';
+        btn.style.background = '';
+        btn.style.color = '#10b981';
+        f.reset();
+        setTimeout(() => { btn.textContent = o; btn.style.color = ''; }, 3500);
+      });
+    });
+  </script>
+</body>
+</html>

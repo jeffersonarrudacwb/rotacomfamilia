@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#14150D" />
+
+  <title>Ebooks — Rota com Família</title>
+  <meta name="description" content="Guias práticos escritos pela família Antunes Arruda sobre milhas, cartões, roteiros e viagens internacionais com pontos." />
+
+  <meta property="og:title" content="Ebooks — Rota com Família" />
+  <meta property="og:description" content="Manuais práticos para acumular milhas e viajar pelo mundo com a família." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep:'#14150D', navy:'#1F2014', blue:'#2A2B19',
+              leaf:'#7A8A5F', fern:'#A9B47E',
+              sky:'#F4E4C1', azure:'#E3B04B',
+              orange:'#D4A437', flame:'#C8732E', cream:'#FAF1DA'
+            }
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-brand-deep text-white font-sans antialiased selection:bg-brand-orange selection:text-brand-deep">
+
+  <!-- Top nav -->
+  <header class="sticky top-0 z-50 bg-brand-deep/90 backdrop-blur border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <span class="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange to-brand-flame shadow-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" class="h-5 w-5"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/><circle cx="12" cy="13" r="2.2" fill="white"/></svg>
+        </span>
+        <span class="font-serif font-extrabold tracking-tight text-lg leading-none">
+          Rota<span class="text-brand-orange">.</span>com Família
+        </span>
+      </a>
+      <a href="index.html" class="text-sm text-white/70 hover:text-white transition-colors">← Voltar pro site</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative section-pad overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-deep via-[#1F2014] to-brand-deep"></div>
+    <div class="absolute -z-10 inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(212,164,55,0.18),transparent_55%)]"></div>
+
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+      <span class="reveal eyebrow text-brand-orange">📚 Biblioteca da Rota</span>
+      <h1 class="reveal font-serif font-extrabold text-4xl sm:text-6xl mt-4 leading-[1.05]">
+        Guias que cabem no seu Kindle —<br/>
+        <span class="bg-gradient-to-r from-brand-orange via-brand-flame to-amber-300 bg-clip-text text-transparent">e te levam pra fora do Brasil.</span>
+      </h1>
+      <p class="reveal mt-6 text-white/75 text-lg max-w-2xl mx-auto">
+        Conteúdo direto, sem enrolação, escrito por quem aplica todos os meses em viagens reais com a própria família. Próximo lançamento previsto para o segundo semestre de 2026.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured ebook -->
+  <section class="section-pad-sm relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-deep to-[#1F2014]"></div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-center">
+
+        <div class="reveal relative">
+          <!-- Ebook cover mockup -->
+          <div class="ebook-cover-wrap">
+            <div class="ebook-cover">
+              <div class="ebook-spine"></div>
+              <div class="ebook-front">
+                <div class="text-[10px] uppercase tracking-[0.3em] text-brand-orange font-bold">Rota com Família</div>
+                <div class="font-serif font-extrabold text-2xl leading-tight mt-3">Manual Completo de Pontos</div>
+                <div class="font-serif text-5xl font-black mt-3 text-brand-orange">2026</div>
+                <div class="mt-auto text-xs text-white/65 leading-snug">A bíblia do brasileiro que quer viajar com milhas — atualizada para 2026.</div>
+                <div class="mt-3 text-[10px] text-white/45 uppercase tracking-widest">Edição I · Antunes Arruda</div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-4 -right-2 hidden sm:block rounded-full bg-brand-orange px-4 py-2 text-xs font-bold uppercase tracking-wider shadow-glow text-brand-deep">Pré-venda em breve</div>
+        </div>
+
+        <div>
+          <span class="reveal eyebrow text-brand-fern">Primeiro lançamento</span>
+          <h2 class="reveal font-serif font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">Manual Completo de Pontos 2026.</h2>
+          <p class="reveal mt-5 text-white/75 text-lg leading-relaxed">
+            Tudo que aprendemos em mais de 1 milhão de pontos acumulados — cartões, programas, transferências, calendários de bônus e a regra do custo por milha. Em formato direto, com exemplos reais das nossas viagens.
+          </p>
+          <ul class="reveal mt-6 space-y-3 text-white/80">
+            <li class="ebook-bullet">Comparativo dos 15 melhores cartões em 2026</li>
+            <li class="ebook-bullet">Calendário completo de bônus de transferência</li>
+            <li class="ebook-bullet">Estratégia mês a mês para acumular 500k+ no ano</li>
+            <li class="ebook-bullet">Planilha de controle (bônus)</li>
+            <li class="ebook-bullet">Atualizações gratuitas durante todo 2026</li>
+          </ul>
+
+          <form class="reveal mt-8 flex flex-col sm:flex-row gap-3 max-w-md" data-waitlist="ebook-pontos-2026">
+            <input type="email" required placeholder="Seu melhor email" class="flex-1 rounded-xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-brand-orange transition" />
+            <button class="btn-primary whitespace-nowrap">Entrar na lista</button>
+          </form>
+          <p class="reveal text-xs text-white/50 mt-3">Você receberá um cupom de 30% off quando sair + capítulo de prévia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming up -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#1F2014] to-[#2A2B19]"></div>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="max-w-2xl mb-12">
+        <span class="reveal eyebrow text-brand-fern">No forno</span>
+        <h2 class="reveal font-serif font-extrabold text-3xl sm:text-4xl mt-3">Outros ebooks já em produção.</h2>
+        <p class="reveal mt-3 text-white/65">Cada destino que visitamos vira um guia. Estes saem ao longo dos próximos meses.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="reveal ebook-mini">
+          <div class="ebook-mini-tag">Próximo</div>
+          <h3>Roteiro EUA em família</h3>
+          <p>Orlando, Las Vegas, Nova York e LA — o que aprendemos viajando 3 vezes em 18 meses.</p>
+          <span class="ebook-mini-meta">≈ 120 páginas · Q3 2026</span>
+        </div>
+        <div class="reveal ebook-mini">
+          <div class="ebook-mini-tag">Em pesquisa</div>
+          <h3>Europa em 10 dias com milhas</h3>
+          <p>Lisboa, Porto, Madrid e Barcelona — roteiro real com custo aberto em pontos e dinheiro.</p>
+          <span class="ebook-mini-meta">≈ 100 páginas · Q4 2026</span>
+        </div>
+        <div class="reveal ebook-mini">
+          <div class="ebook-mini-tag">Outline</div>
+          <h3>Caribe econômico</h3>
+          <p>Punta Cana, Cancún e Aruba — como ir com a família all-inclusive sem estourar o orçamento.</p>
+          <span class="ebook-mini-meta">≈ 80 páginas · 2027</span>
+        </div>
+        <div class="reveal ebook-mini">
+          <div class="ebook-mini-tag">Outline</div>
+          <h3>África do Sul · Safari</h3>
+          <p>O ebook nasce da nossa próxima viagem — relato completo de como planejamos e quanto custou.</p>
+          <span class="ebook-mini-meta">≈ 90 páginas · 2026</span>
+        </div>
+        <div class="reveal ebook-mini">
+          <div class="ebook-mini-tag">Outline</div>
+          <h3>Resorts no Brasil</h3>
+          <p>Curadoria honesta dos resorts que já viramos casa — Fazzenda Park, Bourbon, Enotel e mais.</p>
+          <span class="ebook-mini-meta">≈ 70 páginas · 2026</span>
+        </div>
+        <div class="reveal ebook-mini ebook-mini-open">
+          <h3>Sugere um destino</h3>
+          <p>Quer um ebook sobre um destino específico? Manda pra gente — escrevemos os mais pedidos primeiro.</p>
+          <a href="mailto:contato@rotacomfamilia.com?subject=Sugest%C3%A3o%20de%20ebook" class="text-brand-orange text-sm font-semibold mt-2 inline-block">Sugerir destino →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#2A2B19] to-brand-deep"></div>
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+      <h2 class="reveal font-serif font-extrabold text-3xl sm:text-5xl leading-tight">
+        Receba todos os <span class="text-brand-orange">ebooks novos</span> em primeira mão.
+      </h2>
+      <p class="reveal mt-5 text-white/70 text-lg">Entra na nossa lista que avisamos antes de qualquer lançamento — com cupom de pré-venda exclusivo.</p>
+      <a href="index.html#newsletter" class="reveal btn-primary btn-lg mt-7">Pegar guia grátis & entrar na lista</a>
+    </div>
+  </section>
+
+  <!-- Footer (mesma do site) -->
+  <footer class="relative bg-[#0A0B05] border-t border-white/5 py-14">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-4 gap-10">
+      <div>
+        <a href="index.html" class="flex items-center gap-2.5">
+          <span class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-orange to-brand-flame inline-flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" class="h-5 w-5"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/><circle cx="12" cy="13" r="2.2" fill="white"/></svg>
+          </span>
+          <span class="font-serif font-extrabold text-lg">Rota<span class="text-brand-orange">.</span>com Família</span>
+        </a>
+        <p class="mt-4 text-sm text-white/60 leading-relaxed">A rota mais inteligente para sua família viajar pelo mundo. Conteúdo, milhas, cursos e tecnologia.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.instagram.com/kharol.antunes/" target="_blank" rel="noopener" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
+          <a href="https://www.tiktok.com/@rotacomfamilia" target="_blank" rel="noopener" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M14 4v9a4 4 0 1 1-4-4"/><path d="M14 4c.5 2.5 2.5 4 5 4"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5 class="footer-h">Produtos</h5>
+        <ul class="footer-list">
+          <li><a href="ebooks.html">Ebooks</a></li>
+          <li><a href="assessoria.html">Assessoria</a></li>
+          <li><a href="cursos.html">Cursos online</a></li>
+          <li><a href="index.html#alertas">Rotas em destaque</a></li>
+          <li><a href="index.html#apps">Rota Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-h">Conteúdo</h5>
+        <ul class="footer-list">
+          <li><a href="index.html#blog">Relatos em família</a></li>
+          <li><a href="index.html#cartoes">Cartões e pontos</a></li>
+          <li><a href="index.html#cartoes">Estratégias de milhas</a></li>
+          <li><a href="index.html#blog">Roteiros & destinos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-h">A Família</h5>
+        <ul class="footer-list">
+          <li><a href="index.html#sobre">Nossa história</a></li>
+          <li><a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener">Canal no YouTube</a></li>
+          <li><a href="mailto:contato@rotacomfamilia.com">contato@rotacomfamilia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row gap-3 justify-between text-xs text-white/45">
+      <p>© <span id="year"></span> Rota com Família · Antunes Arruda</p>
+      <p>Feito com 🧭 no Brasil</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Waitlist form (placeholder submit)
+    document.querySelectorAll('form[data-waitlist]').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = f.querySelector('button');
+        const o = btn.textContent;
+        btn.textContent = '✓ Você está na lista!';
+        btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+        f.reset();
+        setTimeout(() => { btn.textContent = o; btn.style.background = ''; }, 3500);
+      });
+    });
+  </script>
+</body>
+</html>
