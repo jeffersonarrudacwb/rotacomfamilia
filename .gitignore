@@ -6,3 +6,14 @@ node_modules/
 *.log
 .vscode/
 .idea/
+__pycache__/
+*.pyc
+
+# Fotos pessoais da família (ficam locais; já embedadas nos PDFs)
+*.jpg
+*.JPG
+*.jpeg
+*.png
+
+# Zip de deploy é regenerado
+deploy-rotacomfamilia.zip

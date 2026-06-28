@@ -1403,3 +1403,75 @@ body {
   color: rgba(255,255,255,0.55);
   letter-spacing: 0.02em;
 }
+
+/* ---------- KIT CARDS (3 ebooks downloadable) ---------- */
+.kit-card {
+  position: relative;
+  padding: 1.7rem 1.5rem 1.5rem;
+  border-radius: 22px;
+  background: linear-gradient(170deg, rgba(212,164,55,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(212,164,55,0.18);
+  transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+.kit-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212,164,55,0.45);
+  background: linear-gradient(170deg, rgba(212,164,55,0.1), rgba(255,255,255,0.02));
+}
+.kit-num {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(180deg, var(--orange), rgba(212,164,55,0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+.kit-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+.kit-card > p {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+.kit-meta {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(212,164,55,0.15);
+}
+.kit-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--orange), var(--flame));
+  color: var(--deep);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  align-self: flex-start;
+  box-shadow: 0 8px 18px -8px rgba(212,164,55,0.5);
+}
+.kit-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px -8px rgba(212,164,55,0.7);
+}
