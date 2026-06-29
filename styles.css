@@ -1475,3 +1475,190 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 12px 22px -8px rgba(212,164,55,0.7);
 }
+
+/* ============================================================
+   MEDIA KIT
+   ============================================================ */
+
+/* Stat cards (numbers) */
+.stat-card {
+  position: relative;
+  padding: 1.7rem 1.4rem;
+  border-radius: 20px;
+  background: linear-gradient(170deg, rgba(212,164,55,0.08), rgba(255,255,255,0.02));
+  border: 1px solid rgba(212,164,55,0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,164,55,0.45);
+}
+.stat-icon {
+  font-size: 1.3rem;
+  color: var(--orange);
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--orange), var(--flame));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.55rem;
+}
+.stat-label {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.35;
+}
+
+/* Audience pills */
+.audience-pill {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(212,164,55,0.1);
+  border: 1px solid rgba(212,164,55,0.25);
+  color: rgba(255,255,255,0.9);
+}
+
+/* Portfolio cards */
+.portfolio-card {
+  position: relative;
+  padding: 1.6rem 1.5rem 1.4rem;
+  border-radius: 20px;
+  background: linear-gradient(165deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+}
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212,164,55,0.3);
+}
+.portfolio-card-alt {
+  background: linear-gradient(165deg, rgba(236,72,153,0.06), rgba(255,255,255,0.01));
+  border-color: rgba(236,72,153,0.15);
+}
+.portfolio-card-alt:hover {
+  border-color: rgba(236,72,153,0.4);
+}
+.portfolio-badge {
+  position: absolute;
+  top: -10px; left: 1.4rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: #FF0000;
+  color: white;
+  box-shadow: 0 6px 12px -4px rgba(255,0,0,0.4);
+}
+.portfolio-badge-pink {
+  background: linear-gradient(135deg, #f43f5e, #ec4899, #a855f7);
+  box-shadow: 0 6px 12px -4px rgba(236,72,153,0.5);
+}
+.portfolio-views {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.78rem;
+  color: var(--orange);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+  margin-top: 0.4rem;
+}
+.portfolio-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+  line-height: 1.22;
+  margin-bottom: 0.55rem;
+}
+.portfolio-card p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+  flex: 1;
+}
+.portfolio-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.55);
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-transform: uppercase;
+}
+
+/* Partner cards (proposta) */
+.partner-card {
+  position: relative;
+  padding: 1.8rem 1.5rem 1.5rem;
+  border-radius: 22px;
+  background: linear-gradient(165deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+}
+.partner-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212,164,55,0.3);
+}
+.partner-card-featured {
+  background: linear-gradient(165deg, rgba(212,164,55,0.12), rgba(255,255,255,0.015));
+  border-color: rgba(212,164,55,0.4);
+}
+.partner-badge {
+  position: absolute;
+  top: -10px; right: 1.4rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--orange), var(--flame));
+  color: var(--deep);
+  box-shadow: 0 6px 14px -4px rgba(212,164,55,0.5);
+}
+.partner-icon {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: rgba(212,164,55,0.15);
+  border: 1px solid rgba(212,164,55,0.25);
+  color: var(--orange);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.partner-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 0.55rem;
+}
+.partner-card p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
