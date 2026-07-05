@@ -90,7 +90,7 @@ story.extend(section_opener(
 ))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(photo('IMG_7613.jpg', max_h=9*cm))
+story.append(photo('orlando/IMG_7613.jpg', max_h=9*cm))
 story.append(caption('Magic Kingdom, Orlando — janeiro de 2026.'))
 
 # ============================================================
@@ -135,7 +135,7 @@ story.extend(bullet_list([
 ]))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(two_col_photo_row('IMG_7845.jpg', 'IMG_5690.jpg', h=6*cm))
+story.append(two_col_photo_row('orlando/IMG_7845.jpg', 'orlando/IMG_5690.jpg', h=6*cm))
 story.append(caption('Town Square Theater (esquerda) e Cars Land na Art of Animation (direita) — momentos clássicos da viagem.'))
 
 story.append(Callout(
@@ -183,8 +183,8 @@ story.extend(bullet_list([
 ]))
 
 story.append(Spacer(1, 0.2*cm))
-story.append(photo('IMG_9554.jpg', max_h=7*cm))
-story.append(caption('Cybertruck estacionado em Beverly Hills — o nível de surreal que LA entrega.'))
+story.append(photo('Las Vegas/IMG_6889.JPG', max_h=7*cm))
+story.append(caption('Teto de vidro Chihuly no lobby do Bellagio — o cartão-postal instantâneo de Vegas.'))
 
 # ============================================================
 # Nova York
@@ -218,8 +218,8 @@ story.extend(bullet_list([
 ]))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(two_col_photo_row('IMG_2567.jpg', 'c1d56598-f55e-4216-89f3-6786180ac897.jpg', h=8*cm))
-story.append(caption('Times Square à noite (esquerda) e Brooklyn Bridge ao pôr do sol (direita).'))
+story.append(two_col_photo_row('Nova Iorque/IMG_2010.jpg', 'Nova Iorque/c1d56598-f55e-4216-89f3-6786180ac897.jpg', h=8*cm))
+story.append(caption('Memorial do 11 de setembro em noite de Natal (esquerda) · Brooklyn Bridge ao pôr do sol (direita).'))
 
 story.append(Callout(
     'A dica de mobilidade',
@@ -239,6 +239,10 @@ story.extend(section_opener(
     'precificados em milhas e o ritmo de viagem é mais humano. Fizemos '
     'em abril de 2026.'
 ))
+
+story.append(Spacer(1, 0.3*cm))
+story.append(photo('Porto/IMG_9664.jpg', max_h=10*cm))
+story.append(caption('Ribeira do Porto ao entardecer — a foto favorita da nossa viagem pela Europa.'))
 
 # ============================================================
 # Lisboa & Porto
@@ -281,6 +285,10 @@ story.append(Callout(
     'sobremesa. E gente em geral muito acolhedora com brasileiro. Em todo lugar '
     'a gente foi tratado como vizinho.', kind='tip'))
 
+story.append(Spacer(1, 0.3*cm))
+story.append(two_col_photo_row('Lisboa/IMG_0232.jpg', 'Lisboa/IMG_0371.jpg', h=7*cm))
+story.append(caption('Terreiro do Paço em Lisboa (esquerda) · Bonde 28 subindo pela Alfama (direita).'))
+
 # ============================================================
 # Madrid
 # ============================================================
@@ -314,6 +322,10 @@ story.append(Callout(
     'AVE (trem-bala, 2h30). Sagrada Família + Park Güell + Gótico em 3 dias '
     'dá um upgrade na viagem inteira.', kind='tip'))
 
+story.append(Spacer(1, 0.3*cm))
+story.append(two_col_photo_row('Madri/IMG_9393.jpg', 'Malaga/IMG_5371.jpg', h=7*cm))
+story.append(caption('Parque do Retiro em Madri (esquerda) · Málaga com bandeira da Espanha (direita) — vale esticar até o sul.'))
+
 # ============================================================
 # PARTE III - CARIBE
 # ============================================================
@@ -326,7 +338,7 @@ story.extend(section_opener(
 ))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(photo('IMG_6205.jpg', max_h=10*cm))
+story.append(photo('Caribe/DJI_20251222112620_0004_D.JPG', max_h=10*cm))
 story.append(caption('Punta Cana, dezembro de 2025 — um dos dias mais leves do ano.'))
 
 # ============================================================
@@ -379,8 +391,8 @@ story.extend(section_opener(
 ))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(two_col_photo_row('IMG_2693.jpg', 'IMG_4085.jpg', h=7*cm))
-story.append(caption('Caminito em Buenos Aires (esquerda) · Letreiro Chile Travel em Santiago (direita).'))
+story.append(two_col_photo_row('argentina/IMG_4258.JPG', 'chile/IMG_4085.jpg', h=7*cm))
+story.append(caption('Família em La Boca / Caminito (esquerda) · Letreiro Chile Travel em Santiago (direita).'))
 
 # ============================================================
 # Buenos Aires, Santiago, Assunção — combined chapter
@@ -403,7 +415,7 @@ story.append(Paragraph(
     'em qualquer parrilla.', S['body']))
 
 story.append(Spacer(1, 0.2*cm))
-story.append(photo('1760b412-8ced-413f-84da-b6ee25a3aaf2.jpg', max_h=7*cm))
+story.append(photo('argentina/1760b412-8ced-413f-84da-b6ee25a3aaf2.jpg', max_h=7*cm))
 story.append(caption('Estádio do Boca Juniors — visita guiada vale a pena.'))
 
 story.append(Paragraph('Santiago — 4 dias', S['h2']))
@@ -424,7 +436,7 @@ story.append(Paragraph(
     'Este, se for esticar). Cidade pequena — 2 dias dão conta.', S['body']))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(two_col_photo_row('IMG_6256.jpg', 'IMG_6269.jpg', h=6.5*cm))
+story.append(two_col_photo_row('Paraguai-Assuncao/IMG_6256.jpg', 'Paraguai-Assuncao/IMG_6269.jpg', h=6.5*cm))
 story.append(caption('Palácio dos Lopes (esquerda) e letreiro de Asunción (direita) — clichês obrigatórios.'))
 
 # ============================================================

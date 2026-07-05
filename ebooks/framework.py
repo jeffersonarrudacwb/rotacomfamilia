@@ -18,7 +18,7 @@ from PIL import Image as PILImage
 # ---------------- PATHS ----------------
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-PHOTOS_DIR = ROOT
+PHOTOS_DIR = os.path.join(ROOT, 'fotos')
 PDF_DIR = os.path.join(HERE, 'pdf')
 os.makedirs(PDF_DIR, exist_ok=True)
 

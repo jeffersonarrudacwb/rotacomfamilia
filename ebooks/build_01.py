@@ -378,7 +378,7 @@ story.append(Paragraph(
     'descansa e trabalha com Wi-Fi de qualidade.', S['body']))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(two_col_photo_row('IMG_5235.jpg', 'IMG_4808.jpg', h=6.5*cm))
+story.append(two_col_photo_row('sala_vip/IMG_5235.jpg', 'sala_vip/IMG_4808.jpg', h=6.5*cm))
 story.append(caption('W Lounge (GRU, Star Alliance) à esquerda · Bradesco Lounge à direita — duas das salas que mais usamos.'))
 
 story.append(Paragraph('Como aproveitar de verdade', S['h2']))
@@ -390,7 +390,7 @@ story.extend(bullet_list([
 ]))
 
 story.append(Spacer(1, 0.3*cm))
-story.append(photo('IMG_8543.jpg', max_h=8*cm))
+story.append(photo('sala_vip/IMG_8543.jpg', max_h=8*cm))
 story.append(caption('Copa Club Star Alliance Gold — a sala que viramos clube em viagens longas.'))
 
 # ============================================================
