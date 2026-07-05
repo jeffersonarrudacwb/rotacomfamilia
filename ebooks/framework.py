@@ -265,7 +265,7 @@ class EbookDoc(BaseDocTemplate):
             self, filename, pagesize=PAGE,
             leftMargin=MARGIN, rightMargin=MARGIN,
             topMargin=1.5*cm, bottomMargin=1.2*cm,
-            title=title, author='Rota com Família — Antunes Arruda',
+            title=title, author='Rota com Família',
             creator='Rota com Família'
         )
         self.ebook_title = title
@@ -293,7 +293,7 @@ def cover_block(title, subtitle=None, badge='UM EBOOK ROTA COM FAMÍLIA', year=N
     if year:
         items += [Spacer(1, 1.2*cm), Paragraph(year, s['cover_year'])]
     items += [Spacer(1, 2.0*cm),
-              Paragraph('Jefferson · Kharol · Derek<br/>Antunes Arruda', s['cover_author'])]
+              Paragraph('Jefferson · Kharol · Derek', s['cover_author'])]
     return items
 
 
@@ -353,6 +353,17 @@ def two_col_photo_row(photo_a, photo_b, gap=0.4*cm, h=6.5*cm):
         ('VALIGN',(0,0),(-1,-1),'TOP'),
     ]))
     return t
+
+
+def cell(text, bold=False):
+    """Wrap text in a Paragraph so it wraps inside a table cell."""
+    style = ParagraphStyle(
+        'cell_bold' if bold else 'cell_body',
+        fontName=SANS_BOLD if bold else SANS,
+        fontSize=9.5, leading=12,
+        textColor=C['cream'] if bold else C['text'],
+    )
+    return Paragraph(text, style)
 
 
 def data_table(rows, header=True, col_widths=None):

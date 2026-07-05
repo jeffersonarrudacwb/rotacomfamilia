@@ -7,7 +7,7 @@ from reportlab.lib.units import cm
 from framework import (
     EbookDoc, PDF_DIR, styles, cover_block, photo, two_col_photo_row,
     caption, bullet_list, data_table, section_opener, toc, back_cover_block,
-    Callout, Divider, StatStrip, to_content, to_cover, C
+    Callout, Divider, StatStrip, to_content, to_cover, C, cell
 )
 
 OUTFILE = os.path.join(PDF_DIR, '01-manual-pontos-2026.pdf')
@@ -43,8 +43,8 @@ story.append(Paragraph(
     'transferindo milhas reais e emitindo passagens reais.', S['body']))
 
 story.append(Paragraph(
-    'O que você vai ler aqui é o que aprendemos depois de mais de <b>1 milhão de '
-    'pontos acumulados</b> e <b>9 países visitados em 2 anos</b>. Sem fórmula '
+    'O que você vai ler aqui é o que aprendemos depois de mais de <b>5 milhões de '
+    'milhas acumuladas</b> e <b>9 países visitados em 2 anos</b>. Sem fórmula '
     'milagrosa, sem promessa de viagem grátis: <b>milhas não substituem o '
     'planejamento</b>, mas, quando bem usadas, transformam o custo de qualquer '
     'viagem internacional.', S['body']))
@@ -60,7 +60,7 @@ story.append(Callout(
 story.append(Spacer(1, 0.4*cm))
 story.append(StatStrip([
     ('9', 'países visitados\nem 2 anos'),
-    ('1M+', 'pontos sob\nplanejamento'),
+    ('5M+', 'milhas sob\nplanejamento'),
     ('R$ 95k', 'em passagens\neconomizadas'),
 ]))
 
@@ -104,9 +104,9 @@ story.append(Paragraph(
 story.extend(bullet_list([
     '<b>Camada 1 — Emissores:</b> bancos e fintechs que emitem o cartão de '
     'crédito. Bradesco, Itaú, Santander, BTG, Inter, C6, Nubank.',
-    '<b>Camada 2 — Programas de coalizão:</b> Livelo, Esfera, Iupp. '
-    'Recebem os pontos do seu cartão e podem ser convertidos em diversos '
-    'programas finais.',
+    '<b>Camada 2 — Programas de coalizão:</b> Livelo (Bradesco + Banco do Brasil) '
+    'e Esfera (Santander). Recebem os pontos do seu cartão e podem ser convertidos '
+    'em diversos programas finais.',
     '<b>Camada 3 — Programas de companhias aéreas:</b> Latam Pass, Smiles, '
     'TudoAzul/Azul Fidelidade. É onde os pontos viram passagem.',
 ]))
@@ -115,7 +115,7 @@ story.append(Spacer(1, 0.2*cm))
 story.append(Callout(
     'O pulo do gato é a camada 2',
     'A maioria das pessoas pula direto do cartão para a passagem. Quem entende a '
-    'camada de coalizão (Livelo, Esfera, Iupp) ganha o dobro: pode esperar bônus '
+    'camada de coalizão (Livelo, Esfera) ganha o dobro: pode esperar bônus '
     'de transferência e escolher pra qual companhia mandar.', kind='tip'))
 
 story.append(Paragraph('Pontos × milhas: a diferença que importa', S['h2']))
@@ -156,12 +156,12 @@ story.append(Paragraph(
 
 story.append(Spacer(1, 0.2*cm))
 story.append(data_table([
-    ['Perfil', 'Anuidade típica', 'Pontuação típica', 'Para quem é'],
-    ['Entrada', 'Isento ou R$ 0–200', '1 ponto / R$ 2–3', 'Quem está começando, gasto até R$ 3k/mês'],
-    ['Intermediário', 'R$ 300–700', '1 ponto / R$ 1,8', 'Gasto R$ 3–8k/mês, quer acumular para nacional'],
-    ['Premium', 'R$ 800–1.500', '1,5–2 pontos / R$', 'Gasto R$ 8–20k/mês, mira internacional'],
-    ['Ultra-premium', 'R$ 1.800–4.000+', '2–2,5 pontos / R$', 'Gasto alto + benefícios (salas VIP, seguros)'],
-], col_widths=[3.2*cm, 3.5*cm, 4*cm, 5.5*cm]))
+    [cell('Perfil', bold=True), cell('Anuidade típica', bold=True), cell('Pontuação', bold=True), cell('Para quem é', bold=True)],
+    [cell('Entrada'), cell('Isento ou R$ 0–200'), cell('1 pt / R$ 2–3'), cell('Quem está começando, gasto até R$ 3k/mês')],
+    [cell('Intermediário'), cell('R$ 300–700'), cell('1 pt / R$ 1,8'), cell('Gasto R$ 3–8k/mês, mira acúmulo nacional')],
+    [cell('Premium'), cell('R$ 800–1.500'), cell('2 pts / USD internacional'), cell('Gasto R$ 8–20k/mês, mira internacional')],
+    [cell('Ultra-premium'), cell('R$ 1.800–4.000+'), cell('2,2–2,5 pts / USD'), cell('Gasto alto + benefícios (salas VIP, seguros)')],
+], col_widths=[3*cm, 3.2*cm, 3.6*cm, 6.5*cm]))
 
 story.append(Spacer(1, 0.3*cm))
 story.append(Paragraph('A conta que você precisa fazer', S['h2']))
@@ -198,16 +198,16 @@ story.extend(section_opener(
     'mais pontos — desde que você saiba esperar o momento certo.'
 ))
 
-story.append(Paragraph('Os três grandes programas de coalizão', S['h2']))
+story.append(Paragraph('Os dois grandes programas de coalizão', S['h2']))
 story.append(Paragraph(
-    'No Brasil, três programas concentram a maior parte da movimentação:', S['body']))
+    'Hoje no Brasil, dois programas concentram a maior parte da movimentação. '
+    'É pra um deles que quase todo cartão brasileiro deposita seus pontos:', S['body']))
 
 story.append(Spacer(1, 0.2*cm))
 story.append(data_table([
     ['Programa', 'Quem pertence', 'Forte em', 'Transfere para'],
     ['Livelo', 'Bradesco + Banco do Brasil', 'Variedade de transferências', 'Latam, Smiles, TudoAzul, Iberia, AAdvantage…'],
     ['Esfera', 'Santander', 'Bônus agressivos pra Smiles', 'Smiles, Latam, TudoAzul, Air France…'],
-    ['Iupp', 'Itaú', 'Integração com cartões Itaucard', 'Latam, Smiles, TudoAzul'],
 ], col_widths=[2.6*cm, 4*cm, 4.4*cm, 5.2*cm]))
 
 story.append(Spacer(1, 0.3*cm))
@@ -225,6 +225,26 @@ story.append(Callout(
     'Transferências sem bônus são raramente justificáveis. Em média, 1–2 vezes '
     'por mês surge alguma campanha de bônus de pelo menos 60%. Pra acumular '
     'eficientemente, espere — sempre.', kind='tip'))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(Paragraph('Nossos thresholds por programa', S['h3']))
+story.append(Paragraph(
+    'Só apertamos "transferir" quando o bônus atinge estes patamares. Abaixo '
+    'disso, os pontos ficam parados aguardando a próxima janela.', S['body']))
+story.append(Spacer(1, 0.1*cm))
+story.append(data_table([
+    [cell('Programa destino', bold=True), cell('Bônus mínimo aceitável', bold=True), cell('Frequência típica', bold=True)],
+    [cell('Latam Pass'), cell('≥ 30%'), cell('Todo mês')],
+    [cell('Smiles (Gol)'), cell('≥ 80%'), cell('A cada 30–45 dias')],
+    [cell('TudoAzul / Azul Fidelidade'), cell('≥ 90%'), cell('A cada 45–60 dias')],
+], col_widths=[5.5*cm, 4.5*cm, 6.3*cm]))
+story.append(Spacer(1, 0.2*cm))
+story.append(Callout(
+    'Por que os thresholds são tão diferentes?',
+    'Cada programa "custa" diferente ao emitir uma passagem. Smiles e Azul exigem '
+    'mais milhas por trecho, então precisam de mais bônus na entrada pra o custo '
+    'por milheiro fechar. Latam Pass é o mais eficiente — 30% já viabiliza '
+    'emissões econômicas.', kind='note'))
 
 # ============================================================
 # 07 — Cap 4 — Calendário de bônus
@@ -406,7 +426,7 @@ story.extend(section_opener(
 
 story.append(Paragraph('O que fazer hoje', S['h2']))
 story.extend(bullet_list([
-    'Anote todos os seus saldos em Livelo, Esfera, Iupp, Latam, Smiles, Azul.',
+    'Anote todos os seus saldos em Livelo, Esfera, Latam Pass, Smiles, TudoAzul.',
     'Calcule o custo por milha de cada cartão que você tem hoje.',
     'Decida o destino da próxima viagem em família e a meta de milhas necessárias.',
     'Inscreva-se na newsletter da Rota com Família — alertas semanais de bônus.',

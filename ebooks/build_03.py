@@ -8,7 +8,7 @@ from reportlab.lib.colors import HexColor
 from framework import (
     EbookDoc, PDF_DIR, styles, cover_block, photo,
     caption, bullet_list, data_table, section_opener, toc, back_cover_block,
-    Callout, Divider, StatStrip, to_content,
+    Callout, Divider, StatStrip, to_content, cell,
     C, SANS, SANS_BOLD, SERIF, PAGE, MARGIN
 )
 
@@ -86,11 +86,12 @@ story.append(Paragraph('As 5 ferramentas.', S['h1']))
 story.append(Divider(width_pct=0.18))
 story.append(Spacer(1, 0.3*cm))
 story.append(toc([
-    ('Calculadora · Custo por milha', '04'),
-    ('Planilha · Controle de saldo', '07'),
-    ('Plano · Acumulação mensal por destino', '10'),
-    ('Comparativo · Avaliação de cartões', '13'),
-    ('Calendário · Bônus esperados em 2026', '16'),
+    ('Calculadora · Custo por milheiro', '04'),
+    ('Planilha · Controle de saldo', '08'),
+    ('Plano · Acumulação mensal por destino', '11'),
+    ('Comparativo · Avaliação de cartões', '14'),
+    ('Calendário · Bônus esperados em 2026', '17'),
+    ('Cartões que usamos e recomendamos', '20'),
 ]))
 
 # ============================================================
@@ -113,10 +114,25 @@ story.append(Paragraph(
 
 story.append(Spacer(1, 0.2*cm))
 story.append(Callout(
-    'Faixas de referência',
-    'Abaixo de R$ 25/k = excelente · R$ 25–35/k = bom · R$ 35–50/k = aceitável '
-    'só se houver benefícios (sala VIP, seguros) · acima de R$ 50/k = troque '
-    'o cartão.', kind='note'))
+    'Benchmark por programa de destino',
+    'O custo por milheiro que buscamos é ESPECÍFICO por programa — cada um '
+    'tem economias diferentes na emissão. Anote:', kind='note'))
+
+story.append(Spacer(1, 0.15*cm))
+story.append(data_table([
+    [cell('Programa destino', bold=True), cell('Custo ideal (R$/milheiro)', bold=True), cell('Bônus mínimo para transferir', bold=True)],
+    [cell('Latam Pass'), cell('abaixo de R$ 25'), cell('≥ 30%')],
+    [cell('Smiles (Gol)'), cell('abaixo de R$ 16'), cell('≥ 80%')],
+    [cell('TudoAzul (Azul)'), cell('abaixo de R$ 15'), cell('≥ 90%')],
+], col_widths=[4.5*cm, 5.5*cm, 6.3*cm]))
+
+story.append(Spacer(1, 0.25*cm))
+story.append(Callout(
+    'Cuidado com anuidades — evite-as sempre que possível',
+    'A rentabilidade do jogo desaba quando você paga anuidade alta. '
+    'Bancos oferecem isenção de anuidade quase todo mês — em campanhas de '
+    'entrada, meta de gastos ou negociação direta. Ligue no SAC e peça: '
+    '"quero isenção da anuidade". Funciona mais do que você imagina.', kind='tip'))
 
 story.append(Paragraph('Exemplo preenchido', S['h2']))
 story.append(data_table([
@@ -176,7 +192,7 @@ story.append(data_table([
     ['Programa', 'Saldo atual', 'Validade', 'Próxima ação'],
     ['Livelo', '189.400', 'Mar/2027', 'Esperar bônus Latam 80%'],
     ['Esfera', '120.900', 'Set/2027', 'Esperar bônus Smiles'],
-    ['Iupp', '34.200', 'Dez/2026', 'Acumular mais (juntar 50k)'],
+    ['Bradesco Pontos', '54.200', 'Dez/2026', 'Aguardar bônus Livelo'],
     ['Latam Pass', '78.100', 'Jul/2027', 'Reservar pra Orlando 2027'],
     ['Smiles', '24.000', 'Out/2026', 'URGENTE: usar ou transferir'],
     ['Azul/TudoAzul', '12.500', 'Mai/2027', 'Acumular ou trocar produto'],
@@ -390,6 +406,86 @@ story.append(Callout(
 
 # ============================================================
 # Closing
+# ============================================================
+story.append(PageBreak())
+story.extend(section_opener(
+    'Ferramenta 06',
+    'Cartões que usamos e recomendamos.',
+    'Não existe cartão perfeito para todo mundo. Mas existe o cartão perfeito '
+    'para o seu perfil de gasto — abaixo estão os que a nossa família usa e '
+    'testou, ordenados por pontuação em compras internacionais (a métrica '
+    'que mais importa para quem viaja).'
+))
+
+story.append(Paragraph('A conta que importa: pontos por dólar gasto', S['h2']))
+story.append(Paragraph(
+    'Em cartões premium, o que separa os bons dos ótimos é a <b>pontuação em '
+    'compras internacionais</b> — normalmente expressa em pontos por dólar (ou '
+    'euro) gasto. A partir de 2 pts/USD, você começa a acumular sério. A '
+    '2,5 pts/USD, uma viagem única já rende milhas para a próxima.', S['body']))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(data_table([
+    [cell('Cartão', bold=True), cell('Banco/Emissor', bold=True), cell('Programa', bold=True), cell('Pts / USD', bold=True), cell('Perfil', bold=True)],
+    [cell('AAdvantage Santander*'), cell('Santander'), cell('AAdvantage direto'), cell('~2,0'), cell('Intermediário')],
+    [cell('Bradesco Elo Nanquim'), cell('Bradesco'), cell('Livelo'), cell('~2,0'), cell('Premium')],
+    [cell('Itaucard Personnalité Black'), cell('Itaú'), cell('Latam Pass'), cell('~2,0'), cell('Premium')],
+    [cell('AmEx TPC Bradesco'), cell('Bradesco / AmEx'), cell('Livelo'), cell('~2,2'), cell('Premium')],
+    [cell('C6 Carbon'), cell('C6 Bank'), cell('C6 Átomos → parceiros'), cell('~2,5'), cell('Ultra-premium')],
+    [cell('AmEx Platinum'), cell('AmEx'), cell('Membership Rewards'), cell('~2,5'), cell('Ultra-premium')],
+    [cell('Bradesco Aeternum'), cell('Bradesco'), cell('Livelo'), cell('~2,5'), cell('Ultra-premium')],
+], col_widths=[3.7*cm, 3*cm, 3.7*cm, 2.1*cm, 3.3*cm]))
+story.append(Spacer(1, 0.15*cm))
+story.append(Paragraph(
+    '<i>* AAdvantage Santander deposita milhas diretamente no programa da American '
+    'Airlines — sem passar por Livelo. É ótimo para quem já mira voos com AA/oneworld.</i>',
+    S['small']))
+
+story.append(Paragraph('Os que a nossa família usa hoje', S['h2']))
+story.extend(bullet_list([
+    '<b>C6 Carbon</b> — nosso principal para gastos internacionais. Pontuação '
+    'entre as mais altas do mercado brasileiro (~2,5 pts/USD) e programa próprio '
+    'com boas conversões.',
+    '<b>AmEx TPC (Bradesco)</b> — nosso principal doméstico. Deposita em Livelo, '
+    'de onde a gente escolhe pra onde transferir conforme o bônus da vez.',
+    '<b>AAdvantage Santander</b> — usei no passado. Vale a pena se você mira '
+    'muitas emissões via American/oneworld; se preferir flexibilidade, um cartão '
+    'em Livelo/Esfera rende mais opções.',
+]))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(Callout(
+    'Regra número 1: sem anuidade sempre que possível',
+    'Cartões premium prometem 2,5 pts/USD mas cobram anuidade de R$ 2.000+. '
+    'Se você não fatura o gasto internacional necessário para amortizar isso, o '
+    'custo por milheiro explode. Aproveite: bancos oferecem isenção em promoção '
+    'quase todo mês. Ligue no SAC e negocie — funciona.', kind='tip'))
+
+story.append(Paragraph('E se eu estou começando?', S['h2']))
+story.append(Paragraph(
+    'Comece com um cartão de entrada sem anuidade que já entre em algum '
+    'programa de coalizão (Livelo ou Esfera). Alguns bons pontos de partida:', S['body']))
+
+story.extend(bullet_list([
+    '<b>Nubank Ultravioleta</b> — 1 pt / USD, sem anuidade nos primeiros meses, '
+    'programa próprio com conversões.',
+    '<b>Inter Black</b> — bom rendimento em Livelo, anuidade acessível.',
+    '<b>C6 Gold ou Platinum</b> — porta de entrada para o programa do C6 antes '
+    'de partir pro Carbon.',
+    '<b>Bradesco Elite ou Elo Mais</b> — porta de entrada para Livelo/Bradesco '
+    'Pontos, com anuidade normalmente negociável.',
+]))
+
+story.append(Spacer(1, 0.15*cm))
+story.append(Callout(
+    'Última dica',
+    'Anuidade é mais importante que 0,5 ponto a mais por dólar. Em quase todos '
+    'os cenários, um cartão com 1,8 pts/USD e anuidade zero rende mais que um '
+    'cartão com 2,5 pts/USD e anuidade de R$ 2.500 (a não ser que seu gasto '
+    'internacional passe de US$ 30k/ano).', kind='note'))
+
+# ============================================================
+# Closing (moved to next section)
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(

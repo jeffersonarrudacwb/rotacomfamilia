@@ -33,4 +33,4 @@ Adicionar arquivo `CNAME` com `rotacomfamilia.com` e configurar DNS apontando pa
 
 ---
 
-Feito com 🧭 pela família Antunes Arruda — Jefferson, Kharol e Derek.
+Feito com 🧭 por Jefferson, Kharol e Derek.
