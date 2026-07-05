@@ -17,3 +17,14 @@ __pycache__/
 
 # Zip de deploy é regenerado
 deploy-rotacomfamilia.zip
+
+# Formatos brutos das câmeras (não vão pro repo)
+*.heic
+*.HEIC
+*.HEIC.jpg
+*.dng
+*.DNG
+*.mov
+*.MOV
+*.mp4
+*.MP4
