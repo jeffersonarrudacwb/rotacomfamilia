@@ -143,9 +143,39 @@ $batidas[] = time();
 // ---------------------------------------------------------------------------
 // 7. Envia para o Brevo
 // ---------------------------------------------------------------------------
-$listaId = (int) ($LISTAS[$origem] ?? $LISTA_PAD);
+// Descobre a lista em três tentativas, da mais específica para a mais genérica.
+//
+// Por que não basta o nome exato: o rota-forms.js deriva a origem do HTML, e o
+// que chega aqui é "newsletter-home" e "lista-espera-cursos-2026", não
+// "newsletter" e "curso". Exigir string idêntica fazia todo lead do formulário
+// cair na lista padrão — ou, se a padrão não estivesse configurada, o site
+// dizia "cadastro automático ainda não configurado" mesmo estando tudo certo.
+//
+// Com a busca por palavra-chave, mudar o sufixo no HTML não quebra mais nada.
+$listaId   = 0;
+$comoAchou = '';
+
+if (isset($LISTAS[$origem])) {
+    $listaId   = (int) $LISTAS[$origem];
+    $comoAchou = 'nome exato';
+} else {
+    foreach ($LISTAS as $chave => $id) {
+        if ($chave !== '' && stripos($origem, (string) $chave) !== false) {
+            $listaId   = (int) $id;
+            $comoAchou = 'palavra-chave "' . $chave . '"';
+            break;
+        }
+    }
+}
+
 if ($listaId <= 0) {
-    error_log('[rota] inscrever.php: nenhuma lista configurada para a origem ' . $origem);
+    $listaId   = $LISTA_PAD;
+    $comoAchou = 'lista padrão';
+    error_log('[rota] inscrever.php: origem "' . $origem . '" não casou com nenhuma chave; usando a lista padrão');
+}
+
+if ($listaId <= 0) {
+    error_log('[rota] inscrever.php: nenhuma lista para a origem "' . $origem . '" e lista_padrao vazia');
     responder(503, false, 'Cadastro automático ainda não configurado.', ['configurar' => true]);
 }
 

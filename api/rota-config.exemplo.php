@@ -51,24 +51,28 @@ return [
     /* -----------------------------------------------------------------------
      * listas — para qual lista do Brevo vai cada formulário do site
      *
-     * A chave à esquerda é o valor do atributo data-origem do <form> no HTML.
-     * O número à direita é o ID da lista no Brevo.
+     * A chave à esquerda é uma PALAVRA-CHAVE procurada dentro da origem que o
+     * formulário envia. Não precisa ser o valor exato: o inscrever.php tenta
+     * primeiro o nome idêntico e, se não achar, procura a chave contida na
+     * origem. Isso evita quebrar tudo quando o sufixo muda no HTML.
      *
-     * Onde achar o ID: Brevo → Contatos → Listas. O número aparece na coluna
-     * "ID", e também no fim da URL ao abrir a lista.
+     * Hoje os dois formulários mandam:
+     *     "newsletter-home"      (index.html)      -> casa com a chave newsletter
+     *     "curso-espera-2026"    (cursos.html)     -> casa com a chave curso
      *
-     * Crie duas listas no Brevo:
-     *   "Newsletter — Guia de Milhas"   -> use o ID em newsletter
-     *   "Lista de espera — Cursos"      -> use o ID em curso
+     * O número à direita é o ID da lista no Brevo. Onde achar: Brevo →
+     * CRM → Listas, coluna "ID" (aparece como #4, #6...). Use só o número.
      * ----------------------------------------------------------------------- */
     'listas' => [
-        'newsletter' => 0,   // troque pelo ID real
-        'curso'      => 0,   // troque pelo ID real
+        'newsletter' => 4,   // Newsletter — Guia de Milhas
+        'curso'      => 6,   // Lista de espera — Cursos
     ],
 
     /* -----------------------------------------------------------------------
-     * lista_padrao — usada quando a origem não estiver no mapa acima.
-     * Deixe apontando para a lista da newsletter.
+     * lista_padrao — rede de segurança: usada quando a origem não casar com
+     * nenhuma chave acima. Deixe apontando para a lista da newsletter, para
+     * que nenhum lead se perca. Se ficar 0, o site responde que o cadastro
+     * automático não está configurado.
      * ----------------------------------------------------------------------- */
-    'lista_padrao' => 0,
+    'lista_padrao' => 4,
 ];
