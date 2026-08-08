@@ -29,7 +29,7 @@ Não há build step. Basta abrir `index.html` em qualquer navegador moderno.
 2. URL pública: `https://jeffersonarrudacwb.github.io/rotacomfamilia/`
 
 ### Custom domain
-Adicionar arquivo `CNAME` com `rotacomfamilia.com` e configurar DNS apontando para os IPs do GitHub Pages.
+Adicionar arquivo `CNAME` com `rotacomfamilia.com.br` e configurar DNS apontando para os IPs do GitHub Pages.
 
 ---
 

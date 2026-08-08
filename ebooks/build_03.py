@@ -67,7 +67,7 @@ story.append(Paragraph(
 story.append(Paragraph(
     'Você pode imprimir e preencher à mão, ou usá-las como referência pra montar '
     'a sua versão digital. Quem quiser as versões em Google Sheets prontas pra '
-    'editar pode baixar gratuitamente em <b>rotacomfamilia.com/kit</b>.',
+    'editar pode baixar gratuitamente em <b>rotacomfamilia.com.br/kit</b>.',
     S['body']))
 
 story.append(Spacer(1, 0.4*cm))
@@ -492,7 +492,7 @@ story.extend(section_opener(
     'Próximos passos',
     'Pegue as versões digitais.',
     'Tudo isso aqui em Google Sheets editável, gratuito, em '
-    'rotacomfamilia.com/kit. Imprima, preencha, atualize.'
+    'rotacomfamilia.com.br/kit. Imprima, preencha, atualize.'
 ))
 
 story.append(Paragraph('Por que vale digitalizar?', S['h2']))
@@ -508,7 +508,7 @@ story.append(Callout(
     'Quer que a gente monte o plano?',
     'Assessoria personalizada da Rota faz o serviço completo: '
     'analisa sua carteira, monta o plano, transfere com você e emite. '
-    'Para detalhes, contato@rotacomfamilia.com.', kind='note'))
+    'Para detalhes, contato@rotacomfamilia.com.br.', kind='note'))
 
 story.extend(back_cover_block(
     'Esperamos que esse kit te ajude tanto quanto nos ajudou. '

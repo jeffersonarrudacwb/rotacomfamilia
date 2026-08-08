@@ -150,7 +150,7 @@ def draw_content_bg(canvas, doc):
     canvas.rect(0, 0.7*cm, w, 0.05*cm, fill=1, stroke=0)
     canvas.setFillColor(C['cream'])
     canvas.setFont(SANS, 8)
-    canvas.drawString(MARGIN, 0.25*cm, 'rotacomfamilia.com')
+    canvas.drawString(MARGIN, 0.25*cm, 'rotacomfamilia.com.br')
     canvas.setFillColor(C['gold'])
     canvas.drawCentredString(w/2, 0.25*cm, '·  ·  ·')
     canvas.setFillColor(C['cream'])
@@ -447,11 +447,11 @@ def back_cover_block(blurb):
         Divider(width_pct=0.3),
         Spacer(1, 0.4*cm),
         Paragraph(
-            '<b>rotacomfamilia.com</b>  ·  @rotacomfamilia  ·  YouTube · Instagram · TikTok',
+            '<b>rotacomfamilia.com.br</b>  ·  @rotacomfamilia  ·  YouTube · Instagram · TikTok',
             s['small']
         ),
         Paragraph(
-            'Quer assessoria pra emitir sua próxima viagem? <b>contato@rotacomfamilia.com</b>',
+            'Quer assessoria pra emitir sua próxima viagem? <b>contato@rotacomfamilia.com.br</b>',
             s['small']
         ),
     ]

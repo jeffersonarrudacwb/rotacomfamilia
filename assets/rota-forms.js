@@ -46,7 +46,7 @@
          provedor pelo servidor, onde CORS não existe. Netlify, Vercel e
          Cloudflare Workers têm plano gratuito suficiente para este volume.
          Aí ESP_ENDPOINT vira algo como
-         "https://rotacomfamilia.com/.netlify/functions/inscrever".
+         "https://rotacomfamilia.com.br/.netlify/functions/inscrever".
 
      (b) Um serviço já pensado para site estático, que devolve CORS liberado e
          responde JSON: Formspree, Buttondown ou EmailOctopus, por exemplo.
@@ -104,7 +104,7 @@
 
      Onde achar: analytics.google.com → engrenagem "Administrador" (canto
      inferior esquerdo) → coluna "Propriedade" → "Fluxos de dados" → clique no
-     fluxo do site rotacomfamilia.com → o campo "ID da métrica" (measurement ID)
+     fluxo do site rotacomfamilia.com.br → o campo "ID da métrica" (measurement ID)
      no topo direito. É esse valor, começando com "G-".
 
      Não confunda com:
@@ -138,7 +138,7 @@
   /* ---------------------------------------------------------------------------
      Constantes da marca / do site
      --------------------------------------------------------------------------- */
-  var EMAIL_CONTATO   = 'contato@rotacomfamilia.com';
+  var EMAIL_CONTATO   = 'contato@rotacomfamilia.com.br';
   var PAGINA_PRIVACIDADE = 'privacidade.html';
   var CHAVE_CONSENTIMENTO = 'rcf_consentimento_v1'; // localStorage
   var NOME_HONEYPOT   = 'rcf_site_extra';           // campo isca antispam

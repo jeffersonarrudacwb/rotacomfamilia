@@ -1669,3 +1669,85 @@ picture {
   font-size: 0.9rem;
   line-height: 1.55;
 }
+
+/* ============================================================
+   DEPOIMENTOS (pessoas reais que usaram a assessoria)
+   ============================================================ */
+.depo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 2.4rem 1.6rem 1.5rem;
+  border-radius: 22px;
+  background: linear-gradient(168deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+  border: 1px solid rgba(255,255,255,0.09);
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s ease;
+}
+.depo-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212,164,55,0.32);
+}
+
+/* Aspas decorativas — marcam a citação sem virar ruído */
+.depo-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.55rem;
+  left: 1.4rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(212,164,55,0.32);
+  pointer-events: none;
+}
+
+.depo-card blockquote {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+.depo-card blockquote p {
+  margin: 0;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.945rem;
+  line-height: 1.62;
+}
+
+.depo-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.09);
+}
+.depo-nome {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.depo-ctx {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.735rem;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.45;
+}
+
+/* Card do meio ganha leve destaque dourado */
+.depo-card-destaque {
+  background: linear-gradient(168deg, rgba(212,164,55,0.11), rgba(255,255,255,0.015));
+  border-color: rgba(212,164,55,0.28);
+}
+.depo-card-destaque:hover { border-color: rgba(212,164,55,0.5); }
+.depo-card-destaque::before { color: rgba(212,164,55,0.45); }
+
+@media (prefers-reduced-motion: reduce) {
+  .depo-card { transition: none; }
+  .depo-card:hover { transform: none; }
+}

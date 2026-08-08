@@ -280,7 +280,7 @@ story.append(Callout(
     'Onde acompanhar os bônus',
     'Acompanhe o site do programa (notificações ativas), siga páginas de '
     'milhas no Instagram e participe da nossa newsletter — toda semana avisamos '
-    'as campanhas que valem a pena. Inscreva-se em rotacomfamilia.com.',
+    'as campanhas que valem a pena. Inscreva-se em rotacomfamilia.com.br.',
     kind='tip'))
 
 story.append(Paragraph('Exemplo prático: bônus de 100%', S['h2']))
@@ -439,7 +439,7 @@ story.append(Callout(
     'Eu (Jefferson) emito passagens com milhas para outras famílias todo mês — '
     'nacional e internacional. Mando o plano em PDF, faço as transferências '
     'junto com você e entrego os bilhetes prontos. Fale comigo no WhatsApp '
-    'ou em contato@rotacomfamilia.com.', kind='note'))
+    'ou em contato@rotacomfamilia.com.br.', kind='note'))
 
 story.extend(back_cover_block(
     'Esperamos que este manual seja só o começo da sua próxima viagem em família. '
