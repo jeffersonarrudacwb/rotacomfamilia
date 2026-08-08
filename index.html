@@ -1114,7 +1114,10 @@
     <div class="relative max-w-xl w-full rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-brand-deep to-[#103D2E] shadow-2xl">
       <button data-close class="absolute top-3 right-3 z-10 h-9 w-9 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center">×</button>
       <div class="aspect-[16/9] overflow-hidden relative">
-        <img id="article-modal-img" src="" alt="" class="h-full w-full object-cover" />
+        <!-- Sem atributo src: src="" faz o navegador requisitar a própria URL da
+             página e a imagem conta como quebrada. O src real é definido pelo
+             script.js no momento em que o modal abre. -->
+        <img id="article-modal-img" alt="" class="h-full w-full object-cover" />
         <span id="article-modal-tag" class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur border border-white/15"></span>
       </div>
       <div class="p-7">

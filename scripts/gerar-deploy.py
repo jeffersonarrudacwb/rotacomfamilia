@@ -31,22 +31,35 @@ ARQUIVOS = [
     ".htaccess",
     "robots.txt",
     "sitemap.xml",
-    # PDFs
-    "ebooks/pdf/01-manual-pontos-2026.pdf",
-    "ebooks/pdf/02-roteiros-eua-europa-caribe.pdf",
-    "ebooks/pdf/03-planilhas-calculadoras.pdf",
-    "mediakit/midia-kit-rota-com-familia.pdf",
+    # PDFs — vao todos para downloads/ no servidor.
+    #
+    # Os nomes de pasta ebooks/ e mediakit/ NAO podem existir na raiz do site:
+    # colidem com ebooks.html e mediakit.html. Quando isso acontece, o Apache
+    # ve a pasta, redireciona /ebooks para /ebooks/, tenta listar o diretorio e
+    # devolve 403 por causa do Options -Indexes. A regra de reescrita para URL
+    # sem .html nunca chega a rodar. Por isso o destino aqui e outro.
+    ("ebooks/pdf/01-manual-pontos-2026.pdf", "downloads/01-manual-pontos-2026.pdf"),
+    ("ebooks/pdf/02-roteiros-eua-europa-caribe.pdf", "downloads/02-roteiros-eua-europa-caribe.pdf"),
+    ("ebooks/pdf/03-planilhas-calculadoras.pdf", "downloads/03-planilhas-calculadoras.pdf"),
+    ("mediakit/midia-kit-rota-com-familia.pdf", "downloads/midia-kit-rota-com-familia.pdf"),
 ]
 
 PASTAS = ["assets/img"]
 
 
 def coletar():
-    for rel in ARQUIVOS:
-        caminho = os.path.join(ROOT, rel.replace("/", os.sep))
+    """Devolve (caminho_no_servidor, caminho_local).
+
+    Cada item de ARQUIVOS e uma string, quando origem e destino coincidem, ou
+    uma tupla (origem_local, destino_no_servidor) quando o caminho publico e
+    diferente de onde o arquivo mora no repositorio.
+    """
+    for item in ARQUIVOS:
+        origem, destino = item if isinstance(item, tuple) else (item, item)
+        caminho = os.path.join(ROOT, origem.replace("/", os.sep))
         if not os.path.exists(caminho):
-            raise FileNotFoundError(f"Faltando: {rel}")
-        yield rel, caminho
+            raise FileNotFoundError(f"Faltando: {origem}")
+        yield destino, caminho
     for pasta in PASTAS:
         base = os.path.join(ROOT, pasta.replace("/", os.sep))
         for dirpath, _, files in os.walk(base):
