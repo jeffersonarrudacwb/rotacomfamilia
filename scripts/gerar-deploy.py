@@ -5,6 +5,7 @@ As 664 MB em fotos/ ficam fora de proposito: o site referencia unicamente
 assets/img/, e as fotos originais so existem dentro dos PDFs dos ebooks,
 onde ja estao embutidas.
 """
+import hashlib
 import os
 import shutil
 import sys
@@ -110,6 +111,59 @@ def montar_zip():
         conferir(z.namelist())
 
 
+# Assets que o .htaccess manda o navegador guardar por 30 dias. Sem versao na
+# URL, quem ja visitou o site continua rodando a copia velha por ate um mes —
+# foi assim que uma correcao publicada do formulario ficou invisivel para quem
+# tinha o rota-forms.js antigo em cache, e o cadastro caiu no modo manual.
+ASSETS_VERSIONADOS = [
+    "assets/rota-forms.js",
+    "assets/tailwind.css",
+    "styles.css",
+    "script.js",
+]
+
+
+def versionar_assets(dist):
+    """Acrescenta ?v=<hash> as referencias dos assets no HTML de dist/.
+
+    O hash vem do conteudo: se o arquivo nao mudou, a URL nao muda e o cache do
+    visitante continua valido. Se mudou, a URL muda e o navegador e obrigado a
+    baixar de novo. Os arquivos fonte nao sao tocados, so a copia em dist/.
+    """
+    hashes = {}
+    for rel in ASSETS_VERSIONADOS:
+        caminho = os.path.join(dist, rel.replace("/", os.sep))
+        if not os.path.exists(caminho):
+            continue
+        with open(caminho, "rb") as f:
+            hashes[rel] = hashlib.sha1(f.read()).hexdigest()[:8]
+
+    if not hashes:
+        return
+
+    alterados = 0
+    for nome in os.listdir(dist):
+        if not nome.endswith(".html"):
+            continue
+        caminho = os.path.join(dist, nome)
+        with open(caminho, "r", encoding="utf-8") as f:
+            html = f.read()
+
+        original = html
+        for rel, h in hashes.items():
+            # Casa href="styles.css", src="assets/rota-forms.js", com ou sem ./
+            for ref in (rel, "./" + rel, "/" + rel):
+                html = html.replace('"' + ref + '"', '"' + ref + "?v=" + h + '"')
+
+        if html != original:
+            with open(caminho, "w", encoding="utf-8") as f:
+                f.write(html)
+            alterados += 1
+
+    print("Versionados: " + ", ".join(f"{r}?v={h}" for r, h in hashes.items()))
+    print(f"Reescritos {alterados} arquivos HTML em dist/")
+
+
 def montar_dist():
     """Copia os arquivos publicaveis para dist/, que e o que sobe por FTP.
 
@@ -130,6 +184,7 @@ def montar_dist():
 
     print(f"{len(itens)} arquivos | {total/1024/1024:.2f} MB em dist/")
     conferir([rel for rel, _ in itens])
+    versionar_assets(dist)
 
     # O .htaccess e oculto e alguns clientes de FTP o ignoram. Se ele nao
     # subir, /ebooks para de funcionar sem o .html, os WebP saem com o tipo
