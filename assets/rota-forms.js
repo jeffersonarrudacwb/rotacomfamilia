@@ -79,8 +79,21 @@
      NUNCA cole aqui uma chave de API secreta (Brevo "api-key", Mailchimp API
      key etc.). Tudo que está neste arquivo é visível para qualquer visitante
      que abrir o inspetor do navegador. Chave secreta só do lado do servidor.
+
+     >>> ESTE SITE JÁ ESTÁ RESOLVIDO — não precisa mexer aqui. <<<
+
+     O caminho (a) descrito acima está implementado, e em PHP em vez de função
+     serverless, porque a HostGator já roda PHP e assim não entra mais nenhum
+     serviço na conta. O endpoint abaixo é nosso: api/inscrever.php.
+
+     A chave do Brevo fica em rota-config.php, UM NÍVEL ACIMA da public_html —
+     fora do alcance do navegador e fora do deploy. Enquanto esse arquivo não
+     existir, o PHP responde 503 com {"configurar": true}, e este script cai
+     no modo "cadastro manual por email". Continua sem fingir sucesso.
+
+     Modelo do arquivo e instruções: api/rota-config.exemplo.php
      --------------------------------------------------------------------------- */
-  var ESP_ENDPOINT = '';
+  var ESP_ENDPOINT = '/api/inscrever.php';
 
   /* ---------------------------------------------------------------------------
      ESP_MODO — como os dados viajam no POST. Dois valores possíveis:
@@ -95,8 +108,12 @@
                       lê JSON.
 
      Na dúvida, deixe 'form-data'.
+
+     Aqui está 'json' porque o endpoint é o nosso api/inscrever.php, que lê
+     JSON. Ele também aceita form-data, então trocar não quebra — mas não há
+     motivo para trocar.
      --------------------------------------------------------------------------- */
-  var ESP_MODO = 'form-data';
+  var ESP_MODO = 'json';
 
   /* ---------------------------------------------------------------------------
      GA4_ID — identificador de medição do Google Analytics 4, no formato
@@ -806,14 +823,41 @@
       return;
     }
 
+    // Sentinela para o caso "servidor no ar, mas Brevo ainda não configurado".
+    var NAO_CONFIGURADO = { rcfNaoConfigurado: true };
+
     requisicao
       .then(function (resp) {
+        // 503 com {"configurar": true} vem do nosso api/inscrever.php quando o
+        // rota-config.php ainda não existe no servidor, ou quando a chave do
+        // Brevo foi recusada. Não é falha de rede nem erro da pessoa, então não
+        // mostramos mensagem de erro: caímos no mesmo modo de cadastro manual
+        // usado quando não há endpoint nenhum.
+        if (resp.status === 503) {
+          return resp.json()
+            .catch(function () { return null; })
+            .then(function (corpo) {
+              if (corpo && corpo.configurar) return NAO_CONFIGURADO;
+              throw new Error('HTTP 503');
+            });
+        }
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
         return conferirCorpo(resp);
       })
-      .then(function () {
+      .then(function (resultado) {
         if (idTimeout) window.clearTimeout(idTimeout);
         botaoOcupado(btn, false);
+
+        if (resultado === NAO_CONFIGURADO) {
+          console.warn(
+            '[Rota] api/inscrever.php respondeu que o Brevo não está configurado. ' +
+            'Crie o rota-config.php um nível acima da public_html ' +
+            '(modelo em api/rota-config.exemplo.php). Usando cadastro manual por email.'
+          );
+          fallbackMailto(form, dados);
+          return;
+        }
+
         limparErroCampo(inputEmail);
         concluirComSucesso(form, dados);
       })

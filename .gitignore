@@ -27,6 +27,10 @@ dist/
 .env
 .env.deploy
 
+# Configuração com a chave da API do Brevo. O arquivo real mora um nível acima
+# da public_html, no servidor — nunca aqui. Só o modelo .exemplo.php é versionado.
+rota-config.php
+
 # Zip de deploy é regenerado
 deploy-rotacomfamilia.zip
 

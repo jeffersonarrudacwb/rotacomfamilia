@@ -27,6 +27,9 @@ ARQUIVOS = [
     "script.js",
     "assets/tailwind.css",
     "assets/rota-forms.js",
+    # Ponte de inscricao no Brevo. A chave de API NAO vem daqui: fica em
+    # rota-config.php, um nivel acima da public_html, fora do deploy.
+    "api/inscrever.php",
     # Configuracao do servidor e SEO
     ".htaccess",
     "robots.txt",

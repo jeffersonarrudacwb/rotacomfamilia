@@ -43,6 +43,18 @@ jobs:
       - name: Compilar o CSS
         run: npm run build:css
 
+      # O ambiente de desenvolvimento não tem PHP, então um erro de sintaxe em
+      # api/inscrever.php só apareceria como erro 500 depois de publicado —
+      # justamente no formulário de captura de leads. O runner já tem PHP.
+      - name: Conferir a sintaxe do PHP
+        run: |
+          php --version | head -1
+          erros=0
+          for arquivo in $(find . -name '*.php' -not -path './node_modules/*'); do
+            if php -l "$arquivo"; then :; else erros=1; fi
+          done
+          exit $erros
+
       - name: Preparar Python
         uses: actions/setup-python@v5
         with:
