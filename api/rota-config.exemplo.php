@@ -7,17 +7,29 @@
  * 1. No cPanel, abra o Gerenciador de Arquivos e marque "Mostrar arquivos
  *    ocultos" nas configurações.
  *
- * 2. Vá para a pasta que CONTÉM a public_html — normalmente /home/SEU_USUARIO.
- *    É um nível ACIMA do site. Isso é de propósito: nada aí é acessível pelo
- *    navegador, e o deploy por FTP só escreve dentro de public_html, então
- *    nenhuma publicação vai sobrescrever este arquivo.
+ * 2. Vá para a pasta HOME da conta — no nosso caso /home2/jeffe095.
+ *
+ *    Atenção: rotacomfamilia.com.br é um domínio ADICIONAL no cPanel, então o
+ *    site NÃO fica em public_html. O layout real é:
+ *
+ *        /home2/jeffe095/
+ *        ├── rota-config.php              <- o arquivo vai AQUI
+ *        ├── public_html/                 <- outro site da conta
+ *        └── rotacomfamilia.com.br/       <- nosso site (raiz do FTP de deploy)
+ *            └── api/inscrever.php        <- lê a chave em ../../
+ *
+ *    A pasta home não é raiz de nenhum site, então nada ali é alcançável pelo
+ *    navegador. E o usuário de FTP do deploy está preso dentro de
+ *    rotacomfamilia.com.br/, então nenhuma publicação sobrescreve este arquivo.
  *
  * 3. Crie ali um arquivo chamado exatamente:
  *        rota-config.php
  *
  * 4. Copie o conteúdo daqui para dentro dele e preencha os valores reais.
  *
- * NUNCA coloque este arquivo preenchido dentro de public_html, e nunca o
+ * 5. Deixe a permissão em 0600 (só o dono lê).
+ *
+ * NUNCA coloque este arquivo preenchido dentro da pasta do site, e nunca o
  * comite no Git. O .gitignore já bloqueia o nome rota-config.php.
  * -----------------------------------------------------------------------------
  */
