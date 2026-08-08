@@ -1,0 +1,96 @@
+name: Publicar site
+
+# Só roda quando você clica em "Run workflow". Nada vai para o ar sozinho.
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: 'O que fazer'
+        required: true
+        default: teste
+        type: choice
+        options:
+          - teste       # mostra o que subiria, sem enviar nada
+          - publicar    # envia de verdade
+
+# Se você clicar duas vezes, a segunda espera a primeira terminar.
+# Dois FTP simultâneos no mesmo diretório corrompem o estado.
+concurrency:
+  group: publicar-site
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    name: ${{ inputs.modo == 'publicar' && 'Enviar para a HostGator' || 'Teste (não envia nada)' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      # Recompila o CSS a partir do HTML atual. Garante que o que sobe está
+      # sempre em sincronia com as páginas, mesmo que alguém tenha editado o
+      # HTML sem rodar o build localmente.
+      - name: Compilar o CSS
+        run: npm run build:css
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Monta dist/ com a lista de arquivos publicáveis e falha se alguma
+      # foto bruta, arquivo de build ou segredo tentar entrar.
+      - name: Montar a pasta de publicação
+        run: python scripts/gerar-deploy.py --dist
+
+      - name: Listar o que será enviado
+        run: |
+          echo "### Arquivos em dist/" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          find dist -type f | sed 's|^dist/||' | sort >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Total:** $(find dist -type f | wc -l) arquivos, $(du -sh dist | cut -f1)" >> $GITHUB_STEP_SUMMARY
+
+      # Envia só o que mudou. O próprio action guarda um arquivo de estado no
+      # servidor para saber a diferença — a primeira execução sobe tudo, as
+      # seguintes costumam levar poucos segundos.
+      - name: Enviar por FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./dist/
+          server-dir: ./
+          dry-run: ${{ inputs.modo == 'teste' }}
+          # Não apaga nada que já esteja no servidor fora da nossa lista.
+          dangerous-clean-slate: false
+          log-level: standard
+
+      - name: Resultado
+        run: |
+          if [ "${{ inputs.modo }}" = "publicar" ]; then
+            echo "## Publicado" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Confira em <https://rotacomfamilia.com.br>" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Se a página vier igual à anterior, é cache do navegador: Ctrl+F5." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## Teste concluído — nada foi enviado" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Confira a lista acima e o log do passo *Enviar por FTPS*." >> $GITHUB_STEP_SUMMARY
+            echo "Para publicar de verdade, rode de novo escolhendo **publicar**." >> $GITHUB_STEP_SUMMARY
+          fi

@@ -6,6 +6,8 @@ assets/img/, e as fotos originais so existem dentro dos PDFs dos ebooks,
 onde ja estao embutidas.
 """
 import os
+import shutil
+import sys
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,7 +56,25 @@ def coletar():
                 yield rel, caminho
 
 
-def main():
+PROIBIDOS = ("fotos/", "src/", "node_modules/", "scripts/", ".git")
+
+
+def conferir(nomes):
+    """Nada de foto bruta, arquivo de build ou segredo indo para o servidor."""
+    vazou = [n for n in nomes if n.startswith(PROIBIDOS)]
+    suspeitos = [n for n in nomes if os.path.basename(n) in
+                 (".env", ".env.deploy", "package.json", "package-lock.json",
+                  "tailwind.config.js", ".gitignore")]
+    problemas = vazou + suspeitos
+    if problemas:
+        print(f"\nERRO: {len(problemas)} arquivo(s) que nao deveriam ser publicados:")
+        for n in problemas[:10]:
+            print(f"  {n}")
+        raise SystemExit(1)
+    print("Conferido: sem fotos brutas, sem arquivos de build, sem segredos.")
+
+
+def montar_zip():
     if os.path.exists(DESTINO):
         os.remove(DESTINO)
 
@@ -68,19 +88,44 @@ def main():
     final = os.path.getsize(DESTINO)
     print(f"{len(itens)} arquivos | {bruto/1024/1024:.2f} MB em disco "
           f"-> {final/1024/1024:.2f} MB compactado")
-    print(f"{DESTINO}")
+    print(DESTINO)
 
-    # Conferencia: nada de fotos brutas nem arquivos de build no pacote
     with zipfile.ZipFile(DESTINO) as z:
-        nomes = z.namelist()
-    vazou = [n for n in nomes if n.startswith(("fotos/", "src/", "node_modules/", "scripts/"))]
-    if vazou:
-        print(f"\nATENCAO: {len(vazou)} arquivo(s) que nao deveriam estar no zip:")
-        for n in vazou[:10]:
-            print(f"  {n}")
-    else:
-        print("Conferido: sem fotos brutas, sem arquivos de build.")
+        conferir(z.namelist())
+
+
+def montar_dist():
+    """Copia os arquivos publicaveis para dist/, que e o que sobe por FTP.
+
+    Recria a pasta do zero a cada execucao para que um arquivo removido da
+    lista tambem desapareca daqui.
+    """
+    dist = os.path.join(ROOT, "dist")
+    if os.path.exists(dist):
+        shutil.rmtree(dist)
+
+    itens = list(coletar())
+    total = 0
+    for rel, origem in itens:
+        alvo = os.path.join(dist, rel.replace("/", os.sep))
+        os.makedirs(os.path.dirname(alvo), exist_ok=True)
+        shutil.copy2(origem, alvo)
+        total += os.path.getsize(origem)
+
+    print(f"{len(itens)} arquivos | {total/1024/1024:.2f} MB em dist/")
+    conferir([rel for rel, _ in itens])
+
+    # O .htaccess e oculto e alguns clientes de FTP o ignoram. Se ele nao
+    # subir, /ebooks para de funcionar sem o .html, os WebP saem com o tipo
+    # errado e o HTTPS deixa de ser forcado. Falha ruidosamente aqui.
+    if not os.path.exists(os.path.join(dist, ".htaccess")):
+        print("\nERRO: .htaccess nao entrou em dist/")
+        raise SystemExit(1)
+    print("Conferido: .htaccess presente em dist/")
 
 
 if __name__ == "__main__":
-    main()
+    if "--dist" in sys.argv:
+        montar_dist()
+    else:
+        montar_zip()

@@ -20,6 +20,13 @@ __pycache__/
 # Exceção: imagens otimizadas que o site realmente serve
 !assets/img/**
 
+# Pasta montada pelo deploy (regerada a cada publicação)
+dist/
+
+# Credenciais de FTP, se algum dia forem usadas localmente. Nunca versionar.
+.env
+.env.deploy
+
 # Zip de deploy é regenerado
 deploy-rotacomfamilia.zip
 
