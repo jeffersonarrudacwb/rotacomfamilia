@@ -1,0 +1,15 @@
+{
+  "name": "rotacomfamilia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional da Rota com Familia",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.src.css -o ./assets/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/tailwind.src.css -o ./assets/tailwind.css --watch",
+    "build:img": "python scripts/otimizar-imagens.py",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

@@ -9,45 +9,28 @@
   <meta property="og:title" content="Rota com Família" />
   <meta property="og:description" content="A rota mais inteligente para sua família viajar pelo mundo." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="fotos/Caribe/DJI_20251222112620_0004_D.JPG" />
+  <link rel="canonical" href="https://rotacomfamilia.com/" />
+  <meta property="og:url" content="https://rotacomfamilia.com/" />
+  <meta property="og:site_name" content="Rota com Família" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="https://rotacomfamilia.com/assets/img/og-default.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Jefferson, Kharol e Derek em viagem pelo Caribe" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://rotacomfamilia.com/assets/img/og-default.jpg" />
+
+
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              deep:   '#15170C',   // oliva-noite (bg base)
-              navy:   '#1F2113',   // oliva escuro
-              blue:   '#2A2C18',   // oliva-musgo
-              leaf:   '#6B7445',   // sálvia/musgo claro
-              fern:   '#A9B47E',   // sálvia clara
-              sky:    '#F4E4C1',   // papel pergaminho
-              azure:  '#E3B04B',   // âmbar mostarda
-              orange: '#D4A437',   // ouro mostarda (CTA — cor do canal)
-              flame:  '#B8732A',   // âmbar queimado (gradient)
-              cream:  '#FAF1DA'    // creme quente
-            }
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-            mono: ['"Space Grotesk"', 'monospace']
-          },
-          boxShadow: {
-            glow: '0 30px 80px -20px rgba(212,164,55,0.5)',
-            soft: '0 20px 60px -20px rgba(15,18,10,0.55)'
-          }
-        }
-      }
-    }
-  </script>
-
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="assets/img/hero-caribe-400.webp 400w, assets/img/hero-caribe-800.webp 800w, assets/img/hero-caribe-1200.webp 1200w, assets/img/hero-caribe-1600.webp 1600w"
+        imagesizes="100vw" href="assets/img/hero-caribe-1200.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="assets/tailwind.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-brand-deep text-white font-sans antialiased selection:bg-brand-orange selection:text-white">
@@ -103,10 +86,17 @@
   <section id="top" class="relative min-h-screen flex items-center overflow-hidden">
     <!-- Backdrop -->
     <div class="absolute inset-0 z-0">
-      <img id="hero-bg"
-           src="fotos/Caribe/DJI_20251222112620_0004_D.JPG"
-           alt="Família viajando ao pôr do sol"
-           class="h-full w-full object-cover scale-110" />
+      <picture>
+        <source type="image/webp" sizes="100vw" srcset="assets/img/hero-caribe-400.webp 400w, assets/img/hero-caribe-800.webp 800w, assets/img/hero-caribe-1200.webp 1200w, assets/img/hero-caribe-1600.webp 1600w" />
+        <img id="hero-bg"
+             src="assets/img/hero-caribe-1200.jpg"
+             srcset="assets/img/hero-caribe-400.jpg 400w, assets/img/hero-caribe-800.jpg 800w, assets/img/hero-caribe-1200.jpg 1200w, assets/img/hero-caribe-1600.jpg 1600w"
+             sizes="100vw"
+             width="1600" height="902"
+             alt="Família viajando ao pôr do sol"
+             fetchpriority="high" decoding="async"
+             class="h-full w-full object-cover scale-110" />
+      </picture>
       <div class="absolute inset-0 bg-gradient-to-b from-brand-deep/60 via-brand-deep/55 to-brand-deep"></div>
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,164,55,0.32),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(184,115,42,0.22),transparent_55%)]"></div>
     </div>
@@ -208,7 +198,15 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <article class="reveal post-card">
           <div class="post-media">
-            <img src="fotos/orlando/IMG_7613.jpg" alt="Família em frente ao castelo da Cinderella em Orlando" />
+            <picture>
+              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-orlando-400.webp 400w, assets/img/card-orlando-709.webp 709w" />
+              <img src="assets/img/card-orlando-709.jpg"
+                   srcset="assets/img/card-orlando-400.jpg 400w, assets/img/card-orlando-709.jpg 709w"
+                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                   width="709" height="945"
+                   alt="Família em frente ao castelo da Cinderella em Orlando"
+                   loading="lazy" decoding="async" />
+            </picture>
             <span class="post-tag">Relatos em família</span>
           </div>
           <div class="post-body">
@@ -220,7 +218,15 @@
 
         <article class="reveal post-card">
           <div class="post-media">
-            <img src="fotos/sala_vip/IMG_5235.jpg" alt="Sala VIP W Lounge no aeroporto de Guarulhos" />
+            <picture>
+              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-lounge-w-400.webp 400w, assets/img/card-lounge-w-800.webp 800w, assets/img/card-lounge-w-1200.webp 1200w" />
+              <img src="assets/img/card-lounge-w-1200.jpg"
+                   srcset="assets/img/card-lounge-w-400.jpg 400w, assets/img/card-lounge-w-800.jpg 800w, assets/img/card-lounge-w-1200.jpg 1200w"
+                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                   width="1200" height="900"
+                   alt="Sala VIP W Lounge no aeroporto de Guarulhos"
+                   loading="lazy" decoding="async" />
+            </picture>
             <span class="post-tag">Cartões & pontos</span>
           </div>
           <div class="post-body">
@@ -232,7 +238,15 @@
 
         <article class="reveal post-card">
           <div class="post-media">
-            <img src="fotos/sala_vip/IMG_8543.jpg" alt="Copa Club Star Alliance Gold no aeroporto" />
+            <picture>
+              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-lounge-copa-400.webp 400w, assets/img/card-lounge-copa-800.webp 800w, assets/img/card-lounge-copa-1200.webp 1200w" />
+              <img src="assets/img/card-lounge-copa-1200.jpg"
+                   srcset="assets/img/card-lounge-copa-400.jpg 400w, assets/img/card-lounge-copa-800.jpg 800w, assets/img/card-lounge-copa-1200.jpg 1200w"
+                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                   width="1200" height="900"
+                   alt="Copa Club Star Alliance Gold no aeroporto"
+                   loading="lazy" decoding="async" />
+            </picture>
             <span class="post-tag">Estratégias de milhas</span>
           </div>
           <div class="post-body">
@@ -244,7 +258,15 @@
 
         <article class="reveal post-card">
           <div class="post-media">
-            <img src="fotos/Caribe/IMG_6205.jpg" alt="Kharol e Jefferson na praia de Punta Cana" />
+            <picture>
+              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-puntacana-400.webp 400w, assets/img/card-puntacana-800.webp 800w, assets/img/card-puntacana-1200.webp 1200w" />
+              <img src="assets/img/card-puntacana-1200.jpg"
+                   srcset="assets/img/card-puntacana-400.jpg 400w, assets/img/card-puntacana-800.jpg 800w, assets/img/card-puntacana-1200.jpg 1200w"
+                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                   width="1200" height="900"
+                   alt="Kharol e Jefferson na praia de Punta Cana"
+                   loading="lazy" decoding="async" />
+            </picture>
             <span class="post-tag">Roteiros & destinos</span>
           </div>
           <div class="post-body">
@@ -256,7 +278,15 @@
 
         <article class="reveal post-card">
           <div class="post-media">
-            <img src="fotos/outras/IMG_7780.jpg" alt="Família e avós no check-in Azul com malas personalizadas" />
+            <picture>
+              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-familia-400.webp 400w, assets/img/card-familia-709.webp 709w" />
+              <img src="assets/img/card-familia-709.jpg"
+                   srcset="assets/img/card-familia-400.jpg 400w, assets/img/card-familia-709.jpg 709w"
+                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                   width="709" height="945"
+                   alt="Família e avós no check-in Azul com malas personalizadas"
+                   loading="lazy" decoding="async" />
+            </picture>
             <span class="post-tag">Dicas práticas</span>
           </div>
           <div class="post-body">
@@ -268,7 +298,15 @@
 
         <article class="reveal post-card">
           <div class="post-media">
-            <img src="fotos/Lisboa/IMG_0232.jpg" alt="Terreiro do Paço em Lisboa" />
+            <picture>
+              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-lisboa-400.webp 400w, assets/img/card-lisboa-800.webp 800w, assets/img/card-lisboa-1200.webp 1200w" />
+              <img src="assets/img/card-lisboa-1200.jpg"
+                   srcset="assets/img/card-lisboa-400.jpg 400w, assets/img/card-lisboa-800.jpg 800w, assets/img/card-lisboa-1200.jpg 1200w"
+                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                   width="1200" height="1600"
+                   alt="Terreiro do Paço em Lisboa"
+                   loading="lazy" decoding="async" />
+            </picture>
             <span class="post-tag">Voos baratos</span>
           </div>
           <div class="post-body">
@@ -637,17 +675,20 @@
                 <li class="flex items-center gap-2"><span class="check-dot"></span> Bônus: planilha de controle</li>
               </ul>
             </div>
-            <form class="grid gap-3">
+            <form class="grid gap-3" data-origem="newsletter-home">
               <label class="block">
-                <span class="text-xs uppercase tracking-wider text-white/60">Seu nome</span>
-                <input type="text" placeholder="Como prefere ser chamado" class="newsletter-input" required />
+                <span class="text-xs uppercase tracking-wider text-white/60">Seu nome <span class="normal-case tracking-normal text-white/40">(opcional)</span></span>
+                <input type="text" name="nome" autocomplete="given-name" placeholder="Como prefere ser chamado" class="newsletter-input" />
               </label>
               <label class="block">
                 <span class="text-xs uppercase tracking-wider text-white/60">Seu melhor email</span>
-                <input type="email" placeholder="voce@email.com" class="newsletter-input" required />
+                <input type="email" name="email" autocomplete="email" placeholder="voce@email.com" class="newsletter-input" required />
               </label>
               <button type="submit" class="btn-primary btn-lg justify-center">Quero o guia grátis</button>
-              <p class="text-xs text-white/50">Sem spam. Cancele quando quiser.</p>
+              <p class="text-xs text-white/50">
+                Sem spam. Cancele quando quiser. Ao enviar, você concorda com a nossa
+                <a href="privacidade.html" class="underline decoration-brand-orange/50 underline-offset-2 hover:text-white transition-colors">Política de Privacidade</a>.
+              </p>
             </form>
           </div>
         </div>
@@ -666,7 +707,15 @@
       <div class="grid lg:grid-cols-2 gap-14 items-center mb-24">
         <div class="reveal relative">
           <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-soft relative">
-            <img src="fotos/argentina/IMG_4258.JPG" alt="Nossa família em La Boca, Buenos Aires" class="h-full w-full object-cover" />
+            <picture>
+              <source type="image/webp" sizes="(max-width: 1023px) 100vw, 40vw" srcset="assets/img/sobre-argentina-400.webp 400w, assets/img/sobre-argentina-800.webp 800w, assets/img/sobre-argentina-1200.webp 1200w" />
+              <img src="assets/img/sobre-argentina-1200.jpg"
+                   srcset="assets/img/sobre-argentina-400.jpg 400w, assets/img/sobre-argentina-800.jpg 800w, assets/img/sobre-argentina-1200.jpg 1200w"
+                   sizes="(max-width: 1023px) 100vw, 40vw"
+                   width="1200" height="900"
+                   alt="Nossa família em La Boca, Buenos Aires"
+                   loading="lazy" decoding="async" class="h-full w-full object-cover" />
+            </picture>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent"></div>
             <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <div>
@@ -873,42 +922,60 @@
     </div>
   </section>
 
-  <!-- ============== DEPOIMENTOS ============== -->
+  <!-- ============== PROVA SOCIAL (dados reais do canal) ============== -->
   <section class="section-pad relative">
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#061A12] to-[#1F2113]"></div>
     <div class="max-w-7xl mx-auto px-5 sm:px-8">
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="reveal eyebrow">Histórias reais</span>
-        <h2 class="reveal section-title">Famílias que <span class="text-brand-orange">já mudaram</span> a forma de viajar.</h2>
+        <span class="reveal eyebrow">No ar toda semana</span>
+        <h2 class="reveal section-title">O que a gente <span class="text-brand-orange">já mostrou</span> no canal.</h2>
+        <p class="reveal mt-4 text-white/70">Vídeo novo por semana, gravado em 4K nas viagens de verdade. Estes são alguns dos mais assistidos.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <figure class="reveal testimonial">
-          <div class="flex items-center gap-3 mb-4">
-            <img src="https://i.pravatar.cc/100?img=47" alt="" class="h-12 w-12 rounded-full object-cover" />
-            <div><div class="font-semibold">Carolina M.</div><div class="text-xs text-white/60">Mãe de 2 — Porto Alegre</div></div>
-          </div>
-          <blockquote>"Em 6 meses saí do zero e levei minha família pra Orlando. Os cursos da Rota foram divisor de águas."</blockquote>
-          <div class="stars">★★★★★</div>
-        </figure>
+        <a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener" data-origem="prova-social" class="reveal portfolio-card">
+          <div class="portfolio-badge">YouTube</div>
+          <div class="portfolio-views">6.910+ visualizações</div>
+          <h3>Será que é perfeito pra famílias? Resort All Inclusive!</h3>
+          <p>Tour completo de um resort em Porto de Galinhas — café, almoço, jantar, prós, contras e onde dá pra economizar.</p>
+          <div class="portfolio-tag">Resort · Nordeste</div>
+        </a>
 
-        <figure class="reveal testimonial">
-          <div class="flex items-center gap-3 mb-4">
-            <img src="https://i.pravatar.cc/100?img=12" alt="" class="h-12 w-12 rounded-full object-cover" />
-            <div><div class="font-semibold">Rafael S.</div><div class="text-xs text-white/60">Pai e empreendedor — SP</div></div>
-          </div>
-          <blockquote>"A assessoria pagou-se 10 vezes só com a viagem da lua de mel. Atendimento humano e técnico."</blockquote>
-          <div class="stars">★★★★★</div>
-        </figure>
+        <a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener" data-origem="prova-social" class="reveal portfolio-card">
+          <div class="portfolio-badge">YouTube</div>
+          <div class="portfolio-views">2.153+ visualizações</div>
+          <h3>O jeito mais barato de sair do aeroporto de Santiago</h3>
+          <p>Comparamos todas as formas de sair do aeroporto, mostramos a mais barata e o apê que a gente achou.</p>
+          <div class="portfolio-tag">Chile · Santiago</div>
+        </a>
 
-        <figure class="reveal testimonial">
-          <div class="flex items-center gap-3 mb-4">
-            <img src="https://i.pravatar.cc/100?img=32" alt="" class="h-12 w-12 rounded-full object-cover" />
-            <div><div class="font-semibold">Luiza A.</div><div class="text-xs text-white/60">Família com 3 filhos — RJ</div></div>
+        <a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener" data-origem="prova-social" class="reveal portfolio-card">
+          <div class="portfolio-badge">YouTube</div>
+          <div class="portfolio-views">1.872+ visualizações</div>
+          <h3>Natal em Nova York com neve e orçamento enxuto</h3>
+          <p>Roteiro real de 5 dias em família — do desembarque a cada ponto que escolhemos visitar.</p>
+          <div class="portfolio-tag">EUA · Nova York</div>
+        </a>
+      </div>
+
+      <div class="reveal mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="grid grid-cols-3 gap-6 sm:gap-10">
+          <div>
+            <div class="font-display text-2xl sm:text-3xl font-bold text-brand-orange">~2 mil</div>
+            <div class="text-xs uppercase tracking-wider text-white/55 mt-1">Inscritos</div>
           </div>
-          <blockquote>"Os alertas de voos me avisaram de uma promoção que economizou R$ 9 mil em passagens. Surreal."</blockquote>
-          <div class="stars">★★★★★</div>
-        </figure>
+          <div>
+            <div class="font-display text-2xl sm:text-3xl font-bold text-brand-orange">2.9 mil+</div>
+            <div class="text-xs uppercase tracking-wider text-white/55 mt-1">Horas assistidas</div>
+          </div>
+          <div>
+            <div class="font-display text-2xl sm:text-3xl font-bold text-brand-orange">1 / semana</div>
+            <div class="text-xs uppercase tracking-wider text-white/55 mt-1">Vídeo novo</div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@Rotacomfamilia" target="_blank" rel="noopener" data-origem="prova-social" class="btn-primary whitespace-nowrap">
+          Inscrever-se no canal
+        </a>
       </div>
     </div>
   </section>
@@ -966,6 +1033,9 @@
             <li><a href="https://www.instagram.com/kharol.antunes/" target="_blank" rel="noopener">Instagram da Kharol</a></li>
             <li><a href="https://wa.me/5541988176413?text=Quero%20emitir%20uma%20passagem%20com%20a%20Rota" target="_blank" rel="noopener">Emitir passagem</a></li>
             <li><a href="mediakit.html">Mídia Kit · Parcerias</a></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termos.html">Termos de Uso</a></li>
+            <li><a href="#" data-abrir-cookies>Gerenciar cookies</a></li>
             <li><a href="mailto:contato@rotacomfamilia.com">contato@rotacomfamilia.com</a></li>
           </ul>
         </div>
@@ -1025,5 +1095,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="assets/rota-forms.js"></script>
 </body>
 </html>

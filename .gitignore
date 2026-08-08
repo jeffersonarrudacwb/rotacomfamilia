@@ -9,11 +9,16 @@ node_modules/
 __pycache__/
 *.pyc
 
-# Fotos pessoais da família (ficam locais; já embedadas nos PDFs)
+# Fotos brutas da família: ficam locais. As 8 usadas no site entram
+# otimizadas em assets/img/ (exceção logo abaixo); as demais só existem
+# dentro dos PDFs dos ebooks, onde já estão embutidas.
 *.jpg
 *.JPG
 *.jpeg
 *.png
+
+# Exceção: imagens otimizadas que o site realmente serve
+!assets/img/**
 
 # Zip de deploy é regenerado
 deploy-rotacomfamilia.zip
@@ -28,3 +33,6 @@ deploy-rotacomfamilia.zip
 *.MOV
 *.mp4
 *.MP4
+
+# Arquivos de lock do Word
+~$*

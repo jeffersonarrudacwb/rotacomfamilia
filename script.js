@@ -171,20 +171,10 @@
     });
   });
 
-  /* ---------- Newsletter form (placeholder submit) ---------- */
-  const newsletterForm = document.querySelector('#newsletter form');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = newsletterForm.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = '✓ Cheque seu email!';
-      btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-      newsletterForm.reset();
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '';
-      }, 3200);
-    });
-  }
+  /* ---------- Formulários ----------
+     O handler que existia aqui fingia sucesso: trocava o texto do botão para
+     "✓ Cheque seu email!" e descartava o lead. Foi removido.
+     A captura de email agora vive em assets/rota-forms.js, que envia de
+     verdade — e, enquanto o provedor não estiver configurado, diz isso em vez
+     de inventar uma confirmação. */
 })();

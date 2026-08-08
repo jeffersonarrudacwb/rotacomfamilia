@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Arquivos de build e origem não precisam ser rastreados
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /fotos/
+
+Sitemap: https://rotacomfamilia.com/sitemap.xml
