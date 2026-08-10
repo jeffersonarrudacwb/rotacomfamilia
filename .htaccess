@@ -81,6 +81,16 @@
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
+  # -------------------------------------------------------------------------
+  # O blog é um WordPress em /blog/, com .htaccess próprio. Daqui para baixo,
+  # nada deve tocar nas URLs dele. Esta linha para o processamento das regras
+  # deste arquivo para qualquer caminho que comece com /blog.
+  #
+  # Fica DEPOIS das duas regras acima de propósito: HTTPS e remoção de www
+  # devem valer para o blog também.
+  # -------------------------------------------------------------------------
+  RewriteRule ^blog(/|$) - [L]
+
   # URL sem .html: /ebooks serve ebooks.html
   #
   # Duas mudancas em relacao a versao anterior, ambas por causa de um 403 real
@@ -103,10 +113,22 @@ ErrorDocument 404 /index.html
 # Sem listagem de diretório
 Options -Indexes
 
-# O Apache, por padrão, redireciona /pasta para /pasta/ ANTES de a reescrita
-# acima rodar. Se existir uma pasta com o mesmo nome de uma página, esse
-# redirecionamento vence a regra e o resultado é 403. Desligar é seguro aqui
-# porque o Options -Indexes já impede qualquer listagem de diretório.
-<IfModule mod_dir.c>
-  DirectorySlash Off
-</IfModule>
+# -----------------------------------------------------------------------------
+# Nota sobre DirectorySlash
+#
+# Aqui existia um "DirectorySlash Off". Ele entrou para resolver um 403 real em
+# /ebooks e /mediakit, quando havia as pastas ebooks/ e mediakit/ ao lado das
+# páginas ebooks.html e mediakit.html: o Apache redirecionava /ebooks para
+# /ebooks/, tentava listar a pasta e o Options -Indexes devolvia 403.
+#
+# Foi removido por dois motivos:
+#
+# 1. A causa não existe mais. Os PDFs foram para downloads/, e hoje nenhuma
+#    pasta publicada (api, assets, downloads) tem o nome de uma página.
+# 2. Ele quebraria o blog. As URLs do WordPress são todas em forma de
+#    diretório (/blog/, /blog/categoria/brasil/). Sem o redirecionamento de
+#    barra final, o caminho base fica errado e os links relativos quebram.
+#
+# Se algum dia voltar a existir uma pasta com o mesmo nome de uma página, a
+# correção certa é renomear a pasta — não desligar o DirectorySlash.
+# -----------------------------------------------------------------------------
