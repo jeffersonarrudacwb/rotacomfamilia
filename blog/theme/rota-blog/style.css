@@ -1,0 +1,288 @@
+/*
+Theme Name: Rota com Família — Blog
+Theme URI: https://rotacomfamilia.com.br/blog
+Description: Tema-filho do Twenty Twenty-Five com a identidade visual do site Rota com Família. Cromo escuro no cabeçalho e rodapé, superfície de leitura clara. Playfair Display nos títulos, Inter no corpo, hospedadas localmente.
+Author: Rota com Família
+Author URI: https://rotacomfamilia.com.br
+Template: twentytwentyfive
+Version: 1.0.0
+Requires at least: 6.7
+Tested up to: 7.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rota-blog
+Tags: blog, block-patterns, full-site-editing
+*/
+
+/* =============================================================================
+   O grosso da aparência está no theme.json, que é o lugar certo: de lá o
+   WordPress gera as variáveis CSS e o Editor de Site consegue oferecer as
+   opções para a Kharol mexer visualmente.
+
+   Este arquivo cobre só o que o theme.json não alcança.
+   ============================================================================= */
+
+
+/* -----------------------------------------------------------------------------
+   Cromo escuro: cabeçalho e rodapé
+   O site é escuro; o artigo é claro. A continuidade visual entre os dois vem
+   daqui, e o texto longo ganha uma superfície confortável de ler.
+   -------------------------------------------------------------------------- */
+.rota-chrome {
+  background-color: var(--wp--preset--color--deep);
+  color: var(--wp--preset--color--cream);
+}
+
+.rota-chrome a {
+  color: var(--wp--preset--color--cream);
+  text-decoration: none;
+}
+
+.rota-chrome a:hover {
+  color: var(--wp--preset--color--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* O ponto dourado do logo, igual ao do site: Rota[.]com Família */
+.rota-marca .rota-ponto {
+  color: var(--wp--preset--color--gold);
+}
+
+/* Faixa dourada fina separando o cabeçalho do conteúdo */
+.rota-chrome-topo {
+  border-bottom: 3px solid var(--wp--preset--color--gold);
+}
+
+
+/* -----------------------------------------------------------------------------
+   Menu do site dentro do blog
+   Os links apontam para o site estático (rotacomfamilia.com.br), então a pessoa
+   circula entre blog e site sem perceber a troca de sistema.
+   -------------------------------------------------------------------------- */
+.rota-menu .wp-block-navigation-item__content {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+  color: var(--wp--preset--color--cream);
+  text-decoration: none;
+}
+
+.rota-menu .wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--gold);
+  border-bottom-color: var(--wp--preset--color--gold);
+  text-decoration: none;
+}
+
+/* Página atual em destaque: a pessoa precisa saber onde está */
+.rota-menu .current-menu-item > .wp-block-navigation-item__content {
+  color: var(--wp--preset--color--gold);
+  border-bottom-color: var(--wp--preset--color--gold);
+}
+
+/* O botão de abrir o menu no celular */
+.rota-menu .wp-block-navigation__responsive-container-open,
+.rota-menu .wp-block-navigation__responsive-container-close {
+  color: var(--wp--preset--color--cream);
+}
+
+/* -----------------------------------------------------------------------------
+   Menu aberto no celular
+   O padrão do bloco de navegação abre com fundo claro. Como os links do
+   cabeçalho são cor de creme, ficariam invisíveis sobre branco. Forçamos o
+   mesmo oliva do cromo.
+   -------------------------------------------------------------------------- */
+.rota-menu .wp-block-navigation__responsive-container.is-menu-open {
+  background-color: var(--wp--preset--color--deep);
+  color: var(--wp--preset--color--cream);
+  padding-top: 4rem;
+}
+
+.rota-menu .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-item__content {
+  color: var(--wp--preset--color--cream);
+  font-size: 1.15rem;
+  border-bottom: none;
+}
+
+.rota-menu .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation__container {
+  gap: 1rem;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Tipografia do artigo
+   Ajustes que fazem diferença em texto longo e que o theme.json não expressa.
+   -------------------------------------------------------------------------- */
+
+/* Título não deve quebrar deixando uma palavra órfã na última linha */
+h1, h2, h3,
+.wp-block-post-title {
+  text-wrap: balance;
+}
+
+/* Espaço extra antes de subtítulo, para o texto respirar por seção */
+.wp-block-post-content h2 {
+  margin-top: 2.75rem;
+}
+
+.wp-block-post-content h3 {
+  margin-top: 2rem;
+}
+
+/* Primeiro parágrafo do artigo um pouco maior: convida a começar a leitura */
+.wp-block-post-content > p:first-of-type {
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: var(--wp--preset--color--contrast);
+}
+
+/* Listas com respiro entre itens */
+.wp-block-post-content ul li,
+.wp-block-post-content ol li {
+  margin-bottom: 0.5rem;
+}
+
+/* Imagem do artigo com canto suave e legenda centralizada */
+.wp-block-post-content img,
+.wp-block-post-featured-image img {
+  border-radius: 0.5rem;
+}
+
+/* Números alinhados em tabela (preço, milhas, datas) */
+table {
+  font-variant-numeric: tabular-nums;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Tabela larga rola dentro do próprio bloco, nunca joga a página pro lado */
+.wp-block-table {
+  overflow-x: auto;
+}
+
+.wp-block-table th {
+  background-color: var(--wp--preset--color--deep);
+  color: var(--wp--preset--color--cream);
+  font-family: var(--wp--preset--font-family--sans);
+  font-weight: 600;
+  text-align: left;
+}
+
+.wp-block-table th,
+.wp-block-table td {
+  border: 1px solid var(--wp--preset--color--rule);
+  padding: 0.6rem 0.8rem;
+}
+
+.wp-block-table tbody tr:nth-child(odd) td {
+  background-color: var(--wp--preset--color--base-2);
+}
+
+
+/* -----------------------------------------------------------------------------
+   Cartões da listagem de posts
+   -------------------------------------------------------------------------- */
+.rota-card {
+  border: 1px solid var(--wp--preset--color--rule);
+  border-radius: 0.75rem;
+  background-color: #fff;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.rota-card:hover {
+  border-color: var(--wp--preset--color--gold);
+  transform: translateY(-2px);
+}
+
+.rota-card .wp-block-post-title a {
+  text-decoration: none;
+  color: var(--wp--preset--color--contrast);
+}
+
+.rota-card .wp-block-post-title a:hover {
+  color: var(--wp--preset--color--gold-ink);
+}
+
+/* Metadados do post (data, categoria) em caixa alta discreta */
+.rota-meta {
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--contrast-2);
+}
+
+.rota-meta a {
+  color: var(--wp--preset--color--gold-ink);
+  text-decoration: none;
+}
+
+.rota-meta a:hover {
+  text-decoration: underline;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Acessibilidade
+   -------------------------------------------------------------------------- */
+
+/* Foco de teclado sempre visível, inclusive sobre o cromo escuro */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.wp-block-button__link:focus-visible {
+  outline: 2px solid var(--wp--preset--color--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.rota-chrome a:focus-visible {
+  outline-color: var(--wp--preset--color--gold);
+}
+
+/* Quem pediu menos movimento no sistema não recebe animação nenhuma */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .rota-card:hover {
+    transform: none;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   Impressão: artigo de viagem é conteúdo que gente imprime pra levar
+   -------------------------------------------------------------------------- */
+@media print {
+  .rota-chrome,
+  .wp-block-post-comments-form,
+  .rota-menu {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  /* Mostra o destino do link, que no papel se perde */
+  .wp-block-post-content a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    word-break: break-all;
+  }
+}

@@ -1,0 +1,68 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"3rem"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="padding-top:3rem">
+
+	<!-- wp:post-terms {"term":"category","className":"rota-meta","style":{"spacing":{"margin":{"bottom":"0.75rem"}}}} /-->
+
+	<!-- wp:post-title {"level":1,"fontSize":"xx-large","style":{"spacing":{"margin":{"bottom":"1rem"}}}} /-->
+
+	<!-- wp:post-date {"className":"rota-meta","format":"j \\d\\e F, Y","style":{"spacing":{"margin":{"bottom":"2.25rem"}}}} /-->
+
+	<!-- wp:post-featured-image {"align":"wide","aspectRatio":"16/9","style":{"spacing":{"margin":{"bottom":"2.5rem"}},"border":{"radius":"0.5rem"}}} /-->
+
+	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+	<!-- wp:separator {"className":"is-style-wide","style":{"spacing":{"margin":{"top":"3.5rem","bottom":"2.5rem"}}}} -->
+	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" style="margin-top:3.5rem;margin-bottom:2.5rem"/>
+	<!-- /wp:separator -->
+
+	<!-- wp:group {"style":{"color":{"background":"#EFEBDC"},"spacing":{"padding":{"top":"1.75rem","right":"1.75rem","bottom":"1.75rem","left":"1.75rem"}},"border":{"radius":"0.75rem","left":{"color":"#D4A437","width":"3px"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group has-background" style="border-left-color:#D4A437;border-left-width:3px;border-radius:0.75rem;background-color:#EFEBDC;padding-top:1.75rem;padding-right:1.75rem;padding-bottom:1.75rem;padding-left:1.75rem">
+
+		<!-- wp:heading {"level":2,"fontSize":"large","style":{"spacing":{"margin":{"top":"0","bottom":"0.5rem"}}}} -->
+		<h2 class="wp-block-heading has-large-font-size" style="margin-top:0;margin-bottom:0.5rem">Quer que a gente emita a sua próxima viagem?</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"fontSize":"small","style":{"color":{"text":"#4A4B3C"}}} -->
+		<p class="has-text-color has-small-font-size" style="color:#4A4B3C">O Jefferson emite passagens com milhas para outras famílias todo mês, nacional e internacional. Orçamento fechado combinado antes, e nunca pedimos senha de banco ou de programa de milhas.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1.25rem"}}}} -->
+		<div class="wp-block-buttons" style="margin-top:1.25rem">
+			<!-- wp:button -->
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://rotacomfamilia.com.br/assessoria">Ver como funciona</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"style":{"spacing":{"margin":{"top":"3rem"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group" style="margin-top:3rem">
+
+		<!-- wp:heading {"level":2,"fontSize":"large"} -->
+		<h2 class="wp-block-heading has-large-font-size">Continue lendo</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":1,"offset":0,"postType":"post","order":"desc","orderBy":"date","exclude":[],"inherit":false},"layout":{"type":"default"}} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"14rem"},"style":{"spacing":{"blockGap":{"top":"1.25rem","left":"1.25rem"}}}} -->
+				<!-- wp:group {"className":"rota-card","style":{"spacing":{"padding":{"top":"1.1rem","right":"1.1rem","bottom":"1.25rem","left":"1.1rem"},"blockGap":"0.5rem"}},"layout":{"type":"default"}} -->
+				<div class="wp-block-group rota-card" style="padding-top:1.1rem;padding-right:1.1rem;padding-bottom:1.25rem;padding-left:1.1rem">
+					<!-- wp:post-terms {"term":"category","className":"rota-meta"} /-->
+					<!-- wp:post-title {"isLink":true,"level":3,"fontSize":"medium"} /-->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->
