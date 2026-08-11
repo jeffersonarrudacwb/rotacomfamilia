@@ -6,4 +6,24 @@ Disallow: /src/
 Disallow: /scripts/
 Disallow: /fotos/
 
+# -----------------------------------------------------------------------------
+# Blog (WordPress em /blog/)
+#
+# Rastreador só lê o robots.txt da RAIZ do domínio. O WordPress gera um
+# robots.txt próprio, mas ele responderia em /blog/robots.txt e nunca seria
+# lido. Por isso as regras dele precisam morar aqui.
+# -----------------------------------------------------------------------------
+Disallow: /blog/wp-admin/
+Allow: /blog/wp-admin/admin-ajax.php
+
+# Busca interna gera infinitas URLs sem valor de indexação
+Disallow: /blog/?s=
+Disallow: /blog/search/
+
+# Endpoints que não são conteúdo
+Disallow: /blog/wp-json/
+Disallow: /blog/xmlrpc.php
+Disallow: /blog/wp-login.php
+
 Sitemap: https://rotacomfamilia.com.br/sitemap.xml
+Sitemap: https://rotacomfamilia.com.br/blog/sitemap_index.xml

@@ -306,6 +306,28 @@ picture {
   letter-spacing: 0.05em;
 }
 
+/* Os seis cards descrevem textos que ainda não foram publicados. Antes eles
+   exibiam autor e tempo de leitura, o que fazia parecer que já estavam no ar.
+   Este selo diz o estado real, e some quando o artigo existir de verdade. */
+.post-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(212, 164, 55, 0.12);
+  border: 1px solid rgba(212, 164, 55, 0.28);
+  color: var(--orange);
+  font-weight: 600;
+}
+.post-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
 /* ============== PRODUCT CARDS ============== */
 .product-card {
   position: relative;
