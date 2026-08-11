@@ -71,44 +71,27 @@ add_filter('excerpt_more', function () {
  */
 add_filter('get_the_archive_title_prefix', '__return_empty_string');
 
-/**
- * Aviso no painel se as fontes locais não estiverem instaladas.
+/*
+ * NOTA SOBRE AS FONTES
  *
- * O theme.json aponta para arquivos em assets/fonts/. Se eles não existirem, o
- * blog continua funcionando com Georgia e a fonte do sistema — não quebra, mas
- * deixa de parecer com o site. Um aviso visível evita que isso passe batido
- * por meses.
+ * Playfair Display e Inter NÃO são carregadas por este tema. Elas vêm da
+ * Biblioteca de Fontes do WordPress (Aparência → Fontes), que baixa os
+ * arquivos uma vez e os serve de wp-content/uploads/fonts/. Continuam
+ * hospedadas no nosso servidor: nenhuma chamada ao Google em tempo de
+ * execução, o que mantém a conformidade com a LGPD.
+ *
+ * A primeira versão deste tema declarava as fontes no theme.json com caminhos
+ * relativos (file:./assets/fonts/...). Não funcionou: num tema-filho, o
+ * WordPress resolveu esses caminhos contra a pasta do tema PAI, gerando cinco
+ * @font-face apontando para arquivos que nunca existiriam. As declarações
+ * foram removidas.
+ *
+ * O theme.json continua declarando as famílias (slugs serif/sans/mono), porque
+ * é delas que saem as variáveis --wp--preset--font-family--* usadas nos
+ * templates. O @font-face casa por NOME da família, não por slug — então
+ * "Playfair Display" no theme.json encontra o @font-face que a Biblioteca
+ * publica com esse mesmo nome.
+ *
+ * Se um dia as fontes sumirem do site, o lugar de olhar é
+ * Aparência → Fontes → Biblioteca, não este arquivo.
  */
-add_action('admin_notices', function () {
-    if (!current_user_can('manage_options')) {
-        return;
-    }
-
-    $pasta = get_stylesheet_directory() . '/assets/fonts/';
-    $necessarias = [
-        'playfair-display-700.woff2',
-        'playfair-display-800.woff2',
-        'inter-400.woff2',
-        'inter-600.woff2',
-        'inter-700.woff2',
-    ];
-
-    $faltando = [];
-    foreach ($necessarias as $arquivo) {
-        if (!file_exists($pasta . $arquivo)) {
-            $faltando[] = $arquivo;
-        }
-    }
-
-    if (empty($faltando)) {
-        return;
-    }
-
-    echo '<div class="notice notice-warning"><p><strong>Rota com Família:</strong> ';
-    echo esc_html(count($faltando)) . ' arquivo(s) de fonte não encontrado(s) em ';
-    echo '<code>wp-content/themes/rota-blog/assets/fonts/</code>. ';
-    echo 'O blog está funcionando, mas usando fontes de reserva — a tipografia não ';
-    echo 'está igual à do site. Faltando: <code>';
-    echo esc_html(implode('</code>, <code>', $faltando));
-    echo '</code>.</p></div>';
-});
