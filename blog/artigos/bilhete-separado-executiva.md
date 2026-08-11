@@ -1,6 +1,6 @@
-# Executiva dos EUA por 147 mil milhas: como funciona o bilhete separado
+# Executiva dos EUA por 147 mil milhas: montamos a viagem trecho a trecho
 
-> Pronto para publicar. Só confira os dois pontos marcados com `⟦…⟧` antes.
+> Pronto para publicar. Confira os pontos marcados com `⟦…⟧` antes.
 
 ---
 
@@ -8,111 +8,149 @@
 
 | Campo | Valor |
 |---|---|
-| **Título** | Executiva dos EUA por 147 mil milhas: como funciona o bilhete separado |
-| **Slug** | `bilhete-separado-executiva-eua` |
+| **Título** | Executiva dos EUA por 147 mil milhas: montamos a viagem trecho a trecho |
+| **Slug** | `executiva-eua-bilhete-separado` |
 | **Categoria** | Milhas e Cartões |
-| **Frase-chave (Yoast)** | bilhete separado milhas |
-| **Título SEO** | Executiva dos EUA por 147 mil milhas: o bilhete separado |
-| **Meta descrição** | Voltamos de Orlando em classe executiva emitindo dois bilhetes em vez de um. Mostramos a conta, o método e o risco que quase ninguém explica. |
-| **Resumo** | Emitir a volta em dois bilhetes separados abriu disponibilidade de executiva que não aparecia numa busca só. Aqui está a conta aberta e o risco que vem junto. |
-| **Imagem destacada** | Sugestão: `fotos/sala_vip/IMG_8543.jpg` (Copa Club). ⟦Confirmar se essa foto é de um voo da Copa mesmo⟧ |
+| **Frase-chave (Yoast)** | emitir passagem em trechos separados |
+| **Título SEO** | Executiva dos EUA por 147 mil milhas: trecho a trecho |
+| **Meta descrição** | Sete voos, quatro companhias e três programas para levar a família aos EUA e voltar de executiva. A conta aberta e o risco que quase ninguém explica. |
+| **Resumo** | Nenhum dos sete voos foi comprado junto. Cada trecho foi emitido no programa onde estava mais barato — e a volta saiu de executiva. Aqui está a conta inteira. |
+| **Imagem destacada** | Sugestão: `fotos/sala_vip/IMG_8543.jpg` (Copa Club). ⟦Confirmar se é de um voo da Copa⟧ |
 
 ---
 
 ## Corpo do artigo
 
-Voltamos de Orlando para o Brasil em classe executiva usando **147 mil milhas
-por pessoa**. Não foi promoção nem sorte: foi emitir a volta em **dois bilhetes
-separados** em vez de um só.
+Levamos os três — eu, a Kharol e o Derek — de Curitiba a Orlando, passando por
+Los Angeles e Minneapolis, e voltamos em **classe executiva**.
 
-É uma técnica simples de entender e trabalhosa de executar — e tem um risco
-que quase ninguém menciona. Vou mostrar as três coisas.
+Nenhum desses voos foi comprado junto com outro. Foram **sete trechos
+emitidos separadamente**, em quatro companhias diferentes e três programas de
+milhas. A volta de executiva sozinha custou **147 mil milhas por pessoa**.
 
-## O problema de procurar o trecho inteiro
+Este texto abre a conta inteira: cada trecho, cada programa, as taxas, de onde
+vieram as milhas e o risco que essa estratégia carrega — que é a parte que
+quase ninguém conta.
 
-Quando você pesquisa "Orlando → Curitiba" de uma vez, o sistema só mostra o
-que tem **disponibilidade de prêmio em todas as pernas ao mesmo tempo**.
+## A viagem inteira, trecho a trecho
 
-Basta uma perna sem assento liberado para o itinerário inteiro sumir da busca.
-Você conclui que "não tem executiva" — quando na verdade tem, só não tem tudo
-junto, no mesmo dia, no mesmo programa.
+| Trecho | Classe | Companhia | Emitido por | Milhas/pessoa | Taxas |
+|---|---|---|---|---|---|
+| CWB → GRU | Econômica | Latam | Latam Pass | 2.600 | R$ 43 |
+| GRU → LAX | Econômica | Latam | Latam Pass | 46.400 | R$ 250 |
+| LAX → MSP | Econômica | **United** | **TudoAzul** | 18.000 | R$ 44 |
+| MSP → MCO | Econômica | **American** | **Smiles** | 27.500 | ⟦n/d⟧ |
+| MCO → PTY | **Executiva** | Copa | TudoAzul | 42.000 | R$ 160 |
+| PTY → CNF | **Executiva** | Copa | Smiles | 105.000 | ⟦n/d⟧ |
+| CNF → CWB | Econômica | Latam | Latam Pass | 11.000 | R$ 30 |
+| | | | **Total** | **252.500** | **R$ 527+** |
+
+Repare em duas linhas do meio. **Voamos pela United emitindo pela Azul.**
+**Voamos pela American emitindo pela Smiles.** Não é erro de digitação: cada
+programa tem acordo com companhias diferentes, e o assento que está caro num
+lugar pode estar barato em outro.
+
+Somando por programa, ficou quase equilibrado:
+
+- **Smiles** — 132.500
+- **Latam Pass** — 60.000
+- **TudoAzul** — 60.000
+
+Para a família de três: **757.500 milhas** no total.
+
+⟦Conferir o CNF → CWB: você me disse antes que esse trecho costuma sair por
+4 mil na Latam ou 6 mil na Azul, e depois encontrou 11 mil. Os 11 mil foram o
+que você pagou de fato? Se sim, vale até comentar no texto que essa perna
+ficou acima do normal.⟧
+
+## Por que sete bilhetes e não um
+
+Quando você pesquisa "Curitiba → Orlando" de uma vez, o sistema só mostra o
+que tem **disponibilidade de prêmio em todas as pernas ao mesmo tempo**, dentro
+de um único programa.
+
+Basta uma perna sem assento liberado para o itinerário inteiro sumir. Você
+conclui que "não tem passagem" — quando na verdade tem, só não tem tudo junto,
+no mesmo dia, no mesmo programa.
 
 A saída é parar de procurar a viagem e passar a procurar **cada perna
-separadamente**, em programas diferentes se for preciso.
+separadamente**, consultando o mesmo trecho em mais de um programa antes de
+emitir.
 
-## Como ficou a nossa volta
+Dá mais trabalho. É o que fez a executiva caber.
 
-Estávamos em Minneapolis, na formatura do meu irmão, e emendamos Orlando. A
-ida foi simples. A volta é a parte que interessa:
-
-| Trecho | Classe | Companhia | Emitido por | Milhas por pessoa |
-|---|---|---|---|---|
-| MSP → MCO | Econômica | American | Smiles | 27.500 |
-| MCO → PTY | **Executiva** | Copa | TudoAzul | 42.000 |
-| PTY → CNF | **Executiva** | Copa | Smiles | 105.000 |
-| CNF → CWB | Econômica | — | Azul ou Smiles | ~6.000 |
-
-Repare no detalhe: os dois trechos de executiva são **da mesma companhia**, a
-Copa, conectando no hub dela, no Panamá. Mas foram emitidos por **programas
-diferentes** — um pela TudoAzul, outro pela Smiles.
-
-Isso é o centro da técnica. O mesmo assento, no mesmo avião, custa preços
-diferentes dependendo do programa pelo qual você emite. Procurar em um
-programa só é deixar dinheiro na mesa.
-
-⟦Se tiver uma foto da cabine ou do embarque da Copa, entra bem aqui. Texto
-alternativo: descrever o que aparece.⟧
+⟦Se tiver foto da cabine da Copa ou do embarque, entra bem aqui.⟧
 
 ## O risco que vem junto — leia antes de tentar
 
-Dois bilhetes separados são **dois contratos separados**. Isso tem uma
-consequência séria:
+Bilhetes separados são **contratos separados**. Isso tem uma consequência
+séria:
 
-**Se o primeiro voo atrasar e você perder o segundo, a companhia não te deve
-nada.** Não há reacomodação, não há reembolso, não há hotel. Para efeito de
-contrato, você simplesmente não apareceu para embarcar.
+**Se um voo atrasar e você perder o seguinte, a companhia não te deve nada.**
+Não há reacomodação, não há reembolso, não há hotel. Para efeito de contrato,
+você simplesmente não apareceu para embarcar.
 
-Num bilhete único, se a conexão é perdida por culpa da companhia, ela é
-obrigada a te reacomodar. No bilhete separado, esse direito não existe.
+Num bilhete único, conexão perdida por culpa da companhia obriga a
+reacomodação. Em bilhetes separados, esse direito não existe.
 
 Como reduzimos o risco:
 
-- **Conexão longa.** Nada de uma hora e meia. Quanto mais folga, melhor.
-- **Mesma companhia nas duas pernas.** Não obriga a nada, mas na prática ajuda
-  se algo der errado.
-- **Bagagem.** Com bilhetes separados, pode ser necessário retirar e despachar
-  de novo na conexão. Confirme antes de viajar, porque isso muda quanto tempo
-  você precisa.
+- **Conexão longa.** Nada de uma hora e meia entre um bilhete e outro.
+- **Bagagem.** Com bilhetes separados pode ser preciso retirar e despachar de
+  novo na conexão. Confirme antes, porque muda o tempo necessário.
 - **Se der ruim, o problema é seu.** É o preço de pagar bem menos.
 
-Se essa possibilidade te tira o sono, bilhete separado não é para você — e
-está tudo bem. É uma troca consciente: você aceita um risco real em troca de
-uma economia real.
+Se essa possibilidade te tira o sono, essa estratégia não é para você — e está
+tudo bem. É uma troca consciente: risco real em troca de economia real.
+
+## De onde vieram as milhas
+
+Esta é a parte que mais importa, e a que costuma ficar de fora.
+
+As 252 mil milhas por pessoa não foram compradas. A maior parte veio de
+**empilhar três camadas na mesma compra**:
+
+**1. Portal de compras.** Comprando pelo site da Livelo antes de ir à loja
+parceira, a mesma compra rende pontos extras. Nas campanhas de super acúmulo,
+esse número sobe muito — só por aí passamos de **100 mil pontos Livelo** nessa
+temporada.
+
+**2. O cartão, na mesma compra.** A compra que rendeu pontos no portal também
+rende no cartão. Usamos o AmEx do Bradesco, que além de pontuar bem dá acesso
+a sala VIP — e em viagem com sete embarques isso pesa.
+
+**3. Bônus de conversão.** Na hora de transferir da Livelo para o programa
+aéreo, esperamos a campanha de bônus. Nessa temporada, **dobramos** o saldo na
+transferência.
+
+Some as três: a mesma compra rendeu no portal, rendeu no cartão, e depois
+dobrou na transferência. É por isso que a conta fecha sem comprar milhas.
+
+Completamos com pontos do **Clube Livelo**, assinado em promoção — que é a
+forma mais barata de ter entrada mensal previsível de pontos.
 
 ## A conta
 
-Somando os quatro trechos: cerca de **180 mil milhas por pessoa**, sendo
-**147 mil** só na executiva da volta.
+Usamos **R$ 14 por milheiro** como referência — mas atenção ao que esse número
+significa: é o **teto**, o preço quando precisamos comprar pontos. A esse
+valor, as 252.500 milhas dariam cerca de **R$ 3.535 por pessoa**.
 
-Considerando o milheiro em torno de **R$ 14** — que é a faixa em que
-costumamos acumular —, isso dá algo perto de **R$ 2.500 por pessoa**, já
-contando as taxas.
+**O custo real foi bem abaixo disso**, porque quase nada foi comprado: veio de
+super acúmulo, do cartão e de bônus de conversão.
 
-⟦As taxas exatas não foram anotadas na época. Se você tiver o comprovante e
-quiser o número fechado, dá para trocar essa faixa por um valor exato.⟧
+As taxas que localizamos somam **R$ 527 por pessoa** — faltam duas dos trechos
+emitidos pela Smiles.
 
-Para uma família de três, foram cerca de **540 mil milhas** no total.
-
-Vale reforçar de onde vem o "R$ 14 o milheiro": não é o preço de comprar
-milhas avulsas, que é bem mais caro. É o nosso custo de acumulação, com
-cartão e bônus de transferência. É por isso que a conta fecha.
+⟦Se achar as duas taxas que faltam, dá para fechar o número. E se conseguir
+estimar quanto do saldo foi comprado e quanto veio de acúmulo, dá para dizer o
+custo real por milheiro, que seria o dado mais forte do artigo inteiro.⟧
 
 ## Quando vale e quando não vale
 
 **Vale quando:**
 
-- O trecho é longo e a executiva faz diferença real no seu corpo
-- Você tem folga de tempo na conexão
+- O trecho é longo e a executiva faz diferença real
+- Você tem folga de tempo entre os bilhetes
 - Você acumula em mais de um programa
 - A viagem é planejada com antecedência
 
@@ -120,16 +158,17 @@ cartão e bônus de transferência. É por isso que a conta fecha.
 
 - É trecho curto — não compensa o risco
 - Você tem compromisso rígido na chegada
-- Está viajando com criança pequena ou alguém com mobilidade reduzida, em quem
-  uma noite extra de aeroporto pesa muito mais
+- Viaja com criança pequena ou alguém com mobilidade reduzida, em quem uma
+  noite extra de aeroporto pesa muito mais
 - Você só tem saldo em um programa
 
 ## O resumo prático
 
 1. Pare de procurar o itinerário inteiro. Procure perna por perna.
-2. Consulte a mesma perna em mais de um programa — o preço muda.
-3. Deixe conexão folgada.
-4. Entenda que, se der errado, o prejuízo é seu.
+2. Consulte a mesma perna em mais de um programa — o preço muda muito.
+3. Deixe conexão folgada entre bilhetes diferentes.
+4. Acumule empilhando: portal, cartão e bônus de conversão na mesma compra.
+5. Entenda que, se der errado, o prejuízo é seu.
 
 Não é o método mais confortável. É o que transforma executiva internacional em
 algo possível para uma família comum.
@@ -139,23 +178,23 @@ algo possível para uma família comum.
 ## Encerramento
 
 Se quiser entender a parte de acumulação com calma — quais cartões rendem
-mais, quando transferir e como calcular o custo por milheiro —, escrevemos um
-guia gratuito sobre isso: o
+mais, quando transferir e como calcular seu custo por milheiro —, escrevemos
+um guia gratuito sobre isso: o
 [Manual Completo de Pontos](https://rotacomfamilia.com.br/ebooks.html), em PDF
 e sem cadastro.
 
-E se preferir que a gente faça a emissão,
+E se preferir que a gente monte e emita,
 [é assim que funciona a assessoria](https://rotacomfamilia.com.br/assessoria.html).
-Bilhete separado é exatamente o tipo de coisa que dá trabalho fazer sozinho.
+Sete bilhetes em três programas é exatamente o tipo de coisa que dá trabalho
+fazer sozinho.
 
 ---
 
 ## Depois de publicar
 
-- Conferir no celular — a tabela de quatro colunas é o que mais quebra em tela
-  pequena. Se ficar ruim, corte a coluna "Companhia".
+- **Conferir no celular.** A tabela de seis colunas é o maior risco. Se estourar,
+  corte a coluna "Companhia" e deixe essa informação no texto.
 - Limpar o SpeedyCache.
 - Colar o link no WhatsApp e ver se o card aparece com imagem.
-- Este artigo não corresponde a nenhum dos seis cards da home. Vale trocar o
-  card "Como emitir 4 passagens executivas com 250 mil pontos" — que anuncia
-  números que não conferem — por este.
+- Trocar o card da home "Como emitir 4 passagens executivas com 250 mil pontos"
+  — que anuncia números que não conferem — por este artigo.
