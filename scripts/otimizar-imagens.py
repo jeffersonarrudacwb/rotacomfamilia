@@ -67,6 +67,11 @@ IMAGENS: dict[str, dict] = {
     "card-puntacana":   {"origem": "fotos/Caribe/IMG_6205.jpg"},
     "card-lisboa":      {"origem": "fotos/Lisboa/IMG_0232.jpg"},
     "sobre-argentina":  {"origem": "fotos/argentina/IMG_4258.JPG"},
+    # Criativo do post do Instagram, 1080x1351. Traz o titulo "SAFARI SEM GUIA"
+    # embutido na propria imagem, o que fica redundante com o titulo do card.
+    # Trocar por uma foto limpa do safari quando houver.
+    "card-safari":      {"origem": "fotos/africa do sul/SAFARI SEM GUIA.jpg",
+                         "larguras": [400, 800, 1080]},
 }
 
 # ---------------------------------------------------------------------------
