@@ -1,6 +1,6 @@
 # Executiva dos EUA por 147 mil milhas: montamos a viagem trecho a trecho
 
-> Pronto para publicar. Confira os pontos marcados com `⟦…⟧` antes.
+> Pronto para publicar. Só faltam duas taxas, marcadas com `⟦…⟧`.
 
 ---
 
@@ -14,7 +14,7 @@
 | **Frase-chave (Yoast)** | emitir passagem em trechos separados |
 | **Título SEO** | Executiva dos EUA por 147 mil milhas: trecho a trecho |
 | **Meta descrição** | Sete voos, quatro companhias e três programas para levar a família aos EUA e voltar de executiva. A conta aberta e o risco que quase ninguém explica. |
-| **Resumo** | Nenhum dos sete voos foi comprado junto. Cada trecho foi emitido no programa onde estava mais barato — e a volta saiu de executiva. Aqui está a conta inteira. |
+| **Resumo** | Nenhum dos sete voos foi comprado junto. Escolhemos a porta mais barata para entrar nos EUA e emitimos cada trecho no programa onde estava mais barato. Aqui está a conta inteira. |
 | **Imagem destacada** | Sugestão: `fotos/sala_vip/IMG_8543.jpg` (Copa Club). ⟦Confirmar se é de um voo da Copa⟧ |
 
 ---
@@ -24,13 +24,33 @@
 Levamos os três — eu, a Kharol e o Derek — de Curitiba a Orlando, passando por
 Los Angeles e Minneapolis, e voltamos em **classe executiva**.
 
-Nenhum desses voos foi comprado junto com outro. Foram **sete trechos
-emitidos separadamente**, em quatro companhias diferentes e três programas de
-milhas. A volta de executiva sozinha custou **147 mil milhas por pessoa**.
+Olhando no mapa, esse roteiro não faz sentido nenhum. Faz sentido na planilha:
+**nenhum desses sete voos foi comprado junto com outro.** Cada trecho foi
+emitido separadamente, no programa onde estava mais barato — quatro companhias,
+três programas de milhas.
 
-Este texto abre a conta inteira: cada trecho, cada programa, as taxas, de onde
-vieram as milhas e o risco que essa estratégia carrega — que é a parte que
-quase ninguém conta.
+A volta de executiva sozinha custou **147 mil milhas por pessoa**.
+
+Este texto abre a conta inteira.
+
+## Primeiro: qual é a porta mais barata para entrar nos EUA?
+
+Esta é a decisão que define o resto, e quase ninguém começa por ela.
+
+A formatura do meu irmão era em **Minneapolis**. Queríamos levar o Derek à
+**Disney**, em Orlando. Nenhuma dessas duas cidades é uma porta barata de
+entrada nos Estados Unidos vindo do Brasil.
+
+Então invertemos a pergunta. Em vez de "quanto custa ir a Minneapolis",
+perguntamos **"qual cidade americana está mais barata de alcançar a partir do
+Brasil?"** — e resolvemos o resto por dentro, em trechos separados.
+
+A resposta naquele momento foi **Los Angeles**. Foi por lá que entramos, e de
+lá seguimos para Minneapolis e depois Orlando, cada perna emitida por conta.
+
+O ponto que generaliza: **a cidade onde você quer chegar e a cidade por onde
+você entra no país não precisam ser a mesma.** Escolher a porta pelo preço, e
+não pela conveniência, é o que mais economiza numa viagem longa.
 
 ## A viagem inteira, trecho a trecho
 
@@ -50,18 +70,70 @@ Repare em duas linhas do meio. **Voamos pela United emitindo pela Azul.**
 programa tem acordo com companhias diferentes, e o assento que está caro num
 lugar pode estar barato em outro.
 
-Somando por programa, ficou quase equilibrado:
+Para a família de três: **757.500 milhas**.
 
-- **Smiles** — 132.500
-- **Latam Pass** — 60.000
-- **TudoAzul** — 60.000
+## O milheiro não é o mesmo em todo programa
 
-Para a família de três: **757.500 milhas** no total.
+Aqui está o detalhe que muda todas as contas e que raramente aparece nos
+artigos sobre milhas: **um milheiro custa diferente em cada programa.**
 
-⟦Conferir o CNF → CWB: você me disse antes que esse trecho costuma sair por
-4 mil na Latam ou 6 mil na Azul, e depois encontrou 11 mil. Os 11 mil foram o
-que você pagou de fato? Se sim, vale até comentar no texto que essa perna
-ficou acima do normal.⟧
+O que pagamos, em média, para acumular:
+
+| Programa | Custo por milheiro |
+|---|---|
+| TudoAzul | R$ 14,00 |
+| Smiles | R$ 15,00 |
+| Latam Pass | R$ 24,50 |
+
+A milha Latam custa **75% mais** que a Azul. Isso significa que comparar dois
+trechos só pela quantidade de milhas é enganoso — 20 mil milhas Latam custam
+mais que 30 mil Azul.
+
+Aplicando cada milheiro ao seu trecho:
+
+| Programa | Milhas | Custo |
+|---|---|---|
+| Latam Pass | 60.000 | R$ 1.470 |
+| TudoAzul | 60.000 | R$ 840 |
+| Smiles | 132.500 | R$ 1.988 |
+| **Total** | **252.500** | **R$ 4.298** |
+
+Veja o que acontece: Latam e Azul têm **a mesma quantidade** de milhas usadas
+— 60 mil cada — mas a Latam custou **R$ 630 a mais** só por ser um milheiro
+mais caro.
+
+### A executiva, isolada
+
+Os dois trechos de executiva somam 147 mil milhas:
+
+- MCO → PTY — 42.000 TudoAzul × R$ 14 = **R$ 588**
+- PTY → CNF — 105.000 Smiles × R$ 15 = **R$ 1.575**
+
+**R$ 2.163 por pessoa** para voltar dos Estados Unidos ao Brasil em classe
+executiva, mais R$ 160 de taxas no trecho que localizamos.
+
+Somando tudo — sete voos, milhas e as taxas que achamos — a viagem saiu por
+cerca de **R$ 4.800 por pessoa**, algo perto de **R$ 14.500** para os três.
+
+⟦Faltam as taxas de dois trechos, os dois emitidos pela Smiles. Se achar, dá
+para fechar o número exato.⟧
+
+**Uma ressalva importante:** esses valores em reais são *o nosso* custo de
+acumulação, não um preço de tabela. Quem acumula mais barato paga menos; quem
+compra milhas avulsas paga bem mais. O número que vale para você é o seu
+próprio custo por milheiro — e é por isso que insistimos tanto em calculá-lo.
+
+## O trecho que ficou caro
+
+O último, **CNF → CWB, por 11 mil milhas Latam**. Ficou acima do normal: esse
+trecho costuma sair por 4 a 6 mil milhas.
+
+A R$ 24,50 o milheiro, 11 mil custaram **R$ 270**. Se tivéssemos conseguido as
+4 mil de sempre, teria custado **R$ 98**.
+
+Fica o registro honesto: depois de otimizar seis trechos, o sétimo passou
+batido. É o tipo de coisa que acontece quando a viagem já está fechada e falta
+só encaixar a última perna.
 
 ## Por que sete bilhetes e não um
 
@@ -72,10 +144,6 @@ de um único programa.
 Basta uma perna sem assento liberado para o itinerário inteiro sumir. Você
 conclui que "não tem passagem" — quando na verdade tem, só não tem tudo junto,
 no mesmo dia, no mesmo programa.
-
-A saída é parar de procurar a viagem e passar a procurar **cada perna
-separadamente**, consultando o mesmo trecho em mais de um programa antes de
-emitir.
 
 Dá mais trabalho. É o que fez a executiva caber.
 
@@ -115,9 +183,9 @@ parceira, a mesma compra rende pontos extras. Nas campanhas de super acúmulo,
 esse número sobe muito — só por aí passamos de **100 mil pontos Livelo** nessa
 temporada.
 
-**2. O cartão, na mesma compra.** A compra que rendeu pontos no portal também
-rende no cartão. Usamos o AmEx do Bradesco, que além de pontuar bem dá acesso
-a sala VIP — e em viagem com sete embarques isso pesa.
+**2. O cartão, na mesma compra.** A compra que rendeu no portal também rende no
+cartão. Usamos o AmEx do Bradesco, que além de pontuar bem dá acesso a sala VIP
+— e numa viagem com sete embarques isso pesa.
 
 **3. Bônus de conversão.** Na hora de transferir da Livelo para o programa
 aéreo, esperamos a campanha de bônus. Nessa temporada, **dobramos** o saldo na
@@ -129,46 +197,17 @@ dobrou na transferência. É por isso que a conta fecha sem comprar milhas.
 Completamos com pontos do **Clube Livelo**, assinado em promoção — que é a
 forma mais barata de ter entrada mensal previsível de pontos.
 
-## A conta
-
-Usamos **R$ 14 por milheiro** como referência — mas atenção ao que esse número
-significa: é o **teto**, o preço quando precisamos comprar pontos. A esse
-valor, as 252.500 milhas dariam cerca de **R$ 3.535 por pessoa**.
-
-**O custo real foi bem abaixo disso**, porque quase nada foi comprado: veio de
-super acúmulo, do cartão e de bônus de conversão.
-
-As taxas que localizamos somam **R$ 527 por pessoa** — faltam duas dos trechos
-emitidos pela Smiles.
-
-⟦Se achar as duas taxas que faltam, dá para fechar o número. E se conseguir
-estimar quanto do saldo foi comprado e quanto veio de acúmulo, dá para dizer o
-custo real por milheiro, que seria o dado mais forte do artigo inteiro.⟧
-
-## Quando vale e quando não vale
-
-**Vale quando:**
-
-- O trecho é longo e a executiva faz diferença real
-- Você tem folga de tempo entre os bilhetes
-- Você acumula em mais de um programa
-- A viagem é planejada com antecedência
-
-**Não vale quando:**
-
-- É trecho curto — não compensa o risco
-- Você tem compromisso rígido na chegada
-- Viaja com criança pequena ou alguém com mobilidade reduzida, em quem uma
-  noite extra de aeroporto pesa muito mais
-- Você só tem saldo em um programa
-
 ## O resumo prático
 
-1. Pare de procurar o itinerário inteiro. Procure perna por perna.
-2. Consulte a mesma perna em mais de um programa — o preço muda muito.
-3. Deixe conexão folgada entre bilhetes diferentes.
-4. Acumule empilhando: portal, cartão e bônus de conversão na mesma compra.
-5. Entenda que, se der errado, o prejuízo é seu.
+1. **Comece pela porta.** Descubra qual cidade do país de destino está mais
+   barata a partir do Brasil, e resolva o resto por dentro.
+2. **Procure perna por perna**, não o itinerário inteiro.
+3. **Consulte a mesma perna em mais de um programa** — o preço muda muito.
+4. **Compare em reais, não em milhas.** Milheiro de Latam e de Azul não valem a
+   mesma coisa.
+5. **Deixe conexão folgada** entre bilhetes diferentes.
+6. **Acumule empilhando:** portal, cartão e bônus de conversão na mesma compra.
+7. **Entenda que, se der errado, o prejuízo é seu.**
 
 Não é o método mais confortável. É o que transforma executiva internacional em
 algo possível para uma família comum.
@@ -178,7 +217,7 @@ algo possível para uma família comum.
 ## Encerramento
 
 Se quiser entender a parte de acumulação com calma — quais cartões rendem
-mais, quando transferir e como calcular seu custo por milheiro —, escrevemos
+mais, quando transferir e como calcular o seu custo por milheiro —, escrevemos
 um guia gratuito sobre isso: o
 [Manual Completo de Pontos](https://rotacomfamilia.com.br/ebooks.html), em PDF
 e sem cadastro.
@@ -192,8 +231,8 @@ fazer sozinho.
 
 ## Depois de publicar
 
-- **Conferir no celular.** A tabela de seis colunas é o maior risco. Se estourar,
-  corte a coluna "Companhia" e deixe essa informação no texto.
+- **Conferir no celular.** São quatro tabelas; a de seis colunas é a mais
+  arriscada. Se estourar, corte a coluna "Companhia" e deixe no texto.
 - Limpar o SpeedyCache.
 - Colar o link no WhatsApp e ver se o card aparece com imagem.
 - Trocar o card da home "Como emitir 4 passagens executivas com 250 mil pontos"
