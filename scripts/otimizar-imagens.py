@@ -72,6 +72,13 @@ IMAGENS: dict[str, dict] = {
     # Trocar por uma foto limpa do safari quando houver.
     "card-safari":      {"origem": "fotos/africa do sul/SAFARI SEM GUIA.jpg",
                          "larguras": [400, 800, 1080]},
+    # As duas executivas. Antes os cards usavam foto de sala VIP e de Lisboa,
+    # que ilustravam a espera e o destino - nao a cabine, que e do que os
+    # artigos tratam.
+    "card-executiva-copa":  {"origem": "fotos/Executiva Copa - MCO x PTY/IMG_8581.JPG",
+                             "larguras": [400, 800, 1200, 1600]},
+    "card-executiva-latam": {"origem": "fotos/Executiva Latam - GRU x LIS/3.jpeg",
+                             "larguras": [400, 800, 1280]},
 }
 
 # ---------------------------------------------------------------------------
