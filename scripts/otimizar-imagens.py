@@ -77,7 +77,9 @@ IMAGENS: dict[str, dict] = {
     # artigos tratam.
     "card-executiva-copa":  {"origem": "fotos/Executiva Copa - MCO x PTY/IMG_8581.JPG",
                              "larguras": [400, 800, 1200, 1600]},
-    "card-executiva-latam": {"origem": "fotos/Executiva Latam - GRU x LIS/3.jpeg",
+    # Esta e a foto certa para o artigo: mostra os SEIS passageiros na cabine,
+    # que e exatamente o que o titulo promete.
+    "card-executiva-latam": {"origem": "fotos/Executiva Latam - GRU x LIS/1.jpeg",
                              "larguras": [400, 800, 1280]},
 }
 
