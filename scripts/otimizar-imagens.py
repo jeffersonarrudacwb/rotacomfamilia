@@ -29,6 +29,7 @@ import argparse
 import io
 import json
 import math
+import re
 import sys
 from pathlib import Path
 
@@ -75,12 +76,27 @@ IMAGENS: dict[str, dict] = {
     # As duas executivas. Antes os cards usavam foto de sala VIP e de Lisboa,
     # que ilustravam a espera e o destino - nao a cabine, que e do que os
     # artigos tratam.
-    "card-executiva-copa":  {"origem": "fotos/Executiva Copa - MCO x PTY/IMG_8581.JPG",
-                             "larguras": [400, 800, 1200, 1600]},
+    #
+    # Escolhida a IMG_8526 (os tres na poltrona) e nao a IMG_8581 (a refeicao
+    # servida): num card, a foto precisa provar a promessa do titulo em um
+    # olhar, e a promessa e "a familia voou executiva". A da refeicao e mais
+    # bonita e vale dentro do artigo, mas mostra so uma pessoa.
+    "card-executiva-copa":  {"origem": "fotos/Executiva Copa - MCO x PTY/IMG_8526.jpg",
+                             "larguras": [400, 800, 1200]},
     # Esta e a foto certa para o artigo: mostra os SEIS passageiros na cabine,
     # que e exatamente o que o titulo promete.
     "card-executiva-latam": {"origem": "fotos/Executiva Latam - GRU x LIS/1.jpeg",
                              "larguras": [400, 800, 1280]},
+    # Cartoes + acesso a sala VIP na mesma imagem, que e a tese do artigo de
+    # cartoes: o cartao E a porta da sala.
+    #
+    # A origem e uma versao RECORTADA do IMG_2022. O enquadramento original
+    # incluia o codigo de barras 2D e o numero do e-ticket do cartao de
+    # embarque. Esse codigo carrega nome do passageiro e localizador da
+    # reserva - com localizador e sobrenome se abre a reserva no site da
+    # companhia. O corte tira a faixa inferior e resolve sem borrao.
+    "card-cartoes":         {"origem": "fotos/sala_vip/IMG_2022-sem-dados.jpg",
+                             "larguras": [400, 800, 1260]},
 }
 
 # ---------------------------------------------------------------------------
@@ -362,6 +378,41 @@ def tabela(resultados: list[dict]) -> None:
     print("=" * len(sep))
 
 
+def remover_orfaos(resultados: list[dict]) -> list[str]:
+    """Apaga variantes de execucoes anteriores que nao existem mais.
+
+    Sem isto, trocar a foto de origem de um slug deixa lixo perigoso para
+    tras. Aconteceu com card-executiva-copa: a origem passou de uma foto
+    16:9 de 1920 px para uma 4:3 de 1260 px, o ladder deixou de gerar a
+    variante 1600 -- mas o arquivo antigo continuou no disco. O srcset
+    seguia oferecendo os dois, entao o navegador escolhia a FOTO ANTIGA em
+    tela grande e a nova em tela pequena, com proporcao diferente e salto de
+    layout junto.
+
+    So mexe nos slugs processados nesta execucao, para que --somente nao
+    apague o que nao olhou.
+    """
+    removidos: list[str] = []
+
+    for r in resultados:
+        slug = r["slug"]
+        esperados = {Path(v["caminho"]).name for v in r["variantes"]}
+        if "og" in r:
+            esperados.add(Path(r["og"]["caminho"]).name)
+
+        for existente in SAIDA.glob(f"{slug}-*"):
+            # "card-lounge-w" nao pode reivindicar "card-lounge-w-2-400.webp":
+            # o sufixo tem de ser largura + extensao, nada mais.
+            resto = existente.name[len(slug) + 1:]
+            if not re.fullmatch(r"\d+\.(webp|jpg)", resto):
+                continue
+            if existente.name not in esperados:
+                existente.unlink()
+                removidos.append(existente.name)
+
+    return removidos
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Otimiza as imagens do site Rota com Familia.")
     ap.add_argument("--somente", nargs="*", metavar="SLUG",
@@ -382,6 +433,13 @@ def main() -> int:
     print(f"saida: {SAIDA}")
 
     resultados = [processar(slug, cfg) for slug, cfg in alvos.items()]
+
+    orfaos = remover_orfaos(resultados)
+    if orfaos:
+        print("\nVARIANTES ORFAS REMOVIDAS")
+        for o in orfaos:
+            print(f"  - {o}")
+
     tabela(resultados)
 
     todas_notas = [n for r in resultados for n in r["notas"]]
