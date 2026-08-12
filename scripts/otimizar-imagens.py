@@ -77,12 +77,12 @@ IMAGENS: dict[str, dict] = {
     # que ilustravam a espera e o destino - nao a cabine, que e do que os
     # artigos tratam.
     #
-    # Escolhida a IMG_8526 (os tres na poltrona) e nao a IMG_8581 (a refeicao
-    # servida): num card, a foto precisa provar a promessa do titulo em um
-    # olhar, e a promessa e "a familia voou executiva". A da refeicao e mais
-    # bonita e vale dentro do artigo, mas mostra so uma pessoa.
-    "card-executiva-copa":  {"origem": "fotos/Executiva Copa - MCO x PTY/IMG_8526.jpg",
-                             "larguras": [400, 800, 1200]},
+    # IMG_8581, a refeicao servida na cabine. Escolha do Jefferson, e encaixa
+    # melhor: .post-media e 16/10 com object-fit cover, entao esta foto (16:9)
+    # perde so um fio nas laterais, enquanto a alternativa 4:3 perdia bastante
+    # de topo e base no recorte.
+    "card-executiva-copa":  {"origem": "fotos/Executiva Copa - MCO x PTY/IMG_8581.JPG",
+                             "larguras": [400, 800, 1200, 1600]},
     # Esta e a foto certa para o artigo: mostra os SEIS passageiros na cabine,
     # que e exatamente o que o titulo promete.
     "card-executiva-latam": {"origem": "fotos/Executiva Latam - GRU x LIS/1.jpeg",
