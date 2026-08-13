@@ -67,7 +67,12 @@ IMAGENS: dict[str, dict] = {
     "card-lounge-copa": {"origem": "fotos/sala_vip/IMG_8543.jpg"},
     "card-puntacana":   {"origem": "fotos/Caribe/IMG_6205.jpg"},
     "card-lisboa":      {"origem": "fotos/Lisboa/IMG_0232.jpg"},
-    "sobre-argentina":  {"origem": "fotos/argentina/IMG_4258.JPG"},
+    # A foto da secao "Quem somos". Antes era o Caminito, em Buenos Aires, que
+    # ilustrava um destino especifico e nao a familia. Esta traz os dois com a
+    # camiseta da marca, e o logo aparece legivel. A origem tem 1260 px, entao o
+    # ladder para em 1200: pedir 1600 seria upscale.
+    "sobre-familia":    {"origem": "fotos/Familia/IMG_7834.jpg",
+                         "larguras": [400, 800, 1200]},
     # Criativo do post do Instagram, 1080x1351. Traz o titulo "SAFARI SEM GUIA"
     # embutido na propria imagem, o que fica redundante com o titulo do card.
     # Trocar por uma foto limpa do safari quando houver.

@@ -881,22 +881,23 @@
       <!-- Intro -->
       <div class="grid lg:grid-cols-2 gap-14 items-center mb-24">
         <div class="reveal relative">
-          <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-soft relative">
+          <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-soft relative">
             <picture>
-              <source type="image/webp" sizes="(max-width: 1023px) 100vw, 40vw" srcset="assets/img/sobre-argentina-400.webp 400w, assets/img/sobre-argentina-800.webp 800w, assets/img/sobre-argentina-1200.webp 1200w" />
-              <img src="assets/img/sobre-argentina-1200.jpg"
-                   srcset="assets/img/sobre-argentina-400.jpg 400w, assets/img/sobre-argentina-800.jpg 800w, assets/img/sobre-argentina-1200.jpg 1200w"
+              <source type="image/webp" sizes="(max-width: 1023px) 100vw, 40vw" srcset="assets/img/sobre-familia-400.webp 400w, assets/img/sobre-familia-800.webp 800w, assets/img/sobre-familia-1200.webp 1200w" />
+              <img src="assets/img/sobre-familia-1200.jpg"
+                   srcset="assets/img/sobre-familia-400.jpg 400w, assets/img/sobre-familia-800.jpg 800w, assets/img/sobre-familia-1200.jpg 1200w"
                    sizes="(max-width: 1023px) 100vw, 40vw"
                    width="1200" height="900"
-                   alt="Nossa família em La Boca, Buenos Aires"
+                   alt="Kharol e Jefferson com as camisetas da Rota com Família, fazendo sinal de segredo"
                    loading="lazy" decoding="async" class="h-full w-full object-cover" />
             </picture>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-              <div>
-                <div class="text-[10px] uppercase tracking-[0.3em] text-white/70">Já planejando</div>
-                <div class="font-display font-bold text-xl">Qual será o próximo destino?</div>
-              </div>
+            <!-- A legenda foi para o topo. Embaixo ficam os logos das camisetas,
+                 que sao o motivo de a foto ser esta, e a tarja escura cobria os
+                 dois. Em cima o fundo e a parede de ripas, que aceita texto. -->
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-deep/85 via-brand-deep/10 to-transparent"></div>
+            <div class="absolute top-5 left-5 right-5">
+              <div class="text-[10px] uppercase tracking-[0.3em] text-white/75">Já planejando</div>
+              <div class="font-display font-bold text-xl">Qual será o próximo destino?</div>
             </div>
           </div>
 
@@ -969,6 +970,13 @@
           <h4>Argentina</h4>
           <p class="trip-people">Buenos Aires entre cafés portenhos e o tango da Boca.</p>
           <svg class="trip-flag" role="img" aria-label="Argentina"><use href="#fl-ar"/></svg>
+        </div>
+
+        <div class="reveal trip-card">
+          <div class="trip-date">Jan · 2024</div>
+          <h4>Colonia del Sacramento, Uruguai</h4>
+          <p class="trip-people">Travessia de barco saindo de Buenos Aires para passar o dia do outro lado do Rio da Prata.</p>
+          <svg class="trip-flag" role="img" aria-label="Uruguai"><use href="#fl-uy"/></svg>
         </div>
 
         <div class="reveal trip-card">
