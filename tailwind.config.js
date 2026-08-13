@@ -26,12 +26,18 @@ module.exports = {
         // Unificar aqui evita ter de reescrever 62 ocorrencias no HTML.
         //
         // Plus Jakarta Sans saiu: era so o corpo de texto do index.html, e o
-        // Inter cobre esse papel. Space Grotesk saiu: a stack monoespacada do
-        // sistema atende os rotulos e numeros sem custo de download.
+        // Inter cobre esse papel.
+        //
+        // A stack monoespacada do sistema tambem saiu. Ela nao custava
+        // download, mas resolvia para uma fonte diferente em cada sistema
+        // (Consolas no Windows, SF Mono no Mac, Roboto Mono no Android), entao
+        // os rotulos e numeros do site apareciam com um tipo que ninguem
+        // escolheu e que nao combina com a identidade. Onde a intencao era
+        // alinhar numeros, o que resolve e font-variant-numeric: tabular-nums
+        // no Inter, aplicado direto no styles.css.
         display: ['"Playfair Display"', 'Georgia', 'serif'],
         serif:   ['"Playfair Display"', 'Georgia', 'serif'],
         sans:    ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-        mono:    ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
       boxShadow: {
         soft:  '0 24px 50px -20px rgba(0,0,0,0.55)',

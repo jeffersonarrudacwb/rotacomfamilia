@@ -478,7 +478,8 @@ picture {
 
 .flight-route {
   display: flex; align-items: center; gap: 0.6rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -763,7 +764,8 @@ picture {
 .trip-date {
   display: inline-flex;
   align-items: center; gap: 0.5rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--fern);
@@ -966,7 +968,8 @@ picture {
 
 .tip-num {
   flex-shrink: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 1.5rem;
   font-weight: 700;
   color: rgba(212,164,55,0.45);
@@ -1130,17 +1133,10 @@ picture {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes popIn { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-.step-num {
-  flex-shrink: 0;
-  width: 36px; height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--orange), var(--flame));
-  display: inline-flex;
-  align-items: center; justify-content: center;
-  font-weight: 700;
-  color: white;
-  font-family: 'Inter', system-ui, sans-serif;
-}
+/* Havia aqui um segundo .step-num, sobra de um layout antigo: caixa de
+   36x36 com fundo laranja. Ele nao substituia o .step-num dos step-cards
+   (mais abaixo), somava com ele, e o resultado era um numero de 32px preso
+   numa caixa de 36px. Removido. O unico .step-num vive na secao STEP CARDS. */
 
 /* ============== RESPONSIVE ============== */
 @media (max-width: 768px) {
@@ -1281,7 +1277,8 @@ picture {
 .ebook-mini-meta {
   font-size: 0.75rem;
   color: rgba(255,255,255,0.45);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
 }
 .ebook-mini-open {
   background: linear-gradient(160deg, rgba(212,164,55,0.08), rgba(255,255,255,0.02));
@@ -1334,7 +1331,8 @@ picture {
   transform: translateY(-4px);
 }
 .step-num {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 2rem;
   font-weight: 700;
   background: linear-gradient(180deg, var(--orange), rgba(212,164,55,0));
@@ -1502,7 +1500,8 @@ picture {
   margin-top: auto;
   padding-top: 0.9rem;
   border-top: 1px solid rgba(255,255,255,0.08);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 0.78rem;
   color: rgba(255,255,255,0.55);
   letter-spacing: 0.02em;
@@ -1526,7 +1525,8 @@ picture {
   background: linear-gradient(170deg, rgba(212,164,55,0.1), rgba(255,255,255,0.02));
 }
 .kit-num {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 1.6rem;
   font-weight: 700;
   background: linear-gradient(180deg, var(--orange), rgba(212,164,55,0));
@@ -1553,7 +1553,8 @@ picture {
   flex: 1;
 }
 .kit-meta {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 0.76rem;
   color: rgba(255,255,255,0.55);
   letter-spacing: 0.02em;
@@ -1675,7 +1676,8 @@ picture {
   box-shadow: 0 6px 12px -4px rgba(236,72,153,0.5);
 }
 .portfolio-views {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 0.78rem;
   color: var(--orange);
   font-weight: 700;
@@ -1829,7 +1831,8 @@ picture {
   letter-spacing: -0.01em;
 }
 .depo-ctx {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 0.735rem;
   letter-spacing: 0.02em;
   color: rgba(255,255,255,0.52);
