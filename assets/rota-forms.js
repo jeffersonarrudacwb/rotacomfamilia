@@ -169,12 +169,12 @@
     emailInvalido: 'Esse email não parece válido. Confira e tente de novo.',
     emailVazio:    'Escreva seu email para continuar.',
     enviando:      'Enviando…',
-    sucesso:       'Pronto! Recebemos seu email. A confirmação chega em instantes — se não aparecer, olhe a caixa de spam.',
+    sucesso:       'Pronto! Recebemos seu email. A confirmação chega em instantes. Se não aparecer, olhe a caixa de spam.',
     // O email vira um link clicável, por isso o texto termina aberto.
     erroRede:      'Não conseguimos enviar agora. Tente de novo ou escreva para ',
     // O envio pode ter chegado antes do tempo esgotar: pedimos para conferir
     // primeiro, senão a pessoa reenvia e o cadastro entra duplicado.
-    erroTimeout:   'A resposta demorou demais. Confira seu email antes de tentar de novo — pode ser que já tenha dado certo. Se não chegou nada, escreva para ',
+    erroTimeout:   'A resposta demorou demais. Confira seu email antes de tentar de novo, porque pode ser que já tenha dado certo. Se não chegou nada, escreva para ',
     // Redação condicional de propósito: em desktop sem cliente de email
     // configurado o mailto não abre nada, e afirmar que abriu seria mentira.
     fallback:      'Nosso cadastro automático ainda está sendo ligado, então esta inscrição é feita à mão. Se o seu programa de email não abriu sozinho:'
@@ -342,15 +342,15 @@
       params.pagina = params.pagina || nomeDaPagina();
 
       if (!GA4_ID) {
-        console.debug('[Rota][evento — GA4 não configurado]', nome, params);
+        console.debug('[Rota][evento, GA4 não configurado]', nome, params);
         return;
       }
       if (Consentimento.ler() !== 'aceito') {
-        console.debug('[Rota][evento — sem consentimento, não enviado]', nome, params);
+        console.debug('[Rota][evento, sem consentimento]', nome, params);
         return;
       }
       if (typeof window.gtag !== 'function') {
-        console.debug('[Rota][evento — gtag ainda não carregou]', nome, params);
+        console.debug('[Rota][evento, gtag ainda não carregou]', nome, params);
         return;
       }
       window.gtag('event', nome, params);
@@ -459,7 +459,7 @@
       btnNao.addEventListener('click', function () {
         gravar('recusado');
         fechar(banner, focoAnterior);
-        console.debug('[Rota] Consentimento recusado — Google Analytics não será carregado.');
+        console.debug('[Rota] Consentimento recusado: Google Analytics não será carregado.');
       });
 
       document.body.appendChild(banner);
@@ -689,13 +689,13 @@
    */
   function fallbackMailto(form, dados) {
     console.warn(
-      '[Rota com Família] ESP_ENDPOINT está vazio em assets/rota-forms.js — ' +
+      '[Rota com Família] ESP_ENDPOINT está vazio em assets/rota-forms.js. ' +
       'nenhum lead está sendo enviado automaticamente. O formulário caiu no modo ' +
       'mailto (cadastro manual). Preencha ESP_ENDPOINT no bloco de configuração ' +
       'do arquivo para ligar o envio de verdade.'
     );
 
-    var assunto = 'Quero entrar na lista — ' + dados.origem;
+    var assunto = 'Quero entrar na lista: ' + dados.origem;
     var corpo =
       'Olá, Jefferson e Kharol!\n\n' +
       'Quero entrar na lista de emails do Rota com Família.\n\n' +
@@ -721,7 +721,7 @@
     link.textContent = 'Enviar por email';
 
     var ou = document.createElement('span');
-    ou.textContent = ' — ou escreva para ' + EMAIL_CONTATO + '.';
+    ou.textContent = ' ou escreva para ' + EMAIL_CONTATO + '.';
 
     mostrarMensagem(form, 'aviso', [frase, link, ou], true);
 
@@ -883,7 +883,7 @@
 
     // --- Honeypot preenchido: é robô. Fingimos sucesso e não enviamos nada. ---
     if (isca && isca.value.trim() !== '') {
-      console.debug('[Rota] Honeypot preenchido — envio descartado (provável bot).');
+      console.debug('[Rota] Honeypot preenchido: envio descartado (provável bot).');
       form.reset();
       form.setAttribute('hidden', '');
       form.classList.add('rcf-oculto');
@@ -1034,7 +1034,7 @@
       );
     }
     if (!GA4_ID) {
-      console.debug('[Rota com Família] GA4_ID vazio — eventos só aparecem no console.');
+      console.debug('[Rota com Família] GA4_ID vazio: eventos só aparecem no console.');
     }
 
     Consentimento.iniciar();

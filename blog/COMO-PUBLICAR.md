@@ -46,7 +46,7 @@ Google corta com reticências.
 ⚠️ **Nunca cole texto copiado de uma janela de chat, do Word ou de site.**
 
 Isso já nos custou caro uma vez: o email de boas-vindas foi colado de uma
-janela de chat no editor do Brevo e veio junto o CSS da interface — 800 bytes
+janela de chat no editor do Brevo e veio junto o CSS da interface: 800 bytes
 de estilo **por palavra**, um HTML de 137 KB para 2 KB de texto. Resultado: 1%
 de proporção de texto, que é assinatura clássica de spam, e o email caiu na
 caixa de lixo.
@@ -87,7 +87,7 @@ Para reduzir várias de uma vez, o script do site já faz isso:
 python scripts/otimizar-imagens.py
 ```
 
-Ao inserir cada imagem, **preencha o texto alternativo** — o campo "Texto
+Ao inserir cada imagem, **preencha o texto alternativo**, no campo "Texto
 alternativo" na barra lateral direita. Descreva o que se vê:
 
 - Bom: `Derek em frente ao castelo da Cinderella no Magic Kingdom`
@@ -120,7 +120,7 @@ Brasil                    Internacional              Milhas e Cartões
 └── Parques               └── América Latina
 ```
 
-Marcar cinco categorias não ajuda ninguém a achar o texto — atrapalha.
+Marcar cinco categorias não ajuda ninguém a achar o texto. Atrapalha.
 
 ### Link permanente (slug)
 
@@ -161,7 +161,7 @@ vazio, o WordPress corta o começo do texto no meio da frase.
 1. **Abra o artigo no celular.** É onde a maioria vai ler. Foto esticada,
    tabela estourando a tela e parágrafo gigante aparecem na hora.
 
-2. **Limpe o cache** — SpeedyCache na barra do topo → `Delete all Cache`.
+2. **Limpe o cache**: SpeedyCache na barra do topo → `Delete all Cache`.
    Senão você vê a versão antiga e acha que algo quebrou.
 
 3. **Cole o link num grupo do WhatsApp** (pode ser conversa com você mesmo) e

@@ -21,12 +21,12 @@
 
 ## Corpo do artigo
 
-Levamos os três — eu, a Kharol e o Derek — de Curitiba a Orlando, passando por
+Levamos os três (eu, a Kharol e o Derek) de Curitiba a Orlando, passando por
 Los Angeles e Minneapolis, e voltamos em **classe executiva**.
 
 Olhando no mapa, esse roteiro não faz sentido nenhum. Faz sentido na planilha:
 **nenhum desses sete voos foi comprado junto com outro.** Cada trecho foi
-emitido separadamente, no programa onde estava mais barato — quatro companhias,
+emitido separadamente, no programa onde estava mais barato: quatro companhias,
 três programas de milhas.
 
 A volta de executiva sozinha custou **147 mil milhas por pessoa**.
@@ -42,8 +42,7 @@ A formatura do meu irmão era em **Minneapolis**. Queríamos levar o Derek à
 entrada nos Estados Unidos vindo do Brasil.
 
 Então invertemos a pergunta. Em vez de "quanto custa ir a Minneapolis",
-perguntamos **"qual cidade americana está mais barata de alcançar a partir do
-Brasil?"** — e resolvemos o resto por dentro, em trechos separados.
+perguntamos **"qual cidade americana está mais barata de alcançar a partir do Brasil?"**, e resolvemos o resto por dentro, em trechos separados.
 
 A resposta naquele momento foi **Los Angeles**. Foi por lá que entramos, e de
 lá seguimos para Minneapolis e depois Orlando, cada perna emitida por conta.
@@ -86,7 +85,7 @@ O que pagamos, em média, para acumular:
 | Latam Pass | R$ 24,50 |
 
 A milha Latam custa **75% mais** que a Azul. Isso significa que comparar dois
-trechos só pela quantidade de milhas é enganoso — 20 mil milhas Latam custam
+trechos só pela quantidade de milhas é enganoso: 20 mil milhas Latam custam
 mais que 30 mil Azul.
 
 Aplicando cada milheiro ao seu trecho:
@@ -98,21 +97,20 @@ Aplicando cada milheiro ao seu trecho:
 | Smiles | 132.500 | R$ 1.988 |
 | **Total** | **252.500** | **R$ 4.298** |
 
-Veja o que acontece: Latam e Azul têm **a mesma quantidade** de milhas usadas
-— 60 mil cada — mas a Latam custou **R$ 630 a mais** só por ser um milheiro
+Veja o que acontece: Latam e Azul têm **a mesma quantidade** de milhas usadas, 60 mil cada, mas a Latam custou **R$ 630 a mais** só por ser um milheiro
 mais caro.
 
 ### A executiva, isolada
 
 Os dois trechos de executiva somam 147 mil milhas:
 
-- MCO → PTY — 42.000 TudoAzul × R$ 14 = **R$ 588**
-- PTY → CNF — 105.000 Smiles × R$ 15 = **R$ 1.575**
+- MCO → PTY: 42.000 TudoAzul × R$ 14 = **R$ 588**
+- PTY → CNF: 105.000 Smiles × R$ 15 = **R$ 1.575**
 
 **R$ 2.163 por pessoa** para voltar dos Estados Unidos ao Brasil em classe
 executiva, mais R$ 160 de taxas no trecho que localizamos.
 
-Somando tudo — sete voos, milhas e as taxas que achamos — a viagem saiu por
+Somando tudo (sete voos, milhas e as taxas que achamos), a viagem saiu por
 cerca de **R$ 4.800 por pessoa**, algo perto de **R$ 14.500** para os três.
 
 ⟦Faltam as taxas de dois trechos, os dois emitidos pela Smiles. Se achar, dá
@@ -121,7 +119,7 @@ para fechar o número exato.⟧
 **Uma ressalva importante:** esses valores em reais são *o nosso* custo de
 acumulação, não um preço de tabela. Quem acumula mais barato paga menos; quem
 compra milhas avulsas paga bem mais. O número que vale para você é o seu
-próprio custo por milheiro — e é por isso que insistimos tanto em calculá-lo.
+próprio custo por milheiro, e é por isso que insistimos tanto em calculá-lo.
 
 ## O trecho que ficou caro
 
@@ -142,14 +140,14 @@ que tem **disponibilidade de prêmio em todas as pernas ao mesmo tempo**, dentro
 de um único programa.
 
 Basta uma perna sem assento liberado para o itinerário inteiro sumir. Você
-conclui que "não tem passagem" — quando na verdade tem, só não tem tudo junto,
+conclui que "não tem passagem", quando na verdade tem, só não tem tudo junto,
 no mesmo dia, no mesmo programa.
 
 Dá mais trabalho. É o que fez a executiva caber.
 
 ⟦Se tiver foto da cabine da Copa ou do embarque, entra bem aqui.⟧
 
-## O risco que vem junto — leia antes de tentar
+## O risco que vem junto, leia antes de tentar
 
 Bilhetes separados são **contratos separados**. Isso tem uma consequência
 séria:
@@ -168,8 +166,7 @@ Como reduzimos o risco:
   novo na conexão. Confirme antes, porque muda o tempo necessário.
 - **Se der ruim, o problema é seu.** É o preço de pagar bem menos.
 
-Se essa possibilidade te tira o sono, essa estratégia não é para você — e está
-tudo bem. É uma troca consciente: risco real em troca de economia real.
+Se essa possibilidade te tira o sono, essa estratégia não é para você, e está tudo bem. É uma troca consciente: risco real em troca de economia real.
 
 ## De onde vieram as milhas
 
@@ -180,12 +177,11 @@ As 252 mil milhas por pessoa não foram compradas. A maior parte veio de
 
 **1. Portal de compras.** Comprando pelo site da Livelo antes de ir à loja
 parceira, a mesma compra rende pontos extras. Nas campanhas de super acúmulo,
-esse número sobe muito — só por aí passamos de **100 mil pontos Livelo** nessa
+esse número sobe muito: só por aí passamos de **100 mil pontos Livelo** nessa
 temporada.
 
 **2. O cartão, na mesma compra.** A compra que rendeu no portal também rende no
-cartão. Usamos o AmEx do Bradesco, que além de pontuar bem dá acesso a sala VIP
-— e numa viagem com sete embarques isso pesa.
+cartão. Usamos o AmEx do Bradesco, que além de pontuar bem dá acesso a sala VIP, e numa viagem com sete embarques isso pesa.
 
 **3. Bônus de conversão.** Na hora de transferir da Livelo para o programa
 aéreo, esperamos a campanha de bônus. Nessa temporada, **dobramos** o saldo na
@@ -194,15 +190,14 @@ transferência.
 Some as três: a mesma compra rendeu no portal, rendeu no cartão, e depois
 dobrou na transferência. É por isso que a conta fecha sem comprar milhas.
 
-Completamos com pontos do **Clube Livelo**, assinado em promoção — que é a
-forma mais barata de ter entrada mensal previsível de pontos.
+Completamos com pontos do **Clube Livelo**, assinado em promoção, que é a forma mais barata de ter entrada mensal previsível de pontos.
 
 ## O resumo prático
 
 1. **Comece pela porta.** Descubra qual cidade do país de destino está mais
    barata a partir do Brasil, e resolva o resto por dentro.
 2. **Procure perna por perna**, não o itinerário inteiro.
-3. **Consulte a mesma perna em mais de um programa** — o preço muda muito.
+3. **Consulte a mesma perna em mais de um programa**: o preço muda muito.
 4. **Compare em reais, não em milhas.** Milheiro de Latam e de Azul não valem a
    mesma coisa.
 5. **Deixe conexão folgada** entre bilhetes diferentes.
@@ -216,8 +211,7 @@ algo possível para uma família comum.
 
 ## Encerramento
 
-Se quiser entender a parte de acumulação com calma — quais cartões rendem
-mais, quando transferir e como calcular o seu custo por milheiro —, escrevemos
+Se quiser entender a parte de acumulação com calma (quais cartões rendem mais, quando transferir e como calcular o seu custo por milheiro), escrevemos
 um guia gratuito sobre isso: o
 [Manual Completo de Pontos](https://rotacomfamilia.com.br/ebooks.html), em PDF
 e sem cadastro.
@@ -235,5 +229,4 @@ fazer sozinho.
   arriscada. Se estourar, corte a coluna "Companhia" e deixe no texto.
 - Limpar o SpeedyCache.
 - Colar o link no WhatsApp e ver se o card aparece com imagem.
-- Trocar o card da home "Como emitir 4 passagens executivas com 250 mil pontos"
-  — que anuncia números que não conferem — por este artigo.
+- Trocar o card da home "Como emitir 4 passagens executivas com 250 mil pontos", que anuncia números que não conferem, por este artigo.
