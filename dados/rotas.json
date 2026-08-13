@@ -14,10 +14,19 @@
   ],
 
   "milheiro": {
-    "_leia_me": "Quanto custa mil milhas para a gente, em reais. Nosso custo de acumulacao, nao preco de tabela.",
+    "_leia_me": [
+      "Quanto custa mil milhas para a gente, em reais. Nosso custo de",
+      "acumulacao, nao preco de tabela.",
+      "",
+      "AAdvantage e uma estimativa, nao um custo medido como os outros tres:",
+      "milha americana quase nao se acumula no Brasil, entao o numero reflete",
+      "o quanto de gasto e preciso para chegar nela. Se voce refinar essa",
+      "conta depois, e so trocar aqui e rodar o script."
+    ],
     "Latam Pass": 24.50,
     "Smiles": 15.00,
-    "TudoAzul": 14.00
+    "TudoAzul": 14.00,
+    "AAdvantage": 100.00
   },
 
   "emissoes": [
@@ -44,6 +53,18 @@
       "taxas": 30,
       "quando": "Mai/2024",
       "nota": "Pagamos caro: esse trecho costuma sair por 4 a 6 mil milhas. Depois de otimizar seis pernas, a sétima passou batido."
+    },
+    {
+      "origem": "CWB",
+      "destino": "FOR",
+      "escopo": "nacional",
+      "programa": "AAdvantage",
+      "companhia": "Gol",
+      "cabine": "Econômica",
+      "milhas": 7000,
+      "taxas": null,
+      "quando": "Out/2026",
+      "nota": "Voo da Gol emitido pela American, que cobra preço fixo em trechos assim. A mesma passagem estava R$ 1.400 em dinheiro."
     },
     {
       "origem": "GRU",
@@ -80,18 +101,6 @@
       "taxas": 160,
       "quando": "Mai/2024",
       "nota": "Executiva por menos milhas que muita econômica internacional."
-    },
-    {
-      "origem": "LAX",
-      "destino": "MSP",
-      "escopo": "internacional",
-      "programa": "TudoAzul",
-      "companhia": "United",
-      "cabine": "Econômica",
-      "milhas": 18000,
-      "taxas": 44,
-      "quando": "Mai/2024",
-      "nota": "Voo da United, emitido pela Azul. Cada programa tem acordo com companhias diferentes."
     }
   ]
 }
