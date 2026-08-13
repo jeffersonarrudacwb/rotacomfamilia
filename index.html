@@ -303,12 +303,12 @@
         <article class="reveal post-card">
           <div class="post-media">
             <picture>
-              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-safari-400.webp 400w, assets/img/card-safari-800.webp 800w, assets/img/card-safari-1080.webp 1080w" />
-              <img src="assets/img/card-safari-1080.jpg"
-                   srcset="assets/img/card-safari-400.jpg 400w, assets/img/card-safari-800.jpg 800w, assets/img/card-safari-1080.jpg 1080w"
+              <source type="image/webp" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" srcset="assets/img/card-safari-400.webp 400w, assets/img/card-safari-800.webp 800w, assets/img/card-safari-1200.webp 1200w, assets/img/card-safari-1600.webp 1600w" />
+              <img src="assets/img/card-safari-1200.jpg"
+                   srcset="assets/img/card-safari-400.jpg 400w, assets/img/card-safari-800.jpg 800w, assets/img/card-safari-1200.jpg 1200w, assets/img/card-safari-1600.jpg 1600w"
                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                   width="1080" height="1351"
-                   alt="A família dentro do carro no Parque Kruger, com um elefante na estrada à frente"
+                   width="1200" height="750"
+                   alt="Dois elefantes atravessando uma estrada de terra no Parque Nacional Kruger"
                    loading="lazy" decoding="async" />
             </picture>
             <span class="post-tag">Relatos em família</span>
@@ -339,39 +339,103 @@
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Quatro blocos expansíveis. <details> nativo: acessível por teclado sem
+           JavaScript, e o conteúdo fica no HTML, então o Google lê mesmo fechado. -->
+      <div class="tips-list">
 
-        <div class="reveal tip-card">
-          <div class="tip-num">01</div>
-          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 11h20M6 16h4"/></svg></div>
-          <h3>Seu primeiro cartão de pontos</h3>
-          <p>Escolher o cartão certo é 80% do jogo. Veja o comparativo dos melhores cartões pra começar a acumular sem complicação.</p>
-          <span class="tip-cta">Ver comparativo →</span>
-        </div>
+        <details class="reveal tip-item">
+          <summary>
+            <span class="tip-num">01</span>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-6 w-6"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 11h20M6 16h4"/></svg></span>
+            <span class="tip-head">
+              <strong>Seu primeiro cartão de pontos</strong>
+              <span>A pergunta certa não é qual cartão é melhor, e sim quanto ele custa por milha.</span>
+            </span>
+          </summary>
+          <div class="tip-body">
+            <p>Quase todo comparativo de cartão erra o critério: compara pontuação e esquece a anuidade. O que importa é o resultado das duas juntas.</p>
+            <p><strong>A regra que usamos:</strong> um cartão que dá 1,8 ponto por dólar e não cobra anuidade rende mais que um de 2,5 pontos com anuidade de R$ 2.500 — a não ser que seu gasto internacional passe de uns US$ 30 mil por ano. Anuidade zero vale mais que meio ponto a mais.</p>
+            <p>E anuidade é negociável muito mais do que parece. Ligue no SAC e peça isenção; bancos oferecem em campanha quase todo mês.</p>
+            <p><strong>Se você está começando</strong>, procure um cartão sem anuidade que já deposite em Livelo ou Esfera — é o que dá liberdade de escolher o programa depois, na hora do bônus.</p>
+            <p><strong>O que a nossa família usa hoje:</strong> C6 Carbon como principal em compras internacionais (perto de 2,5 pontos por dólar) e o AmEx do Bradesco no dia a dia, que deposita em Livelo e dá acesso a sala VIP. Já usamos o AAdvantage do Santander, que deposita direto na American — bom se você mira voos da oneworld, menos flexível que Livelo.</p>
+            <p class="tip-link"><a href="downloads/01-manual-pontos-2026.pdf" download>Baixar o Manual de Pontos, com a tabela completa de cartões →</a></p>
+          </div>
+        </details>
 
-        <div class="reveal tip-card">
-          <div class="tip-num">02</div>
-          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
-          <h3>Acumule sem gastar mais</h3>
-          <p>Use o que você já paga todo mês — luz, mercado, mensalidades, escola — pra virar milhas. É o método que a gente aplica em casa.</p>
-          <span class="tip-cta">Como funciona →</span>
-        </div>
+        <details class="reveal tip-item">
+          <summary>
+            <span class="tip-num">02</span>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-6 w-6"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+            <span class="tip-head">
+              <strong>Acumule sem gastar mais</strong>
+              <span>A mesma compra pode render três vezes. É assim que a conta fecha sem comprar milhas.</span>
+            </span>
+          </summary>
+          <div class="tip-body">
+            <p>A parte que costuma ficar de fora quando alguém conta como viajou de graça: de onde vieram as milhas. No nosso caso, quase nunca de compra — vêm de <strong>empilhar três camadas numa única compra</strong>.</p>
+            <p><strong>1. O portal de compras.</strong> Antes de comprar na loja, entre pelo site da Livelo. A mesma compra rende pontos extras. Em campanha de super acúmulo esse número sobe muito: numa temporada passamos de <strong>100 mil pontos Livelo</strong> só por aí.</p>
+            <p><strong>2. O cartão, na mesma compra.</strong> O que rendeu no portal rende também no cartão. São duas pontuações pelo mesmo gasto.</p>
+            <p><strong>3. O bônus de conversão.</strong> Na hora de transferir da Livelo para o programa aéreo, espere a campanha. Já <strong>dobramos</strong> o saldo na transferência.</p>
+            <p>Somando: a compra rendeu no portal, rendeu no cartão, e depois dobrou. É por isso que a conta fecha.</p>
+            <p>Para ter entrada previsível todo mês, o <strong>Clube Livelo assinado em promoção</strong> é a forma mais barata que conhecemos.</p>
+          </div>
+        </details>
 
-        <div class="reveal tip-card">
-          <div class="tip-num">03</div>
-          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></svg></div>
-          <h3>Calendário de bônus</h3>
-          <p>Nossa regra: só transferir com <b>≥30%</b> pra Latam, <b>≥80%</b> pra Smiles e <b>≥90%</b> pra Azul. Timing certo, milhas dobradas.</p>
-          <span class="tip-cta">Próximas datas →</span>
-        </div>
+        <details class="reveal tip-item">
+          <summary>
+            <span class="tip-num">03</span>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-6 w-6"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></svg></span>
+            <span class="tip-head">
+              <strong>Calendário de bônus</strong>
+              <span>Transferir sem bônus é quase sempre desperdício. Estes são os patamares que esperamos.</span>
+            </span>
+          </summary>
+          <div class="tip-body">
+            <p>Só apertamos "transferir" quando o bônus chega nestes números. Abaixo disso, os pontos ficam parados esperando a próxima janela:</p>
+            <div class="tip-tabela">
+              <table>
+                <thead><tr><th>Programa destino</th><th>Bônus mínimo</th><th>Frequência</th></tr></thead>
+                <tbody>
+                  <tr><td>Latam Pass</td><td>≥ 30%</td><td>Todo mês</td></tr>
+                  <tr><td>Smiles</td><td>≥ 80%</td><td>A cada 30 a 45 dias</td></tr>
+                  <tr><td>TudoAzul</td><td>≥ 90%</td><td>A cada 45 a 60 dias</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Por que os três são tão diferentes?</strong> Porque cada programa cobra um número diferente de milhas pelo mesmo trecho. Smiles e Azul pedem mais milhas por passagem, então precisam de mais bônus na entrada para a conta fechar. A Latam Pass é a mais eficiente na emissão — 30% já viabiliza.</p>
+            <p><strong>O ritmo do ano:</strong> novembro é o pico, por causa da Black Friday. Maio e setembro costumam ser fortes. Fevereiro e julho são os mais fracos — nesses, o melhor é acumular e esperar.</p>
+            <p>Se a sua viagem é para o meio do ano seguinte, guarde saldo e faça a maior transferência em novembro.</p>
+          </div>
+        </details>
 
-        <div class="reveal tip-card">
-          <div class="tip-num">04</div>
-          <div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-7 w-7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></div>
-          <h3>Custo por milheiro</h3>
-          <p>Nossos alvos: Latam abaixo de <b>R$ 25/k</b>, Smiles abaixo de <b>R$ 16/k</b> e Azul abaixo de <b>R$ 15/k</b>. Acima disso, a milha não vale.</p>
-          <span class="tip-cta">Aprender a regra →</span>
-        </div>
+        <details class="reveal tip-item">
+          <summary>
+            <span class="tip-num">04</span>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="h-6 w-6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></span>
+            <span class="tip-head">
+              <strong>Custo por milheiro</strong>
+              <span>Comparar duas passagens pela quantidade de milhas engana. O que vale é o custo em reais.</span>
+            </span>
+          </summary>
+          <div class="tip-body">
+            <p>Esta é a conta que separa quem acumula pontos de quem realmente economiza. E o detalhe que quase nunca aparece: <strong>um milheiro custa diferente em cada programa.</strong></p>
+            <p>O que pagamos, em média, para acumular:</p>
+            <div class="tip-tabela">
+              <table>
+                <thead><tr><th>Programa</th><th>Custo por milheiro</th></tr></thead>
+                <tbody>
+                  <tr><td>TudoAzul</td><td>R$ 14,00</td></tr>
+                  <tr><td>Smiles</td><td>R$ 15,00</td></tr>
+                  <tr><td>Latam Pass</td><td>R$ 24,50</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>A milha Latam custa <strong>75% mais</strong> que a Azul. Ou seja: <strong>20 mil milhas Latam custam mais que 30 mil Azul.</strong> Quem compara só pela quantidade escolhe errado.</p>
+            <p><strong>Um caso real:</strong> numa viagem aos Estados Unidos usamos 60 mil milhas Latam e 60 mil Azul — a mesma quantidade. A Latam custou <strong>R$ 630 a mais</strong>, só por ser um milheiro mais caro.</p>
+            <p><strong>Como calcular o seu:</strong> divida quanto você gastou para acumular (anuidade e taxas incluídas) pelo total de milhas que aquilo gerou, em milhares. O número que vale para a sua decisão é o seu, não o nosso.</p>
+            <p class="tip-link"><a href="downloads/03-planilhas-calculadoras.pdf" download>Baixar a calculadora de custo por milheiro →</a></p>
+          </div>
+        </details>
       </div>
 
       <!-- Bottom strip: programas que monitoramos -->

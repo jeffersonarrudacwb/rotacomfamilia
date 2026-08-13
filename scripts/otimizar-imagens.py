@@ -71,8 +71,16 @@ IMAGENS: dict[str, dict] = {
     # Criativo do post do Instagram, 1080x1351. Traz o titulo "SAFARI SEM GUIA"
     # embutido na propria imagem, o que fica redundante com o titulo do card.
     # Trocar por uma foto limpa do safari quando houver.
-    "card-safari":      {"origem": "fotos/africa do sul/SAFARI SEM GUIA.jpg",
-                         "larguras": [400, 800, 1080]},
+    # Elefantes atravessando a estrada de terra: ilustra literalmente a tese do
+    # artigo, que e ter avistado bicho sem guia, dirigindo carro comum. A capa
+    # do post do Instagram nao dizia nada disso.
+    #
+    # A origem e retrato 4:5 e o card e 16:10 com object-fit cover, entao o
+    # recorte foi feito a mao em Elefantes-card.jpg, centrado na faixa dos
+    # animais. Deixar para o navegador cortaria as patas e o dorso e sobraria
+    # muito ceu vazio.
+    "card-safari":      {"origem": "fotos/africa do sul/Elefantes-card.jpg",
+                         "larguras": [400, 800, 1200, 1600]},
     # As duas executivas. Antes os cards usavam foto de sala VIP e de Lisboa,
     # que ilustravam a espera e o destino - nao a cabine, que e do que os
     # artigos tratam.

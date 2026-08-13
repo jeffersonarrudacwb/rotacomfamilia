@@ -911,76 +911,151 @@ picture {
   max-width: 260px;
 }
 
-/* ============== TIP CARDS (Cartões & Dicas) ============== */
-.tip-card {
-  position: relative;
-  padding: 1.75rem 1.5rem 1.5rem;
-  border-radius: 22px;
+/* ============== TIPS EXPANSÍVEIS (Cartões & Dicas) ==============
+   Eram quatro cards num grid de 4 colunas, sem nada por trás do clique. Viraram
+   <details> nativo: acessível por teclado sem JavaScript, e o texto fica no HTML
+   mesmo fechado, então o Google indexa.
+
+   Empilhados em lista, e não em grid: numa coluna de ~300px o conteúdo aberto
+   ficaria estreito e altíssimo. Em lista, o texto ganha largura de leitura. */
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.tip-item {
+  border-radius: 18px;
   background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
   border: 1px solid rgba(255,255,255,0.08);
-  transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+  transition: border-color 0.3s ease, background 0.3s ease;
   overflow: hidden;
 }
-.tip-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(212,164,55,0.15), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
+.tip-item:hover { border-color: rgba(212,164,55,0.28); }
+.tip-item[open] {
+  border-color: rgba(212,164,55,0.35);
+  background: linear-gradient(160deg, rgba(212,164,55,0.07), rgba(255,255,255,0.015));
 }
-.tip-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(212,164,55,0.3);
+
+.tip-item > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.15rem 1.4rem;
+  user-select: none;
 }
-.tip-card:hover::after { opacity: 1; }
+.tip-item > summary::-webkit-details-marker { display: none; }
+.tip-item > summary::after {
+  content: '+';
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--orange);
+  transition: transform 0.3s ease;
+}
+.tip-item[open] > summary::after { transform: rotate(45deg); }
+.tip-item > summary:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: -2px;
+  border-radius: 18px;
+}
 
 .tip-num {
-  position: absolute;
-  top: 1rem; right: 1.25rem;
+  flex-shrink: 0;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 2.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(180deg, rgba(212,164,55,0.5), rgba(212,164,55,0));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: rgba(212,164,55,0.45);
   letter-spacing: -0.02em;
   line-height: 1;
 }
 .tip-icon {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center; justify-content: center;
-  width: 50px; height: 50px;
-  border-radius: 14px;
+  width: 42px; height: 42px;
+  border-radius: 12px;
   background: rgba(212,164,55,0.15);
   border: 1px solid rgba(212,164,55,0.25);
   color: var(--flame);
-  margin-bottom: 1rem;
 }
-.tip-card h3 {
-  font-family: 'Inter', system-ui, sans-serif;
+.tip-head { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+.tip-head strong {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   letter-spacing: -0.01em;
   line-height: 1.25;
-  margin-bottom: 0.55rem;
 }
-.tip-card p {
-  color: rgba(255,255,255,0.7);
-  font-size: 0.88rem;
-  line-height: 1.55;
-  margin-bottom: 1rem;
+.tip-head > span {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.875rem;
+  line-height: 1.45;
 }
-.tip-cta {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 600;
+
+.tip-body {
+  padding: 0 1.4rem 1.5rem;
+  max-width: 68ch;
+}
+.tip-body p {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+}
+.tip-body p:last-child { margin-bottom: 0; }
+.tip-body strong { color: #fff; font-weight: 600; }
+
+.tip-link a {
   color: var(--orange);
-  transition: transform 0.25s ease;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-bottom: 1px solid rgba(212,164,55,0.35);
+  transition: border-color 0.2s ease;
 }
-.tip-card:hover .tip-cta { transform: translateX(4px); }
+.tip-link a:hover { border-bottom-color: var(--orange); }
+
+/* Tabela dentro do bloco aberto. overflow-x próprio para não empurrar a página
+   de lado no celular. */
+.tip-tabela {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+}
+.tip-tabela table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 320px;
+  font-size: 0.9rem;
+}
+.tip-tabela th {
+  text-align: left;
+  padding: 0.6rem 0.9rem;
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.75);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.tip-tabela td {
+  padding: 0.6rem 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.82);
+  font-variant-numeric: tabular-nums;
+}
+.tip-tabela tbody tr:nth-child(odd) td { background: rgba(255,255,255,0.02); }
+
+@media (max-width: 560px) {
+  .tip-item > summary { gap: 0.8rem; padding: 1rem 1.1rem; }
+  .tip-num { display: none; }
+  .tip-body { padding: 0 1.1rem 1.3rem; }
+}
 
 /* ============== PROGRAM PILLS ============== */
 .program-pill {
