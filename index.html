@@ -35,6 +35,111 @@
 </head>
 <body class="bg-brand-deep text-white font-sans antialiased selection:bg-brand-orange selection:text-white">
 
+  <!-- ============== BANDEIRAS ==============
+       O Windows nao tem glifo para emoji de bandeira. Onde o Mac e o Android
+       desenham a bandeira, o Windows mostra so as duas letras do codigo do
+       pais (AR, US, BR), porque o emoji de bandeira e um par de "indicadores
+       regionais" e cabe a fonte transformar esse par em desenho. A Segoe UI
+       Emoji nao faz isso. Como boa parte do publico esta no Windows, as
+       bandeiras do passaporte e da linha do tempo sao desenhadas aqui e
+       reaproveitadas com <use>: nao dependem de fonte, nem de arquivo
+       externo, e ficam iguais em todo sistema. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs><clipPath id="fl-br-c"><circle cx="320" cy="240" r="92"/></clipPath></defs>
+
+    <symbol id="fl-ar" viewBox="0 0 640 480">
+      <path fill="#74acdf" d="M0 0h640v480H0z"/>
+      <path fill="#fff" d="M0 160h640v160H0z"/>
+      <path fill="#f6b40e" d="m320 186 10 30 29-15-15 29 30 10-30 10 15 29-29-15-10 30-10-30-29 15 15-29-30-10 30-10-15-29 29 15z"/>
+      <circle cx="320" cy="240" r="25" fill="#f6b40e" stroke="#85340a" stroke-width="3"/>
+    </symbol>
+
+    <symbol id="fl-us" viewBox="0 0 640 480">
+      <path fill="#fff" d="M0 0h640v480H0z"/>
+      <path fill="#b22234" d="M0 0h640v36.9H0zM0 73.8h640v36.9H0zM0 147.7h640v36.9H0zM0 221.5h640v36.9H0zM0 295.4h640v36.9H0zM0 369.2h640v36.9H0zM0 443.1h640v36.9H0z"/>
+      <path fill="#3c3b6e" d="M0 0h256v258.5H0z"/>
+      <g fill="#fff">
+        <circle cx="21" cy="26" r="9"/><circle cx="64" cy="26" r="9"/><circle cx="107" cy="26" r="9"/><circle cx="150" cy="26" r="9"/><circle cx="193" cy="26" r="9"/><circle cx="236" cy="26" r="9"/>
+        <circle cx="43" cy="78" r="9"/><circle cx="86" cy="78" r="9"/><circle cx="129" cy="78" r="9"/><circle cx="171" cy="78" r="9"/><circle cx="214" cy="78" r="9"/>
+        <circle cx="21" cy="129" r="9"/><circle cx="64" cy="129" r="9"/><circle cx="107" cy="129" r="9"/><circle cx="150" cy="129" r="9"/><circle cx="193" cy="129" r="9"/><circle cx="236" cy="129" r="9"/>
+        <circle cx="43" cy="181" r="9"/><circle cx="86" cy="181" r="9"/><circle cx="129" cy="181" r="9"/><circle cx="171" cy="181" r="9"/><circle cx="214" cy="181" r="9"/>
+        <circle cx="21" cy="232" r="9"/><circle cx="64" cy="232" r="9"/><circle cx="107" cy="232" r="9"/><circle cx="150" cy="232" r="9"/><circle cx="193" cy="232" r="9"/><circle cx="236" cy="232" r="9"/>
+      </g>
+    </symbol>
+
+    <symbol id="fl-cl" viewBox="0 0 640 480">
+      <path fill="#fff" d="M0 0h640v480H0z"/>
+      <path fill="#d52b1e" d="M0 240h640v240H0z"/>
+      <path fill="#0039a6" d="M0 0h240v240H0z"/>
+      <path fill="#fff" d="m120 74 14 43h45l-36 27 14 43-37-27-36 27 14-43-37-27h46z"/>
+    </symbol>
+
+    <symbol id="fl-py" viewBox="0 0 640 480">
+      <path fill="#d52b1e" d="M0 0h640v160H0z"/>
+      <path fill="#fff" d="M0 160h640v160H0z"/>
+      <path fill="#0038a8" d="M0 320h640v160H0z"/>
+      <circle cx="320" cy="240" r="54" fill="#fff" stroke="#0038a8" stroke-width="3"/>
+      <circle cx="320" cy="240" r="38" fill="none" stroke="#009b3a" stroke-width="9"/>
+      <path fill="#f9e300" d="m320 218 6 18h19l-15 11 6 18-16-11-16 11 6-18-15-11h19z"/>
+    </symbol>
+
+    <symbol id="fl-do" viewBox="0 0 640 480">
+      <path fill="#002d62" d="M0 0h640v480H0z"/>
+      <path fill="#ce1126" d="M368 0h272v192H368zM0 288h272v192H0z"/>
+      <path fill="#fff" d="M272 0h96v480h-96zM0 192h640v96H0z"/>
+    </symbol>
+
+    <symbol id="fl-pt" viewBox="0 0 640 480">
+      <path fill="#f00" d="M0 0h640v480H0z"/>
+      <path fill="#060" d="M0 0h256v480H0z"/>
+      <circle cx="256" cy="240" r="66" fill="#ffe600"/>
+      <ellipse cx="256" cy="240" rx="30" ry="66" fill="none" stroke="#c8a500" stroke-width="5"/>
+      <path d="M190 240h132" stroke="#c8a500" stroke-width="5" fill="none"/>
+      <path fill="#fff" stroke="#c8a500" stroke-width="4" d="M228 200h56v50a28 28 0 0 1-56 0z"/>
+      <path fill="#e02" d="M241 213h30v36a15 15 0 0 1-30 0z"/>
+    </symbol>
+
+    <symbol id="fl-es" viewBox="0 0 640 480">
+      <path fill="#aa151b" d="M0 0h640v480H0z"/>
+      <path fill="#f1bf00" d="M0 120h640v240H0z"/>
+      <path fill="#c8a500" d="M156 188h28v12h-28z"/>
+      <path fill="#ad1519" stroke="#c8a500" stroke-width="4" d="M144 200h52v46a26 26 0 0 1-52 0z"/>
+      <path fill="#f1bf00" fill-opacity=".75" d="M144 200h26v46a26 26 0 0 1-26 0z"/>
+    </symbol>
+
+    <symbol id="fl-za" viewBox="0 0 640 480">
+      <path fill="#e03c31" d="M0 0h640v240H0z"/>
+      <path fill="#002395" d="M0 240h640v240H0z"/>
+      <g fill="none">
+        <path stroke="#fff" stroke-width="104" d="M0-42 213 240 0 522M213 240h470"/>
+        <path stroke="#007a4d" stroke-width="62" d="M0-42 213 240 0 522M213 240h470"/>
+      </g>
+      <path fill="#ffb612" d="M0 66v348l250-174z"/>
+      <path fill="#000" d="M0 88v304l215-152z"/>
+    </symbol>
+
+    <symbol id="fl-br" viewBox="0 0 640 480">
+      <path fill="#009b3a" d="M0 0h640v480H0z"/>
+      <path fill="#fedf00" d="m320 48 272 192-272 192L48 240z"/>
+      <circle cx="320" cy="240" r="92" fill="#002776"/>
+      <g clip-path="url(#fl-br-c)">
+        <path d="M200 252q120 70 240 0" fill="none" stroke="#fff" stroke-width="26"/>
+      </g>
+      <g fill="#fff">
+        <circle cx="286" cy="204" r="5"/><circle cx="332" cy="190" r="4"/><circle cx="362" cy="220" r="5"/>
+        <circle cx="266" cy="240" r="4"/><circle cx="306" cy="224" r="3"/><circle cx="380" cy="266" r="4"/>
+      </g>
+    </symbol>
+
+    <symbol id="fl-uy" viewBox="0 0 640 480">
+      <path fill="#fff" d="M0 0h640v480H0z"/>
+      <path fill="#0038a8" d="M0 53.3h640v53.3H0zM0 160h640v53.3H0zM0 266.7h640v53.3H0zM0 373.3h640v53.3H0z"/>
+      <path fill="#fff" d="M0 0h284v266.7H0z"/>
+      <path fill="#fcd116" d="m142 78 11 33 32-17-17 32 33 11-33 11 17 32-32-17-11 33-11-33-32 17 17-32-33-11 33-11-17-32 32 17z"/>
+      <circle cx="142" cy="133" r="27" fill="#fcd116" stroke="#7b3f00" stroke-width="3"/>
+    </symbol>
+  </svg>
+
   <!-- ============== PROGRESS + NAV ============== -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] w-0 bg-gradient-to-r from-brand-orange to-brand-flame z-[100]"></div>
 
@@ -656,7 +761,7 @@
               <div class="phone-screen app-screen-prompter">
                 <div class="screen-status"><span>9:41</span><span class="text-red-400">● REC</span></div>
                 <div class="mt-6 text-[13px] leading-snug font-medium">
-                  Olá pessoal, hoje vou mostrar pra vocês <span class="bg-brand-orange/80 px-1 rounded">como acumulei mais de 5 milhões de milhas</span> em 2 anos e viajei com a família por 9 países, e o melhor: <span class="opacity-50">sem gastar nada além das contas que já pago todo mês...</span>
+                  Olá pessoal, hoje vou mostrar pra vocês <span class="bg-brand-orange/80 px-1 rounded">como acumulei mais de 5 milhões de milhas</span> em 2 anos e viajei com a família por 10 países, e o melhor: <span class="opacity-50">sem gastar nada além das contas que já pago todo mês...</span>
                 </div>
                 <div class="absolute bottom-3 left-3 right-3">
                   <div class="flex items-center justify-between text-[10px] mb-1"><span>Velocidade 1.2x</span><span>Fonte 22pt</span></div>
@@ -789,8 +894,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent"></div>
             <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <div>
-                <div class="text-[10px] uppercase tracking-[0.3em] text-white/70">Próximo destino</div>
-                <div class="font-display font-bold text-xl">África do Sul 🦁</div>
+                <div class="text-[10px] uppercase tracking-[0.3em] text-white/70">Já planejando</div>
+                <div class="font-display font-bold text-xl">Qual será o próximo destino?</div>
               </div>
             </div>
           </div>
@@ -801,12 +906,19 @@
               <svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-fern" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V4z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
               <span class="text-[10px] uppercase tracking-[0.25em] text-white/70 font-semibold">Nosso passaporte</span>
             </div>
-            <div class="flex flex-wrap gap-1.5 max-w-[220px] text-2xl">
-              <span>🇦🇷</span><span>🇺🇸</span><span>🇨🇱</span>
-              <span>🇵🇾</span><span>🇩🇴</span><span>🇵🇹</span>
-              <span>🇪🇸</span><span>🇿🇦</span><span>🇧🇷</span>
+            <div class="flex flex-wrap gap-1.5 max-w-[220px]">
+              <svg class="flag" role="img" aria-label="Brasil"><use href="#fl-br"/></svg>
+              <svg class="flag" role="img" aria-label="Argentina"><use href="#fl-ar"/></svg>
+              <svg class="flag" role="img" aria-label="Uruguai"><use href="#fl-uy"/></svg>
+              <svg class="flag" role="img" aria-label="Chile"><use href="#fl-cl"/></svg>
+              <svg class="flag" role="img" aria-label="Paraguai"><use href="#fl-py"/></svg>
+              <svg class="flag" role="img" aria-label="Estados Unidos"><use href="#fl-us"/></svg>
+              <svg class="flag" role="img" aria-label="República Dominicana"><use href="#fl-do"/></svg>
+              <svg class="flag" role="img" aria-label="Portugal"><use href="#fl-pt"/></svg>
+              <svg class="flag" role="img" aria-label="Espanha"><use href="#fl-es"/></svg>
+              <svg class="flag" role="img" aria-label="África do Sul"><use href="#fl-za"/></svg>
             </div>
-            <div class="mt-2 font-display text-2xl font-extrabold leading-none">9 países <span class="text-brand-orange text-sm font-bold">+1</span></div>
+            <div class="mt-2.5 font-display text-2xl font-extrabold leading-none">10 países</div>
             <div class="text-[11px] text-white/60 mt-0.5">em 2 anos como família</div>
           </div>
         </div>
@@ -818,7 +930,7 @@
             Para a gente (Kharol, Jefferson e Derek) viajar nunca foi só sair de casa. É a forma que encontramos de viver junto, descobrir novas culturas e colecionar lembranças que não cabem em foto. A vontade de explorar sempre esteve aí, mas foi <strong class="text-white">depois da pandemia que ela ganhou urgência</strong>: a gente decidiu não esperar mais.
           </p>
           <p class="reveal mt-4 text-white/70 leading-relaxed">
-            De 2024 pra cá já cruzamos a América, o Caribe, a Europa e estamos prestes a pisar na África. A cada destino aprendemos algo novo sobre milhas, pontos e planejamento, e a Rota com Família é o nosso jeito de devolver isso pra outras famílias que querem o mesmo: <strong class="text-white">ver o mundo sem pesar no bolso</strong>.
+            De 2024 pra cá já cruzamos a América, o Caribe, a Europa e a África. A cada destino aprendemos algo novo sobre milhas, pontos e planejamento, e a Rota com Família é o nosso jeito de devolver isso pra outras famílias que querem o mesmo: <strong class="text-white">ver o mundo sem pesar no bolso</strong>.
           </p>
 
           <!-- Family roles -->
@@ -856,56 +968,56 @@
           <div class="trip-date">Jan · 2024</div>
           <h4>Argentina</h4>
           <p class="trip-people">Buenos Aires entre cafés portenhos e o tango da Boca.</p>
-          <div class="trip-emoji">🇦🇷</div>
+          <svg class="trip-flag" role="img" aria-label="Argentina"><use href="#fl-ar"/></svg>
         </div>
 
         <div class="reveal trip-card">
           <div class="trip-date">Mai · 2024</div>
           <h4>Los Angeles · Minneapolis · Orlando</h4>
           <p class="trip-people">Formatura do meu irmão em Minneapolis, e a primeira semana de Disney.</p>
-          <div class="trip-emoji">🇺🇸</div>
+          <svg class="trip-flag" role="img" aria-label="Estados Unidos"><use href="#fl-us"/></svg>
         </div>
 
         <div class="reveal trip-card">
           <div class="trip-date">Dez · 2024</div>
           <h4>Las Vegas · LA · Nova York</h4>
           <p class="trip-people">Três cidades em uma viagem: luzes, Hollywood e Times Square.</p>
-          <div class="trip-emoji">🇺🇸</div>
+          <svg class="trip-flag" role="img" aria-label="Estados Unidos"><use href="#fl-us"/></svg>
         </div>
 
         <div class="reveal trip-card">
           <div class="trip-date">Abr · 2025</div>
           <h4>Chile</h4>
           <p class="trip-people">Santiago e a Cordilheira dos Andes ao alcance dos olhos.</p>
-          <div class="trip-emoji">🇨🇱</div>
+          <svg class="trip-flag" role="img" aria-label="Chile"><use href="#fl-cl"/></svg>
         </div>
 
         <div class="reveal trip-card">
           <div class="trip-date">Set · 2025</div>
           <h4>Assunção, Paraguai</h4>
           <p class="trip-people">Bate-volta surpreendente com clima de descoberta.</p>
-          <div class="trip-emoji">🇵🇾</div>
+          <svg class="trip-flag" role="img" aria-label="Paraguai"><use href="#fl-py"/></svg>
         </div>
 
         <div class="reveal trip-card">
           <div class="trip-date">Dez/2025 a Jan/2026</div>
           <h4>Punta Cana · Orlando · Weston</h4>
           <p class="trip-people">Quarenta e quatro dias fora: 9 no Caribe, 21 em Orlando e 14 na Flórida.</p>
-          <div class="trip-emoji">🌴</div>
+          <svg class="trip-flag" role="img" aria-label="República Dominicana"><use href="#fl-do"/></svg>
         </div>
 
         <div class="reveal trip-card">
           <div class="trip-date">Abr · 2026</div>
           <h4>Portugal & Espanha</h4>
           <p class="trip-people">Lisboa, Porto, Madrid: a porta de entrada perfeita para a Europa.</p>
-          <div class="trip-emoji">🇵🇹</div>
+          <svg class="trip-flag" role="img" aria-label="Portugal"><use href="#fl-pt"/></svg>
         </div>
 
         <div class="reveal trip-card trip-card-next">
-          <div class="trip-date">2026 <span class="trip-soon">Próxima</span></div>
+          <div class="trip-date">Jul · 2026 <span class="trip-soon">Mais recente</span></div>
           <h4>África do Sul · Safari</h4>
-          <p class="trip-people">Savana, fauna selvagem e a aventura mais marcante da nossa vida.</p>
-          <div class="trip-emoji">🦁</div>
+          <p class="trip-people">Cinco dias dirigindo pelo Kruger sem guia, a aventura mais marcante que já fizemos.</p>
+          <svg class="trip-flag" role="img" aria-label="África do Sul"><use href="#fl-za"/></svg>
         </div>
       </div>
 
@@ -914,7 +1026,7 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <span class="eyebrow text-brand-sky">No Brasil também</span>
-            <h3 class="font-display text-2xl sm:text-3xl font-extrabold mt-2">Resorts e hotéis que já viramos casa.</h3>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold mt-2">Os resorts onde a gente sempre volta.</h3>
             <p class="mt-2 text-white/65 max-w-xl">Lugares que testamos pessoalmente e voltaríamos com a família sem pensar duas vezes.</p>
           </div>
           <span class="text-sm text-white/55 hidden md:inline">Curadoria por experiência própria 🌿</span>
@@ -931,7 +1043,7 @@
           </div>
           <div class="hotel-card hotel-card-favorite">
             <div class="hotel-name">Bourbon Atibaia <span class="hotel-region">SP</span></div>
-            <p>Refúgio na serra paulista que viramos casa, voltamos várias vezes pela estrutura familiar.</p>
+            <p>Refúgio na serra paulista onde já voltamos várias vezes, pela estrutura pensada para família.</p>
             <span class="hotel-badge">Favorito da família</span>
           </div>
           <div class="hotel-card">
@@ -955,9 +1067,17 @@
                 <span class="platform-dot bg-blue-500"></span> Booking
                 <span class="platform-desc">Para hotéis no mundo todo</span>
               </a>
-              <a href="https://www.airbnb.com" target="_blank" rel="noopener" class="platform-pill">
+              <a href="https://www.airbnb.com.br" target="_blank" rel="noopener" class="platform-pill">
                 <span class="platform-dot bg-pink-500"></span> Airbnb
                 <span class="platform-desc">Estadias com clima de casa</span>
+              </a>
+              <a href="https://www.rci.com" target="_blank" rel="noopener" class="platform-pill">
+                <span class="platform-dot bg-emerald-500"></span> RCI
+                <span class="platform-desc">Semanas em resort pelo intercâmbio</span>
+              </a>
+              <a href="https://www.hoteis.com" target="_blank" rel="noopener" class="platform-pill">
+                <span class="platform-dot bg-amber-400"></span> Hotéis.com
+                <span class="platform-desc">Onde cada 10 diárias viram uma</span>
               </a>
             </div>
           </div>

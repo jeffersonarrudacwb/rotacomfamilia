@@ -785,12 +785,29 @@ picture {
   color: rgba(255,255,255,0.6);
   font-size: 0.88rem;
 }
-.trip-emoji {
+/* Bandeiras em SVG, definidas como <symbol> no topo do index.html. Emoji de
+   bandeira nao renderiza no Windows, entao elas sao desenhadas. */
+.flag,
+.trip-flag {
+  display: block;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.flag {
+  width: 30px;
+  height: 22.5px;
+}
+
+.trip-flag {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  font-size: 1.6rem;
-  opacity: 0.85;
+  width: 34px;
+  height: 25.5px;
+  border-radius: 4px;
+  opacity: 0.92;
 }
 
 .trip-card-next {
