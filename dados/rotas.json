@@ -1,0 +1,97 @@
+{
+  "_leia_me": [
+    "Fonte unica da secao 'As passagens que a gente ja emitiu' do index.html.",
+    "Depois de editar este arquivo, rode:  python scripts/gerar-rotas.py",
+    "O script reescreve o HTML entre os marcadores ROTAS:INICIO e ROTAS:FIM.",
+    "",
+    "REGRA: so entra aqui trecho que foi realmente emitido, com o numero de",
+    "milhas que apareceu na emissao. Se nao lembrar a taxa, deixe taxas: null,",
+    "que o card mostra so o custo das milhas. Nao preencher no chute.",
+    "",
+    "O custo em reais NAO fica escrito aqui: o script calcula a partir do",
+    "milheiro abaixo. Assim, quando o seu custo de acumulacao mudar, basta",
+    "trocar um numero e rodar o script de novo."
+  ],
+
+  "milheiro": {
+    "_leia_me": "Quanto custa mil milhas para a gente, em reais. Nosso custo de acumulacao, nao preco de tabela.",
+    "Latam Pass": 24.50,
+    "Smiles": 15.00,
+    "TudoAzul": 14.00
+  },
+
+  "emissoes": [
+    {
+      "origem": "CWB",
+      "destino": "GRU",
+      "escopo": "nacional",
+      "programa": "Latam Pass",
+      "companhia": "Latam",
+      "cabine": "Econômica",
+      "milhas": 2600,
+      "taxas": 43,
+      "quando": "Mai/2024",
+      "nota": "O trecho mais barato que já emitimos."
+    },
+    {
+      "origem": "CNF",
+      "destino": "CWB",
+      "escopo": "nacional",
+      "programa": "Latam Pass",
+      "companhia": "Latam",
+      "cabine": "Econômica",
+      "milhas": 11000,
+      "taxas": 30,
+      "quando": "Mai/2024",
+      "nota": "Pagamos caro: esse trecho costuma sair por 4 a 6 mil milhas. Depois de otimizar seis pernas, a sétima passou batido."
+    },
+    {
+      "origem": "GRU",
+      "destino": "LIS",
+      "escopo": "internacional",
+      "programa": "Latam Pass",
+      "companhia": "Latam",
+      "cabine": "Executiva",
+      "milhas": 200000,
+      "taxas": null,
+      "quando": "Abr/2026",
+      "nota": "Seis passageiros. Buscar os seis assentos de uma vez subia o preço, então dividimos em duas contas."
+    },
+    {
+      "origem": "PTY",
+      "destino": "CNF",
+      "escopo": "internacional",
+      "programa": "Smiles",
+      "companhia": "Copa",
+      "cabine": "Executiva",
+      "milhas": 105000,
+      "taxas": null,
+      "quando": "Mai/2024",
+      "nota": "A volta dos Estados Unidos, deitado."
+    },
+    {
+      "origem": "MCO",
+      "destino": "PTY",
+      "escopo": "internacional",
+      "programa": "TudoAzul",
+      "companhia": "Copa",
+      "cabine": "Executiva",
+      "milhas": 42000,
+      "taxas": 160,
+      "quando": "Mai/2024",
+      "nota": "Executiva por menos milhas que muita econômica internacional."
+    },
+    {
+      "origem": "LAX",
+      "destino": "MSP",
+      "escopo": "internacional",
+      "programa": "TudoAzul",
+      "companhia": "United",
+      "cabine": "Econômica",
+      "milhas": 18000,
+      "taxas": 44,
+      "quando": "Mai/2024",
+      "nota": "Voo da United, emitido pela Azul. Cada programa tem acordo com companhias diferentes."
+    }
+  ]
+}

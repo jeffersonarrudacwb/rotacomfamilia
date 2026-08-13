@@ -476,6 +476,20 @@ picture {
 }
 .flight-card:hover::before { transform: scaleX(1); }
 
+.flight-escopo {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(169, 180, 126, 0.14);
+  border: 1px solid rgba(169, 180, 126, 0.3);
+  color: var(--fern);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
 .flight-route {
   display: flex; align-items: center; gap: 0.6rem;
   font-family: 'Inter', system-ui, sans-serif;
@@ -491,35 +505,36 @@ picture {
   font-weight: 800;
   color: white;
 }
-.flight-old {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.4);
-  text-decoration: line-through;
-  margin-left: 0.5rem;
+/* Sairam daqui .flight-old, .flight-bar e .flight-foot. A primeira era o
+   preco em dinheiro riscado ao lado das milhas, que ninguem tinha conferido;
+   a segunda, uma barra de progresso decorativa cuja largura era escrita a mao
+   card a card e nao media coisa nenhuma. */
+.flight-unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  margin-left: 0.15rem;
 }
+.flight-cost {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.72);
+}
+.flight-cost strong { color: var(--orange); font-weight: 700; }
+
 .flight-info {
-  margin-top: 0.5rem;
-  display: flex; justify-content: space-between;
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between; gap: 0.75rem;
   font-size: 0.82rem;
   color: rgba(255,255,255,0.6);
 }
-.flight-bar {
-  margin-top: 1rem;
-  height: 4px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  overflow: hidden;
-}
-.flight-bar > div {
-  height: 100%;
-  background: linear-gradient(90deg, var(--orange), var(--flame));
-  border-radius: 999px;
-}
-.flight-foot {
-  margin-top: 1rem;
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 0.9rem;
+.flight-nota {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.5);
 }
 
 /* ============== APP CARDS ============== */
