@@ -60,7 +60,7 @@
       "milhas": 11000,
       "taxas": 30,
       "quando": "Mai/2024",
-      "nota": "Na época pagamos caro: o trecho saía por 4 a 6 mil milhas e a gente não pesquisou direito. Hoje ele está na faixa de 8 a 10 mil, ou seja, preço de resgate também sobe com o tempo."
+      "nota": "Deixamos essa perna por último, esperando uma janela melhor que não apareceu. Na época o normal era 4 a 6 mil milhas; hoje o trecho está entre 8 e 10 mil. Esperar é uma aposta, e essa a gente perdeu."
     },
     {
       "origem": "CWB",
@@ -79,12 +79,12 @@
       "destino": "JNB",
       "escopo": "internacional",
       "programa": "TudoAzul",
-      "companhia": null,
+      "companhia": "TAAG",
       "cabine": "Econômica",
       "milhas": 96000,
       "taxas": null,
       "quando": "Jul/2026",
-      "nota": "A viagem do safári. Onze mil quilômetros até a África do Sul com a milha mais barata da nossa carteira."
+      "nota": "A viagem do safári, emitida no Azul pelo Mundo. Voar por uma companhia angolana com milhas brasileiras é o tipo de combinação que só aparece quando você olha além das parceiras óbvias."
     },
     {
       "origem": "GRU",
