@@ -47,3 +47,8 @@ deploy-rotacomfamilia.zip
 
 # Arquivos de lock do Word
 ~$*
+
+# PDFs de terceiros usados so como referencia de leitura.
+# Ficam na maquina, nunca no repositorio.
+ebooks/*.pdf
+!ebooks/pdf/
