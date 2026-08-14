@@ -7,6 +7,7 @@ import io
 import json
 import math
 import os
+import re
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import cm
@@ -184,11 +185,19 @@ class Divider(Flowable):
 
 
 class Callout(Flowable):
-    """Tip-box with gold accent, sand background."""
+    """Tip-box with gold accent, sand background.
+
+    ATENCAO: o texto aqui e PURO. O desenho e feito com drawString direto no
+    canvas, que nao interpreta marcacao: escrever <b>assim</b> imprime os
+    sinais na pagina, como aconteceu em cinco caixas de uma versao anterior.
+    Por isso as tags sao removidas na entrada, e nao ignoradas em silencio: se
+    voce precisa de negrito, o lugar dele e o titulo da caixa ou um Paragraph
+    normal fora dela.
+    """
     def __init__(self, title, body, kind='tip'):
         Flowable.__init__(self)
-        self.title = title
-        self.body = body
+        self.title = re.sub(r'</?[a-zA-Z][^>]*>', '', title)
+        self.body = re.sub(r'</?[a-zA-Z][^>]*>', '', body)
         self.kind = kind
     def wrap(self, aw, ah):
         self._aw = aw

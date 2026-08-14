@@ -55,3 +55,7 @@ ebooks/*.pdf
 
 # Copias reduzidas das fotos, geradas pelo build dos ebooks.
 ebooks/.cache-img/
+
+# Material de terceiros usado so como referencia de leitura.
+# Fica na maquina, nunca no repositorio.
+complementos/

@@ -79,13 +79,14 @@ story.append(Spacer(1, 0.3*cm))
 story.append(toc([
     ('Como funcionam pontos e milhas no Brasil', '03'),
     ('Como escolher seu primeiro cartão (e o próximo)', '05'),
-    ('Os programas de coalizão e a transferência', '07'),
-    ('Calendário de bônus: o jogo do timing', '09'),
-    ('Custo por milha: a regra de ouro', '10'),
-    ('Uma emissão de verdade, trecho a trecho', '11'),
-    ('Estratégia mês a mês para 2026 e 2027', '13'),
-    ('Salas VIP, a vantagem oculta dos premiums', '14'),
-    ('Próximos passos: comunidade e assessoria', '16'),
+    ('Acumular sem gastar a mais', '07'),
+    ('Os programas de coalizão e a transferência', '09'),
+    ('Calendário de bônus: o jogo do timing', '11'),
+    ('Custo por milha: a regra de ouro', '12'),
+    ('Uma emissão de verdade, trecho a trecho', '13'),
+    ('Estratégia mês a mês para 2026 e 2027', '15'),
+    ('Salas VIP, a vantagem oculta dos premiums', '16'),
+    ('Próximos passos: comunidade e assessoria', '18'),
 ]))
 
 # ============================================================
@@ -176,12 +177,22 @@ story.append(Paragraph(
 
 story.append(Spacer(1, 0.2*cm))
 story.append(data_table([
-    [cell('Perfil', header=True), cell('Anuidade típica', header=True), cell('Pontos por dólar', header=True), cell('Para quem é', header=True)],
-    [cell('Entrada'), cell('Isento ou até R$ 200'), cell('1 a 1,2'), cell('Quem está começando')],
-    [cell('Intermediário'), cell('R$ 300 a 700'), cell('1,5 a 1,8'), cell('Quem já acumula com constância')],
-    [cell('Premium'), cell('R$ 800 a 1.500'), cell('2 a 2,5'), cell('Mira internacional, já entra em sala VIP')],
-    [cell('Ultra-premium'), cell('R$ 1.800 ou mais'), cell('4 ou mais'), cell('Gasto alto, pacote de benefícios completo')],
-], col_widths=[3.2*cm, 3.6*cm, 3.4*cm, 6.1*cm]))
+    [cell('Perfil', header=True), cell('Anuidade', header=True),
+     cell('Pontos por dólar', header=True), cell('Chega a', header=True),
+     cell('Tem sala VIP?', header=True)],
+    [cell('Entrada'), cell('Isento a R$ 400'), cell('1,0'), cell('2,2'), cell('Quase nunca')],
+    [cell('Intermediário'), cell('R$ 400 a 900'), cell('1,7'), cell('5,0'), cell('Cerca de um terço')],
+    [cell('Premium'), cell('R$ 900 a 1.800'), cell('3,0'), cell('9,0'), cell('Sempre')],
+    [cell('Ultra-premium'), cell('Acima de R$ 1.800'), cell('4,0 a 7,0'), cell('11,0'), cell('Sempre')],
+], col_widths=[3.0*cm, 3.4*cm, 3.2*cm, 2.2*cm, 4.5*cm]))
+
+story.append(Spacer(1, 0.15*cm))
+story.append(Paragraph(
+    '<i>A coluna "pontos por dólar" é o valor típico da faixa, e "chega a" é o '
+    'melhor caso que encontramos. Levantamos isso sobre um ranking público de '
+    '250 cartões brasileiros, o do Passageiro de Primeira, em agosto de 2026. '
+    'Confira antes de decidir, porque banco muda regra sem avisar.</i>',
+    S['small']))
 
 story.append(Spacer(1, 0.2*cm))
 story.append(Paragraph(
@@ -195,6 +206,21 @@ story.append(Paragraph(
     'quase dobra. É o que faz o cartão de anuidade alta se pagar, desde que o '
     'seu gasto mensal justifique. Abaixo desse volume, o cartão intermediário '
     'quase sempre entrega mais ganho líquido.', S['body']))
+
+story.append(Paragraph(
+    'E repare na última coluna, porque ela é mais nítida do que parece: '
+    '<b>a partir de R$ 900 de anuidade, praticamente todo cartão dá sala VIP</b>. '
+    'Abaixo de R$ 400, quase nenhum. A faixa do meio é onde vale conferir caso '
+    'a caso, porque só um terço oferece.', S['body']))
+
+story.append(Callout(
+    'Cuidado com o "até" do anúncio',
+    'Um em cada dez cartões anuncia a pontuação como "até X pontos por '
+    'dólar", e esse X quase nunca é o que você vai ganhar no dia a dia: '
+    'costuma ser bônus de categoria, que vale só em compras na loja do parceiro, '
+    'na plataforma de viagens do banco ou para quem assina um clube. '
+    'O número que importa é o da compra comum. Procure a letra miúda: é esse '
+    'que vai valer no seu mês.', kind='warn'))
 
 story.append(Spacer(1, 0.3*cm))
 story.append(Paragraph('A conta que você precisa fazer', S['h2']))
@@ -233,11 +259,85 @@ story.append(Paragraph(
     'Cartões que não passam nessa conta saem da carteira, sem dó.', S['body']))
 
 # ============================================================
-# 06 - Cap 3 - Programas de coalizão
+# 06 - Cap 3 - Acumular sem gastar a mais
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
     'Capítulo 03',
+    'Acumular sem gastar a mais.',
+    'O maior salto não vem de gastar mais. Vem de fazer o gasto que você já '
+    'tem passar pelo caminho certo antes de virar fatura.'
+))
+
+story.append(Paragraph(
+    'Quase todo mundo que começa acha que a conta é simples: passo o cartão, '
+    'ganho ponto. É verdade, e é também a menor parte do que dá para ganhar. '
+    'A mesma compra pode pontuar <b>três vezes</b>, e a diferença entre uma vez '
+    'e três vezes é o que decide se a viagem sai neste ano ou no que vem.',
+    S['body']))
+
+story.append(Paragraph('As três camadas da mesma compra', S['h2']))
+story.extend(bullet_list([
+    '<b>1. O portal de compras.</b> Antes de comprar na loja, entre pelo site do '
+    'seu programa (Livelo, Esfera e afins) e clique no link da loja por lá. '
+    'A compra é a mesma, o preço é o mesmo, e ela rende pontos extras.',
+    '<b>2. O cartão, na mesma compra.</b> Os pontos do portal não substituem os '
+    'do cartão: eles se somam.',
+    '<b>3. O bônus de conversão.</b> Na hora de transferir para a companhia '
+    'aérea, espere a campanha. Numa temporada boa, o saldo dobra.',
+]))
+
+story.append(Callout(
+    'Quanto isso rendeu para nós',
+    'Só pelo portal de compras, sem comprar nada que não fosse comprar de '
+    'qualquer jeito, passamos de 100 mil pontos Livelo numa única '
+    'temporada. É o passo que mais gente pula, porque exige lembrar de abrir '
+    'uma aba antes de finalizar a compra. Vale criar o hábito: é o ponto mais '
+    'barato que existe.', kind='tip'))
+
+story.append(Paragraph('O gasto que já está no seu mês', S['h2']))
+story.append(Paragraph(
+    'Além do portal, boa parte do que a família já gasta pode ser redirecionada '
+    'para pontuar mais. Vale olhar, um por um, os canais em que você gasta todo '
+    'mês sem pensar:', S['body']))
+
+story.extend(bullet_list([
+    '<b>Combustível.</b> Postos e aplicativos de abastecimento têm parceria com '
+    'programas de pontos. É gasto recorrente e previsível, o melhor tipo.',
+    '<b>Farmácia e supermercado.</b> Redes grandes acumulam em programas '
+    'próprios que depois convertem, e às vezes rodam campanhas de pontuação '
+    'multiplicada.',
+    '<b>Transporte por aplicativo e delivery.</b> Parcerias mudam com frequência, '
+    'mas quando existem rendem sobre um gasto que já é seu.',
+    '<b>Contas de casa e assinaturas.</b> Luz, internet, streaming e mensalidade '
+    'de escola no cartão certo é pontuação garantida todo mês.',
+]))
+
+story.append(Paragraph('O clube de pontos', S['h2']))
+story.append(Paragraph(
+    'Os programas vendem assinaturas mensais que depositam uma quantidade fixa '
+    'de pontos todo mês, por um valor fixo. Assinado em promoção, é a forma '
+    'mais barata de ter <b>entrada previsível</b> de pontos, e foi assim que '
+    'completamos o saldo de mais de uma viagem nossa. Entre na conta do seu '
+    'custo por milheiro: a mensalidade é desembolso e precisa aparecer lá.',
+    S['body']))
+
+story.append(Callout(
+    'Nada disso é milha de graça',
+    'Você vai ver por aí a promessa de acumular milhas "100% de graça". Preferimos '
+    'ser francos: nenhum desses canais dá ponto de graça. O que eles fazem '
+    'é aumentar o rendimento de um dinheiro que ia sair do seu bolso de qualquer '
+    'forma. A diferença é enorme e a distinção importa, porque a promessa de '
+    'gratuidade leva gente a gastar mais para "ganhar" pontos, o que é '
+    'exatamente o contrário do que a gente faz. Se você comprou algo que não '
+    'ia comprar, o ponto saiu caríssimo.', kind='warn'))
+
+# ============================================================
+# 07 - Cap 4 - Programas de coalizão
+# ============================================================
+story.append(PageBreak())
+story.extend(section_opener(
+    'Capítulo 04',
     'Os programas de coalizão e a transferência.',
     'Aqui mora o jogo. É na transferência entre programas que pontos viram '
     'mais pontos, desde que você saiba esperar o momento certo.'
@@ -325,7 +425,7 @@ story.append(Callout(
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
-    'Capítulo 04',
+    'Capítulo 05',
     'Calendário de bônus: o jogo do timing.',
     'Esperar o bônus certo é a diferença entre 200k milhas e 400k milhas. '
     'A boa notícia: dá para prever.'
@@ -366,7 +466,7 @@ story.append(Paragraph(
 
 story.append(Callout(
     'Bônus de 100% existe, mas não em qualquer programa',
-    'Esse exemplo só acontece com <b>Smiles e TudoAzul</b>, que são os programas '
+    'Esse exemplo só acontece com Smiles e TudoAzul, que são os programas '
     'que chegam a 80% e 90% e ocasionalmente encostam nos 100%. A Latam Pass '
     'não entra nessa conta: as campanhas dela saem em torno de 25%, e 30% já é '
     'uma oferta muito boa. Esperar 100% da Latam é esperar por algo que não '
@@ -377,7 +477,7 @@ story.append(Callout(
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
-    'Capítulo 05',
+    'Capítulo 06',
     'Custo por milha: a regra de ouro.',
     'Existe uma conta única que separa quem viaja barato de quem acha que '
     'viaja barato. É a conta do custo por milha, e ela vale para qualquer '
@@ -441,7 +541,7 @@ story.extend(bullet_list([
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
-    'Capítulo 06',
+    'Capítulo 07',
     'Uma emissão de verdade, trecho a trecho.',
     'Toda a teoria dos capítulos anteriores cabe numa viagem só. Esta é a '
     'nossa, com os números que apareceram na tela na hora de emitir.'
@@ -516,7 +616,7 @@ story.append(Paragraph(
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
-    'Capítulo 07',
+    'Capítulo 08',
     'Estratégia mês a mês para 2026 e 2027.',
     'Um ano de milhas dá pra dividir em quatro estações. Aqui vai o plano '
     'que estamos seguindo na nossa família este ano.'
@@ -558,7 +658,7 @@ story.append(Paragraph(
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
-    'Capítulo 08',
+    'Capítulo 09',
     'Salas VIP, a vantagem oculta dos premiums.',
     'Boa parte do valor de um cartão premium não está nos pontos. Está nas '
     'salas VIP, que mudam por completo a experiência da viagem.'
@@ -603,7 +703,7 @@ story.append(Paragraph(
 
 story.append(Callout(
     'O nosso caso: Amex The Platinum Card',
-    'É o cartão que mais nos dá sala, e a gente o usa <b>sem pagar anuidade</b>, '
+    'É o cartão que mais nos dá sala, e a gente o usa sem pagar anuidade, '
     'que é o tipo de negociação que vale sempre tentar. Com ele entramos nas '
     'salas Bradesco e parceiras, o que cobre praticamente todo aeroporto '
     'brasileiro relevante, e também em salas na maior parte dos aeroportos '
