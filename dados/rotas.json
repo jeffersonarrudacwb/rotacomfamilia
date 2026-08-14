@@ -8,6 +8,14 @@
     "milhas que apareceu na emissao. Se nao lembrar a taxa, deixe taxas: null,",
     "que o card mostra so o custo das milhas. Nao preencher no chute.",
     "",
+    "ORDEM: o script poe as nacionais antes das internacionais e, dentro de",
+    "cada grupo, respeita a ordem daqui. Deixe as recentes em cima: emissao de",
+    "dois anos atras ainda ensina, mas envelhece a vitrine.",
+    "",
+    "COMPANHIA: preencha sempre. O card so mostra quem operou o voo quando for",
+    "outra empresa que nao a dona do programa, porque e ai que esta a licao",
+    "('voo Copa' emitido pela Smiles). Se nao souber, use null.",
+    "",
     "O custo em reais NAO fica escrito aqui: o script calcula a partir do",
     "milheiro abaixo. Assim, quando o seu custo de acumulacao mudar, basta",
     "trocar um numero e rodar o script de novo."
@@ -32,15 +40,15 @@
   "emissoes": [
     {
       "origem": "CWB",
-      "destino": "GRU",
+      "destino": "FOR",
       "escopo": "nacional",
-      "programa": "Latam Pass",
-      "companhia": "Latam",
+      "programa": "AAdvantage",
+      "companhia": "Gol",
       "cabine": "Econômica",
-      "milhas": 2600,
-      "taxas": 43,
-      "quando": "Mai/2024",
-      "nota": "O trecho mais barato que já emitimos."
+      "milhas": 7000,
+      "taxas": null,
+      "quando": "Out/2026",
+      "nota": "A American cobra preço fixo em trechos assim, mesmo voando pela Gol. A mesma passagem estava R$ 1.400 em dinheiro."
     },
     {
       "origem": "CNF",
@@ -52,19 +60,31 @@
       "milhas": 11000,
       "taxas": 30,
       "quando": "Mai/2024",
-      "nota": "Pagamos caro: esse trecho costuma sair por 4 a 6 mil milhas. Depois de otimizar seis pernas, a sétima passou batido."
+      "nota": "Na época pagamos caro: o trecho saía por 4 a 6 mil milhas e a gente não pesquisou direito. Hoje ele está na faixa de 8 a 10 mil, ou seja, preço de resgate também sobe com o tempo."
     },
     {
       "origem": "CWB",
-      "destino": "FOR",
+      "destino": "GRU",
       "escopo": "nacional",
-      "programa": "AAdvantage",
-      "companhia": "Gol",
+      "programa": "Latam Pass",
+      "companhia": "Latam",
       "cabine": "Econômica",
-      "milhas": 7000,
+      "milhas": 2600,
+      "taxas": 43,
+      "quando": "Mai/2024",
+      "nota": "O trecho mais barato que já emitimos."
+    },
+    {
+      "origem": "GRU",
+      "destino": "JNB",
+      "escopo": "internacional",
+      "programa": "TudoAzul",
+      "companhia": null,
+      "cabine": "Econômica",
+      "milhas": 96000,
       "taxas": null,
-      "quando": "Out/2026",
-      "nota": "Voo da Gol emitido pela American, que cobra preço fixo em trechos assim. A mesma passagem estava R$ 1.400 em dinheiro."
+      "quando": "Jul/2026",
+      "nota": "A viagem do safári. Onze mil quilômetros até a África do Sul com a milha mais barata da nossa carteira."
     },
     {
       "origem": "GRU",
@@ -89,18 +109,6 @@
       "taxas": null,
       "quando": "Mai/2024",
       "nota": "A volta dos Estados Unidos, deitado."
-    },
-    {
-      "origem": "MCO",
-      "destino": "PTY",
-      "escopo": "internacional",
-      "programa": "TudoAzul",
-      "companhia": "Copa",
-      "cabine": "Executiva",
-      "milhas": 42000,
-      "taxas": 160,
-      "quando": "Mai/2024",
-      "nota": "Executiva por menos milhas que muita econômica internacional."
     }
   ]
 }

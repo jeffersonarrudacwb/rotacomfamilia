@@ -28,6 +28,16 @@ FIM = '<!-- ROTAS:FIM -->'
 SETA = ('<svg viewBox="0 0 24 24" class="h-4 w-4 text-brand-orange" fill="none" '
         'stroke="currentColor" stroke-width="2"><path d="M2 12h20M14 5l7 7-7 7"/></svg>')
 
+# A companhia dona de cada programa. Serve para o card so mencionar quem operou
+# o voo quando for outra empresa: "Smiles - Executiva - voo Copa" ensina algo,
+# "Smiles - Economica - voo Gol" e obvio e so ocupa espaco.
+DONA = {
+    'Latam Pass': 'Latam',
+    'Smiles': 'Gol',
+    'TudoAzul': 'Azul',
+    'AAdvantage': 'American',
+}
+
 
 def milhar(n):
     """2600 -> '2.600'."""
@@ -57,16 +67,21 @@ def card(e, milheiro):
     nota = ''
     if e.get('nota'):
         nota = '\n          <p class="flight-nota">%s</p>' % e['nota']
+
+    linha = '%s · %s' % (e['programa'], e['cabine'])
+    operou = e.get('companhia')
+    if operou and operou != DONA.get(e['programa']):
+        linha += ' · voo %s' % operou
     return (
         '        <article class="reveal flight-card">\n'
         '          <div class="flight-escopo">%s</div>\n'
         '          <div class="flight-route"><span>%s</span>%s<span>%s</span></div>\n'
         '          <div class="flight-price">%s <span class="flight-unit">milhas</span></div>\n'
         '          <div class="flight-cost">%s por pessoa</div>\n'
-        '          <div class="flight-info"><span>%s · %s</span><span>%s</span></div>%s\n'
+        '          <div class="flight-info"><span>%s</span><span>%s</span></div>%s\n'
         '        </article>'
     ) % (escopo, e['origem'], SETA, e['destino'], milhar(e['milhas']),
-         texto, e['programa'], e['cabine'], e['quando'], nota)
+         texto, linha, e['quando'], nota)
 
 
 def main():

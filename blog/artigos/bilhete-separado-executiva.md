@@ -123,15 +123,21 @@ próprio custo por milheiro, e é por isso que insistimos tanto em calculá-lo.
 
 ## O trecho que ficou caro
 
-O último, **CNF → CWB, por 11 mil milhas Latam**. Ficou acima do normal: esse
-trecho costuma sair por 4 a 6 mil milhas.
+O último, **CNF → CWB, por 11 mil milhas Latam**. Na época ficou bem acima do
+normal: o trecho saía por 4 a 6 mil milhas.
 
 A R$ 24,50 o milheiro, 11 mil custaram **R$ 270**. Se tivéssemos conseguido as
-4 mil de sempre, teria custado **R$ 98**.
+4 mil de então, teria custado **R$ 98**.
 
 Fica o registro honesto: depois de otimizar seis trechos, o sétimo passou
 batido. É o tipo de coisa que acontece quando a viagem já está fechada e falta
 só encaixar a última perna.
+
+Vale um adendo, porque o tempo passou: **hoje esse mesmo trecho está na faixa
+de 8 a 10 mil milhas.** As 11 mil que pagamos, que eram caras em 2024, hoje
+seriam quase o preço normal. Preço de resgate sobe, e é por isso que a gente
+insiste em comparar em reais, pelo seu custo por milheiro, e não em decorar
+que "tal trecho vale tanto".
 
 ## Por que sete bilhetes e não um
 
