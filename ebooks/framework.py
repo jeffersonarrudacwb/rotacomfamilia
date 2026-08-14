@@ -1,7 +1,9 @@
 """
-Rota com Família — Ebook framework
+Rota com Família: Ebook framework
 Brand-aligned PDF builder using reportlab.
 """
+import io
+import json
 import os
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
@@ -279,6 +281,27 @@ class EbookDoc(BaseDocTemplate):
             PageTemplate(id='Cover', frames=[cover_frame], onPage=draw_cover_bg),
             PageTemplate(id='Content', frames=[content_frame], onPage=draw_content_bg),
         ])
+        self.marcas = []
+
+    def afterFlowable(self, flowable):
+        """Anota a pagina de cada abertura de capitulo, na ordem do documento.
+
+        Grava o numero IMPRESSO no rodape, nao o indice interno. Os dois
+        diferem em um porque a capa nao e numerada (draw_content_bg escreve
+        doc.page - 1). O sumario tem que falar a mesma lingua do rodape, senao
+        manda o leitor para a pagina errada por um.
+        """
+        if isinstance(flowable, SectionMark):
+            self.marcas.append((flowable.label, self.page - 1))
+
+    def build(self, story, **kwargs):
+        BaseDocTemplate.build(self, story, **kwargs)
+        # Sidecar lido por conferir_sumario.py. Nao vai para o site: e um
+        # subproduto do build, do lado do PDF.
+        destino = os.path.splitext(self.filename)[0] + '.paginas.json'
+        with io.open(destino, 'w', encoding='utf-8') as f:
+            json.dump([{'titulo': t, 'pagina': p} for t, p in self.marcas],
+                      f, ensure_ascii=False, indent=1)
 
 
 # ---------------- HELPERS ----------------
@@ -355,14 +378,24 @@ def two_col_photo_row(photo_a, photo_b, gap=0.4*cm, h=6.5*cm):
     return t
 
 
-def cell(text, bold=False):
-    """Wrap text in a Paragraph so it wraps inside a table cell."""
-    style = ParagraphStyle(
-        'cell_bold' if bold else 'cell_body',
-        fontName=SANS_BOLD if bold else SANS,
-        fontSize=9.5, leading=12,
-        textColor=C['cream'] if bold else C['text'],
-    )
+def cell(text, bold=False, header=False):
+    """Wrap text in a Paragraph so it wraps inside a table cell.
+
+    header=True e a celula da primeira linha, que fica sobre o fundo escuro e
+    por isso precisa de texto creme. bold=True e so enfase dentro do corpo da
+    tabela, e mantem a cor normal.
+
+    Os dois eram a mesma coisa antes, e isso escondia texto: uma linha de
+    total marcada com bold saia creme sobre fundo creme, ou seja, invisivel.
+    """
+    if header:
+        cor, fonte, nome = C['cream'], SANS_BOLD, 'cell_header'
+    elif bold:
+        cor, fonte, nome = C['text'], SANS_BOLD, 'cell_bold'
+    else:
+        cor, fonte, nome = C['text'], SANS, 'cell_body'
+    style = ParagraphStyle(nome, fontName=fonte, fontSize=9.5, leading=12,
+                           textColor=cor)
     return Paragraph(text, style)
 
 
@@ -396,10 +429,36 @@ def data_table(rows, header=True, col_widths=None):
     return t
 
 
+class SectionMark(Flowable):
+    """Marcador invisivel, so para o documento anotar em que pagina o capitulo
+    comecou.
+
+    Existe porque o numero de pagina do sumario era escrito na mao e sempre
+    desalinhava: uma versao dos ebooks foi publicada mandando o leitor para a
+    pagina 27 de um PDF de 13 paginas. Adivinhar a pagina depois, procurando o
+    titulo no texto, tambem nao funciona, porque o rotulo do sumario nem sempre
+    e igual ao titulo impresso. Entao quem sabe a resposta e o proprio build, e
+    e ele quem anota.
+    """
+    width = 0
+    height = 0
+
+    def __init__(self, label):
+        Flowable.__init__(self)
+        self.label = label
+
+    def draw(self):
+        pass
+
+    def wrap(self, *args):
+        return (0, 0)
+
+
 def section_opener(eyebrow, title, lead=None):
     """Big section opener: gold eyebrow + serif title + lead paragraph."""
     s = styles()
     out = [
+        SectionMark(title),
         Spacer(1, 0.3*cm),
         Paragraph(eyebrow.upper(), s['eyebrow']),
         Paragraph(title, s['h1']),
@@ -413,7 +472,7 @@ def section_opener(eyebrow, title, lead=None):
 
 
 def toc(entries):
-    """Table of contents — list of (title, page) tuples."""
+    """Table of contents: list of (title, page) tuples."""
     s = styles()
     rows = []
     for i, (t, p) in enumerate(entries):

@@ -1,5 +1,5 @@
 """
-Ebook 3 — Bônus: Planilhas e Calculadoras
+Ebook 3: Planilhas e Calculadoras
 """
 import os
 from reportlab.platypus import Paragraph, Spacer, PageBreak, Table, TableStyle
@@ -74,7 +74,7 @@ story.append(Spacer(1, 0.4*cm))
 story.append(Callout(
     'Como usar este caderno',
     'Faça uma vez no início do ano. Revise no início de cada trimestre. '
-    'A mágica não está em preencher uma vez — está em ter o controle vivo, '
+    'A mágica não está em preencher uma vez: está em ter o controle vivo, '
     'sabendo onde estão seus pontos e pra onde eles vão.', kind='tip'))
 
 # ============================================================
@@ -86,41 +86,56 @@ story.append(Paragraph('As 5 ferramentas.', S['h1']))
 story.append(Divider(width_pct=0.18))
 story.append(Spacer(1, 0.3*cm))
 story.append(toc([
-    ('Calculadora · Custo por milheiro', '04'),
-    ('Planilha · Controle de saldo', '08'),
-    ('Plano · Acumulação mensal por destino', '11'),
-    ('Comparativo · Avaliação de cartões', '14'),
-    ('Calendário · Bônus esperados em 2026', '17'),
-    ('Cartões que usamos e recomendamos', '20'),
+    ('Calculadora · Custo por milheiro', '03'),
+    ('Planilha · Controle de saldo', '06'),
+    ('Plano · Acumulação mensal por destino', '08'),
+    ('Comparativo · Avaliação de cartões', '10'),
+    ('Calendário · Bônus esperados em 2026', '12'),
+    ('Cartões que usamos e recomendamos', '13'),
 ]))
 
 # ============================================================
-# 01 — CALCULADORA: Custo por milha
+# 01 - CALCULADORA: Custo por milha
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
     'Ferramenta 01',
     'Calculadora de custo por milha.',
     'A conta única que decide se um cartão fica ou sai da carteira. Faça '
-    'pra cada um dos cartões que você tem hoje — e pros cartões que está '
+    'pra cada um dos cartões que você tem hoje, e pros cartões que está '
     'pensando em pegar.'
 ))
 
 story.append(Paragraph('A fórmula', S['h2']))
 story.append(Paragraph(
-    'Custo por milha (R$ por mil milhas) = '
-    '<b>(Anuidade + tarifas anuais)</b>  ÷  '
-    '<b>(Milhas geradas no ano com bônus ÷ 1.000)</b>.', S['body']))
+    'Custo por milheiro (R$ por mil milhas) = '
+    '<b>tudo o que você desembolsou no ano</b>  ÷  '
+    '<b>(milhas que entraram ÷ 1.000)</b>.', S['body']))
+
+story.append(Paragraph(
+    'O "tudo" é a parte que costuma ser esquecida: anuidade, tarifas, clube de '
+    'assinatura de pontos, compra de pontos em promoção, e qualquer valor que '
+    'você pagou a mais só para pontuar. Se saiu dinheiro do seu bolso por causa '
+    'dos pontos, entra aqui.', S['body']))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(Callout(
+    'A conta que só divide a anuidade engana',
+    'É comum ver a conta feita apenas com a anuidade dividida pelas milhas do '
+    'ano. Ela devolve algo perto de R$ 3 a R$ 5 o milheiro e parece ótima, mas '
+    'ignora tudo o que você gastou para chegar lá. Feita direito, a conta dá '
+    'três a cinco vezes mais. Prefira o número certo: é ele que decide se vale '
+    'emitir com milhas ou pagar em dinheiro.', kind='warn'))
 
 story.append(Spacer(1, 0.2*cm))
 story.append(Callout(
     'Benchmark por programa de destino',
-    'O custo por milheiro que buscamos é ESPECÍFICO por programa — cada um '
+    'O custo por milheiro que buscamos é ESPECÍFICO por programa: cada um '
     'tem economias diferentes na emissão. Anote:', kind='note'))
 
 story.append(Spacer(1, 0.15*cm))
 story.append(data_table([
-    [cell('Programa destino', bold=True), cell('Custo ideal (R$/milheiro)', bold=True), cell('Bônus mínimo para transferir', bold=True)],
+    [cell('Programa destino', header=True), cell('Custo ideal (R$/milheiro)', header=True), cell('Bônus mínimo para transferir', header=True)],
     [cell('Latam Pass'), cell('abaixo de R$ 25'), cell('≥ 30%')],
     [cell('Smiles (Gol)'), cell('abaixo de R$ 16'), cell('≥ 80%')],
     [cell('TudoAzul (Azul)'), cell('abaixo de R$ 15'), cell('≥ 90%')],
@@ -128,9 +143,9 @@ story.append(data_table([
 
 story.append(Spacer(1, 0.25*cm))
 story.append(Callout(
-    'Cuidado com anuidades — evite-as sempre que possível',
+    'Cuidado com anuidades, evite-as sempre que possível',
     'A rentabilidade do jogo desaba quando você paga anuidade alta. '
-    'Bancos oferecem isenção de anuidade quase todo mês — em campanhas de '
+    'Bancos oferecem isenção de anuidade quase todo mês, em campanhas de '
     'entrada, meta de gastos ou negociação direta. Ligue no SAC e peça: '
     '"quero isenção da anuidade". Funciona mais do que você imagina.', kind='tip'))
 
@@ -139,15 +154,24 @@ story.append(data_table([
     ['Item', 'Valor'],
     ['Cartão', 'Premium ABC'],
     ['Anuidade anual', 'R$ 1.180'],
-    ['Outras tarifas (saque, manutenção)', 'R$ 0'],
-    ['Gasto mensal médio', 'R$ 8.500'],
-    ['Pontuação (pontos por R$ gasto)', '2,0'],
-    ['Pontos gerados no ano (gasto × 12 × pontuação)', '204.000'],
+    ['Outras tarifas', 'R$ 0'],
+    ['Clube de pontos (mensalidade × 12)', 'R$ 1.560'],
+    ['Compra de pontos em promoção no ano', 'R$ 2.400'],
+    ['Total desembolsado no ano', 'R$ 5.140'],
+    ['Pontos gerados no ano', '204.000'],
+    ['Pontos vindos do clube e das compras', '96.000'],
     ['Bônus médio de transferência aplicado', '+80%'],
-    ['Milhas finais no ano', '367.200'],
-    ['Custo por mil milhas', 'R$ 1.180 ÷ 367,2 = R$ 3,21/k'],
-    ['Avaliação', 'Excelente — manter'],
+    ['Milhas finais no ano', '540.000'],
+    ['Custo por milheiro', 'R$ 5.140 ÷ 540 = R$ 9,52/k'],
+    ['Avaliação', 'Bom: abaixo do teto dos três programas'],
 ], col_widths=[8*cm, 8.7*cm]))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(Paragraph(
+    '<i>Os valores acima são de exemplo, para você ver a mecânica. O nosso '
+    'custo real é maior e varia por programa: R$ 14 na Azul, R$ 15 na Smiles e '
+    'R$ 24,50 na Latam. Faça a sua conta com os seus números, porque é o seu '
+    'milheiro que decide as suas emissões.</i>', S['small']))
 
 # Empty worksheet
 story.append(PageBreak())
@@ -160,12 +184,13 @@ ws_rows = [
     'Nome do cartão',
     'Anuidade anual (R$)',
     'Outras tarifas (R$)',
-    'Gasto mensal (R$)',
-    'Pontos por R$',
+    'Clube de pontos no ano (R$)',
+    'Compra de pontos no ano (R$)',
+    'Total desembolsado (R$)',
     'Pontos no ano',
     'Bônus médio (%)',
     'Milhas no ano',
-    'Custo / mil (R$/k)',
+    'Custo / milheiro (R$/k)',
     'Avaliação',
 ]
 for r in ws_rows:
@@ -177,21 +202,21 @@ story.append(Paragraph(
     'Se tiver mais, imprima outra folha.</i>', S['small']))
 
 # ============================================================
-# 02 — Controle de saldo
+# 02 - Controle de saldo
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
     'Ferramenta 02',
     'Planilha de controle de saldo.',
-    'Onde estão seus pontos agora — e quando eles vencem. Sem isso, ponto '
+    'Onde estão seus pontos agora, e quando eles vencem. Sem isso, ponto '
     'vencido é prejuízo certo.'
 ))
 
 story.append(Paragraph('Estrutura sugerida', S['h2']))
 story.append(data_table([
     ['Programa', 'Saldo atual', 'Validade', 'Próxima ação'],
-    ['Livelo', '189.400', 'Mar/2027', 'Esperar bônus Latam 80%'],
-    ['Esfera', '120.900', 'Set/2027', 'Esperar bônus Smiles'],
+    ['Livelo', '189.400', 'Mar/2027', 'Esperar bônus Latam de 30%'],
+    ['Esfera', '120.900', 'Set/2027', 'Esperar bônus Smiles de 80%'],
     ['Bradesco Pontos', '54.200', 'Dez/2026', 'Aguardar bônus Livelo'],
     ['Latam Pass', '78.100', 'Jul/2027', 'Reservar pra Orlando 2027'],
     ['Smiles', '24.000', 'Out/2026', 'URGENTE: usar ou transferir'],
@@ -226,13 +251,13 @@ empty_t.setStyle(TableStyle([
 story.append(empty_t)
 
 # ============================================================
-# 03 — Plano de acumulação
+# 03 - Plano de acumulação
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
     'Ferramenta 03',
     'Plano de acumulação mensal por destino.',
-    'Quanta milha você precisa juntar até o embarque — e quanto isso '
+    'Quanta milha você precisa juntar até o embarque, e quanto isso '
     'representa por mês? Esta planilha resolve.'
 ))
 
@@ -242,7 +267,7 @@ story.append(Paragraph(
     '(use as tabelas de Benchmark do Ebook de Roteiros).<br/>'
     '<b>Passo 2:</b> multiplique pelo número de passageiros.<br/>'
     '<b>Passo 3:</b> conte os meses até o embarque.<br/>'
-    '<b>Passo 4:</b> divida — esta é a sua meta mensal de pontos.',
+    '<b>Passo 4:</b> divida, e esta é a sua meta mensal de pontos.',
     S['body']))
 
 story.append(Paragraph('Exemplo: Família para Orlando, abril de 2027', S['h2']))
@@ -292,7 +317,7 @@ for lbl in plan_labels:
     story.append(worksheet_row(lbl, slots=1, slot_w=10*cm, label_w=6.5*cm))
 
 # ============================================================
-# 04 — Comparativo de cartões
+# 04 - Comparativo de cartões
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
@@ -306,7 +331,7 @@ story.append(Paragraph('Como ler', S['h2']))
 story.append(Paragraph(
     'Coloque os candidatos lado a lado. O cartão vencedor é aquele com '
     '<b>maior ganho líquido</b> dentro do seu padrão de gasto. Cuidado: salas '
-    'VIP e seguros valem dinheiro real — pra família que viaja, podem '
+    'VIP e seguros valem dinheiro real: pra família que viaja, podem '
     'compensar uma anuidade R$ 500 maior.', S['body']))
 
 story.append(Paragraph('Modelo preenchido', S['h2']))
@@ -347,30 +372,42 @@ for lbl in comp_labels:
     story.append(worksheet_row(lbl, slots=3, slot_w=3.5*cm, label_w=4.7*cm))
 
 # ============================================================
-# 05 — Calendário de bônus
+# 05 - Calendário de bônus
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
     'Ferramenta 05',
-    'Calendário visual de bônus 2026.',
-    'O que esperar de cada mês, baseado em 5 anos de histórico de campanhas '
-    'no mercado brasileiro de milhas.'
+    'Calendário visual de bônus.',
+    'Em que época do ano a campanha boa costuma aparecer, pelo que a gente '
+    'acompanha desde que começou a viajar com milhas.'
 ))
 
+story.append(Paragraph(
+    'Antes da tabela, o ajuste mais importante: <b>não existe campanha boa todo '
+    'mês.</b> Já houve essa época, e ela passou. Hoje cada programa entrega em '
+    'torno de <b>uma campanha que vale a pena por trimestre</b>, ou seja, umas '
+    'quatro janelas por ano. Por isso a coluna abaixo fala em chance, e não em '
+    'porcentagem: prometer "80% em agosto" seria inventar.', S['body']))
+story.append(Spacer(1, 0.25*cm))
+
+# A coluna do meio era "Bonus tipico" com faixas de 50% a 130% em todos os doze
+# meses. Dava a entender que todo mes tem campanha, o que nao e verdade e ainda
+# contradizia o resto do material. O que o historico realmente mostra e
+# sazonalidade: em que epoca a janela costuma abrir.
 cal_rows = [
-    ['Mês', 'Bônus típico', 'Foco recomendado'],
-    ['Janeiro', '60–80%', 'Limpeza de saldo + transferência se viagem em junho'],
-    ['Fevereiro', '50–70%', 'Mês mais fraco — só transfira se urgência'],
-    ['Março', '70–90%', 'Latam Pass costuma puxar — bom mês para fechar saldo'],
-    ['Abril', '60–80%', 'Boa janela pra emitir passagens de julho'],
-    ['Maio', '80–100%', '★ Janela pré-férias — uma das melhores do ano'],
-    ['Junho', '60–80%', 'Já é tarde pra viagem de julho — pense em outubro'],
-    ['Julho', '50–70%', 'Mês fraco — aproveite pra acumular pontos'],
-    ['Agosto', '70–90%', 'Mês ótimo de transferência pra Smiles'],
-    ['Setembro', '80–100%', '★ Pré-Black Friday — bom espelho de novembro'],
-    ['Outubro', '90–110%', '★★ Black Friday warm-up — transfira aqui'],
-    ['Novembro', '100–130%', '★★★ Black Friday cheia — o pico do ano'],
-    ['Dezembro', '70–90%', 'Janela final pra emitir passagens do 1º semestre'],
+    ['Mês', 'Chance de campanha', 'Foco recomendado'],
+    ['Janeiro', 'Média', 'Limpeza de saldo e transferência se a viagem é em junho'],
+    ['Fevereiro', 'Baixa', 'Mês fraco, só transfira se for urgência'],
+    ['Março', 'Média', 'Latam Pass costuma puxar, bom mês para fechar saldo'],
+    ['Abril', 'Baixa', 'Boa janela pra emitir passagens de julho'],
+    ['Maio', 'Alta', '★ Janela pré-férias, uma das melhores do ano'],
+    ['Junho', 'Baixa', 'Já é tarde pra viagem de julho, pense em outubro'],
+    ['Julho', 'Baixa', 'Mês fraco, aproveite pra acumular pontos'],
+    ['Agosto', 'Média', 'Costuma ser bom mês de transferência pra Smiles'],
+    ['Setembro', 'Alta', '★ Pré-Black Friday, bom espelho de novembro'],
+    ['Outubro', 'Alta', '★★ Aquecimento de Black Friday, transfira aqui'],
+    ['Novembro', 'Alta', '★★★ Black Friday cheia, o pico do ano'],
+    ['Dezembro', 'Média', 'Janela final pra emitir passagens do 1º semestre'],
 ]
 
 cal_t = Table(cal_rows, colWidths=[2.5*cm, 3.5*cm, 10.7*cm])
@@ -400,7 +437,7 @@ story.append(Spacer(1, 0.3*cm))
 story.append(Callout(
     'O melhor mês de 2026 (provavelmente)',
     'Históricamente, novembro entrega os bônus mais altos. Para a família que '
-    'tem viagem em meados de 2027, novembro de 2026 é a sua hora — guarde '
+    'tem viagem em meados de 2027, novembro de 2026 é a sua hora: guarde '
     'saldo até lá, faça a maior transferência do ano em uma única janela.',
     kind='tip'))
 
@@ -412,7 +449,7 @@ story.extend(section_opener(
     'Ferramenta 06',
     'Cartões que usamos e recomendamos.',
     'Não existe cartão perfeito para todo mundo. Mas existe o cartão perfeito '
-    'para o seu perfil de gasto — abaixo estão os que a nossa família usa e '
+    'para o seu perfil de gasto. Abaixo estão os que a nossa família usa e '
     'testou, ordenados por pontuação em compras internacionais (a métrica '
     'que mais importa para quem viaja).'
 ))
@@ -420,13 +457,13 @@ story.extend(section_opener(
 story.append(Paragraph('A conta que importa: pontos por dólar gasto', S['h2']))
 story.append(Paragraph(
     'Em cartões premium, o que separa os bons dos ótimos é a <b>pontuação em '
-    'compras internacionais</b> — normalmente expressa em pontos por dólar (ou '
+    'compras internacionais</b>, normalmente expressa em pontos por dólar (ou '
     'euro) gasto. A partir de 2 pts/USD, você começa a acumular sério. A '
     '2,5 pts/USD, uma viagem única já rende milhas para a próxima.', S['body']))
 
 story.append(Spacer(1, 0.2*cm))
 story.append(data_table([
-    [cell('Cartão', bold=True), cell('Banco/Emissor', bold=True), cell('Programa', bold=True), cell('Pts / USD', bold=True), cell('Perfil', bold=True)],
+    [cell('Cartão', header=True), cell('Banco/Emissor', header=True), cell('Programa', header=True), cell('Pts / USD', header=True), cell('Perfil', header=True)],
     [cell('AAdvantage Santander*'), cell('Santander'), cell('AAdvantage direto'), cell('~2,0'), cell('Intermediário')],
     [cell('Bradesco Elo Nanquim'), cell('Bradesco'), cell('Livelo'), cell('~2,0'), cell('Premium')],
     [cell('Itaucard Personnalité Black'), cell('Itaú'), cell('Latam Pass'), cell('~2,0'), cell('Premium')],
@@ -438,17 +475,17 @@ story.append(data_table([
 story.append(Spacer(1, 0.15*cm))
 story.append(Paragraph(
     '<i>* AAdvantage Santander deposita milhas diretamente no programa da American '
-    'Airlines — sem passar por Livelo. É ótimo para quem já mira voos com AA/oneworld.</i>',
+    'Airlines, sem passar por Livelo. É ótimo para quem já mira voos com AA/oneworld.</i>',
     S['small']))
 
 story.append(Paragraph('Os que a nossa família usa hoje', S['h2']))
 story.extend(bullet_list([
-    '<b>C6 Carbon</b> — nosso principal para gastos internacionais. Pontuação '
+    '<b>C6 Carbon</b>: nosso principal para gastos internacionais. Pontuação '
     'entre as mais altas do mercado brasileiro (~2,5 pts/USD) e programa próprio '
     'com boas conversões.',
-    '<b>AmEx TPC (Bradesco)</b> — nosso principal doméstico. Deposita em Livelo, '
+    '<b>AmEx TPC (Bradesco)</b>: nosso principal doméstico. Deposita em Livelo, '
     'de onde a gente escolhe pra onde transferir conforme o bônus da vez.',
-    '<b>AAdvantage Santander</b> — usei no passado. Vale a pena se você mira '
+    '<b>AAdvantage Santander</b>: usei no passado. Vale a pena se você mira '
     'muitas emissões via American/oneworld; se preferir flexibilidade, um cartão '
     'em Livelo/Esfera rende mais opções.',
 ]))
@@ -459,7 +496,7 @@ story.append(Callout(
     'Cartões premium prometem 2,5 pts/USD mas cobram anuidade de R$ 2.000+. '
     'Se você não fatura o gasto internacional necessário para amortizar isso, o '
     'custo por milheiro explode. Aproveite: bancos oferecem isenção em promoção '
-    'quase todo mês. Ligue no SAC e negocie — funciona.', kind='tip'))
+    'quase todo mês. Ligue no SAC e negocie, funciona.', kind='tip'))
 
 story.append(Paragraph('E se eu estou começando?', S['h2']))
 story.append(Paragraph(
@@ -467,12 +504,12 @@ story.append(Paragraph(
     'programa de coalizão (Livelo ou Esfera). Alguns bons pontos de partida:', S['body']))
 
 story.extend(bullet_list([
-    '<b>Nubank Ultravioleta</b> — 1 pt / USD, sem anuidade nos primeiros meses, '
+    '<b>Nubank Ultravioleta</b>: 1 pt / USD, sem anuidade nos primeiros meses, '
     'programa próprio com conversões.',
-    '<b>Inter Black</b> — bom rendimento em Livelo, anuidade acessível.',
-    '<b>C6 Gold ou Platinum</b> — porta de entrada para o programa do C6 antes '
+    '<b>Inter Black</b>: bom rendimento em Livelo, anuidade acessível.',
+    '<b>C6 Gold ou Platinum</b>: porta de entrada para o programa do C6 antes '
     'de partir pro Carbon.',
-    '<b>Bradesco Elite ou Elo Mais</b> — porta de entrada para Livelo/Bradesco '
+    '<b>Bradesco Elite ou Elo Mais</b>: porta de entrada para Livelo/Bradesco '
     'Pontos, com anuidade normalmente negociável.',
 ]))
 
@@ -498,7 +535,7 @@ story.extend(section_opener(
 story.append(Paragraph('Por que vale digitalizar?', S['h2']))
 story.extend(bullet_list([
     'Você atualiza saldos em tempo real (e dispara alertas automáticos).',
-    'Compartilha a planilha com o cônjuge — orçamento + viagem em um lugar só.',
+    'Compartilha a planilha com o cônjuge: orçamento e viagem em um lugar só.',
     'Histórico salvo: ano que vem você usa o mesmo modelo, sem retrabalho.',
     'Soma com calculadora de bolso = decisão em segundos.',
 ]))
@@ -512,9 +549,9 @@ story.append(Callout(
 
 story.extend(back_cover_block(
     'Esperamos que esse kit te ajude tanto quanto nos ajudou. '
-    'Manda foto da sua planilha preenchida — adoramos ver outras '
+    'Manda foto da sua planilha preenchida, adoramos ver outras '
     'famílias entrando no controle.'))
 
 # ============================================================
 doc.build(story)
-print(f'OK — {OUTFILE}')
+print(f'OK: {OUTFILE}')
