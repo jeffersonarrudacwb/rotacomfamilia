@@ -52,3 +52,6 @@ deploy-rotacomfamilia.zip
 # Ficam na maquina, nunca no repositorio.
 ebooks/*.pdf
 !ebooks/pdf/
+
+# Copias reduzidas das fotos, geradas pelo build dos ebooks.
+ebooks/.cache-img/

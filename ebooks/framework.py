@@ -2,8 +2,10 @@
 Rota com Família: Ebook framework
 Brand-aligned PDF builder using reportlab.
 """
+import hashlib
 import io
 import json
+import math
 import os
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
@@ -320,6 +322,51 @@ def cover_block(title, subtitle=None, badge='UM EBOOK ROTA COM FAMÍLIA', year=N
     return items
 
 
+CACHE_IMG = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.cache-img')
+DPI_ALVO = 200
+
+
+def preparada(path, largura_pt):
+    """Caminho de uma copia da foto no tamanho que a pagina realmente usa.
+
+    O ReportLab embute o arquivo que voce entrega e so escala na hora de
+    desenhar. Entregando o original da camera, uma foto de 4000 px ia inteira
+    para dentro do PDF para aparecer com 10 cm de largura. Era o motivo de o
+    ebook de roteiros pesar 11 MB.
+
+    200 DPI e o alvo: qualidade de impressao domestica sem carregar pixel que
+    ninguem ve. Fotos que ja sao menores que o necessario passam intactas.
+    """
+    origem = PILImage.open(path)
+    px = int(math.ceil(largura_pt / 72.0 * DPI_ALVO))
+    if origem.width <= px:
+        return path
+
+    assinatura = '%s|%d|%d' % (os.path.abspath(path),
+                               int(os.path.getmtime(path)), px)
+    chave = hashlib.md5(assinatura.encode('utf-8')).hexdigest()[:16]
+    destino = os.path.join(CACHE_IMG, chave + '.jpg')
+    if os.path.exists(destino):
+        return destino
+
+    if not os.path.isdir(CACHE_IMG):
+        os.makedirs(CACHE_IMG)
+    img = origem
+    # EXIF pode pedir rotacao; aplica antes de redimensionar
+    try:
+        from PIL import ImageOps
+        img = ImageOps.exif_transpose(img)
+    except Exception:
+        pass
+    if img.mode not in ('RGB', 'L'):
+        img = img.convert('RGB')
+    altura = int(round(px * img.height / img.width))
+    img = img.resize((px, altura), PILImage.LANCZOS)
+    # sem exif: tira GPS e numero de serie da camera de dentro do PDF
+    img.save(destino, 'JPEG', quality=82, optimize=True, progressive=True)
+    return destino
+
+
 def photo(name, max_w=None, max_h=10*cm):
     path = os.path.join(PHOTOS_DIR, name)
     pil = PILImage.open(path)
@@ -332,7 +379,7 @@ def photo(name, max_w=None, max_h=10*cm):
     if h > max_h:
         h = max_h
         w = h * aspect
-    return Image(path, width=w, height=h)
+    return Image(preparada(path, w), width=w, height=h)
 
 
 def caption(text):
@@ -366,7 +413,7 @@ def two_col_photo_row(photo_a, photo_b, gap=0.4*cm, h=6.5*cm):
         if ph > h:
             ph = h
             w = ph * aspect
-        return Image(path, width=w, height=ph)
+        return Image(preparada(path, w), width=w, height=ph)
     t = Table([[fit(photo_a), fit(photo_b)]], colWidths=[each_w, each_w])
     t.setStyle(TableStyle([
         ('LEFTPADDING',(0,0),(-1,-1),0),
