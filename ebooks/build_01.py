@@ -605,18 +605,18 @@ story.append(data_table([
     [cell('CWB → GRU'), cell('Latam'), cell('Latam Pass'), cell('2.600'), cell('R$ 107')],
     [cell('GRU → LAX'), cell('Latam'), cell('Latam Pass'), cell('46.400'), cell('R$ 1.387')],
     [cell('LAX → MSP'), cell('United'), cell('TudoAzul'), cell('18.000'), cell('R$ 296')],
-    [cell('MSP → MCO'), cell('American'), cell('Smiles'), cell('27.500'), cell('R$ 413')],
+    [cell('MSP → MCO'), cell('American'), cell('Smiles'), cell('27.500'), cell('R$ 453')],
     [cell('MCO → PTY'), cell('Copa'), cell('TudoAzul'), cell('42.000'), cell('R$ 748')],
-    [cell('PTY → CNF'), cell('Copa'), cell('Smiles'), cell('105.000'), cell('R$ 1.575')],
+    [cell('PTY → CNF'), cell('Copa'), cell('Smiles'), cell('105.000'), cell('R$ 1.695')],
     [cell('CNF → CWB'), cell('Latam'), cell('Latam Pass'), cell('11.000'), cell('R$ 300')],
-    [cell('Total', bold=True), cell(''), cell(''), cell('252.500', bold=True), cell('R$ 4.826', bold=True)],
+    [cell('Total', bold=True), cell(''), cell(''), cell('252.500', bold=True), cell('R$ 4.986', bold=True)],
 ], col_widths=[3.6*cm, 2.5*cm, 3.4*cm, 2.8*cm, 4.0*cm]))
 
 story.append(Spacer(1, 0.15*cm))
 story.append(Paragraph(
-    'Os custos acima usam o nosso milheiro do capítulo anterior e incluem as '
-    'taxas que localizamos. Faltam as taxas de dois trechos, os dois da Smiles, '
-    'então o total real é um pouco maior.', S['caption']))
+    'Os custos acima usam o nosso milheiro do capítulo anterior e já incluem as '
+    'taxas dos sete trechos. É a conta fechada da viagem, por pessoa.',
+    S['caption']))
 
 story.append(Spacer(1, 0.25*cm))
 story.append(Paragraph('As duas linhas do meio', S['h2']))

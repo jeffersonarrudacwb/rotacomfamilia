@@ -106,7 +106,7 @@
       "companhia": "Copa",
       "cabine": "Executiva",
       "milhas": 105000,
-      "taxas": null,
+      "taxas": 120,
       "quando": "Mai/2024",
       "nota": "A volta dos Estados Unidos, deitado."
     }

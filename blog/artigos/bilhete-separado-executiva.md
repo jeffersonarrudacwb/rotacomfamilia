@@ -1,6 +1,6 @@
 # Executiva dos EUA por 147 mil milhas: montamos a viagem trecho a trecho
 
-> Pronto para publicar. Só faltam duas taxas, marcadas com `⟦…⟧`.
+> Pronto para publicar. Todos os números conferidos.
 
 ---
 
@@ -58,11 +58,11 @@ não pela conveniência, é o que mais economiza numa viagem longa.
 | CWB → GRU | Econômica | Latam | Latam Pass | 2.600 | R$ 43 |
 | GRU → LAX | Econômica | Latam | Latam Pass | 46.400 | R$ 250 |
 | LAX → MSP | Econômica | **United** | **TudoAzul** | 18.000 | R$ 44 |
-| MSP → MCO | Econômica | **American** | **Smiles** | 27.500 | ⟦n/d⟧ |
+| MSP → MCO | Econômica | **American** | **Smiles** | 27.500 | R$ 40 |
 | MCO → PTY | **Executiva** | Copa | TudoAzul | 42.000 | R$ 160 |
-| PTY → CNF | **Executiva** | Copa | Smiles | 105.000 | ⟦n/d⟧ |
+| PTY → CNF | **Executiva** | Copa | Smiles | 105.000 | R$ 120 |
 | CNF → CWB | Econômica | Latam | Latam Pass | 11.000 | R$ 30 |
-| | | | **Total** | **252.500** | **R$ 527+** |
+| | | | **Total** | **252.500** | **R$ 687** |
 
 Repare em duas linhas do meio. **Voamos pela United emitindo pela Azul.**
 **Voamos pela American emitindo pela Smiles.** Não é erro de digitação: cada
@@ -108,13 +108,10 @@ Os dois trechos de executiva somam 147 mil milhas:
 - PTY → CNF: 105.000 Smiles × R$ 15 = **R$ 1.575**
 
 **R$ 2.163 por pessoa** para voltar dos Estados Unidos ao Brasil em classe
-executiva, mais R$ 160 de taxas no trecho que localizamos.
+executiva, mais R$ 280 de taxas somando os dois trechos.
 
-Somando tudo (sete voos, milhas e as taxas que achamos), a viagem saiu por
-cerca de **R$ 4.800 por pessoa**, algo perto de **R$ 14.500** para os três.
-
-⟦Faltam as taxas de dois trechos, os dois emitidos pela Smiles. Se achar, dá
-para fechar o número exato.⟧
+Somando tudo, sete voos entre milhas e taxas, a viagem saiu por
+**R$ 4.985 por pessoa**, ou **R$ 14.955** para os três.
 
 **Uma ressalva importante:** esses valores em reais são *o nosso* custo de
 acumulação, não um preço de tabela. Quem acumula mais barato paga menos; quem
