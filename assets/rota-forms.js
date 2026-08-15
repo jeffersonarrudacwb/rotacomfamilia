@@ -131,7 +131,7 @@
      Se ficar vazio, nada do Google é carregado e os eventos viram console.debug
      (útil para testar no navegador sem sujar as estatísticas).
      --------------------------------------------------------------------------- */
-  var GA4_ID = '';
+  var GA4_ID = 'G-XVFFNMXYX3';
 
   /* ---------------------------------------------------------------------------
      ESP_CAMPOS — opcional. Nome que o SEU provedor dá para cada campo.
