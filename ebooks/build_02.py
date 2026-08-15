@@ -22,7 +22,7 @@ story = []
 # ============================================================
 story.extend(cover_block(
     title='Roteiros<br/>Prontos',
-    subtitle='Nove viagens reais da nossa família, com dias, custos e o que vale.',
+    subtitle='Onze destinos reais da nossa família, com dias, custos e o que vale.',
     year='2026',
 ))
 
@@ -50,8 +50,8 @@ story.append(Paragraph(
 
 story.append(Spacer(1, 0.4*cm))
 story.append(StatStrip([
-    ('9', 'destinos\nneste ebook'),
-    ('3+', 'continentes\nvisitados'),
+    ('11', 'destinos\nneste ebook'),
+    ('4', 'continentes\nvisitados'),
     ('100%', 'roteiros\ntestados'),
 ]))
 
@@ -60,7 +60,7 @@ story.append(StatStrip([
 # ============================================================
 story.append(PageBreak())
 story.append(Paragraph('SUMÁRIO', S['eyebrow']))
-story.append(Paragraph('Os 9 destinos.', S['h1']))
+story.append(Paragraph('Os 11 destinos.', S['h1']))
 story.append(Divider(width_pct=0.18))
 story.append(Spacer(1, 0.3*cm))
 story.append(toc([
@@ -74,7 +74,9 @@ story.append(toc([
     ('Parte III · Caribe', '14'),
     ('Punta Cana: resort all-inclusive', '15'),
     ('Parte IV · América do Sul (bônus)', '16'),
-    ('Buenos Aires, Santiago & Assunção', '17'),
+    ('Buenos Aires, Santiago, Assunção e Colonia', '17'),
+    ('Parte V · África', '19'),
+    ('África do Sul: safári por conta própria', '20'),
 ]))
 
 # ============================================================
@@ -101,18 +103,18 @@ story.extend(section_opener(
     'Destino 01',
     'Orlando: Disney e parques.',
     'Para a família com filhos de 5 a 14 anos, Orlando é uma viagem que vale '
-    'fazer pelo menos uma vez. O nosso Derek tinha 12 quando fomos em janeiro '
-    'de 2026, e funcionou perfeitamente.'
+    'fazer pelo menos uma vez. O nosso Derek tinha 10 anos na primeira vez, '
+    'em 2024, e voltamos com ele em janeiro de 2026 já com 12.'
 ))
 
 story.append(Paragraph('Benchmark da viagem', S['h2']))
 story.append(data_table([
     ['Item', 'Referência'],
     ['Trecho aéreo', 'GRU/GIG → MCO (com escala em Miami ou Panamá)'],
-    ['Milhas/pessoa (econômica)', '80–100k Latam Pass · 70–90k Smiles'],
+    ['Milhas por pessoa, ida e volta', '50 a 70 mil Latam Pass · 70 a 100 mil Smiles ou TudoAzul'],
     ['Hospedagem', 'Hotéis Disney "value" (Art of Animation, Pop Century)'],
     ['Duração ideal', '7 dias (incluindo 4 a 5 dias de parque)'],
-    ['Melhor época', 'Janeiro/fevereiro (baixa) ou setembro'],
+    ['Melhor época', 'Fim de fevereiro e março, quando a fila diminui'],
 ], col_widths=[5*cm, 11.7*cm]))
 
 story.append(Paragraph('Roteiro de 5 dias nos parques', S['h2']))
@@ -153,15 +155,16 @@ story.extend(section_opener(
     'Destino 02',
     'Las Vegas + Los Angeles.',
     'A combinação clássica da costa oeste: uma cidade que é puro espetáculo '
-    'e outra que é puro estilo de vida. Fizemos em maio de 2024 e voltamos '
-    'em dezembro do mesmo ano (a segunda vez é melhor).'
+    'e outra que é puro estilo de vida. Passamos por Los Angeles em maio de '
+    '2024, a caminho de Minneapolis e Orlando, e voltamos em dezembro do mesmo '
+    'ano para fazer a dupla com calma.'
 ))
 
 story.append(Paragraph('Benchmark da viagem', S['h2']))
 story.append(data_table([
     ['Item', 'Referência'],
     ['Trecho aéreo', 'GRU → LAX (direto Latam) → LAS terrestre ou voo curto'],
-    ['Milhas/pessoa', '95–110k Latam Pass · 85–100k Smiles'],
+    ['Milhas por pessoa, ida e volta', '50 a 70 mil Latam Pass · 70 a 110 mil Smiles ou TudoAzul'],
     ['Hospedagem Vegas', 'The Venetian, Wynn ou MGM Grand (resort fee é caro)'],
     ['Hospedagem LA', 'Santa Monica ou Beverly Hills (centro é menos turístico)'],
     ['Duração ideal', '7 dias (4 LA + 3 Vegas)'],
@@ -202,8 +205,8 @@ story.append(Paragraph('Benchmark da viagem', S['h2']))
 story.append(data_table([
     ['Item', 'Referência'],
     ['Trecho aéreo', 'GRU/GIG → JFK ou EWR (Latam, American, Delta)'],
-    ['Milhas/pessoa', '95–120k Latam Pass · 90–110k Smiles'],
-    ['Hospedagem', 'Midtown (38th a 58th), perto de tudo, mas caro'],
+    ['Milhas por pessoa, ida e volta', '70 a 100 mil Latam Pass, às vezes 60 mil · 80 a 120 mil Smiles ou TudoAzul'],
+    ['Hospedagem', 'Midtown é perto de tudo e caro. A gente ficou longe, entre Bronx e Yonkers'],
     ['Duração ideal', '5 dias'],
     ['Melhor época', 'Dezembro (Natal) ou maio/junho (clima)'],
 ], col_widths=[5*cm, 11.7*cm]))
@@ -226,6 +229,22 @@ story.append(Callout(
     'Pegue o cartão "OMNY" do metrô: você passa o cartão de crédito direto na '
     'catraca, sem precisar comprar bilhete. Limite diário é US$ 34, ou seja, '
     'depois disso, é grátis pro resto da semana.', kind='tip'))
+
+story.append(Paragraph('Grupo grande muda a conta da hospedagem', S['h2']))
+story.append(Paragraph(
+    'A gente foi em sete pessoas, e aí a matemática de Manhattan deixa de '
+    'fechar: quarto de hotel em Nova York é pequeno e cobra por pessoa, então '
+    'sete viram três quartos. Alugamos um Airbnb inteiro entre o Bronx e '
+    'Yonkers, bem mais longe do centro, e pagamos por uma casa em vez de por '
+    'cabeça.', S['body']))
+
+story.append(Paragraph(
+    'A troca é honesta: você ganha espaço e economiza muito, e perde tempo de '
+    'deslocamento todo dia. Com o metrô funcionando 24 horas e o teto diário do '
+    'OMNY, o transporte extra custa pouco, mas some uma hora por dia no ida e '
+    'volta. Para casal ou família de três, Midtown provavelmente compensa. '
+    'De cinco pessoas pra cima, vale rodar as duas contas antes de decidir.',
+    S['body']))
 
 # ============================================================
 # PARTE II - EUROPA - opening
@@ -259,7 +278,7 @@ story.append(Paragraph('Benchmark da viagem', S['h2']))
 story.append(data_table([
     ['Item', 'Referência'],
     ['Trecho aéreo', 'GRU → LIS (TAP, Latam, Air Europa)'],
-    ['Milhas/pessoa', '95–115k Smiles · 100–120k Latam Pass'],
+    ['Milhas por pessoa, ida e volta', '60 a 100 mil Latam Pass · 90 a 130 mil Smiles ou TudoAzul'],
     ['Hospedagem Lisboa', 'Bairro Alto / Chiado (caminhável)'],
     ['Hospedagem Porto', 'Ribeira ou Cedofeita'],
     ['Lisboa ↔ Porto', 'Alfa Pendular (cerca de 3h), comprar com antecedência'],
@@ -356,7 +375,7 @@ story.append(Paragraph('Benchmark da viagem', S['h2']))
 story.append(data_table([
     ['Item', 'Referência'],
     ['Trecho aéreo', 'GRU → PUJ (Latam, Copa via Panamá, Gol)'],
-    ['Milhas/pessoa', '60–85k Latam Pass · 55–75k Smiles'],
+    ['Milhas por pessoa, ida e volta', '40 a 60 mil Latam Pass · 80 a 110 mil Smiles ou TudoAzul'],
     ['Hospedagem', 'Riu, Iberostar, Hyatt Ziva, Hard Rock, all-inclusive'],
     ['Duração ideal', '6 a 7 dias'],
     ['Melhor época', 'Dezembro a abril (alta) · Maio/junho (custo-benefício)'],
@@ -387,7 +406,8 @@ story.extend(section_opener(
     'América do Sul (bônus).',
     'Pra família brasileira que quer começar a viajar pra fora, é o melhor '
     'investimento de milhas. Os destinos são culturalmente ricos, '
-    'logisticamente fáceis e custam pouco: Buenos Aires, Santiago e Assunção.'
+    'logisticamente fáceis e custam pouco: Buenos Aires, Santiago, Assunção, e '
+    'Colonia del Sacramento de bate-volta.'
 ))
 
 story.append(Spacer(1, 0.3*cm))
@@ -399,8 +419,8 @@ story.append(caption('Família em La Boca / Caminito (esquerda) · Letreiro Chil
 # ============================================================
 story.append(PageBreak())
 story.extend(section_opener(
-    'Destinos 07-08-09',
-    'Buenos Aires, Santiago & Assunção.',
+    'Destinos 07 a 09, mais o Uruguai',
+    'Buenos Aires, Santiago, Assunção e Colonia.',
     'Três cidades, três personalidades, todas alcançáveis com baixo gasto '
     'de milhas. Roteiro express pra cada uma.'
 ))
@@ -439,6 +459,118 @@ story.append(Spacer(1, 0.3*cm))
 story.append(two_col_photo_row('Paraguai-Assuncao/IMG_6256.jpg', 'Paraguai-Assuncao/IMG_6269.jpg', h=6.5*cm))
 story.append(caption('Palácio dos Lopes (esquerda) e letreiro de Asunción (direita): clichês obrigatórios.'))
 
+story.append(Paragraph('Colonia del Sacramento, 1 dia', S['h2']))
+story.append(Paragraph(
+    'Esse é o país mais barato que já colocamos no passaporte, porque ele não '
+    'custou passagem nenhuma. Estando em <b>Buenos Aires</b>, dá para atravessar '
+    'o Rio da Prata de barco e passar o dia em <b>Colonia del Sacramento</b>, no '
+    'Uruguai. A travessia leva pouco mais de uma hora e você volta no fim da '
+    'tarde.', S['body']))
+
+story.append(Paragraph(
+    '<b>Como é:</b> o centro histórico é português do século XVII, tombado pela '
+    'Unesco, todo de rua de pedra, e se percorre a pé numa manhã. '
+    '<b>Imperdíveis:</b> a Calle de los Suspiros, o farol com vista do rio e o '
+    'almoço em qualquer restaurante de frente para a água. <b>Leve o '
+    'passaporte:</b> é fronteira de verdade, com controle nos dois lados. '
+    '<b>Vale a pena?</b> Se você tem quatro dias em Buenos Aires, sim. Se tem '
+    'só três, fique na Argentina.', S['body']))
+
+story.append(Spacer(1, 0.3*cm))
+story.append(two_col_photo_row('Uruguai/IMG_3985.jpg', 'Uruguai/IMG_4026.jpg', h=6.5*cm))
+story.append(caption('Colonia del Sacramento: o centro histórico português a uma hora de barco de Buenos Aires.'))
+
+# ============================================================
+# PARTE V - AFRICA
+# ============================================================
+story.append(PageBreak())
+story.extend(section_opener(
+    'Parte V',
+    'África.',
+    'A viagem que parecia impossível e acabou sendo a mais marcante. '
+    'Fomos em julho de 2026 e voltamos convencidos de que safári cabe no '
+    'orçamento de família brasileira.'
+))
+
+story.append(Spacer(1, 0.3*cm))
+story.append(photo('africa do sul/Familia 9.jpg', max_h=9*cm))
+story.append(caption('Bourke\'s Luck Potholes, no Blyde River Canyon: parada '
+                     'obrigatória na Rota Panorâmica, a caminho do Kruger.'))
+
+# ============================================================
+# Africa do Sul
+# ============================================================
+story.append(PageBreak())
+story.extend(section_opener(
+    'Destino 10',
+    'África do Sul: safári por conta própria.',
+    'O Kruger é um dos poucos parques grandes do mundo onde você pode entrar '
+    'dirigindo o seu próprio carro. Isso muda o preço da viagem e muda a '
+    'experiência.'
+))
+
+story.append(Paragraph('Benchmark da viagem', S['h2']))
+story.append(data_table([
+    ['Item', 'Referência'],
+    ['Trecho aéreo', 'GRU → JNB'],
+    ['O que pagamos', '96 mil milhas TudoAzul por pessoa, voando pela TAAG'],
+    ['Como emitimos', 'Azul pelo Mundo, que é onde a Azul abre as parceiras'],
+    ['Duração ideal', '8 a 10 dias, sendo 4 a 5 dentro do parque'],
+    ['Melhor época', 'Junho a setembro, o inverno seco de lá'],
+], col_widths=[5*cm, 11.7*cm]))
+
+story.append(Callout(
+    'Por que o inverno é a melhor época para ver bicho',
+    'Na seca, o mato fica ralo e os animais se concentram nos poucos pontos de '
+    'água que sobraram. Você enxerga mais longe e sabe onde procurar. No verão '
+    'a savana fica verde e bonita, e o bicho some dentro dela.', kind='tip'))
+
+story.append(Paragraph('O safári sem guia, na prática', S['h2']))
+story.append(Paragraph(
+    'A dúvida que todo mundo tem é se funciona sem guia. Funciona, e a resposta '
+    'honesta é que funciona bem, desde que você aceite duas trocas.', S['body']))
+
+story.extend(bullet_list([
+    '<b>Você vê menos que um guia veria.</b> Eles têm rádio, sabem onde o leão '
+    'apareceu de manhã e enxergam o que você passa direto. Sozinho, você '
+    'depende mais de sorte e de paciência.',
+    '<b>Em compensação, o tempo é seu.</b> Ficar quarenta minutos parado '
+    'olhando um grupo de elefantes atravessar, sem ninguém com pressa de '
+    'cumprir roteiro, é uma experiência diferente. Com criança, isso pesa.',
+    '<b>Carro comum dá conta.</b> As estradas principais do Kruger são '
+    'asfaltadas e as secundárias são de cascalho firme. Não precisa de 4x4 '
+    'para o circuito clássico.',
+]))
+
+story.append(Spacer(1, 0.3*cm))
+story.append(photo('africa do sul/Guepardo.jpg', max_h=9*cm))
+story.append(caption('Guepardo a poucos metros do carro, no Kruger. A porta no '
+                     'canto da foto é a do nosso carro alugado.'))
+
+story.append(Paragraph('As regras que você precisa saber antes', S['h2']))
+story.extend(bullet_list([
+    '<b>Portão abre ao nascer e fecha ao pôr do sol.</b> O horário muda por mês '
+    'e é levado a sério: chegar atrasado no acampamento dá multa.',
+    '<b>Não se sai do carro</b>, exceto nos pontos sinalizados. Não é '
+    'formalidade, é um parque aberto com predador solto.',
+    '<b>Velocidade baixa</b>, 50 km/h no asfalto e 40 no cascalho. Além de ser '
+    'a regra, é o que permite enxergar alguma coisa.',
+    '<b>Comece cedo.</b> As primeiras duas horas depois da abertura do portão '
+    'rendem mais que o resto do dia inteiro.',
+]))
+
+story.append(Spacer(1, 0.3*cm))
+story.append(photo('africa do sul/Elefantes-card.jpg', max_h=7.5*cm))
+story.append(caption('Elefantes atravessando a estrada: aqui a regra é simples, '
+                     'desliga o carro e espera.'))
+
+story.append(Callout(
+    'A Rota Panorâmica vale os dois dias',
+    'Entre Joanesburgo e o Kruger existe a Panorama Route, com o Blyde River '
+    'Canyon, os Bourke\'s Luck Potholes e a God\'s Window. Muita gente pega a '
+    'estrada direto para o parque e pula tudo. Reserve dois dias: é paisagem '
+    'de outro planeta e fica no caminho.', kind='note'))
+
 # ============================================================
 # Closing
 # ============================================================
@@ -451,10 +583,18 @@ story.extend(section_opener(
 ))
 
 story.append(Paragraph(
-    'Em 2026 ainda vamos pra África do Sul: safari, savana e a viagem mais '
-    'aventureira que já planejamos. Em 2027, a meta é Japão. Os roteiros '
-    'desses destinos vão entrar na próxima atualização gratuita pra quem '
-    'baixou este ebook.', S['body']))
+    'A África do Sul saiu da lista de planos e virou o capítulo anterior. '
+    'Para 2027 a gente ainda não fechou o destino, e tem um motivo divertido '
+    'pra isso: durante a Copa a gente prometeu, nos vídeos, que iria para o '
+    'país do campeão. Deu <b>Espanha</b>. Já conhecemos Madrid, então voltar '
+    'é fácil de justificar, mas o país é muito maior que a capital e tem '
+    'bastante coisa que a gente ainda não viu.', S['body']))
+
+story.append(Paragraph(
+    'Seja qual for a decisão, o roteiro entra aqui depois que a viagem '
+    'acontecer, na próxima atualização gratuita para quem baixou este ebook. '
+    'A regra deste material não muda: destino só vira capítulo depois que a '
+    'gente pisa nele.', S['body']))
 
 story.append(Paragraph('Como continuar acompanhando', S['h2']))
 story.extend(bullet_list([
