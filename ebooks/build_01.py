@@ -84,10 +84,10 @@ story.append(toc([
     ('Os programas de coalizão e a transferência', '09'),
     ('Calendário de bônus: o jogo do timing', '11'),
     ('Custo por milha: a regra de ouro', '12'),
-    ('Uma emissão de verdade, trecho a trecho', '13'),
-    ('Estratégia mês a mês para 2026 e 2027', '15'),
-    ('Salas VIP, a vantagem oculta dos premiums', '16'),
-    ('Próximos passos: comunidade e assessoria', '18'),
+    ('Uma emissão de verdade, trecho a trecho', '14'),
+    ('Estratégia mês a mês para 2026 e 2027', '16'),
+    ('Salas VIP, a vantagem oculta dos premiums', '17'),
+    ('Próximos passos: comunidade e assessoria', '19'),
 ]))
 
 # ============================================================
@@ -549,6 +549,29 @@ story.extend(bullet_list([
     'quase sempre compensa, mesmo pagando caro nelas. O custo alto incide sobre '
     'uma fatia pequena, e sem ela as outras 57 mil não viram nada.',
 ]))
+
+story.append(Paragraph('E quando a resposta certa é não usar milha', S['h2']))
+story.append(Paragraph(
+    'Saber o seu milheiro serve para as duas direções. Ele diz quando emitir, e '
+    'diz quando <b>não</b> emitir, o que quase nenhum conteúdo sobre milhas '
+    'admite.', S['body']))
+
+story.append(Paragraph(
+    'Voltando da África do Sul, precisávamos do último trecho, de São Paulo a '
+    'Curitiba. Não apareceu preço bom em nenhum programa, e insistir ali sairia '
+    'caro em milha que a gente tinha guardado para viagem internacional. '
+    'Fomos de <b>ônibus-leito</b>, por volta de R$ 280. Foi confortável, virou '
+    'uma experiência diferente no fim da viagem, e as milhas continuaram na '
+    'conta rendendo para o próximo destino.', S['body']))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(Callout(
+    'A pergunta que evita desperdício',
+    'Antes de emitir qualquer trecho curto, faça a conta em reais e compare com '
+    'o preço em dinheiro, com o ônibus e até com o carro alugado. Trecho '
+    'nacional de uma hora é onde a milha costuma render pior, porque a passagem '
+    'em dinheiro é barata e a tarifa em milhas nem sempre acompanha. Guarde a '
+    'milha para o trecho longo, que é onde ela devolve muito mais.', kind='tip'))
 
 # ============================================================
 # 09 - Cap 6 - Caso real, a emissao de 7 trechos

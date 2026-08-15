@@ -515,7 +515,8 @@ story.append(data_table([
     ['Trecho aéreo', 'GRU → JNB'],
     ['O que pagamos', '96 mil milhas TudoAzul por pessoa, voando pela TAAG'],
     ['Como emitimos', 'Azul pelo Mundo, que é onde a Azul abre as parceiras'],
-    ['Duração ideal', '8 a 10 dias, sendo 4 a 5 dentro do parque'],
+    ['Duração', 'Duas semanas, sendo 5 dias dentro do Kruger'],
+    ['Carro', '3.200 rands o período inteiro, pouco mais de mil reais'],
     ['Melhor época', 'Junho a setembro, o inverno seco de lá'],
 ], col_widths=[5*cm, 11.7*cm]))
 
@@ -564,12 +565,60 @@ story.append(photo('africa do sul/Elefantes-card.jpg', max_h=7.5*cm))
 story.append(caption('Elefantes atravessando a estrada: aqui a regra é simples, '
                      'desliga o carro e espera.'))
 
+story.append(Paragraph('O nosso roteiro, dia a dia', S['h2']))
+story.append(Paragraph(
+    'O Kruger não é um destino que se faz de bate-volta a partir de '
+    'Joanesburgo. São umas cinco horas de estrada até a região dos portões, e a '
+    'graça está justamente no que tem no meio do caminho.', S['body']))
+
+story.extend(bullet_list([
+    '<b>Joanesburgo, chegada.</b> Alguns dias na cidade para descansar do voo '
+    'e pegar o carro.',
+    '<b>Dullstroom, 1 dia.</b> Cidadezinha de clima frio no meio da subida, boa '
+    'parada para quebrar a estrada em vez de encarar tudo de uma vez.',
+    '<b>Rota Panorâmica.</b> Blyde River Canyon, os Three Rondavels e a God\'s '
+    'Window. É o trecho mais bonito da viagem fora do parque.',
+    '<b>Phalaborwa.</b> Dormimos ao lado do parque, para entrar logo na '
+    'abertura do portão no dia seguinte.',
+    '<b>Kruger, 5 dias.</b> Duas noites no <b>Mopani Rest Camp</b>, na parte '
+    'norte, e duas no <b>Pretoriuskop</b>, no sul. Dormir dentro do parque em '
+    'dois pontos distantes muda o que você vê: o norte é mais vazio e o sul '
+    'concentra mais bicho.',
+    '<b>Saída pelo Crocodile Bridge, às 17h30.</b> Jantamos na estrada e '
+    'dormimos em <b>Nelspruit</b>, no Coyotes Hotel & Conference Centre, para '
+    'não fazer a volta inteira à noite.',
+    '<b>Joanesburgo, mais 2 dias</b> antes de voltar.',
+]))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(Callout(
+    'Reserve os campos do Kruger direto no SANParks',
+    'As acomodações dentro do parque são administradas pelo SANParks, o órgão '
+    'dos parques nacionais, e se reservam no site deles. Fora do parque a gente '
+    'usou o Booking normalmente: as diárias ficaram em torno de <b>R$ 300 para '
+    'nós três</b>, e a de Joanesburgo ainda vinha com um café da manhã muito '
+    'bom. Some o carro, que saiu por pouco mais de mil reais o período inteiro, '
+    'e a parte terrestre de duas semanas na África custa menos do que a maioria '
+    'das pessoas imagina.', kind='tip'))
+
 story.append(Callout(
     'A Rota Panorâmica vale os dois dias',
-    'Entre Joanesburgo e o Kruger existe a Panorama Route, com o Blyde River '
-    'Canyon, os Bourke\'s Luck Potholes e a God\'s Window. Muita gente pega a '
-    'estrada direto para o parque e pula tudo. Reserve dois dias: é paisagem '
-    'de outro planeta e fica no caminho.', kind='note'))
+    'Muita gente pega a estrada direto para o parque e pula tudo. Reserve dois '
+    'dias: é paisagem de outro planeta e fica no caminho.', kind='note'))
+
+story.append(Paragraph('O último trecho foi de ônibus', S['h2']))
+story.append(Paragraph(
+    'Vale contar como a viagem terminou, porque é o tipo de decisão que ninguém '
+    'mostra. Desembarcando em São Paulo, faltava chegar em Curitiba, e não '
+    'apareceu resgate com preço decente em nenhum programa. Em vez de queimar '
+    'milha boa num trecho de uma hora, fomos de <b>ônibus-leito</b>, por volta '
+    'de R$ 280.', S['body']))
+
+story.append(Paragraph(
+    'Foi confortável e acabou virando um fecho tranquilo depois de duas semanas '
+    'de estrada. A regra que a gente segue: <b>milha é para trecho longo</b>. '
+    'Em perna curta, compare sempre com dinheiro, ônibus e carro antes de '
+    'emitir.', S['body']))
 
 # ============================================================
 # Closing
