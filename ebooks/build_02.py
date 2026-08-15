@@ -609,16 +609,16 @@ story.append(Callout(
 story.append(Paragraph('O último trecho foi de ônibus', S['h2']))
 story.append(Paragraph(
     'Vale contar como a viagem terminou, porque é o tipo de decisão que ninguém '
-    'mostra. Desembarcando em São Paulo, faltava chegar em Curitiba, e não '
-    'apareceu resgate com preço decente em nenhum programa. Em vez de queimar '
-    'milha boa num trecho de uma hora, fomos de <b>ônibus-leito</b>, por volta '
-    'de R$ 280.', S['body']))
+    'mostra. Desembarcando em São Paulo, faltava chegar em Curitiba, e a tarifa '
+    'em milhas estava ruim em todos os programas. Em vez de queimar milha boa '
+    'num trecho de uma hora, fomos de <b>ônibus-leito cama</b>, por R$ 280 por '
+    'pessoa, com serviço de bordo.', S['body']))
 
 story.append(Paragraph(
     'Foi confortável e acabou virando um fecho tranquilo depois de duas semanas '
     'de estrada. A regra que a gente segue: <b>milha é para trecho longo</b>. '
-    'Em perna curta, compare sempre com dinheiro, ônibus e carro antes de '
-    'emitir.', S['body']))
+    'Em perna curta, converta as milhas em reais pelo seu milheiro e compare '
+    'com dinheiro, ônibus e carro antes de emitir.', S['body']))
 
 # ============================================================
 # Closing

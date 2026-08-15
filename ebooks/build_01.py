@@ -558,20 +558,27 @@ story.append(Paragraph(
 
 story.append(Paragraph(
     'Voltando da África do Sul, precisávamos do último trecho, de São Paulo a '
-    'Curitiba. Não apareceu preço bom em nenhum programa, e insistir ali sairia '
-    'caro em milha que a gente tinha guardado para viagem internacional. '
-    'Fomos de <b>ônibus-leito</b>, por volta de R$ 280. Foi confortável, virou '
-    'uma experiência diferente no fim da viagem, e as milhas continuaram na '
-    'conta rendendo para o próximo destino.', S['body']))
+    'Curitiba. A tarifa em milhas estava ruim em todos os programas, bem acima '
+    'do normal para uma perna dessas. Fomos de <b>ônibus-leito cama</b>, por '
+    'R$ 280 por pessoa, com serviço de bordo. Foi confortável, virou um fecho '
+    'tranquilo depois de duas semanas de estrada, e as milhas continuaram na '
+    'conta valendo para o próximo internacional.', S['body']))
+
+story.append(Paragraph(
+    'Não estamos dizendo que ônibus é sempre mais barato que emitir. Estamos '
+    'dizendo que <b>a comparação precisa ser feita</b>, e que ela quase nunca é. '
+    'O reflexo de quem acumula milha é gastar milha, mesmo quando o resgate '
+    'daquele dia está ruim.', S['body']))
 
 story.append(Spacer(1, 0.2*cm))
 story.append(Callout(
     'A pergunta que evita desperdício',
-    'Antes de emitir qualquer trecho curto, faça a conta em reais e compare com '
-    'o preço em dinheiro, com o ônibus e até com o carro alugado. Trecho '
-    'nacional de uma hora é onde a milha costuma render pior, porque a passagem '
-    'em dinheiro é barata e a tarifa em milhas nem sempre acompanha. Guarde a '
-    'milha para o trecho longo, que é onde ela devolve muito mais.', kind='tip'))
+    'Antes de emitir qualquer trecho curto, converta as milhas em reais pelo '
+    'seu milheiro e compare com o preço em dinheiro, com o ônibus e até com o '
+    'carro. Trecho nacional de uma hora é onde a milha costuma render pior, '
+    'porque a passagem em dinheiro é barata e a tarifa em milhas nem sempre '
+    'acompanha. Guarde a milha para o trecho longo, que é onde ela devolve '
+    'muito mais.', kind='tip'))
 
 # ============================================================
 # 09 - Cap 6 - Caso real, a emissao de 7 trechos
