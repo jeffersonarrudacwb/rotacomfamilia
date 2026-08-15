@@ -37,7 +37,8 @@ story.append(Divider(width_pct=0.18, gap_before=0.1*cm, gap_after=0.3*cm))
 
 story.append(Paragraph(
     'Este ebook foi escrito pela nossa família (Jefferson, Kharol e Derek) '
-    'enquanto planejávamos a nossa próxima viagem internacional. Não tem teoria '
+    'entre uma viagem e outra, no intervalo em que a gente planeja a seguinte. '
+    'Não tem teoria '
     'que a gente não tenha aplicado. Não tem cartão recomendado que a gente não '
     'use. E não tem estratégia que a gente não tenha testado pessoalmente, '
     'transferindo milhas reais e emitindo passagens reais.', S['body']))
@@ -178,21 +179,20 @@ story.append(Paragraph(
 story.append(Spacer(1, 0.2*cm))
 story.append(data_table([
     [cell('Perfil', header=True), cell('Anuidade', header=True),
-     cell('Pontos por dólar', header=True), cell('Chega a', header=True),
-     cell('Tem sala VIP?', header=True)],
-    [cell('Entrada'), cell('Isento a R$ 400'), cell('1,0'), cell('2,2'), cell('Quase nunca')],
-    [cell('Intermediário'), cell('R$ 400 a 900'), cell('1,7'), cell('5,0'), cell('Cerca de um terço')],
-    [cell('Premium'), cell('R$ 900 a 1.800'), cell('3,0'), cell('9,0'), cell('Sempre')],
-    [cell('Ultra-premium'), cell('Acima de R$ 1.800'), cell('4,0 a 7,0'), cell('11,0'), cell('Sempre')],
-], col_widths=[3.0*cm, 3.4*cm, 3.2*cm, 2.2*cm, 4.5*cm]))
+     cell('Pontos por dólar', header=True), cell('Tem sala VIP?', header=True)],
+    [cell('Entrada'), cell('Isento a R$ 300'), cell('1 a 1,2'), cell('Quase nunca')],
+    [cell('Intermediário'), cell('R$ 300 a 800'), cell('1,5 a 1,8'), cell('Cerca de um terço')],
+    [cell('Premium'), cell('R$ 800 a 1.800'), cell('2 a 3'), cell('Sempre')],
+    [cell('Ultra-premium'), cell('Acima de R$ 1.800'), cell('3 ou mais'), cell('Sempre')],
+], col_widths=[3.2*cm, 3.6*cm, 4.0*cm, 5.5*cm]))
 
 story.append(Spacer(1, 0.15*cm))
 story.append(Paragraph(
-    '<i>A coluna "pontos por dólar" é o valor típico da faixa, e "chega a" é o '
-    'melhor caso que encontramos. Levantamos isso sobre um ranking público de '
-    '250 cartões brasileiros, o do Passageiro de Primeira, em agosto de 2026. '
-    'Confira antes de decidir, porque banco muda regra sem avisar.</i>',
-    S['small']))
+    '<i>Esses são os números que a gente encontra de verdade no mercado que dá '
+    'para alcançar. Existem cartões que pagam 7, 9 e até 11 pontos por dólar, '
+    'mas eles cobram anuidades de R$ 15 mil a R$ 30 mil e são de private '
+    'banking. Não adianta comparar a sua carteira com a deles: a tabela acima é '
+    'a faixa em que a decisão realmente acontece.</i>', S['small']))
 
 story.append(Spacer(1, 0.2*cm))
 story.append(Paragraph(
@@ -202,10 +202,12 @@ story.append(Paragraph(
     'câmbio do dia antes de creditar.', S['body']))
 
 story.append(Paragraph(
-    'Repare no salto do topo: entre o premium e o ultra-premium a pontuação '
-    'quase dobra. É o que faz o cartão de anuidade alta se pagar, desde que o '
-    'seu gasto mensal justifique. Abaixo desse volume, o cartão intermediário '
-    'quase sempre entrega mais ganho líquido.', S['body']))
+    'Repare que a pontuação quase triplica da primeira linha para a última. É o '
+    'que faz o cartão de anuidade alta se pagar, desde que o seu gasto mensal '
+    'justifique. Abaixo desse volume, o cartão intermediário quase sempre '
+    'entrega mais ganho líquido, e é por isso que a conta da próxima página '
+    'vale mais que qualquer recomendação de cartão que você leia por aí, '
+    'inclusive as nossas.', S['body']))
 
 story.append(Paragraph(
     'E repare na última coluna, porque ela é mais nítida do que parece: '
@@ -249,14 +251,26 @@ story.append(Paragraph(
     S['body']))
 
 story.append(Paragraph(
-    'Faça a mesma conta trocando a pontuação por 2,5 e depois por 4,0, que são '
-    'os patamares premium e ultra-premium, e você vai ver o motivo de gente com '
-    'gasto alto pagar anuidade cara sem reclamar: o mesmo gasto rende o dobro '
-    'ou mais de milhas, e o milheiro despenca.', S['body']))
+    'Faça a mesma conta trocando a pontuação por 3,0, que é o topo do premium, '
+    'e você vai ver o motivo de gente com gasto alto pagar anuidade cara sem '
+    'reclamar: o mesmo gasto rende quase o dobro de milhas, e o milheiro cai '
+    'junto. O contrário também vale, e é o alerta mais útil aqui: se o seu '
+    'gasto mensal é baixo, a anuidade alta não se paga nunca, por mais bonito '
+    'que seja o cartão.', S['body']))
 
 story.append(Paragraph(
     'Repita o exercício pra cada cartão que você tem ou está pensando em pegar. '
     'Cartões que não passam nessa conta saem da carteira, sem dó.', S['body']))
+
+story.append(Spacer(1, 0.2*cm))
+story.append(Callout(
+    'Os três cartões que estão na nossa carteira hoje',
+    'C6 Carbon, que é o nosso principal para gasto internacional. AmEx The '
+    'Platinum Card do Bradesco, o principal aqui dentro, e o que mais abre sala '
+    'VIP. E o AAdvantage do Santander, que usamos no passado e vale para quem '
+    'mira emissões pela American. Não citamos cartão que a gente não tenha '
+    'passado na maquininha. A tabela completa, com pontuação e perfil de cada '
+    'um, está no caderno de Planilhas e Calculadoras.', kind='tip'))
 
 # ============================================================
 # 06 - Cap 3 - Acumular sem gastar a mais
@@ -583,6 +597,37 @@ story.append(Paragraph(
     'barato em outro. Consultar a mesma perna em mais de um programa é o hábito '
     'que mais economiza.', S['body']))
 
+story.append(Spacer(1, 0.25*cm))
+story.append(Paragraph('Outras emissões que fizemos depois', S['h2']))
+story.append(Paragraph(
+    'Aquela viagem foi em 2024. Para você ver que o método não foi sorte de uma '
+    'vez, estas são emissões nossas mais recentes, com os números que '
+    'apareceram na tela:', S['body']))
+
+story.append(Spacer(1, 0.15*cm))
+story.append(data_table([
+    [cell('Trecho', header=True), cell('Quando', header=True),
+     cell('Voou', header=True), cell('Emitiu', header=True),
+     cell('Milhas', header=True)],
+    [cell('GRU → LIS, executiva'), cell('Abr/2026'), cell('Latam'), cell('Latam Pass'), cell('200.000')],
+    [cell('GRU → JNB'), cell('Jul/2026'), cell('TAAG'), cell('TudoAzul'), cell('96.000')],
+    [cell('CWB → FOR'), cell('Out/2026'), cell('Gol'), cell('AAdvantage'), cell('7.000')],
+], col_widths=[4.4*cm, 2.4*cm, 2.4*cm, 3.3*cm, 3.8*cm]))
+
+story.append(Spacer(1, 0.2*cm))
+story.extend(bullet_list([
+    '<b>Lisboa, seis passageiros.</b> Buscar os seis assentos de uma vez subia '
+    'o preço, então dividimos a busca em duas contas. Executiva para a Europa a '
+    '200 mil milhas por pessoa.',
+    '<b>África do Sul pela TAAG.</b> Companhia angolana, paga com milha '
+    'brasileira, emitida no Azul pelo Mundo. É o tipo de combinação que só '
+    'aparece quando você olha além das parceiras óbvias.',
+    '<b>Fortaleza por 7 mil milhas.</b> A American cobra preço fixo em trechos '
+    'assim, mesmo o voo sendo da Gol. A mesma passagem estava R$ 1.400 em '
+    'dinheiro.',
+]))
+
+story.append(Spacer(1, 0.25*cm))
 story.append(Paragraph('Comece pela porta, não pelo destino', S['h2']))
 story.append(Paragraph(
     'A formatura era em Minneapolis e a Disney fica em Orlando. Nenhuma das '

@@ -464,13 +464,13 @@ story.append(Paragraph(
 story.append(Spacer(1, 0.2*cm))
 story.append(data_table([
     [cell('Cartão', header=True), cell('Banco/Emissor', header=True), cell('Programa', header=True), cell('Pts / USD', header=True), cell('Perfil', header=True)],
-    [cell('AAdvantage Santander*'), cell('Santander'), cell('AAdvantage direto'), cell('~2,0'), cell('Intermediário')],
+    [cell('AAdvantage Santander*'), cell('Santander'), cell('AAdvantage direto'), cell('~2,0'), cell('Premium')],
     [cell('Bradesco Elo Nanquim'), cell('Bradesco'), cell('Livelo'), cell('~2,0'), cell('Premium')],
     [cell('Itaucard Personnalité Black'), cell('Itaú'), cell('Latam Pass'), cell('~2,0'), cell('Premium')],
     [cell('AmEx TPC Bradesco'), cell('Bradesco / AmEx'), cell('Livelo'), cell('~2,2'), cell('Premium')],
-    [cell('C6 Carbon'), cell('C6 Bank'), cell('C6 Átomos → parceiros'), cell('~2,5'), cell('Ultra-premium')],
-    [cell('AmEx Platinum'), cell('AmEx'), cell('Membership Rewards'), cell('~2,5'), cell('Ultra-premium')],
-    [cell('Bradesco Aeternum'), cell('Bradesco'), cell('Livelo'), cell('~2,5'), cell('Ultra-premium')],
+    [cell('C6 Carbon'), cell('C6 Bank'), cell('C6 Átomos → parceiros'), cell('~2,5'), cell('Premium')],
+    [cell('AmEx Platinum'), cell('AmEx'), cell('Membership Rewards'), cell('~2,5'), cell('Premium')],
+    [cell('Bradesco Aeternum'), cell('Bradesco'), cell('Livelo'), cell('~2,5'), cell('Premium')],
 ], col_widths=[3.7*cm, 3*cm, 3.7*cm, 2.1*cm, 3.3*cm]))
 story.append(Spacer(1, 0.15*cm))
 story.append(Paragraph(
