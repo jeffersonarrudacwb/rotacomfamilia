@@ -295,11 +295,42 @@
       'text-decoration:underline;text-underline-offset:2px}',
       '.rcf-cookies__link:hover{color:#D4A437}',
       '.rcf-cookies__link:focus-visible{outline:2px solid #D4A437;outline-offset:2px;border-radius:.2rem}',
-      /* animação de entrada — desligada para quem pede menos movimento */
+      /* animação de entrada, desligada para quem pede menos movimento */
       '@media (prefers-reduced-motion:no-preference){',
       '.rcf-cookies{animation:rcf-sobe .38s cubic-bezier(.2,.7,.3,1) both}',
       '@keyframes rcf-sobe{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}}',
-      '@media (prefers-reduced-motion:reduce){.rcf-cookies{animation:none}}'
+      '@media (prefers-reduced-motion:reduce){.rcf-cookies{animation:none}}',
+
+      /* ================= botão flutuante de WhatsApp ================= */
+      /* Canto inferior direito. No desktop o banner de cookies fica embaixo à
+         esquerda, então não se encostam; no celular o banner ocupa a largura
+         toda, e por isso o botão só entra depois que o visitante responde. */
+      '.rcf-zap{position:fixed;z-index:60;right:1rem;bottom:1rem;display:inline-flex;align-items:center;',
+      'gap:.55rem;height:3.5rem;padding:0 1.05rem;border-radius:9999px;text-decoration:none;',
+      'background:linear-gradient(135deg,#D4A437,#C8732E);color:#14150D;font-family:Inter,system-ui,sans-serif;',
+      'font-weight:700;font-size:.95rem;line-height:1;box-shadow:0 10px 30px -8px rgba(0,0,0,.55);',
+      'border:1px solid rgba(250,241,218,.22)}',
+      '@media (min-width:640px){.rcf-zap{right:1.25rem;bottom:1.25rem}}',
+      '.rcf-zap:hover{background:linear-gradient(135deg,#E3B04B,#D4832E)}',
+      '.rcf-zap:focus-visible{outline:3px solid #FAF1DA;outline-offset:3px}',
+      '.rcf-zap svg{width:1.6rem;height:1.6rem;flex:0 0 auto;fill:currentColor}',
+      /* O rótulo fica escondido enquanto o botão está em repouso: no telefone
+         ele roubaria metade da tela. Aparece no hover e no foco por teclado. */
+      '.rcf-zap__txt{max-width:0;overflow:hidden;white-space:nowrap;opacity:0}',
+      '@media (prefers-reduced-motion:no-preference){',
+      '.rcf-zap{transition:background .25s ease,transform .25s ease}',
+      '.rcf-zap:hover{transform:translateY(-2px)}',
+      '.rcf-zap__txt{transition:max-width .28s cubic-bezier(.2,.7,.3,1),opacity .2s ease}}',
+      '.rcf-zap:hover .rcf-zap__txt,.rcf-zap:focus-visible .rcf-zap__txt{max-width:11rem;opacity:1}',
+      /* Em repouso o botão é só o ícone, e aí precisa ficar redondo. Além do
+         padding, o gap tem de zerar: ele continua ocupando espaço entre o ícone
+         e um rótulo de largura zero, e sobrava um botão oval de 67 por 56. */
+      '.rcf-zap:not(:hover):not(:focus-visible){gap:0;padding-left:.95rem;padding-right:.95rem}',
+      '@media (prefers-reduced-motion:no-preference){',
+      '.rcf-zap{animation:rcf-zap-entra .32s cubic-bezier(.2,.7,.3,1) both}',
+      '@keyframes rcf-zap-entra{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}}',
+      /* Em tela muito baixa (celular deitado) o botão atrapalha mais que ajuda */
+      '@media (max-height:26rem){.rcf-zap{display:none}}'
     ].join('');
 
     var tag = document.createElement('style');
@@ -372,6 +403,16 @@
 
     function gravar(valor) {
       gravarStorage(CHAVE_CONSENTIMENTO, valor);
+      // Avisa quem estiver esperando a decisão (hoje, o botão flutuante).
+      // Evento em vez de callback para não criar ordem de carregamento entre
+      // os módulos deste arquivo.
+      try {
+        document.dispatchEvent(new CustomEvent('rcf:consentimento', {
+          detail: { escolha: valor }
+        }));
+      } catch (e) {
+        // navegador antigo sem CustomEvent: o botão entra no próximo carregamento
+      }
     }
 
     /** Remove o banner da tela (com fade curto, se o visitante aceitar animação). */
@@ -492,6 +533,69 @@
 
     return { ler: ler, iniciar: iniciar, mostrarBanner: mostrarBanner, reabrir: reabrir };
   })();
+
+
+  /* =============================================================================
+     4b. BOTÃO FLUTUANTE DE WHATSAPP
+     ============================================================================= */
+
+  /* O número vive aqui, em um lugar só. Se mudar de novo, é esta linha. Os
+     botões escritos no HTML das páginas continuam existindo; este é o atalho
+     que acompanha a rolagem. */
+  var ZAP_NUMERO = '5541988652343';
+
+  /* Texto neutro de propósito. Quem clica aqui pode estar querendo falar de uma
+     viagem, de parceria ou de emissão, e não dá para saber qual. Uma mensagem
+     pronta do tipo "quero contratar" põe palavra na boca de quem só tinha uma
+     dúvida. */
+  var ZAP_TEXTO = 'Oi! Vim pelo site da Rota com Família.';
+
+  function montarBotaoZap() {
+    if (document.querySelector('.rcf-zap')) return;
+
+    var a = document.createElement('a');
+    a.className = 'rcf-zap';
+    a.href = 'https://wa.me/' + ZAP_NUMERO + '?text=' + encodeURIComponent(ZAP_TEXTO);
+    a.target = '_blank';
+    a.rel = 'noopener';
+    // O rótulo visível só aparece no hover, então o nome acessível vem daqui.
+    a.setAttribute('aria-label', 'Falar com a Rota com Família no WhatsApp');
+    /* Quem dispara o evento do GA4 é o handler delegado no fim deste arquivo,
+       que já escuta qualquer link de wa.me e respeita data-origem. Registrar um
+       listener próprio aqui contava o mesmo clique duas vezes. */
+    a.setAttribute('data-origem', 'flutuante');
+
+    a.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7 0' +
+      '-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5' +
+      '.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4' +
+      '0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4' +
+      '.2-.7.2-1.2.2-1.4 0-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.3' +
+      'c1.3.7 2.9 1.1 4.6 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>' +
+      '<span class="rcf-zap__txt">Falar no WhatsApp</span>';
+
+    document.body.appendChild(a);
+  }
+
+  /* No celular o banner de cookies ocupa a largura toda embaixo e cobriria o
+     botão. Em vez de empurrar o botão para o meio da tela, ele espera: o banner
+     é a decisão mais importante da primeira visita, e aparece uma única vez.
+
+     A primeira versão disto ficava consultando o localStorage a cada 400 ms,
+     com um limite de 12 segundos para não girar para sempre. Estava errado: se
+     a pessoa deixasse o banner na tela por mais de 12 segundos, o que é
+     absolutamente normal, o limite cancelava o vigia e o botão nunca mais
+     aparecia naquela visita. Agora quem grava a escolha é que avisa. */
+  function iniciarBotaoZap() {
+    if (Consentimento.ler() !== null) {
+      montarBotaoZap();
+      return;
+    }
+    document.addEventListener('rcf:consentimento', function () {
+      montarBotaoZap();
+    }, { once: true });
+  }
 
 
   /* =============================================================================
@@ -990,7 +1094,9 @@
 
     // --- WhatsApp ---
     if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1) {
-      GA.evento('clique_whatsapp', { origem: origem });
+      // origem diz de que ponto da página saiu o clique; pagina diz de qual
+      // página. O botão flutuante existe nas sete, então os dois importam.
+      GA.evento('clique_whatsapp', { origem: origem, pagina: nomeDaPagina() });
       return;
     }
 
@@ -1038,6 +1144,7 @@
     }
 
     Consentimento.iniciar();
+    iniciarBotaoZap();
   });
 
 
