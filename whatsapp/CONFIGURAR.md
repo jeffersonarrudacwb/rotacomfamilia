@@ -59,8 +59,8 @@ não tem risco. O seu número pessoal continua intacto no app normal.
 | Campo | O que preencher |
 |---|---|
 | **Nome** | Rota com Família |
-| **Categoria** | Agência de viagens |
-| **Descrição** | Planejamento e emissão de passagens com milhas para famílias. Nacional e internacional. |
+| **Categoria** | Procure por "Criador de conteúdo digital" ou "Blog". Se não achar, use "Agência de viagens". |
+| **Descrição** | Uma família que viaja com milhas e conta como faz. Também planejamos e emitimos passagens para outras famílias. |
 | **Endereço** | Só a cidade: Curitiba, PR. Não coloque endereço residencial. |
 | **E-mail** | contato@rotacomfamilia.com.br |
 | **Site** | https://rotacomfamilia.com.br |
@@ -76,22 +76,30 @@ te procure. Cidade basta.
 `Ferramentas comerciais → Mensagem de saudação`
 
 Ela dispara para quem te escreve pela primeira vez, e de novo se a pessoa ficar
-14 dias sem falar. É a peça mais importante: bem escrita, ela transforma um "oi,
-tudo bem?" em um briefing completo.
+14 dias sem falar.
+
+**Ela não deve pedir dados nem vender nada.** Quem escreve pela primeira vez
+pode ser três pessoas muito diferentes: alguém que viu um vídeo e ficou com
+dúvida, uma marca querendo parceria, ou alguém querendo contratar emissão. Só a
+terceira quer responder pergunta de orçamento. Para as outras duas, um
+questionário na primeira mensagem afasta.
 
 Cole isto:
 
 ```
-Oi! Aqui é a Rota com Família 👋
+Oi! Que bom te ver por aqui 👋
 
-Para eu já olhar o seu caso, me conta: 1) destino 2) quantas pessoas 3) datas ou mês 4) pontos que você já tem hoje.
+Aqui é a Rota com Família. Dúvida sobre alguma viagem que a gente mostrou, parceria ou passagem com milhas: é tudo por aqui.
 
 Respondo em algumas horas.
 ```
 
-Por que essas quatro perguntas e não outras: são exatamente as quatro coisas sem
-as quais você não consegue dizer nada de útil. Sem elas, a conversa gasta três
-ou quatro trocas de mensagem só para chegar onde a saudação já chegou sozinha.
+Repare na ordem: viagem primeiro, parceria depois, milhas por último. É a ordem
+de como as pessoas chegam até você, e também a ordem que não parece anúncio.
+
+As quatro perguntas de orçamento continuam existindo, mas viraram a resposta
+rápida `/briefing`, que você dispara **só quando a conversa já for sobre
+emitir**. Pergunta certa na hora errada vira abordagem de vendedor.
 
 > O WhatsApp limita o tamanho dessas mensagens. Se ele reclamar, corte a última
 > linha.
@@ -105,16 +113,16 @@ ou quatro trocas de mensagem só para chegar onde a saudação já chegou sozinh
 `Ferramentas comerciais → Mensagem de ausência`
 
 ```
-Recebi sua mensagem! Agora estou fora do horário de atendimento e respondo amanhã pela manhã.
+Recebi sua mensagem! Agora é fora do horário, então respondo amanhã pela manhã.
 
-Se quiser adiantar: destino, quantas pessoas, datas e os pontos que você já tem.
+Se quiser, já me conta com calma o que você precisa que eu chego respondendo.
 ```
 
 **Programação:** "Fora do horário comercial", que usa o horário do seu perfil.
 
-O ponto dela não é avisar que você não está: é conseguir que a pessoa deixe os
-dados enquanto ainda está com a viagem na cabeça. Quem responde de manhã já
-encontra o briefing pronto.
+Também sem pedir dados. "Me conta com calma o que você precisa" funciona para os
+três tipos de pessoa e ainda faz o que interessa: a pessoa escreve enquanto está
+com o assunto na cabeça, e você acorda com o contexto pronto.
 
 ---
 
@@ -126,6 +134,40 @@ Aqui está o ganho de tempo real. Você digita `/prazo` e o texto inteiro aparec
 Cada uma abaixo responde uma pergunta que você vai receber toda semana, e todas
 estão de acordo com o que o site diz, o que evita você prometer uma coisa no
 WhatsApp e outra na página.
+
+### `/briefing`
+
+Esta é a que estava na saudação. Use quando a pessoa já disse que quer emitir.
+
+```
+Boa! Para eu já olhar o que dá para fazer, me conta quatro coisas:
+
+1) para onde quer ir
+2) quantas pessoas, e se tem criança
+3) datas ou pelo menos o mês
+4) quais pontos ou milhas você já tem hoje
+
+Se não souber o item 4, tudo bem: a gente descobre juntos.
+```
+
+O item 4 termina assim de propósito. Muita gente não responde porque acha que
+"não tem nada" e fica com vergonha de dizer. Abrindo a porta, a conversa continua.
+
+### `/viagem`
+
+Para quem escreveu por causa de um vídeo, sem intenção de contratar nada. É a
+mensagem que você vai mandar mais vezes, e é a que constrói o resto.
+
+```
+Que bom que você viu! Pode perguntar o que quiser dessa viagem, a gente gosta de contar.
+
+Se quiser os números abertos, tem tudo no site: https://rotacomfamilia.com.br
+
+E os três guias em PDF são de graça, sem cadastro: https://rotacomfamilia.com.br/ebooks
+```
+
+Note que ela não empurra assessoria. Quem quiser contratar pergunta sozinho, e
+pergunta com mais confiança depois de ter recebido algo de graça.
 
 ### `/orcamento`
 
@@ -210,13 +252,21 @@ O app já vem com algumas. Apague e use estas, que seguem o seu funil:
 
 | Etiqueta | Quando aplicar |
 |---|---|
-| **1 Novo contato** | Chegou e ainda não passou os dados |
+| **Audiência** | Escreveu por causa de vídeo ou dúvida, não quer contratar |
+| **Parceria** | Marca ou agência |
+| **1 Quer emitir** | Disse que quer, ainda sem o briefing |
 | **2 Briefing completo** | Já sei destino, pessoas, datas e pontos |
 | **3 Plano enviado** | Mandei o plano por escrito, esperando aprovação |
 | **4 Emitindo** | Aprovado, transferindo ou emitindo |
 | **5 Embarcou** | Concluído |
-| **Parceria** | Marca ou agência, não é cliente de emissão |
 | **Sem retorno** | Sumiu depois do plano |
+
+**Audiência** vem primeiro na lista de propósito, porque vai ser a maioria. Sem
+ela, toda conversa de quem só queria bater papo sobre a viagem fica encalhada
+como se fosse venda perdida, e a sua lista mente para você.
+
+Marcar audiência não é descartar. É a etiqueta mais valiosa a médio prazo:
+quando você tiver curso, é para essa gente que você anuncia primeiro.
 
 A etiqueta **3 Plano enviado** é a que mais importa. É onde o dinheiro fica
 parado: plano enviado e sem resposta é a hora de um "conseguiu ver o plano?",
@@ -232,9 +282,13 @@ no plano ou no preço, e é sinal de ajustar, não de insistir.
 Cinco minutos, uma vez por semana:
 
 1. Filtre por **3 Plano enviado** e cobre quem está há mais de 3 dias sem responder.
-2. Filtre por **1 Novo contato** e veja quem nunca mandou os dados. Uma pergunta
+2. Filtre por **1 Quer emitir** e veja quem nunca mandou os dados. Uma pergunta
    direta resolve: "me diz só o destino e o mês que eu já olho".
 3. Olhe **Sem retorno** e pergunte-se por quê.
+
+E uma regra que vale mais que as três: **não cobre ninguém marcado como
+Audiência.** Essa pessoa não é lead atrasado, é quem assiste o canal. Cobrar
+transforma o WhatsApp da marca em coisa que dá vontade de bloquear.
 
 ---
 
