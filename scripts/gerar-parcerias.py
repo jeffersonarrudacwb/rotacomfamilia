@@ -45,6 +45,26 @@ def svg_do_qr(slug):
     return svg
 
 
+def logo_do_parceiro(p):
+    """Marca visual do parceiro no topo do card.
+
+    Se existir assets/logos/<slug>.svg, usa esse arquivo, que e o logo oficial
+    baixado do material de imprensa do proprio parceiro. Enquanto nao existir,
+    desenha um selo com a inicial nas cores da casa.
+
+    O selo nao tenta imitar a marca de ninguem de proposito: logo de terceiro
+    reproduzido de memoria sai errado, e errado e pior que generico.
+    """
+    caminho = os.path.join('assets', 'logos', p['slug'] + '.svg')
+    if os.path.exists(caminho):
+        svg = io.open(caminho, encoding='utf-8').read().strip()
+        svg = svg.replace('<svg', '<svg role="img" aria-hidden="true"', 1)
+        return '<span class="parceria-logo parceria-logo-real">%s</span>' % svg
+    inicial = escapar(p['nome'][:1].upper())
+    return ('<span class="parceria-logo parceria-logo-letra" aria-hidden="true">'
+            '%s</span>' % inicial)
+
+
 def card(p):
     cupom = ''
     if p.get('cupom'):
@@ -61,8 +81,11 @@ def card(p):
     return (
         '\n        <article class="parceria-card">'
         '\n          <div class="parceria-topo">'
-        '\n            <span class="parceria-cat">%(cat)s</span>'
-        '\n            <h3 class="parceria-nome">%(nome)s</h3>'
+        '\n            %(logo)s'
+        '\n            <div>'
+        '\n              <span class="parceria-cat">%(cat)s</span>'
+        '\n              <h3 class="parceria-nome">%(nome)s</h3>'
+        '\n            </div>'
         '\n          </div>'
         '\n          <p class="parceria-beneficio">%(beneficio)s</p>%(cupom)s'
         '\n          <p class="parceria-porque">%(porque)s</p>'
@@ -82,6 +105,7 @@ def card(p):
         'porque': escapar(p['porque']), 'quando': escapar(p['quando']),
         'url': escapar(p['url']), 'slug': escapar(p['slug']),
         'qr': svg_do_qr(p['slug']), 'aviso': aviso,
+        'logo': logo_do_parceiro(p),
     }
 
 
@@ -94,11 +118,12 @@ def bloco_home(parcerias):
     """Versao curta para o index: nome, categoria e beneficio em uma linha."""
     itens = ''.join(
         '\n          <li class="parceria-mini">'
+        '\n            %s'
         '\n            <span class="parceria-mini-nome">%s</span>'
         '\n            <span class="parceria-mini-cat">%s</span>'
         '\n            <span class="parceria-mini-ben">%s</span>'
-        '\n          </li>' % (escapar(p['nome']), escapar(p['categoria']),
-                               escapar(p['beneficio']))
+        '\n          </li>' % (logo_do_parceiro(p), escapar(p['nome']),
+                               escapar(p['categoria']), escapar(p['beneficio']))
         for p in parcerias)
     return '\n        <ul class="parcerias-mini">%s\n        </ul>\n      ' % itens
 
