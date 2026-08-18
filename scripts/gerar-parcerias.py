@@ -69,7 +69,7 @@ def card(p):
         '\n          <p class="parceria-quando"><strong>Quando usar:</strong> %(quando)s</p>'
         '\n          <a class="parceria-btn" href="%(url)s" target="_blank" rel="noopener sponsored"'
         ' data-parceiro="%(slug)s">Abrir o %(nome)s</a>'
-        '\n          <details class="parceria-qr">'
+        '\n          <details class="parceria-qr" open>'
         '\n            <summary>Ver QR code</summary>'
         '\n            <div class="parceria-qr-img">%(qr)s</div>'
         '\n            <p class="parceria-qr-nota">Aponte a câmera do celular para abrir sem digitar.</p>'

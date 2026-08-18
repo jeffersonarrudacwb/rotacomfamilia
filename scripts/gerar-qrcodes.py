@@ -50,8 +50,12 @@ def main():
         qr = segno.make(url, error='m')
 
         svg = os.path.join(DIR_SVG, slug + '.svg')
+        # omitsize troca width/height por viewBox. Sem isso o segno grava
+        # width="29" height="29" e o desenho fica preso a 29 unidades: o CSS
+        # estica a area do svg para 128 px e o codigo aparece minusculo no
+        # canto superior esquerdo. Com viewBox, ele acompanha o tamanho.
         qr.save(svg, kind='svg', dark=ESCURO, light=CLARO, border=2,
-                scale=1, svgclass=None, lineclass=None, xmldecl=False)
+                omitsize=True, svgclass=None, lineclass=None, xmldecl=False)
 
         png = os.path.join(DIR_PNG, slug + '.png')
         qr.save(png, kind='png', dark=ESCURO, light=CLARO, border=3, scale=12)

@@ -2073,13 +2073,18 @@ picture {
   margin-top: 0.6rem;
   background: #fff;
   border-radius: 12px;
-  padding: 0.7rem;
-  width: fit-content;
+  /* O padding e a zona de silencio que o leitor precisa em volta do codigo.
+     O SVG ja traz 2 modulos de margem; estes 10 px completam com folga. */
+  padding: 10px;
+  width: 148px;
+  height: 148px;
 }
 .parceria-qr-img svg {
   display: block;
-  width: 128px;
-  height: 128px;
+  width: 100%;
+  height: 100%;
+  /* Sem isso o navegador suaviza as bordas dos modulos e o contraste cai
+     justamente onde a camera precisa dele. */
   shape-rendering: crispEdges;
 }
 .parceria-qr-nota {
