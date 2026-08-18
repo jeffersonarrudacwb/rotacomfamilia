@@ -599,6 +599,58 @@
 
 
   /* =============================================================================
+     4c. COPIAR CUPOM
+     ============================================================================= */
+
+  /* Digitar 2R3N9APMTM no teclado do celular erra na primeira tentativa. O
+     botão só entra quando o navegador tem a API de área de transferência: sem
+     ela, o código continua na tela para selecionar com o dedo, que é o
+     comportamento de antes. */
+  function ligarCopiarCupom() {
+    if (!navigator.clipboard || !navigator.clipboard.writeText) return;
+
+    var codigos = document.querySelectorAll('[data-copiar]');
+    Array.prototype.forEach.call(codigos, function (code) {
+      if (code.nextElementSibling &&
+          code.nextElementSibling.classList.contains('parceria-copiar')) return;
+
+      var texto = code.getAttribute('data-copiar') || code.textContent.trim();
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'parceria-copiar';
+      btn.textContent = 'Copiar';
+      btn.setAttribute('aria-label', 'Copiar o cupom ' + texto);
+
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(texto).then(function () {
+          btn.textContent = 'Copiado';
+          btn.setAttribute('data-copiado', '1');
+          GA.evento('copiar_cupom', { cupom: texto, pagina: nomeDaPagina() });
+          window.setTimeout(function () {
+            btn.textContent = 'Copiar';
+            btn.removeAttribute('data-copiado');
+          }, 2200);
+        })['catch'](function () {
+          // Alguns navegadores negam a área de transferência sem gesto direto
+          // ou fora de HTTPS. Em vez de falhar calado, seleciona o código para
+          // a pessoa copiar com o atalho do teclado.
+          btn.textContent = 'Selecione e copie';
+          try {
+            var faixa = document.createRange();
+            faixa.selectNodeContents(code);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(faixa);
+          } catch (e) { /* ignora */ }
+        });
+      });
+
+      code.parentNode.insertBefore(btn, code.nextSibling);
+    });
+  }
+
+
+  /* =============================================================================
      5. FORMULÁRIOS — captura de email honesta
      ============================================================================= */
   var contadorMsg = 0;
@@ -1100,6 +1152,13 @@
       return;
     }
 
+    // --- Link de parceiro (página de parcerias) ---
+    var parceiro = a.getAttribute('data-parceiro');
+    if (parceiro) {
+      GA.evento('clique_parceiro', { parceiro: parceiro, pagina: nomeDaPagina() });
+      return;
+    }
+
     // --- Download de ebook / PDF ---
     var ehPdf = /\.pdf(\?|#|$)/i.test(href);
     if (a.hasAttribute('download') || ehPdf) {
@@ -1145,6 +1204,7 @@
 
     Consentimento.iniciar();
     iniciarBotaoZap();
+    ligarCopiarCupom();
   });
 
 

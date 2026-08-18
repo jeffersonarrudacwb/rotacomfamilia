@@ -1886,3 +1886,281 @@ picture {
   .depo-card { transition: none; }
   .depo-card:hover { transform: none; }
 }
+
+
+/* ============== PARCERIAS ============== */
+
+/* Aviso de que os links sao de indicacao. Fica antes dos cards de proposito:
+   quem chega pelo topo le a regra do jogo antes de ver a primeira oferta. */
+.aviso-indicacao {
+  border-radius: 20px;
+  border: 1px solid rgba(212,164,55,0.3);
+  background: linear-gradient(160deg, rgba(212,164,55,0.1), rgba(255,255,255,0.02));
+  padding: 1.6rem 1.5rem;
+}
+.aviso-indicacao h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 0.7rem;
+}
+.aviso-indicacao p {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  max-width: 62ch;
+}
+.aviso-indicacao p + p { margin-top: 0.7rem; }
+.aviso-indicacao strong { color: #fff; }
+.aviso-indicacao-rodape {
+  margin-top: 1rem !important;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.87rem !important;
+  color: rgba(255,255,255,0.6) !important;
+}
+@media (min-width: 640px) {
+  .aviso-indicacao { padding: 1.9rem 2rem; }
+}
+
+.parcerias-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .parcerias-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .parcerias-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.parceria-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.4rem 1.4rem;
+  border-radius: 22px;
+  background: linear-gradient(165deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.09);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.parceria-card:hover {
+  border-color: rgba(212,164,55,0.36);
+  transform: translateY(-4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .parceria-card, .parceria-card:hover { transition: none; transform: none; }
+}
+
+.parceria-cat {
+  display: inline-block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--fern);
+}
+.parceria-nome {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-top: 0.35rem;
+}
+.parceria-beneficio {
+  margin-top: 0.9rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  font-weight: 600;
+  color: var(--orange);
+}
+
+/* O cupom precisa ser facil de copiar no celular, onde digitar 2R3N9APMTM na
+   mao erra na primeira tentativa. O botao de copiar entra pelo JS; sem ele o
+   codigo continua visivel e selecionavel. */
+.parceria-cupom {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.parceria-cupom-rot {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+}
+.parceria-cupom code {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  background: rgba(212,164,55,0.16);
+  border: 1px dashed rgba(212,164,55,0.5);
+  border-radius: 9px;
+  padding: 0.35rem 0.7rem;
+}
+
+.parceria-porque {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+}
+.parceria-quando {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.58);
+}
+.parceria-quando strong { color: rgba(255,255,255,0.82); }
+
+.parceria-btn {
+  margin-top: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--orange), var(--flame));
+  color: var(--deep);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: filter 0.25s ease;
+}
+.parceria-btn:hover { filter: brightness(1.08); }
+.parceria-btn:focus-visible {
+  outline: 3px solid #FAF1DA;
+  outline-offset: 2px;
+}
+
+/* QR fechado por padrao: no celular ele nao serve para nada, e quem esta no
+   computador abre quando quiser escanear. */
+.parceria-qr { margin-top: 0.9rem; }
+.parceria-qr > summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  padding: 0.4rem 0;
+  transition: color 0.2s ease;
+}
+.parceria-qr > summary::-webkit-details-marker { display: none; }
+.parceria-qr > summary::before {
+  content: '+';
+  display: inline-block;
+  width: 1.1rem;
+  color: var(--orange);
+  font-weight: 700;
+}
+.parceria-qr[open] > summary::before { content: '\2212'; }
+.parceria-qr > summary:hover { color: #fff; }
+.parceria-qr > summary:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.parceria-qr-img {
+  margin-top: 0.6rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.7rem;
+  width: fit-content;
+}
+.parceria-qr-img svg {
+  display: block;
+  width: 128px;
+  height: 128px;
+  shape-rendering: crispEdges;
+}
+.parceria-qr-nota {
+  margin-top: 0.5rem;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.45);
+}
+.parceria-qr-falta {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+}
+
+.parceria-validade {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.42);
+}
+
+/* Botao de copiar cupom, criado pelo rota-forms.js */
+.parceria-copiar {
+  border: 1px solid rgba(255,255,255,0.22);
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  min-height: 1.9rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.parceria-copiar:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.parceria-copiar:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+.parceria-copiar[data-copiado="1"] {
+  border-color: rgba(169,180,126,0.6);
+  color: var(--fern);
+}
+
+/* ---------- Lista compacta da home ---------- */
+.parcerias-mini {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.parceria-mini {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.8rem;
+  align-items: baseline;
+  padding: 1.05rem 1.2rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.parceria-mini-nome {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+.parceria-mini-cat {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--fern);
+}
+.parceria-mini-ben {
+  grid-column: 1 / -1;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+}

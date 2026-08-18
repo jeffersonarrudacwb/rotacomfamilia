@@ -59,3 +59,7 @@ ebooks/.cache-img/
 # Material de terceiros usado so como referencia de leitura.
 # Fica na maquina, nunca no repositorio.
 complementos/
+
+# PNG dos QR codes: material para story e video, gerado sob demanda.
+# O que o site usa e o SVG embutido no HTML.
+qrcodes/

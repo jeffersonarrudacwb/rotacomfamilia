@@ -1,0 +1,55 @@
+{
+  "_leia_me": [
+    "Fonte unica da pagina parcerias.html e da secao de parcerias do index.html.",
+    "",
+    "Depois de editar:",
+    "  python scripts/gerar-qrcodes.py     (se mexeu em alguma url)",
+    "  python scripts/gerar-parcerias.py   (reescreve o HTML das duas paginas)",
+    "",
+    "REGRA: so entra parceria que a familia usa de verdade. E todo link aqui e",
+    "de indicacao, o que precisa estar dito na cara do leitor, nao em letra",
+    "miuda no rodape.",
+    "",
+    "'beneficio' e o que a PESSOA ganha. Nunca escreva aqui o que nos ganhamos:",
+    "isso vai no aviso geral da pagina, uma vez so, com todas as letras.",
+    "",
+    "'validade' existe porque promocao de parceiro muda sem avisar. Se voce nao",
+    "sabe ate quando vale, deixe null e o card diz que pode mudar."
+  ],
+
+  "parcerias": [
+    {
+      "slug": "wise",
+      "nome": "Wise",
+      "categoria": "Transferência internacional",
+      "beneficio": "Primeira transferência de até R$ 3.500 sem taxa.",
+      "cupom": null,
+      "url": "https://wise.com/invite/ilpn/jeffersong398",
+      "validade": null,
+      "porque": "É como a gente manda dinheiro para fora e paga em moeda estrangeira sem o spread do banco. O câmbio é o comercial de verdade, e a taxa aparece antes de você confirmar, o que não acontece em quase nenhum banco brasileiro.",
+      "quando": "Vale a pena quando você precisa pagar algo em dólar ou euro antes da viagem: reserva de hotel fora de plataforma, aluguel de carro, ingresso de parque."
+    },
+    {
+      "slug": "nomad",
+      "nome": "Nomad",
+      "categoria": "Conta e cartão em dólar",
+      "beneficio": "Zero de taxa na primeira conversão, até 2.000 na moeda escolhida, mais 1 GB de internet no eSIM da Nomad.",
+      "cupom": "2R3N9APMTM",
+      "url": "https://nomad.onelink.me/wIQT/travel2k?code=2R3N9APMTM%26n=Jefferson%20Arruda",
+      "validade": null,
+      "porque": "É a conta em dólar que a gente carrega antes de viajar e usa no cartão lá fora. Converter com antecedência, quando o câmbio está bom, evita a surpresa de gastar num dia de dólar alto.",
+      "quando": "Abra com algumas semanas de antecedência e vá convertendo aos poucos, em vez de tudo de uma vez na véspera."
+    },
+    {
+      "slug": "holasim",
+      "nome": "HolaSim",
+      "categoria": "Chip internacional",
+      "beneficio": "10% de desconto com o cupom ROTACOMFAMILIA.",
+      "cupom": "ROTACOMFAMILIA",
+      "url": "https://tr.ee/Xhf7oaMY99",
+      "validade": null,
+      "porque": "Chip de internet para usar fora do Brasil sem pagar roaming. Na África do Sul foi o que nos manteve com mapa e tradutor funcionando dentro do carro, em estrada onde não tinha wi-fi em lugar nenhum.",
+      "quando": "Instale e teste ainda no Brasil, um ou dois dias antes de embarcar. Ativar eSIM no aeroporto, com pressa e wi-fi ruim, é pedir para dar errado."
+    }
+  ]
+}

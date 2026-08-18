@@ -20,6 +20,7 @@ ARQUIVOS = [
     "ebooks.html",
     "assessoria.html",
     "cursos.html",
+    "parcerias.html",
     "mediakit.html",
     "privacidade.html",
     "termos.html",
