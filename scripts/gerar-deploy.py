@@ -49,7 +49,9 @@ ARQUIVOS = [
     ("mediakit/midia-kit-rota-com-familia.pdf", "downloads/midia-kit-rota-com-familia.pdf"),
 ]
 
-PASTAS = ["assets/img"]
+# assets/logos entrou junto com a pagina de parcerias: os QR codes vao
+# embutidos no HTML, mas o logo dos parceiros e arquivo de verdade.
+PASTAS = ["assets/img", "assets/logos"]
 
 
 def coletar():

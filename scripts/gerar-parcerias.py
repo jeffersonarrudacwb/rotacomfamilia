@@ -46,23 +46,50 @@ def svg_do_qr(slug):
 
 
 def logo_do_parceiro(p):
-    """Marca visual do parceiro no topo do card.
+    """Marca visual do parceiro, tirada do site do proprio parceiro.
 
-    Se existir assets/logos/<slug>.svg, usa esse arquivo, que e o logo oficial
-    baixado do material de imprensa do proprio parceiro. Enquanto nao existir,
-    desenha um selo com a inicial nas cores da casa.
+    Procura assets/logos/<slug> em svg, png ou webp, nessa ordem. Se nao achar
+    nenhum, cai para um selo com a inicial nas cores da casa, que e melhor do
+    que desenhar de memoria a marca de outra empresa e errar.
 
-    O selo nao tenta imitar a marca de ninguem de proposito: logo de terceiro
-    reproduzido de memoria sai errado, e errado e pior que generico.
+    A placa tem altura fixa e largura livre porque nem toda marca existe em
+    formato quadrado. Wise e Nomad publicam um simbolo quadrado; a HolaSim so
+    tem o nome escrito, e forcar isso num quadrado deixaria a palavra do
+    tamanho de uma formiga.
     """
-    caminho = os.path.join('assets', 'logos', p['slug'] + '.svg')
-    if os.path.exists(caminho):
-        svg = io.open(caminho, encoding='utf-8').read().strip()
-        svg = svg.replace('<svg', '<svg role="img" aria-hidden="true"', 1)
-        return '<span class="parceria-logo parceria-logo-real">%s</span>' % svg
+    base = os.path.join('assets', 'logos', p['slug'])
+    for ext in ('.svg', '.png', '.webp'):
+        if os.path.exists(base + ext):
+            alt = 'Logo %s' % p['nome']
+            if ext == '.svg':
+                svg = io.open(base + ext, encoding='utf-8').read().strip()
+                svg = svg.replace('<svg', '<svg role="img" aria-hidden="true"', 1)
+                corpo = svg
+            else:
+                # sem loading=lazy de proposito: sao tres arquivos de 6 a 10 KB
+                # e sao a identidade visual do card. Adiar isso nao economiza
+                # nada relevante e ainda deixa o logo aparecer depois do resto.
+                corpo = ('<img src="%s%s" alt="%s" width="%d" height="%d" '
+                         'decoding="async" />'
+                         % (base.replace(os.sep, '/'), ext, escapar(alt),
+                            *dimensoes(base + ext)))
+            return '<span class="parceria-logo parceria-logo-real">%s</span>' % corpo
     inicial = escapar(p['nome'][:1].upper())
     return ('<span class="parceria-logo parceria-logo-letra" aria-hidden="true">'
             '%s</span>' % inicial)
+
+
+def dimensoes(caminho):
+    """Largura e altura reais do arquivo, para o HTML reservar o espaco certo.
+
+    Sem isso a pagina pula quando o logo carrega.
+    """
+    try:
+        from PIL import Image
+        with Image.open(caminho) as im:
+            return im.size
+    except Exception:
+        return (46, 46)
 
 
 def card(p):

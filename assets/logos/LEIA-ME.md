@@ -1,21 +1,31 @@
 # Logos dos parceiros
 
-Coloque aqui o SVG oficial de cada parceiro, com o nome do slug usado em
-`dados/parcerias.json`:
+Um arquivo por parceiro, com o nome do slug usado em `dados/parcerias.json`.
+O gerador procura nesta ordem: `.svg`, `.png`, `.webp`. Se não achar nenhum,
+desenha um selo com a inicial nas cores da casa.
 
-    assets/logos/wise.svg
-    assets/logos/nomad.svg
-    assets/logos/holasim.svg
-
-Assim que o arquivo existir, `scripts/gerar-parcerias.py` passa a usá-lo no
-lugar do selo com a inicial. Não precisa mexer em código: rode
+Depois de trocar ou adicionar qualquer arquivo:
 
     python scripts/gerar-parcerias.py
 
-Onde conseguir: praticamente todo programa de indicação tem uma área de
-material de divulgação, com o logo em SVG ou PNG e as regras de uso. É de lá
-que o arquivo deve sair, não de busca de imagens: logo tirado do Google costuma
-vir em baixa resolução, com fundo errado ou numa versão antiga da marca.
+## De onde veio cada um
 
-Prefira SVG. Se só houver PNG, use fundo transparente e pelo menos 200 px de
-largura.
+| Arquivo | Origem |
+|---|---|
+| `wise.svg` | símbolo oficial servido pelo próprio site da Wise |
+| `nomad.png` | ícone de 512 px declarado no `<head>` do nomadglobal.com, reduzido para 128 |
+| `holasim.png` | logo do cabeçalho de holasim.com, redimensionado para 72 px de altura |
+
+A HolaSim é a única que não publica um símbolo quadrado: o favicon dela só
+existe em 32 px, que fica borrado ampliado. Por isso ali entra o nome escrito,
+e a placa fica mais larga que as outras. É de propósito.
+
+## Se for trocar
+
+Prefira SVG. Em PNG, use fundo transparente e pelo menos o dobro do tamanho de
+exibição: a placa tem 46 px de altura, então 92 px é o mínimo e 128 é
+confortável.
+
+Pegue sempre do site do parceiro ou da área de material de divulgação dele.
+Logo tirado de busca de imagens costuma vir em baixa resolução, com fundo
+chapado ou numa versão antiga da marca.
