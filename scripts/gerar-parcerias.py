@@ -15,6 +15,7 @@ ja quebrou HTML neste projeto uma vez.
 import io
 import json
 import os
+import re
 import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -73,10 +74,56 @@ def logo_do_parceiro(p):
                          'decoding="async" />'
                          % (base.replace(os.sep, '/'), ext, escapar(alt),
                             *dimensoes(base + ext)))
-            return '<span class="parceria-logo parceria-logo-real">%s</span>' % corpo
+            classe = ('parceria-logo parceria-logo-nua'
+                      if tem_fundo_proprio(base + ext)
+                      else 'parceria-logo parceria-logo-placa')
+            return '<span class="%s">%s</span>' % (classe, corpo)
     inicial = escapar(p['nome'][:1].upper())
     return ('<span class="parceria-logo parceria-logo-letra" aria-hidden="true">'
             '%s</span>' % inicial)
+
+
+def tem_fundo_proprio(caminho):
+    """A marca ja vem com fundo solido embutido?
+
+    Importa porque a placa branca serve para salvar marca que nao sobrevive no
+    fundo escuro do site. Quando a marca ja traz o proprio fundo, como o
+    circulo verde da Wise e o quadrado amarelo da Nomad, a placa vira um anel
+    branco em volta de uma forma que ja estava resolvida.
+
+    Raster: se os quatro cantos sao opacos, o arquivo e um bloco cheio.
+    SVG: procura um rect ou circle pintado que cubra o desenho inteiro.
+    """
+    if caminho.endswith('.svg'):
+        svg = io.open(caminho, encoding='utf-8').read()
+        cabeca = svg[:svg.find('>') + 1] if '>' in svg else svg
+        lados = re.findall(r'(?:width|height)="(\d+(?:\.\d+)?)"', cabeca)
+        if not lados:
+            vb = re.search(r'viewBox="[\d.\s-]*?([\d.]+)\s+([\d.]+)"', cabeca)
+            lados = [vb.group(1), vb.group(2)] if vb else []
+        if not lados:
+            return False
+        maior = max(float(x) for x in lados)
+        for forma in re.findall(r'<(?:rect|circle)[^>]*>', svg):
+            if 'fill="none"' in forma:
+                continue
+            if not re.search(r'fill="(?:#|rgb|[a-z])', forma):
+                continue
+            nums = [float(x) for x in re.findall(
+                r'(?:width|height|r)="(\d+(?:\.\d+)?)"', forma)]
+            if nums and max(nums) >= maior * 0.95:
+                return True
+        return False
+    try:
+        from PIL import Image
+        with Image.open(caminho) as im:
+            im = im.convert('RGBA')
+            w, h = im.size
+            cantos = [im.getpixel(xy) for xy in
+                      ((0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1))]
+            return all(c[3] > 250 for c in cantos)
+    except Exception:
+        return False
 
 
 def dimensoes(caminho):

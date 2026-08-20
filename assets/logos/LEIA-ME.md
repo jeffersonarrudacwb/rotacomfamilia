@@ -29,3 +29,18 @@ confortável.
 Pegue sempre do site do parceiro ou da área de material de divulgação dele.
 Logo tirado de busca de imagens costuma vir em baixa resolução, com fundo
 chapado ou numa versão antiga da marca.
+
+## Placa branca: quando aparece
+
+O gerador olha o arquivo e decide sozinho.
+
+Marca que **já traz fundo sólido** (o círculo verde da Wise, o quadrado amarelo
+da Nomad) vai direto no fundo escuro, sem placa. Colocar uma placa branca ali
+cria um anel em volta de uma forma que já estava resolvida.
+
+Marca que é **desenho sem fundo** (o nome escrito da HolaSim, onde o "SIM" é
+preto) ganha a placa branca, senão parte dela some no fundo escuro do site.
+
+A decisão é da função `tem_fundo_proprio`: canto opaco em PNG, ou um `rect`
+cobrindo o viewBox em SVG. Se algum logo novo cair no lado errado, é essa
+função que precisa de ajuste.
