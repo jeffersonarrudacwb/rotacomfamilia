@@ -17,8 +17,14 @@ __pycache__/
 *.jpeg
 *.png
 
-# Exceção: imagens otimizadas que o site realmente serve
+# Exceção: imagens que o site realmente serve.
+#
+# Precisa listar cada pasta. O *.png acima é abrangente de propósito, para
+# nenhuma foto bruta escapar, mas isso já engoliu em silêncio o logo de dois
+# parceiros: o git add não reclama de arquivo ignorado, o build local passou,
+# e o site foi ao ar apontando para imagens que não existiam no servidor.
 !assets/img/**
+!assets/logos/**
 
 # Pasta montada pelo deploy (regerada a cada publicação)
 dist/

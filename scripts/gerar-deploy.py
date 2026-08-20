@@ -6,7 +6,9 @@ assets/img/, e as fotos originais so existem dentro dos PDFs dos ebooks,
 onde ja estao embutidas.
 """
 import hashlib
+import io
 import os
+import re
 import shutil
 import sys
 import zipfile
@@ -167,6 +169,74 @@ def versionar_assets(dist):
     print(f"Reescritos {alterados} arquivos HTML em dist/")
 
 
+# Extensoes que sao arquivo de verdade no servidor. Link de pagina fica de
+# fora: /ebooks e /parcerias existem por causa da regra de URL sem extensao do
+# .htaccess, e nao como arquivo com esse nome.
+EXTENSOES_DE_ARQUIVO = (
+    ".css", ".js", ".png", ".jpg", ".jpeg", ".webp", ".avif", ".svg",
+    ".pdf", ".ico", ".woff2", ".webmanifest", ".xml", ".txt", ".php",
+)
+
+
+def referencias_do_html(texto):
+    """Todo caminho local que a pagina pede: src, href e srcset."""
+    achados = set()
+    for atr in ("src", "href"):
+        achados.update(re.findall(r'%s="([^"]+)"' % atr, texto))
+    for conjunto in re.findall(r'srcset="([^"]+)"', texto):
+        for parte in conjunto.split(","):
+            url = parte.strip().split(" ")[0]
+            if url:
+                achados.add(url)
+    return achados
+
+
+def conferir_referencias(dist):
+    """Falha se alguma pagina pedir arquivo que nao esta indo junto.
+
+    Existe por causa de um erro real: o .gitignore tinha um *.png abrangente e
+    engoliu em silencio o logo de dois parceiros. O git add nao reclama de
+    arquivo ignorado, o build local passou porque os arquivos estavam no disco,
+    e o site foi ao ar pedindo duas imagens que nunca chegaram ao servidor.
+
+    Conferir aqui pega qualquer caso dessa familia: arquivo esquecido no
+    .gitignore, caminho digitado errado, arquivo renomeado sem atualizar o HTML.
+    """
+    faltando = []
+    for dirpath, _, files in os.walk(dist):
+        for nome in files:
+            if not nome.endswith(".html"):
+                continue
+            caminho = os.path.join(dirpath, nome)
+            pagina = os.path.relpath(caminho, dist).replace(os.sep, "/")
+            texto = io.open(caminho, encoding="utf-8").read()
+            for url in referencias_do_html(texto):
+                if url.startswith(("http://", "https://", "//", "mailto:",
+                                   "tel:", "#", "data:", "javascript:")):
+                    continue
+                limpa = url.split("?")[0].split("#")[0]
+                if not limpa or limpa.startswith("/blog"):
+                    continue
+                if not limpa.lower().endswith(EXTENSOES_DE_ARQUIVO):
+                    continue
+                alvo = os.path.join(dist, limpa.lstrip("/").replace("/", os.sep))
+                if not os.path.exists(alvo):
+                    faltando.append((pagina, limpa))
+
+    if faltando:
+        print("")
+        print("ERRO: %d referencia(s) apontam para arquivo que nao esta "
+              "em dist/:" % len(faltando))
+        for pagina, url in sorted(set(faltando)):
+            print("  %-20s -> %s" % (pagina, url))
+        print("")
+        print("Se o arquivo existe no seu disco mas nao aqui, o culpado "
+              "costuma ser o .gitignore:")
+        print("  git check-ignore -v <caminho>")
+        raise SystemExit(1)
+    print("Conferido: toda imagem, folha e script referenciado esta em dist/.")
+
+
 def montar_dist():
     """Copia os arquivos publicaveis para dist/, que e o que sobe por FTP.
 
@@ -196,6 +266,7 @@ def montar_dist():
         print("\nERRO: .htaccess nao entrou em dist/")
         raise SystemExit(1)
     print("Conferido: .htaccess presente em dist/")
+    conferir_referencias(dist)
 
 
 if __name__ == "__main__":
