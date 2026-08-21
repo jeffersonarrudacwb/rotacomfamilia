@@ -37,6 +37,9 @@ ARQUIVOS = [
     # Configuracao do servidor e SEO
     ".htaccess",
     "robots.txt",
+    # Navegador antigo e leitor de feed procuram /favicon.ico direto na raiz,
+    # sem olhar as tags do HTML.
+    "favicon.ico",
     "sitemap.xml",
     # PDFs — vao todos para downloads/ no servidor.
     #

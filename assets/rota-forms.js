@@ -548,6 +548,8 @@
      viagem, de parceria ou de emissão, e não dá para saber qual. Uma mensagem
      pronta do tipo "quero contratar" põe palavra na boca de quem só tinha uma
      dúvida. */
+  var ZAP_DESENHO = 'M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7 0-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.3c1.3.7 2.9 1.1 4.6 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z';
+
   var ZAP_TEXTO = 'Oi! Vim pelo site da Rota com Família.';
 
   function montarBotaoZap() {
@@ -565,14 +567,13 @@
        listener próprio aqui contava o mesmo clique duas vezes. */
     a.setAttribute('data-origem', 'flutuante');
 
+    /* O desenho e o mesmo dos botoes escritos no HTML das paginas, copiado
+       de la para nao existirem duas versoes. Fica numa constante, em uma linha
+       so: quebrar um path de SVG em varias strings ja colou dois numeros aqui,
+       o 2.4 com o 0 seguinte virou 2.40, e o icone saiu como um risco. */
     a.innerHTML =
       '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
-      '<path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7 0' +
-      '-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5' +
-      '.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4' +
-      '0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4' +
-      '.2-.7.2-1.2.2-1.4 0-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.3' +
-      'c1.3.7 2.9 1.1 4.6 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>' +
+      '<path d="' + ZAP_DESENHO + '"/></svg>' +
       '<span class="rcf-zap__txt">Falar no WhatsApp</span>';
 
     document.body.appendChild(a);
