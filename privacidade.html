@@ -103,17 +103,43 @@
 </head>
 <body class="bg-brand-deep text-white font-sans antialiased selection:bg-brand-orange selection:text-brand-deep">
 
-  <header class="sticky top-0 z-50 bg-brand-deep/90 backdrop-blur border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+  <header id="nav" class="sticky top-0 z-50 bg-brand-deep/90 backdrop-blur border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2.5 group">
         <span class="marca-emblema">
           <img src="assets/img/logo-96.png" srcset="assets/img/logo-96.png 1x, assets/img/logo-192.png 2x" width="96" height="96" alt="" class="marca-logo" decoding="async" />
         </span>
-        <span class="font-serif font-extrabold tracking-tight text-lg leading-none">
-          Rota<span class="text-brand-orange">.</span>com Família
+        <span class="brand-wordmark">
+          <span class="bw-top">Rota</span><span class="bw-middle">com</span><span class="bw-bot">Família</span>
         </span>
       </a>
-      <a href="index.html" class="text-sm text-white/70 hover:text-white transition-colors">← Voltar pro site</a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/80">
+        <a class="nav-link" href="/blog/">Blog</a>
+        <a class="nav-link" href="index.html#produtos">Produtos</a>
+        <a class="nav-link" href="index.html#alertas">Rotas</a>
+        <a class="nav-link" href="index.html#apps">Rota Apps</a>
+        <a class="nav-link" href="index.html#sobre">Sobre</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html#newsletter" class="hidden sm:inline-flex btn-ghost">Guia grátis</a>
+        <a href="index.html#produtos" class="btn-primary">Comece agora</a>
+        <button id="menu-toggle" class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15" aria-label="Abrir o menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-brand-deep/95 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-5 py-5 grid gap-3 text-base">
+        <a href="/blog/" class="py-2">Blog</a>
+        <a href="index.html#produtos" class="py-2">Produtos</a>
+        <a href="index.html#alertas" class="py-2">Rotas</a>
+        <a href="index.html#apps" class="py-2">Rota Apps</a>
+        <a href="index.html#sobre" class="py-2">Sobre</a>
+        <a href="index.html#newsletter" class="btn-primary mt-2 justify-center">Pegar guia grátis</a>
+      </div>
     </div>
   </header>
 

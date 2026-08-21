@@ -313,7 +313,8 @@
       '@media (min-width:640px){.rcf-zap{right:1.25rem;bottom:1.25rem}}',
       '.rcf-zap:hover{background:linear-gradient(135deg,#E3B04B,#D4832E)}',
       '.rcf-zap:focus-visible{outline:3px solid #FAF1DA;outline-offset:3px}',
-      '.rcf-zap svg{width:1.6rem;height:1.6rem;flex:0 0 auto;fill:currentColor}',
+      '.rcf-zap svg{width:1.65rem;height:1.65rem;flex:0 0 auto;fill:none;stroke:currentColor;',
+      'stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}',
       /* O rótulo fica escondido enquanto o botão está em repouso: no telefone
          ele roubaria metade da tela. Aparece no hover e no foco por teclado. */
       '.rcf-zap__txt{max-width:0;overflow:hidden;white-space:nowrap;opacity:0}',
@@ -548,7 +549,16 @@
      viagem, de parceria ou de emissão, e não dá para saber qual. Uma mensagem
      pronta do tipo "quero contratar" põe palavra na boca de quem só tinha uma
      dúvida. */
-  var ZAP_DESENHO = 'M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7 0-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.3c1.3.7 2.9 1.1 4.6 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z';
+  /* Duas formas em traco, nao preenchidas: o balao e, dentro dele, o fone.
+     A versao anterior era o glifo macico do WhatsApp, que no botao laranja
+     virava uma mancha escura sem leitura. Com contorno, da para reconhecer o
+     balao e o telefone a 22 px.
+
+     Cada path fica em uma linha so. Quebrar path de SVG em varias strings ja
+     colou dois numeros aqui uma vez, o 2.4 com o 0 seguinte virou 2.40, e o
+     icone saiu como um risco. */
+  var ZAP_BALAO = 'M12 3.4a8.6 8.6 0 0 0-7.4 13l-1.2 4.2 4.3-1.15A8.6 8.6 0 1 0 12 3.4Z';
+  var ZAP_FONE = 'M9.55 8.7c.14-.33.38-.4.6-.4h.5c.18 0 .36.03.5.36l.56 1.36c.07.18.03.35-.08.48l-.37.44c-.13.15-.15.28-.07.43.37.66.93 1.22 1.6 1.6.15.08.28.06.43-.07l.44-.37c.13-.11.3-.15.48-.08l1.36.56c.33.14.36.32.36.5v.5c0 .22-.07.46-.4.6-.28.12-.63.18-.98.13-1.45-.2-2.8-.94-3.83-1.97-1.03-1.03-1.76-2.38-1.97-3.83-.05-.35.01-.7.13-.98Z';
 
   var ZAP_TEXTO = 'Oi! Vim pelo site da Rota com Família.';
 
@@ -567,13 +577,10 @@
        listener próprio aqui contava o mesmo clique duas vezes. */
     a.setAttribute('data-origem', 'flutuante');
 
-    /* O desenho e o mesmo dos botoes escritos no HTML das paginas, copiado
-       de la para nao existirem duas versoes. Fica numa constante, em uma linha
-       so: quebrar um path de SVG em varias strings ja colou dois numeros aqui,
-       o 2.4 com o 0 seguinte virou 2.40, e o icone saiu como um risco. */
     a.innerHTML =
       '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
-      '<path d="' + ZAP_DESENHO + '"/></svg>' +
+      '<path d="' + ZAP_BALAO + '"/>' +
+      '<path d="' + ZAP_FONE + '"/></svg>' +
       '<span class="rcf-zap__txt">Falar no WhatsApp</span>';
 
     document.body.appendChild(a);

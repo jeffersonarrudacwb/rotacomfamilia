@@ -2263,3 +2263,24 @@ a:hover .marca-emblema { transform: rotate(-8deg) scale(1.06); }
   .marca-emblema { transition: none; }
   a:hover .marca-emblema { transform: none; }
 }
+
+/* ---------- Visibilidade x componentes ---------- */
+/* O styles.css carrega depois do tailwind.css, e a regra acima define display
+   para .btn-primary, .btn-secondary e .btn-ghost. Com isso, um botao marcado
+   como "hidden sm:inline-flex" continuava aparecendo no celular: o display do
+   componente ganhava do utilitario.
+
+   O sintoma era o "Guia grátis" empurrando o cabecalho 87 px para fora da tela
+   em 375 px de largura, com barra de rolagem horizontal.
+
+   Duas classes na mesma regra dao especificidade suficiente para o utilitario
+   voltar a mandar, sem precisar de !important. */
+.btn-primary.hidden,
+.btn-secondary.hidden,
+.btn-ghost.hidden { display: none; }
+
+@media (min-width: 640px) {
+  .btn-primary.sm\:inline-flex,
+  .btn-secondary.sm\:inline-flex,
+  .btn-ghost.sm\:inline-flex { display: inline-flex; }
+}
