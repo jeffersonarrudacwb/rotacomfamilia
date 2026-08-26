@@ -69,13 +69,15 @@
     "Custo de cada opção em milhas e em reais, para você comparar com o preço à vista.",
     "Acompanhamento na transferência de pontos e na emissão."
   ],
-  "extras": [
-    "<b>Documentos.</b> O que conferir no visto americano e no passaporte de cada um, com a antecedência que cada coisa exige.",
-    "<b>Seguro viagem.</b> Por que ele importa mais nos Estados Unidos do que em quase qualquer destino, e o que olhar antes de contratar.",
-    "<b>Bagagem.</b> O que a sua tarifa inclui de verdade, que muda de emissão para emissão mesmo dentro do mesmo programa.",
-    "<b>Conexão.</b> O passo a mais de quem conecta em solo americano, e quanto tempo isso realmente consome.",
-    "<b>Nova York nessas datas.</b> O que só acontece entre o fim de novembro e o começo de dezembro, do desfile da Macy's à árvore do Rockefeller, e o que dá para ver de graça."
-  ],
   "proximo_passo": "[[o que voce espera que o cliente faca agora]]",
-  "promessa": "[[o que voce promete e o que nao promete. Nunca prometa economia alta: quem define o preco do resgate e a companhia.]]"
+  "promessa": "[[o que voce promete e o que nao promete. Nunca prometa economia alta: quem define o preco do resgate e a companhia.]]",
+  "extras_resumo": "[[um paragrafo dizendo o que vem junto com o plano final]]",
+  "capa_titulo": "[[titulo da capa, ex: Vamos para<br/>Lisboa.]]",
+  "fluxo": [
+    "<b>[[o que dispara o trabalho, ex: Voce aprova e faz o pagamento.]]</b>",
+    "<b>[[o que voce faz em seguida]]</b>",
+    "<b>[[como o cliente recebe as opcoes]]</b>",
+    "<b>[[quem decide]]</b>",
+    "<b>[[o que fecha o trabalho]]</b>"
+  ]
 }

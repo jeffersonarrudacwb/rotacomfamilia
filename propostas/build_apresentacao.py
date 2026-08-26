@@ -186,18 +186,19 @@ def montar(d):
     st = []
 
     # ---------------------------------------------------------- 1. capa
+    # O titulo vem dos dados, nao daqui: proposta de outro destino nao deveria
+    # exigir edicao de codigo.
     st.append(Paragraph('PROPOSTA DE ASSESSORIA', E['capa_selo']))
-    st.append(Paragraph('%s,<br/>vamos para<br/>Nova York.' % cli['como_chamar'],
-                        E['capa_titulo']))
-    st.append(Spacer(1, 0.5 * cm))
+    st.append(Paragraph(d['capa_titulo'], E['capa_titulo']))
+    st.append(Spacer(1, 0.6 * cm))
+    st.append(Paragraph('<b>Preparado para %s</b>' % cli['nome'], E['capa_sub']))
     st.append(Paragraph(
         '%s · %s a %s' % (via['destino'], via['ida'], via['volta']),
         E['capa_sub']))
     st.append(Paragraph(via['passageiros_resumo'], E['capa_sub']))
     st.append(Spacer(1, 0.8 * cm))
     st.append(Paragraph(
-        'Preparado por Jefferson · Rota com Família<br/>%s' % d['data'],
-        E['capa_pe']))
+        'Jefferson · Rota com Família<br/>%s' % d['data'], E['capa_pe']))
 
     # ------------------------------------------------ 2. o que entendemos
     # Sem o NextPageTemplate a capa vale para o documento inteiro, e as paginas
@@ -308,17 +309,19 @@ def montar(d):
     st.append(Paragraph('Está incluído', S['h2']))
     st.extend(bullet_list(d['incluido']))
 
-    st.append(Spacer(1, 0.25 * cm))
+    st.append(Spacer(1, 0.2 * cm))
     st.append(Paragraph('Junto com o plano, você recebe', S['h2']))
-    st.append(Paragraph(
-        'Não é só a lista de voos. O documento final vem com o que costuma '
-        'derrubar viagem já paga, conferido para o seu caso:', S['body']))
-    st.extend(bullet_list(d['extras']))
+    # Era uma lista com marcador. Virou paragrafo unico porque a pagina de
+    # valores precisa caber inteira: o fluxo de pagamento importa mais que o
+    # detalhamento dos extras, e este texto diz a mesma coisa em menos espaco.
+    st.append(Paragraph(d['extras_resumo'], S['body']))
 
     st.append(Spacer(1, 0.3 * cm))
-    st.append(Callout(
-        'Como seguimos daqui',
-        d['proximo_passo'], kind='tip'))
+    st.append(Paragraph('Como funciona na prática', S['h2']))
+    st.extend(bullet_list(d['fluxo']))
+
+    st.append(Spacer(1, 0.25 * cm))
+    st.append(Callout('Como seguimos daqui', d['proximo_passo'], kind='tip'))
 
     return doc, st, saida
 
