@@ -265,23 +265,43 @@ def montar(d):
     st.append(Paragraph('Quanto custa e o que vem junto.', S['h1']))
     st.append(Divider(width_pct=0.18, gap_before=0.1 * cm, gap_after=0.3 * cm))
 
-    caixa = Table([[
-        Paragraph('ASSESSORIA COMPLETA', E['preco_rot']),
-    ], [
-        Paragraph('<b>%s</b>' % hon['valor'], E['preco']),
-    ], [
-        Paragraph(hon['resumo'], ParagraphStyle(
+    # O selo de lancamento fica numa faixa dourada colada no topo da caixa, para
+    # o olho bater nele antes do numero. Nao ha preco riscado: nunca cobramos
+    # outro valor, entao inventar um "de R$ X por" seria mentira.
+    selo = Paragraph(
+        '<b>%s</b>' % hon.get('selo', 'ASSESSORIA COMPLETA'),
+        ParagraphStyle('selo', fontName=SANS_BOLD, fontSize=9,
+                       leading=12, textColor=C['deep'],
+                       alignment=TA_CENTER))
+    linhas_caixa = [
+        [selo],
+        [Paragraph('<b>%s</b>' % hon['valor'], E['preco'])],
+        [Paragraph(hon['resumo'], ParagraphStyle(
             'cx', fontName=SANS, fontSize=9.5, leading=14,
-            textColor=C['text'], alignment=TA_CENTER)),
-    ]], colWidths=[16.7 * cm])
-    caixa.setStyle(TableStyle([
+            textColor=C['text'], alignment=TA_CENTER))],
+    ]
+    if hon.get('aviso'):
+        linhas_caixa.append([Paragraph(hon['aviso'], ParagraphStyle(
+            'cxa', fontName=SANS, fontSize=9, leading=13,
+            textColor=C['gold_d'], alignment=TA_CENTER))])
+
+    caixa = Table(linhas_caixa, colWidths=[16.7 * cm])
+    estilo_caixa = [
         ('BACKGROUND', (0, 0), (-1, -1), C['sand']),
+        ('BACKGROUND', (0, 0), (0, 0), C['gold']),
         ('BOX', (0, 0), (-1, -1), 1.2, C['gold']),
-        ('TOPPADDING', (0, 0), (-1, 0), 0.5 * cm),
-        ('BOTTOMPADDING', (0, -1), (-1, -1), 0.55 * cm),
+        ('TOPPADDING', (0, 0), (0, 0), 0.22 * cm),
+        ('BOTTOMPADDING', (0, 0), (0, 0), 0.22 * cm),
+        ('TOPPADDING', (0, 1), (-1, 1), 0.35 * cm),
+        ('BOTTOMPADDING', (0, -1), (-1, -1), 0.5 * cm),
         ('LEFTPADDING', (0, 0), (-1, -1), 1 * cm),
         ('RIGHTPADDING', (0, 0), (-1, -1), 1 * cm),
-    ]))
+    ]
+    if hon.get('aviso'):
+        # linha fina separando o que e preco do que e condicao
+        estilo_caixa.append(('LINEABOVE', (0, -1), (-1, -1), 0.5, C['gold']))
+        estilo_caixa.append(('TOPPADDING', (0, -1), (-1, -1), 0.35 * cm))
+    caixa.setStyle(TableStyle(estilo_caixa))
     st.append(caixa)
 
     st.append(Spacer(1, 0.45 * cm))

@@ -57,8 +57,10 @@
     ]
   ],
   "honorarios": {
-    "valor": "R$ 250",
-    "resumo": "Valor único, para a viagem inteira e para todos os passageiros. Não cobramos percentual sobre economia nem taxa por passageiro."
+    "selo": "[[ex: VALOR DE LANCAMENTO, ou ASSESSORIA COMPLETA]]",
+    "valor": "[[R$ 000]]",
+    "resumo": "[[o que o valor cobre: viagem inteira, todos os passageiros]]",
+    "aviso": "[[opcional. Se for preco promocional, diga por que e ate quando. Nunca invente um preco antigo riscado: se voce nunca cobrou aquilo, e mentira.]]"
   },
   "incluido": [
     "Pesquisa nas quatro origens possíveis e nos dois aeroportos de Nova York.",
