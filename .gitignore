@@ -69,3 +69,9 @@ complementos/
 # PNG dos QR codes: material para story e video, gerado sob demanda.
 # O que o site usa e o SVG embutido no HTML.
 qrcodes/
+
+# Propostas de clientes: contem nome, saldo de milhas e datas de viagem de
+# terceiros. O gerador e o modelo sao versionados; os dados e os PDFs nao.
+propostas/dados/*.json
+!propostas/dados/MODELO.json
+propostas/pdf/

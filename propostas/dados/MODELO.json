@@ -1,0 +1,76 @@
+{
+  "_leia_me": [
+    "MODELO. Copie para propostas/dados/<cliente>.json e preencha.",
+    "",
+    "  copy propostas\\dados\\MODELO.json propostas\\dados\fulano-lisboa.json",
+    "  python propostas/build_proposta.py fulano-lisboa",
+    "",
+    "Tudo entre [[ ]] e buraco. O gerador conta quantos sobraram e avisa antes de",
+    "voce mandar, e eles saem impressos no PDF de proposito: proposta pela metade",
+    "tem que parecer pela metade.",
+    "",
+    "Nao invente voo, milha nem taxa. O valor deste documento e ser o unico do",
+    "mercado onde todo numero foi conferido.",
+    "",
+    "As secoes de estrategia e de conferencia antes de emitir saem prontas do",
+    "gerador. A secao do destino tambem, mas ela e escrita por destino: veja",
+    "secao_destino() no build_proposta.py."
+  ],
+  "arquivo": "proposta-[[cliente]]-[[destino]]",
+  "cliente": {
+    "nome": "[[nome completo]]",
+    "como_chamar": "[[primeiro nome]]",
+    "passageiros": "[[quantos e quem]]",
+    "perfil": "[[lazer, trabalho, evento]]"
+  },
+  "viagem": {
+    "destino": "[[cidade]]",
+    "aeroportos_destino": "[[siglas]]",
+    "ida": "[[dd/mm/aaaa]]",
+    "volta": "[[dd/mm/aaaa]]",
+    "noites": 0,
+    "origens_aceitas": "[[de onde pode sair]]",
+    "flexibilidade": "[[quanto pode mudar de data]]",
+    "preferencia": "[[direto, conexao, classe]]"
+  },
+  "carteira": {
+    "smiles": "[[saldo]]",
+    "livelo": "[[saldo]]",
+    "nota": ""
+  },
+  "opcoes": [
+    {
+      "titulo": "Opção 1",
+      "resumo": "[[uma linha dizendo por que esta opção existe]]",
+      "trechos": [
+        {
+          "trecho": "[[GRU → JFK]]",
+          "data": "[[25/11]]",
+          "cia": "[[]]",
+          "programa": "[[]]",
+          "horarios": "[[00h00 / 00h00]]",
+          "conexao": "[[direto]]",
+          "milhas_pessoa": "[[]]",
+          "taxas_pessoa": "[[]]"
+        },
+        {
+          "trecho": "[[JFK → GRU]]",
+          "data": "[[06/12]]",
+          "cia": "[[]]",
+          "programa": "[[]]",
+          "horarios": "[[00h00 / 00h00]]",
+          "conexao": "[[direto]]",
+          "milhas_pessoa": "[[]]",
+          "taxas_pessoa": "[[]]"
+        }
+      ],
+      "bagagem": "[[o que está incluído, por passageiro]]",
+      "observacao": "[[risco, vantagem ou detalhe que o cliente precisa saber]]"
+    }
+  ],
+  "honorarios": {
+    "valor": "R$ 250",
+    "escopo": "Pesquisa, montagem da estratégia e acompanhamento até a emissão.",
+    "condicao": "Só faz sentido se a economia for maior que isso. Se não for, a gente diz."
+  }
+}
