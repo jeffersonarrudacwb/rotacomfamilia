@@ -1,0 +1,78 @@
+{
+  "_leia_me": [
+    "MODELO da apresentacao comercial. Copie e preencha:",
+    "",
+    "  copy propostas\\dados\\MODELO-apresentacao.json propostas\\dados\fulano-lisboa-apresentacao.json",
+    "  python propostas/build_apresentacao.py fulano-lisboa",
+    "",
+    "O metodo, o aviso sobre o que nao prometemos e a lista do que esta incluido",
+    "servem para qualquer cliente: mude so o que for especifico da viagem.",
+    "",
+    "O titulo da capa esta escrito no build_apresentacao.py, na funcao montar().",
+    "Troque a cidade la. A silhueta de Nova York vem do skyline.py: para outro",
+    "destino, escreva outra lista de predios no mesmo formato."
+  ],
+  "slug": "[[cliente-destino]]",
+  "data": "[[mes e ano]]",
+  "cliente": {
+    "nome": "[[nome completo]]",
+    "como_chamar": "[[primeiro nome]]"
+  },
+  "viagem": {
+    "destino": "[[cidade]]",
+    "ida": "[[dd/mm/aaaa]]",
+    "volta": "[[dd/mm/aaaa]]",
+    "passageiros_resumo": "[[ex: Viagem em familia - 11 noites]]"
+  },
+  "entendimento": [
+    [
+      "[[item]]",
+      "[[o que voce anotou da conversa]]"
+    ]
+  ],
+  "metodo": [
+    [
+      "Confirmar o alvo",
+      "Fechamos os dados da página anterior antes de abrir qualquer busca: quantas pessoas, saldo real e o quanto as datas podem andar. Pesquisa em cima de dado errado é retrabalho garantido."
+    ],
+    [
+      "Procurar perna por perna, não a viagem inteira",
+      "Buscando tudo de uma vez, o sistema só mostra o que tem assento de prêmio em todas as pernas ao mesmo tempo, no mesmo programa. Basta uma perna sem assento para o itinerário sumir da tela e você concluir que não existe passagem."
+    ],
+    [
+      "Consultar a mesma perna em mais de um programa",
+      "Cada programa tem acordo com companhias diferentes, então o mesmo voo custa preços diferentes conforme onde você emite. Já voamos pela United emitindo com milha Azul, e pela American emitindo com Smiles."
+    ],
+    [
+      "Testar as quatro origens contra as duas chegadas",
+      "Navegantes, Florianópolis, São Paulo e Rio, contra JFK e Newark. A diferença entre a melhor e a pior combinação costuma ser grande, e esse trabalho braçal é justamente o que você está terceirizando."
+    ],
+    [
+      "Comparar em reais e montar o plano",
+      "Milheiro de programa diferente custa diferente, então mais milhas nem sempre é mais caro. Convertemos tudo em reais e entregamos as melhores opções com horários, conexão, bagagem e custo. Onde houver risco, ele vem escrito."
+    ],
+    [
+      "Acompanhar até a emissão",
+      "Fico com você na transferência e na emissão, para não haver erro de nome, data ou programa. A emissão é feita na sua conta, com você junto."
+    ]
+  ],
+  "honorarios": {
+    "valor": "R$ 250",
+    "resumo": "Valor único, para a viagem inteira e para todos os passageiros. Não cobramos percentual sobre economia nem taxa por passageiro."
+  },
+  "incluido": [
+    "Pesquisa nas quatro origens possíveis e nos dois aeroportos de Nova York.",
+    "Consulta da mesma rota em mais de um programa de milhas.",
+    "Plano por escrito com as melhores opções encontradas, horários, tempo de conexão e bagagem.",
+    "Custo de cada opção em milhas e em reais, para você comparar com o preço à vista.",
+    "Acompanhamento na transferência de pontos e na emissão."
+  ],
+  "extras": [
+    "<b>Documentos.</b> O que conferir no visto americano e no passaporte de cada um, com a antecedência que cada coisa exige.",
+    "<b>Seguro viagem.</b> Por que ele importa mais nos Estados Unidos do que em quase qualquer destino, e o que olhar antes de contratar.",
+    "<b>Bagagem.</b> O que a sua tarifa inclui de verdade, que muda de emissão para emissão mesmo dentro do mesmo programa.",
+    "<b>Conexão.</b> O passo a mais de quem conecta em solo americano, e quanto tempo isso realmente consome.",
+    "<b>Nova York nessas datas.</b> O que só acontece entre o fim de novembro e o começo de dezembro, do desfile da Macy's à árvore do Rockefeller, e o que dá para ver de graça."
+  ],
+  "proximo_passo": "[[o que voce espera que o cliente faca agora]]"
+}
