@@ -257,12 +257,7 @@ def montar(d):
 
     st.append(Callout(
         'O que a gente promete, e o que não promete',
-        'Não prometemos economia alta, e desconfie de quem promete: quem '
-        'define o preço do resgate é a companhia, não o assessor. O que '
-        'fazemos é procurar em vários programas e combinações, achar as '
-        'melhores oportunidades disponíveis naquelas datas e montar o plano '
-        'em cima delas. Se a conta não fechar a seu favor, a gente diz isso '
-        'com todas as letras, e você não emite.', kind='warn'))
+        d['promessa'], kind='warn'))
 
     # ------------------------------------------------------ 4. valores
     st.append(PageBreak())
