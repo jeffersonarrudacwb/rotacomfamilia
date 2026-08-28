@@ -110,6 +110,13 @@ def montar(d):
                             'alinhamento': d.get('volta_alinhamento')}, S),
         ]))
 
+    # A espera de 22h no Panama so aparece quando se cruza a chegada de um voo
+    # com a saida do seguinte, e e o tipo de coisa que estraga viagem se
+    # ninguem perceber antes de emitir.
+    if d.get('espera_texto'):
+        st.append(Spacer(1, 0.18 * cm))
+        st.append(Callout(d['espera_titulo'], d['espera_texto'], kind='warn'))
+
     st.append(Spacer(1, 0.18 * cm))
     st.append(Callout(d['bagagem_titulo'], d['bagagem_texto'], kind='warn'))
 
