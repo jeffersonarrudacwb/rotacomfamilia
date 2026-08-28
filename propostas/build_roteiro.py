@@ -96,6 +96,20 @@ def montar(d):
                         'destaque': d.get('voos_destaque', []),
                         'alinhamento': d.get('voos_alinhamento')}, S),
     ]))
+    # A volta so existe quando o roteiro e de ciclo completo. Enquanto o
+    # documento tinha so a ida, esta chave nem estava nos dados.
+    if d.get('volta_linhas'):
+        st.append(Spacer(1, 0.28 * cm))
+        st.append(KeepTogether([
+            Paragraph(d['volta_titulo'], S['h2']),
+            Spacer(1, 0.18 * cm),
+            quadro_de_voos({'colunas': d['volta_colunas'],
+                            'larguras': d['volta_larguras'],
+                            'linhas': d['volta_linhas'],
+                            'destaque': d.get('volta_destaque', []),
+                            'alinhamento': d.get('volta_alinhamento')}, S),
+        ]))
+
     st.append(Spacer(1, 0.18 * cm))
     st.append(Callout(d['bagagem_titulo'], d['bagagem_texto'], kind='warn'))
 
@@ -111,6 +125,27 @@ def montar(d):
     ]))
     st.append(Spacer(1, 0.15 * cm))
     st.append(Paragraph('<i>%s</i>' % d['custos_nota'], S['small']))
+
+    # A pergunta que o cliente vai fazer sozinho depois de ver o total: cabe no
+    # meu saldo? Melhor responder antes dele perguntar.
+    if d.get('saldo_linhas'):
+        st.append(Spacer(1, 0.3 * cm))
+        st.append(KeepTogether([
+            Paragraph(d['saldo_titulo'], S['h2']),
+            Paragraph(d['saldo_texto'], S['body']),
+            Spacer(1, 0.18 * cm),
+            quadro_de_voos({'colunas': d['saldo_colunas'],
+                            'larguras': d['saldo_larguras'],
+                            'linhas': d['saldo_linhas'],
+                            'destaque': d.get('saldo_destaque', []),
+                            'alinhamento': d.get('saldo_alinhamento')}, S),
+        ]))
+        st.append(Spacer(1, 0.15 * cm))
+        st.append(Paragraph('<i>%s</i>' % d['saldo_nota'], S['small']))
+
+    if d.get('viaje_texto'):
+        st.append(Spacer(1, 0.28 * cm))
+        st.append(Callout(d['viaje_titulo'], d['viaje_texto'], kind='tip'))
 
     # O fecho era um Callout. Virou paragrafo simples porque a caixa custa
     # cerca de um centimetro so de padding, e era exatamente o que faltava
