@@ -179,6 +179,14 @@ def montar(d):
     st.append(Spacer(1, 0.35 * cm))
     st.append(Paragraph(d['taxas_titulo'], S['h2']))
     st.append(Paragraph(d['taxas_texto'], S['body']))
+    st.append(Spacer(1, 0.22 * cm))
+    st.append(quadro_de_voos({'colunas': d['taxas_colunas'],
+                              'larguras': d['taxas_larguras'],
+                              'linhas': d['taxas_linhas']}, S))
+    st.append(Spacer(1, 0.2 * cm))
+    st.append(Paragraph('<i>%s</i>' % d['taxas_nota'], S['small']))
+    st.append(Spacer(1, 0.25 * cm))
+    st.append(Callout(d['taxas_dica_titulo'], d['taxas_dica'], kind='tip'))
 
     st.append(Spacer(1, 0.3 * cm))
     st.append(Callout(d['proximo_titulo'], d['proximo_texto'], kind='tip'))
