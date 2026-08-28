@@ -51,8 +51,12 @@ def quadro_de_voos(bloco, S):
     ja que todas as linhas sao Avianca, e isso deixa mais espaco para o resto.
     """
     n = len(bloco['colunas'])
-    cab = ParagraphList(bloco['colunas'], SANS_BOLD, C['cream'], n)
-    corpo = [ParagraphList(l, SANS, C['text'], n) for l in bloco['linhas']]
+    # Alinhamento por coluna, vindo dos dados quando informado. O padrao serve
+    # a tabela de opcoes, onde a coluna 0 e o numero da opcao. Na tabela de
+    # custos a coluna 0 e o nome do item, e centrar texto longo fica ruim.
+    alin = bloco.get('alinhamento') or (['c'] + ['e'] * (n - 2) + ['d'])
+    cab = ParagraphList(bloco['colunas'], SANS_BOLD, C['cream'], alin)
+    corpo = [ParagraphList(l, SANS, C['text'], alin) for l in bloco['linhas']]
 
     larguras = [x * cm for x in bloco['larguras']]
     # a soma das larguras nao pode passar da area util, senao a tabela sangra
@@ -77,28 +81,23 @@ def quadro_de_voos(bloco, S):
     return t
 
 
-def ParagraphList(celulas, fonte, cor, total):
+def ParagraphList(celulas, fonte, cor, alinhamento):
     """Cada celula vira Paragraph para poder quebrar linha dentro da coluna.
 
     O alinhamento fica no estilo do Paragraph, nao no ALIGN da tabela: quando a
     celula e um Paragraph, o ALIGN da TableStyle nao tem efeito nenhum, e a
     coluna de milhas continuava a esquerda por isso.
 
-    Milhas a direita para os numeros alinharem pela unidade, que e o que
-    permite comparar de relance. A coluna do numero da opcao fica centrada.
+    Recebe uma lista com 'e', 'c' ou 'd' por coluna.
     """
     from reportlab.lib.styles import ParagraphStyle
-    from reportlab.lib.enums import TA_RIGHT, TA_CENTER
+    from reportlab.lib.enums import TA_RIGHT, TA_CENTER, TA_LEFT
+    mapa = {'e': TA_LEFT, 'c': TA_CENTER, 'd': TA_RIGHT}
     saida = []
     for i, c in enumerate(celulas):
-        if i == total - 1:
-            alin = TA_RIGHT
-        elif i == 0:
-            alin = TA_CENTER
-        else:
-            alin = 0  # TA_LEFT
+        a = mapa.get(alinhamento[i] if i < len(alinhamento) else 'e', TA_LEFT)
         st = ParagraphStyle('c%d' % i, fontName=fonte, fontSize=8.6,
-                            leading=11.4, textColor=cor, alignment=alin)
+                            leading=11.4, textColor=cor, alignment=a)
         saida.append(Paragraph(str(c), st))
     return saida
 
