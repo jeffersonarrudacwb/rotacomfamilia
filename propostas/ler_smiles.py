@@ -26,7 +26,9 @@ import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-AEROPORTOS = r'(NVT|FLN|GRU|GIG|JFK|EWR|YYZ|CGH|POA|CWB|BSB|CNF)'
+# LGA entrou depois: o Jefferson tambem buscou LaGuardia e esses voos
+# estavam sendo ignorados por falta do codigo aqui.
+AEROPORTOS = r'(NVT|FLN|GRU|GIG|JFK|EWR|LGA|YYZ|CGH|POA|CWB|BSB|CNF)'
 CIAS = (r'(Avianca|GOL|American Airlines|American|Air Canada|Copa|United|'
         r'Delta|Aerolineas|Air France|KLM|TAP|Iberia|LATAM)')
 
