@@ -115,7 +115,10 @@ def montar(d):
     # ninguem perceber antes de emitir.
     if d.get('espera_texto'):
         st.append(Spacer(1, 0.18 * cm))
-        st.append(Callout(d['espera_titulo'], d['espera_texto'], kind='warn'))
+        # tipo vem dos dados: a noite no Panama comecou como alerta e virou
+        # parte do roteiro quando o Jefferson explicou que foi proposital
+        st.append(Callout(d['espera_titulo'], d['espera_texto'],
+                          kind=d.get('espera_tipo', 'warn')))
 
     st.append(Spacer(1, 0.18 * cm))
     st.append(Callout(d['bagagem_titulo'], d['bagagem_texto'], kind='warn'))
@@ -158,6 +161,29 @@ def montar(d):
     # cerca de um centimetro so de padding, e era exatamente o que faltava
     # para o documento caber na pagina unica que o Jefferson pediu.
     st.append(Spacer(1, 0.3 * cm))
+    # ------------------------------------------------- documentacao por pais
+    st.append(PageBreak())
+    st.append(Paragraph('ANTES DE VIAJAR', S['eyebrow']))
+    st.append(Paragraph(d['doc_titulo'], S['h1']))
+    st.append(Divider(width_pct=0.18, gap_before=0.1 * cm, gap_after=0.3 * cm))
+    st.append(Paragraph(d['doc_texto'], S['body']))
+    st.append(Spacer(1, 0.25 * cm))
+    st.append(quadro_de_voos({'colunas': d['doc_colunas'],
+                              'larguras': d['doc_larguras'],
+                              'alinhamento': d['doc_alinhamento'],
+                              'linhas': d['doc_linhas']}, S))
+    st.append(Spacer(1, 0.2 * cm))
+    st.append(Paragraph('<i>%s</i>' % d['doc_nota'], S['small']))
+
+    # ------------------------------------------------------ a historia da busca
+    st.append(Spacer(1, 0.55 * cm))
+    st.append(Paragraph(d['historia_titulo'], S['h2']))
+    for par in d['historia']:
+        st.append(Paragraph(par, S['body']))
+    st.append(Spacer(1, 0.2 * cm))
+    st.append(Callout('Em resumo', d['historia_fecho'], kind='tip'))
+
+    st.append(Spacer(1, 0.35 * cm))
     st.append(Paragraph('<b>%s.</b> %s' % (d['fecho_titulo'], d['fecho_texto']),
                         S['small']))
     return st
