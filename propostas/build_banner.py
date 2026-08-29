@@ -30,7 +30,13 @@ from reportlab.lib.pagesizes import A4  # noqa: E402
 from reportlab.lib.units import cm  # noqa: E402
 
 import mapa  # noqa: E402
+from reportlab.lib.colors import HexColor  # noqa: E402
 from framework import C, SANS, SANS_BOLD, SERIF  # noqa: E402
+
+# A volta em azul. Antes era laranja, vizinha do dourado da ida, e as duas se
+# confundiam justamente onde mais importa distinguir: no trecho que sobe e
+# desce entre Panama e Florianopolis.
+AZUL = HexColor('#5FA8D3')
 
 PDF_DIR = os.path.join(AQUI, 'pdf')
 os.makedirs(PDF_DIR, exist_ok=True)
@@ -117,11 +123,12 @@ def montar(d, saida):
     for de, para, sentido in PERNAS:
         ida = sentido == 'ida'
         curva = 26 if ida else -30
-        cor = C['gold'] if ida else C['sunset']
+        cor = C['gold'] if ida else AZUL
         meio, ang = arco(c, pos[de], pos[para], curva, cor, 1.5,
                          tracejado=not ida)
-        if not ida:                       # aviao aponta para o sentido do voo
-            ang += math.pi
+        # o angulo ja vem no sentido de quem voa, porque o arco e desenhado de
+        # 'de' para 'para'. Havia aqui um giro de 180 graus na volta, e era o
+        # que fazia os avioes do retorno apontarem de novo para o norte.
         mapa.aviao(c, meio[0], meio[1], ang, 9, cor)
 
     # -------------------------------------------------------------- cidades
@@ -130,8 +137,10 @@ def montar(d, saida):
             'JFK': ('d', 0), 'YYZ': ('e', 0)}
     # Deslocamento do icone em relacao a cidade. Miami e Panama saem para o
     # lado porque a rota passa exatamente por cima deles.
-    ICONE_POS = {'FLN': (0, 34), 'PTY': (46, 6), 'MIA': (44, 4),
-                 'JFK': (0, 34), 'YYZ': (0, 34)}
+    # Distancia da foto ate o ponto da cidade. Miami e Toronto precisaram de
+    # mais folga: o circulo encostava no nome.
+    ICONE_POS = {'FLN': (0, 36), 'PTY': (56, 4), 'MIA': (66, 2),
+                 'JFK': (36, 32), 'YYZ': (-28, 40)}
     for cod, (x, y) in pos.items():
         c.setFillColor(C['gold'])
         c.circle(x, y, 3.2, fill=1, stroke=0)
@@ -139,7 +148,20 @@ def montar(d, saida):
         c.circle(x, y, 1.4, fill=1, stroke=0)
 
         ix, iy = ICONE_POS[cod]
-        mapa.ICONES[cod](c, x + ix, y + iy, 12, C['cream'])
+        foto = os.path.join(RAIZ, 'propostas', 'boni_smiles', '_circulos',
+                            '%s.png' % cod)
+        if os.path.exists(foto):
+            r = 17
+            c.saveState()
+            c.setStrokeColor(C['gold'])
+            c.setLineWidth(1.4)
+            c.circle(x + ix, y + iy, r + 1.4, fill=0, stroke=1)
+            c.drawImage(foto, x + ix - r, y + iy - r, 2 * r, 2 * r,
+                        mask='auto')
+            c.restoreState()
+        else:
+            # Florianopolis nao tem foto na pasta: fica com o desenho da ponte
+            mapa.ICONES[cod](c, x + ix, y + iy, 12, C['cream'])
 
         lado, dy = LADO[cod]
         nome = mapa.CIDADES[cod][2]
@@ -155,7 +177,7 @@ def montar(d, saida):
     c.setStrokeColor(C['gold'])
     c.setLineWidth(1.5)
     c.line(lx, ly + 10, lx + 18, ly + 10)
-    c.setStrokeColor(C['sunset'])
+    c.setStrokeColor(AZUL)
     c.setDash(4, 3)
     c.line(lx, ly, lx + 18, ly)
     c.setDash()

@@ -72,6 +72,8 @@ qrcodes/
 
 # Propostas de clientes: contem nome, saldo de milhas e datas de viagem de
 # terceiros. O gerador e o modelo sao versionados; os dados e os PDFs nao.
+# Fotos usadas no banner do cliente e os recortes gerados delas.
+propostas/boni_smiles/
 propostas/dados/*.json
 !propostas/dados/MODELO*.json
 propostas/pdf/
