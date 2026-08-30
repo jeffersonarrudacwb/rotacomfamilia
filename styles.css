@@ -2153,6 +2153,50 @@ picture {
   color: rgba(255,255,255,0.7);
 }
 
+/* ---------- Formatos de parceria, na home ---------- */
+/* Mesma caixa da .parcerias-mini logo acima: mesmo raio, mesma borda, mesmo
+   fundo. Muda só o marcador. Aqui é um número dourado porque estes quatro são
+   os formatos do mídia kit, na ordem em que aparecem lá dentro; os parceiros
+   são um conjunto sem ordem e por isso levam o selo da marca. */
+.kit-formatos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.kit-formato {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.9rem;
+  padding: 1.05rem 1.2rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.kit-formato-num {
+  grid-row: 1 / 3;
+  align-self: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--orange);
+  font-variant-numeric: tabular-nums;
+}
+.kit-formato-nome {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+}
+.kit-formato-txt {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+}
+
 /* ---------- Selo do parceiro ---------- */
 /* Duas variantes, porque as marcas chegam de dois jeitos.
 
