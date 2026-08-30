@@ -649,7 +649,7 @@ story.append(Paragraph('Como continuar acompanhando', S['h2']))
 story.extend(bullet_list([
     'Inscreva-se na nossa newsletter em <b>rotacomfamilia.com.br</b>.',
     'Siga nosso canal no YouTube (@Rotacomfamilia): vídeos semanais.',
-    'Instagram da Kharol (@kharol.antunes): bastidores e dicas do dia a dia.',
+    'Instagram (@rotacomfamilia): bastidores e dicas do dia a dia.',
     'TikTok (@rotacomfamilia): para conteúdo curto e ágil.',
 ]))
 

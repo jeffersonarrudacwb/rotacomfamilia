@@ -3,7 +3,7 @@
 Site institucional da **Rota com Família** — viagens, milhas, cartões e tecnologia para famílias que querem ver o mundo sem pesar no bolso.
 
 **🎥 Canal no YouTube:** [@Rotacomfamilia](https://www.youtube.com/@Rotacomfamilia)
-**📸 Instagram (Kharol):** [@kharol.antunes](https://www.instagram.com/kharol.antunes/)
+**📸 Instagram:** [@rotacomfamilia](https://www.instagram.com/rotacomfamilia/)
 **🎵 TikTok:** [@rotacomfamilia](https://www.tiktok.com/@rotacomfamilia)
 
 ## Stack
