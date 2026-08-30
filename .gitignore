@@ -59,8 +59,12 @@ deploy-rotacomfamilia.zip
 ebooks/*.pdf
 !ebooks/pdf/
 
-# Copias reduzidas das fotos, geradas pelo build dos ebooks.
+# Copias reduzidas das fotos, geradas pelo build dos ebooks e do midia kit.
+# Regra explicita de proposito: hoje elas ja caem no *.JPG la de cima, mas
+# depender disso e como o repositorio engoliu as logos dos parceiros sem
+# ninguem ver.
 ebooks/.cache-img/
+mediakit/.cache-img/
 
 # Material de terceiros usado so como referencia de leitura.
 # Fica na maquina, nunca no repositorio.

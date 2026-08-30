@@ -1,0 +1,41 @@
+# Arquivos binarios: o git nao pode mexer em quebra de linha dentro deles.
+#
+# Sem esta lista, com core.autocrlf=true no Windows, o git avisa que "LF sera
+# trocado por CRLF na proxima vez" ao guardar um PDF. Ele decide se o arquivo e
+# texto olhando os primeiros bytes, e um PDF comeca com cabecalho em ASCII, o
+# que e suficiente para ele errar. Se a conversao acontecer, o arquivo sai do
+# repositorio corrompido, e quem descobre e o visitante que clica em baixar.
+#
+# Marcar como binary desliga a conversao e o diff de texto.
+*.pdf     binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.JPG     binary
+*.JPEG    binary
+*.webp    binary
+*.gif     binary
+*.ico     binary
+*.heic    binary
+*.HEIC    binary
+*.zip     binary
+*.woff    binary
+*.woff2   binary
+*.ttf     binary
+*.otf     binary
+*.docx    binary
+*.mp4     binary
+*.mov     binary
+
+# Texto: normaliza para LF no repositorio. O servidor e Linux.
+*.html    text eol=lf
+*.css     text eol=lf
+*.js      text eol=lf
+*.json    text eol=lf
+*.md      text eol=lf
+*.py      text eol=lf
+*.php     text eol=lf
+*.yml     text eol=lf
+*.xml     text eol=lf
+*.txt     text eol=lf
+.htaccess text eol=lf

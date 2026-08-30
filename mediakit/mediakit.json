@@ -1,0 +1,182 @@
+{
+  "_leia_me": [
+    "Conteudo do midia kit. Gera com:  python mediakit/build_mediakit.py",
+    "",
+    "REGRA: numero que entra aqui e numero que a marca pode conferir. O PDF",
+    "antigo dizia '2.9 mi horas de visualizacao' quando o certo era 2.9 mil,",
+    "e trazia telefone e e-mail que nao existem mais.",
+    "",
+    "As fotos sao caminhos dentro de fotos/. O corte e quadrado ou no formato",
+    "do espaco; 'foco' sobe o corte quando o assunto esta na parte de cima."
+  ],
+  "arquivo": "midia-kit-rota-com-familia.pdf",
+  "titulo_doc": "Mídia Kit · 2026",
+  "logo": "logo.png",
+
+  "capa": {
+    "foto": "Nova Iorque/d72b5a6f-d295-4a4f-979e-6b9f0568768d.jpg",
+    "foco": 0.42,
+    "selo": "Mídia kit · 2026",
+    "titulo": "Rota com<br/>Família.",
+    "subtitulo": "Vlog de viagens em família · gravado em 4K · 1 vídeo por semana",
+    "pe_esquerda": "ROTACOMFAMILIA.COM.BR",
+    "pe_direita": "@rotacomfamilia"
+  },
+
+  "sobre": {
+    "titulo": "Famílias brasileiras viajando junto.",
+    "foto": "Familia/IMG_4564.JPG",
+    "foco": 0.32,
+    "paragrafos": [
+      "Somos o <b>Rota com Família</b>, fundado em 2024 pela Kharol e família. Compartilhamos experiências autênticas de viagem no Brasil e no mundo, com o foco em inspirar outros pais e viajantes: <b>dicas práticas, avaliações honestas de hotéis, roteiros acessíveis</b> e momentos reais de lazer.",
+      "Produzimos conteúdo orgânico com ênfase em <b>conforto, custo-benefício e diversão</b> para todas as idades. A missão é mostrar que viajar pode ser acessível e memorável.",
+      "Com um tom leve e autêntico, conectamos com um público que valoriza qualidade e simplicidade nas escolhas de hospedagem e de destino."
+    ]
+  },
+
+  "numeros": [
+    { "numero": "~2.000", "rotulo": "inscritos no YouTube" },
+    { "numero": "2.9 mil", "rotulo": "horas de visualização acumuladas" },
+    { "numero": "36 mil", "rotulo": "alcance médio nos vídeos de destaque" },
+    { "numero": "1/sem", "rotulo": "frequência de publicação" }
+  ],
+  "numeros_nota": "Números do canal em 2026, com crescimento constante desde o lançamento em 2024. O alcance de destaque soma YouTube e Instagram; as visualizações de cada vídeo estão página a página no portfólio.",
+
+  "publico": {
+    "titulo": "Famílias brasileiras que viajam Brasil e mundo.",
+    "paragrafos": [
+      "Quem assiste são <b>famílias brasileiras interessadas em viagens nacionais e internacionais acessíveis</b>: gente que pesquisa antes de comprar, compara hotel, calcula milha e quer saber se o lugar funciona com criança junto.",
+      "É um público que volta. A retenção é mais alta justamente nos conteúdos de <b>hotéis e roteiros familiares</b>, que é onde a marca parceira aparece com mais naturalidade."
+    ],
+    "etiquetas": [
+      "Famílias com filhos",
+      "25 a 55 anos",
+      "Classes B e C",
+      "Pesquisam antes de comprar",
+      "Usam programas de milhas"
+    ],
+    "regioes": [
+      "Sudeste",
+      "Sul",
+      "Brasileiros morando fora"
+    ],
+    "caixa_titulo": "Por que isso importa para a sua marca",
+    "caixa_texto": "Não é uma audiência de passagem: é gente em fase de decisão, procurando onde ficar, como chegar e quanto vai custar. Quando o produto aparece dentro do roteiro, ele aparece na hora em que a família está justamente escolhendo."
+  },
+
+  "portfolio": {
+    "titulo": "Cases de conteúdo que performam.",
+    "texto": "Filmado em 4K, editado de forma dinâmica e otimizado para SEO, com visibilidade orgânica no YouTube. Todos os vídeos incluem chamadas para ação, links de reserva e marcação dos hotéis.",
+    "cases": [
+      {
+        "plataforma": "YouTube",
+        "metrica": "6.910+ views",
+        "titulo": "Será que é perfeito pra famílias? Resort all inclusive!",
+        "texto": "Tour detalhado de resort em Porto de Galinhas: chegada no clima junino, café da manhã, almoço e jantar. Traz prós, contras e dicas de economia.",
+        "tag": "Resort · Nordeste"
+      },
+      {
+        "plataforma": "YouTube",
+        "metrica": "2.153+ views",
+        "titulo": "O jeito mais barato de sair do aeroporto de Santiago!",
+        "texto": "Comparativo das formas de sair do aeroporto no destino, a opção mais barata na prática e um tour pela hospedagem escolhida.",
+        "tag": "Chile · Santiago"
+      },
+      {
+        "plataforma": "YouTube",
+        "metrica": "1.872+ views",
+        "titulo": "Natal em Nova York com neve e orçamento enxuto",
+        "texto": "Roteiro real de 5 dias em família: saída do aeroporto, todos os pontos visitados e a logística de quem viaja com criança no fim de ano.",
+        "tag": "EUA · Nova York"
+      },
+      {
+        "plataforma": "Instagram",
+        "metrica": "Reels patrocinado",
+        "titulo": "Passeio para Isla Saona",
+        "texto": "Reels em parceria com a Agência Punta Cana, em português. Relata a experiência e detalha item por item o que está incluso no passeio.",
+        "tag": "Caribe · Punta Cana"
+      },
+      {
+        "plataforma": "Instagram",
+        "metrica": "Post no feed",
+        "titulo": "Review de resort em Santa Catarina",
+        "texto": "Review completo da hospedagem: quarto, áreas de entretenimento, alimentação e os benefícios que valem para quem se hospeda.",
+        "tag": "Brasil · Santa Catarina"
+      },
+      {
+        "plataforma": "Instagram",
+        "metrica": "Stories",
+        "titulo": "Bastidores e interação no perfil",
+        "texto": "É o formato mais próximo: enquete, caixinha de pergunta e link direto. O espaço onde a marca entra de forma orgânica, na nossa mesa e nas nossas escolhas.",
+        "tag": "Engajamento"
+      }
+    ],
+    "caixa_titulo": "O vídeo continua trabalhando depois da publicação",
+    "caixa_texto": "Conteúdo de destino não morre na semana em que sai. Quem pesquisa o hotel ou o roteiro meses depois cai no mesmo vídeo, e a marca continua ali dentro, na cena em que foi usada. É por isso que a otimização e a playlist permanente entram no combinado desde o começo."
+  },
+
+  "destinos": {
+    "titulo": "Onde a família já esteve.",
+    "texto": "Cada destino abaixo tem acervo próprio de fotos e vídeos, gravado por nós durante a viagem. É o material que alimenta o canal, o Instagram e os roteiros do blog, e é de onde saem as comparações de hotel, de traslado e de custo que o público procura.",
+    "fotos": [
+      { "foto": "Nova Iorque/IMG_7499.jpg", "cidade": "Nova York", "pais": "Estados Unidos" },
+      { "foto": "orlando/IMG_7613.jpg", "cidade": "Orlando", "pais": "Estados Unidos", "foco": 0.28 },
+      { "foto": "Key West/IMG_6134.jpg", "cidade": "Key West", "pais": "Estados Unidos" },
+      { "foto": "Caribe/IMG_8508.jpg", "cidade": "Punta Cana", "pais": "Rep. Dominicana" },
+      { "foto": "Porto/IMG_9664.jpg", "cidade": "Porto", "pais": "Portugal" },
+      { "foto": "Lisboa/IMG_0507.jpg", "cidade": "Lisboa", "pais": "Portugal", "foco": 0.35 },
+      { "foto": "chile/IMG_4176.jpg", "cidade": "Santiago", "pais": "Chile" },
+      { "foto": "africa do sul/Elefantes.jpg", "cidade": "Safári", "pais": "África do Sul" }
+    ],
+    "resumo": [
+      { "numero": "18", "rotulo": "destinos com acervo próprio" },
+      { "numero": "10", "rotulo": "países" },
+      { "numero": "4", "rotulo": "continentes" }
+    ],
+    "lista": "Nova York, Orlando, Miami, Key West, Las Vegas, Los Angeles e Minnesota (Estados Unidos) · Punta Cana (República Dominicana) · Santiago (Chile) · Buenos Aires (Argentina) · Montevidéu (Uruguai) · Assunção (Paraguai) · Lisboa e Porto (Portugal) · Madri e Málaga (Espanha) · Safári (África do Sul) · Porto de Galinhas e Santa Catarina (Brasil)."
+  },
+
+  "parceria": {
+    "titulo": "Como podemos contar a sua história.",
+    "texto": "Trabalhamos com pacotes comerciais e com projetos especiais sob medida. Analisamos propostas que estejam alinhadas ao propósito do canal, porque recomendação só vale enquanto o público acredita nela.",
+    "formatos": [
+      {
+        "titulo": "Vídeo dedicado no YouTube",
+        "texto": "Integração do produto ou do serviço dentro da narrativa de um vlog completo. A marca não entra como comercial interrompendo o vídeo: entra como a solução que a família usou durante a viagem, o que garante retenção e contexto."
+      },
+      {
+        "titulo": "Campanha multicanais no Instagram",
+        "texto": "Ações rápidas e de alto impacto. Unimos a visibilidade dos Reels com a conversão e a proximidade dos Stories: link direto, cupom e bastidores da experiência."
+      },
+      {
+        "titulo": "Integração no canal",
+        "texto": "Adição do conteúdo à playlist permanente de destinos. É o que sustenta o tráfego de longo prazo: o vídeo continua sendo encontrado por quem pesquisa o destino meses depois."
+      },
+      {
+        "titulo": "Relatório de resultados",
+        "texto": "Métricas pós-publicação enviadas à marca: visualizações, retenção, engajamento e cliques nos links. Sem relatório não dá para saber se valeu, e nós preferimos saber."
+      }
+    ],
+    "etapas": [
+      { "titulo": "Briefing", "texto": "Você conta o objetivo e o que precisa aparecer." },
+      { "titulo": "Proposta", "texto": "Devolvemos escopo, cronograma e valor por escrito." },
+      { "titulo": "Gravação", "texto": "O produto entra no roteiro real da viagem." },
+      { "titulo": "Aprovação", "texto": "Você vê antes de ir ao ar e pede ajuste." },
+      { "titulo": "Relatório", "texto": "Números da publicação enviados depois." }
+    ],
+    "caixa_titulo": "Investimento",
+    "caixa_texto": "Cada projeto é orçado conforme o formato, o número de entregas e o prazo. Mande o briefing pelo WhatsApp ou pelo e-mail e devolvemos uma proposta com escopo, cronograma e valor. Resposta em até 4 horas em horário comercial."
+  },
+
+  "contato": {
+    "frase": "Cada viagem conta uma história. Que tal contarmos a próxima juntos?",
+    "titulo": "Vamos conversar.",
+    "texto": "Mande sua proposta, o briefing ou apenas um oi.<br/>A gente responde, sempre.",
+    "canais": [
+      { "rotulo": "WhatsApp", "valor": "+55 (41) 98865-2343" },
+      { "rotulo": "E-mail", "valor": "contato@rotacomfamilia.com.br" },
+      { "rotulo": "Site", "valor": "rotacomfamilia.com.br" }
+    ],
+    "redes": "YouTube <b>@Rotacomfamilia</b>  ·  Instagram <b>@kharol.antunes</b>  ·  TikTok <b>@rotacomfamilia</b>"
+  }
+}
