@@ -12,7 +12,6 @@
   "arquivo": "midia-kit-rota-com-familia.pdf",
   "titulo_doc": "Mídia Kit · 2026",
   "logo": "logo.png",
-
   "capa": {
     "foto": "Nova Iorque/d72b5a6f-d295-4a4f-979e-6b9f0568768d.jpg",
     "foco": 0.42,
@@ -22,7 +21,6 @@
     "pe_esquerda": "ROTACOMFAMILIA.COM.BR",
     "pe_direita": "@rotacomfamilia"
   },
-
   "sobre": {
     "titulo": "Famílias brasileiras viajando junto.",
     "foto": "Familia/IMG_4564.JPG",
@@ -33,15 +31,25 @@
       "Com um tom leve e autêntico, conectamos com um público que valoriza qualidade e simplicidade nas escolhas de hospedagem e de destino."
     ]
   },
-
   "numeros": [
-    { "numero": "~2.000", "rotulo": "inscritos no YouTube" },
-    { "numero": "2.9 mil", "rotulo": "horas de visualização acumuladas" },
-    { "numero": "36 mil", "rotulo": "alcance médio nos vídeos de destaque" },
-    { "numero": "1/sem", "rotulo": "frequência de publicação" }
+    {
+      "numero": "2.111",
+      "rotulo": "seguidores no Instagram"
+    },
+    {
+      "numero": "1.950",
+      "rotulo": "inscritos no YouTube"
+    },
+    {
+      "numero": "366",
+      "rotulo": "vídeos publicados"
+    },
+    {
+      "numero": "2.900+",
+      "rotulo": "horas assistidas"
+    }
   ],
-  "numeros_nota": "Números do canal em 2026, com crescimento constante desde o lançamento em 2024. O alcance de destaque soma YouTube e Instagram; as visualizações de cada vídeo estão página a página no portfólio.",
-
+  "numeros_nota": "Números conferidos em 1º de setembro de 2026, direto nos perfis. O YouTube publica a contagem de inscritos arredondada, então 1.950 é o valor que o próprio canal mostra. Os seis vídeos mais vistos somam 33,7 mil visualizações; cada um está listado no portfólio, com o número dele.",
   "publico": {
     "titulo": "Famílias brasileiras que viajam Brasil e mundo.",
     "paragrafos": [
@@ -63,30 +71,29 @@
     "caixa_titulo": "Por que isso importa para a sua marca",
     "caixa_texto": "Não é uma audiência de passagem: é gente em fase de decisão, procurando onde ficar, como chegar e quanto vai custar. Quando o produto aparece dentro do roteiro, ele aparece na hora em que a família está justamente escolhendo."
   },
-
   "portfolio": {
     "titulo": "Cases de conteúdo que performam.",
     "texto": "Filmado em 4K, editado de forma dinâmica e otimizado para SEO, com visibilidade orgânica no YouTube. Todos os vídeos incluem chamadas para ação, links de reserva e marcação dos hotéis.",
     "cases": [
       {
         "plataforma": "YouTube",
-        "metrica": "6.910+ views",
-        "titulo": "Será que é perfeito pra famílias? Resort all inclusive!",
-        "texto": "Tour detalhado de resort em Porto de Galinhas: chegada no clima junino, café da manhã, almoço e jantar. Traz prós, contras e dicas de economia.",
+        "metrica": "8.400+ views",
+        "titulo": "É PERFEITO para Famílias? Resort All Inclusive",
+        "texto": "Tour detalhado de resort em Porto de Galinhas: chegada, café da manhã, almoço e jantar. Traz prós, contras e dicas de economia.",
         "tag": "Resort · Nordeste"
       },
       {
         "plataforma": "YouTube",
-        "metrica": "2.153+ views",
-        "titulo": "O jeito mais barato de sair do aeroporto de Santiago!",
-        "texto": "Comparativo das formas de sair do aeroporto no destino, a opção mais barata na prática e um tour pela hospedagem escolhida.",
-        "tag": "Chile · Santiago"
+        "metrica": "8.200+ views",
+        "titulo": "Voo direto GRU x LAX na econômica da Latam",
+        "texto": "Voo de 787-9 avaliado poltrona a poltrona, com serviço de bordo e o passo a passo da imigração nos Estados Unidos.",
+        "tag": "Aviação · Estados Unidos"
       },
       {
         "plataforma": "YouTube",
-        "metrica": "1.872+ views",
+        "metrica": "3.400+ views",
         "titulo": "Natal em Nova York com neve e orçamento enxuto",
-        "texto": "Roteiro real de 5 dias em família: saída do aeroporto, todos os pontos visitados e a logística de quem viaja com criança no fim de ano.",
+        "texto": "Roteiro real de 5 dias em família: saída do aeroporto, todos os pontos visitados e a logística de quem viaja com criança no fim do ano.",
         "tag": "EUA · Nova York"
       },
       {
@@ -114,28 +121,69 @@
     "caixa_titulo": "O vídeo continua trabalhando depois da publicação",
     "caixa_texto": "Conteúdo de destino não morre na semana em que sai. Quem pesquisa o hotel ou o roteiro meses depois cai no mesmo vídeo, e a marca continua ali dentro, na cena em que foi usada. É por isso que a otimização e a playlist permanente entram no combinado desde o começo."
   },
-
   "destinos": {
     "titulo": "Onde a família já esteve.",
     "texto": "Cada destino abaixo tem acervo próprio de fotos e vídeos, gravado por nós durante a viagem. É o material que alimenta o canal, o Instagram e os roteiros do blog, e é de onde saem as comparações de hotel, de traslado e de custo que o público procura.",
     "fotos": [
-      { "foto": "Nova Iorque/IMG_7499.jpg", "cidade": "Nova York", "pais": "Estados Unidos" },
-      { "foto": "orlando/IMG_7613.jpg", "cidade": "Orlando", "pais": "Estados Unidos", "foco": 0.28 },
-      { "foto": "Key West/IMG_6134.jpg", "cidade": "Key West", "pais": "Estados Unidos" },
-      { "foto": "Caribe/IMG_8508.jpg", "cidade": "Punta Cana", "pais": "Rep. Dominicana" },
-      { "foto": "Porto/IMG_9664.jpg", "cidade": "Porto", "pais": "Portugal" },
-      { "foto": "Lisboa/IMG_0507.jpg", "cidade": "Lisboa", "pais": "Portugal", "foco": 0.35 },
-      { "foto": "chile/IMG_4176.jpg", "cidade": "Santiago", "pais": "Chile" },
-      { "foto": "africa do sul/Elefantes.jpg", "cidade": "Safári", "pais": "África do Sul" }
+      {
+        "foto": "Nova Iorque/IMG_7499.jpg",
+        "cidade": "Nova York",
+        "pais": "Estados Unidos"
+      },
+      {
+        "foto": "orlando/IMG_7613.jpg",
+        "cidade": "Orlando",
+        "pais": "Estados Unidos",
+        "foco": 0.28
+      },
+      {
+        "foto": "Key West/IMG_6134.jpg",
+        "cidade": "Key West",
+        "pais": "Estados Unidos"
+      },
+      {
+        "foto": "Caribe/IMG_8508.jpg",
+        "cidade": "Punta Cana",
+        "pais": "Rep. Dominicana"
+      },
+      {
+        "foto": "Porto/IMG_9664.jpg",
+        "cidade": "Porto",
+        "pais": "Portugal"
+      },
+      {
+        "foto": "Lisboa/IMG_0507.jpg",
+        "cidade": "Lisboa",
+        "pais": "Portugal",
+        "foco": 0.35
+      },
+      {
+        "foto": "chile/IMG_4176.jpg",
+        "cidade": "Santiago",
+        "pais": "Chile"
+      },
+      {
+        "foto": "africa do sul/Elefantes.jpg",
+        "cidade": "Safári",
+        "pais": "África do Sul"
+      }
     ],
     "resumo": [
-      { "numero": "18", "rotulo": "destinos com acervo próprio" },
-      { "numero": "10", "rotulo": "países" },
-      { "numero": "4", "rotulo": "continentes" }
+      {
+        "numero": "18",
+        "rotulo": "destinos com acervo próprio"
+      },
+      {
+        "numero": "10",
+        "rotulo": "países"
+      },
+      {
+        "numero": "4",
+        "rotulo": "continentes"
+      }
     ],
     "lista": "Nova York, Orlando, Miami, Key West, Las Vegas, Los Angeles e Minnesota (Estados Unidos) · Punta Cana (República Dominicana) · Santiago (Chile) · Buenos Aires (Argentina) · Montevidéu (Uruguai) · Assunção (Paraguai) · Lisboa e Porto (Portugal) · Madri e Málaga (Espanha) · Safári (África do Sul) · Porto de Galinhas e Santa Catarina (Brasil)."
   },
-
   "parceria": {
     "titulo": "Como podemos contar a sua história.",
     "texto": "Trabalhamos com pacotes comerciais e com projetos especiais sob medida. Analisamos propostas que estejam alinhadas ao propósito do canal, porque recomendação só vale enquanto o público acredita nela.",
@@ -158,24 +206,47 @@
       }
     ],
     "etapas": [
-      { "titulo": "Briefing", "texto": "Você conta o objetivo e o que precisa aparecer." },
-      { "titulo": "Proposta", "texto": "Devolvemos escopo, cronograma e valor por escrito." },
-      { "titulo": "Gravação", "texto": "O produto entra no roteiro real da viagem." },
-      { "titulo": "Aprovação", "texto": "Você vê antes de ir ao ar e pede ajuste." },
-      { "titulo": "Relatório", "texto": "Números da publicação enviados depois." }
+      {
+        "titulo": "Briefing",
+        "texto": "Você conta o objetivo e o que precisa aparecer."
+      },
+      {
+        "titulo": "Proposta",
+        "texto": "Devolvemos escopo, cronograma e valor por escrito."
+      },
+      {
+        "titulo": "Gravação",
+        "texto": "O produto entra no roteiro real da viagem."
+      },
+      {
+        "titulo": "Aprovação",
+        "texto": "Você vê antes de ir ao ar e pede ajuste."
+      },
+      {
+        "titulo": "Relatório",
+        "texto": "Números da publicação enviados depois."
+      }
     ],
     "caixa_titulo": "Investimento",
     "caixa_texto": "Cada projeto é orçado conforme o formato, o número de entregas e o prazo. Mande o briefing pelo WhatsApp ou pelo e-mail e devolvemos uma proposta com escopo, cronograma e valor. Resposta em até 4 horas em horário comercial."
   },
-
   "contato": {
     "frase": "Cada viagem conta uma história. Que tal contarmos a próxima juntos?",
     "titulo": "Vamos conversar.",
     "texto": "Mande sua proposta, o briefing ou apenas um oi.<br/>A gente responde, sempre.",
     "canais": [
-      { "rotulo": "WhatsApp", "valor": "+55 (41) 98865-2343" },
-      { "rotulo": "E-mail", "valor": "contato@rotacomfamilia.com.br" },
-      { "rotulo": "Site", "valor": "rotacomfamilia.com.br" }
+      {
+        "rotulo": "WhatsApp",
+        "valor": "+55 (41) 98865-2343"
+      },
+      {
+        "rotulo": "E-mail",
+        "valor": "contato@rotacomfamilia.com.br"
+      },
+      {
+        "rotulo": "Site",
+        "valor": "rotacomfamilia.com.br"
+      }
     ],
     "redes": "YouTube <b>@Rotacomfamilia</b>  ·  Instagram <b>@rotacomfamilia</b>  ·  TikTok <b>@rotacomfamilia</b>"
   }

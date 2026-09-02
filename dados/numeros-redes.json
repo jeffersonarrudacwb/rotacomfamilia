@@ -1,0 +1,67 @@
+{
+  "_leia_me": [
+    "Os numeros das redes, em um lugar so.",
+    "",
+    "Quem le este arquivo:",
+    "  1. mediakit.html    - direto, no navegador",
+    "  2. api/numeros.php  - atualiza o YouTube sozinho e devolve o resto",
+    "  3. mediakit/build_mediakit.py - o PDF, para nao divergir da pagina",
+    "",
+    "REGRA: numero que entra aqui e numero que a marca pode conferir abrindo",
+    "o perfil. O kit antigo dizia '36k views/video' enquanto o video mais visto",
+    "tinha 6.910. Qualquer marca faz essa conta em dez segundos.",
+    "",
+    "O campo 'automatico' diz se o numero se atualiza sozinho:",
+    "  youtube   - sim, se a chave da API estiver no rota-config.php",
+    "  instagram - nao. Precisa de app na Meta e token de 60 dias.",
+    "  tiktok    - nao. Precisa de app aprovado pela TikTok.",
+    "Onde e 'false', o numero e digitado e vale a data de 'verificado_em'."
+  ],
+
+  "atualizado_em": "2026-09-01",
+
+  "redes": {
+    "youtube": {
+      "nome": "YouTube",
+      "handle": "@Rotacomfamilia",
+      "url": "https://www.youtube.com/@Rotacomfamilia",
+      "canal_id": "",
+      "automatico": true,
+      "verificado_em": "2026-09-01",
+      "metricas": [
+        { "chave": "inscritos", "valor": 1950, "rotulo": "inscritos", "aprox": true },
+        { "chave": "videos", "valor": 366, "rotulo": "vídeos publicados" },
+        { "chave": "horas", "valor": 2900, "rotulo": "horas assistidas", "sufixo": "+" }
+      ]
+    },
+
+    "instagram": {
+      "nome": "Instagram",
+      "handle": "@rotacomfamilia",
+      "url": "https://www.instagram.com/rotacomfamilia/",
+      "automatico": false,
+      "verificado_em": "2026-09-01",
+      "metricas": [
+        { "chave": "seguidores", "valor": 2111, "rotulo": "seguidores" },
+        { "chave": "publicacoes", "valor": 560, "rotulo": "publicações" }
+      ]
+    },
+
+    "tiktok": {
+      "nome": "TikTok",
+      "handle": "@rotacomfamilia",
+      "url": "https://www.tiktok.com/@rotacomfamilia",
+      "automatico": false,
+      "verificado_em": null,
+      "metricas": [
+        { "chave": "seguidores", "valor": null, "rotulo": "seguidores" }
+      ]
+    }
+  },
+
+  "destaques": [
+    { "chave": "paises", "valor": 10, "rotulo": "países visitados" },
+    { "chave": "continentes", "valor": 4, "rotulo": "continentes" },
+    { "chave": "frequencia", "texto": "1/sem", "rotulo": "vídeo por semana" }
+  ]
+}

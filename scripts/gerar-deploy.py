@@ -34,6 +34,11 @@ ARQUIVOS = [
     # Ponte de inscricao no Brevo. A chave de API NAO vem daqui: fica em
     # rota-config.php, um nivel acima da public_html, fora do deploy.
     "api/inscrever.php",
+    # Numeros das redes para o midia kit. O .php atualiza o YouTube sozinho e
+    # le o .json como base; sem o .json ele devolve 503 e a pagina fica com os
+    # numeros escritos no proprio HTML. Os dois precisam subir juntos.
+    "api/numeros.php",
+    "dados/numeros-redes.json",
     # Configuracao do servidor e SEO
     ".htaccess",
     "robots.txt",
