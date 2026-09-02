@@ -6,10 +6,16 @@ name: Atualizar Mídia Kit
 # máquina. Preencha só o que mudou, deixe o resto em branco.
 #
 # O que ele faz, nesta ordem:
-#   1. troca os números em dados/numeros-redes.json  (a página mediakit.html)
-#   2. troca os mesmos números em mediakit/mediakit.json  (o PDF)
-#   3. regera o PDF
-#   4. commita no main
+#   1. troca os números em dados/numeros-redes.json  (o que a página busca)
+#   2. troca os mesmos números em mediakit.html      (o que ela mostra antes)
+#   3. troca os mesmos números em mediakit/mediakit.json  (o PDF)
+#   4. regera o PDF
+#   5. confere se os três batem, e falha se não baterem
+#   6. commita no main
+#
+# O HTML entra porque o número escrito nele é o que aparece se a busca no
+# servidor falhar. Atualizar só o JSON deixaria a página mostrando o número
+# velho justamente no dia em que a hospedagem tropeça.
 #
 # Ele NÃO publica. Depois de rodar isto, rode "Publicar site" para o ar.
 # São dois passos de propósito: dá para conferir o PDF no repositório antes de
@@ -46,7 +52,7 @@ on:
         required: false
         type: string
       tiktok_seguidores:
-        description: 'TikTok · seguidores'
+        description: 'TikTok · seguidores (hoje o card não mostra número)'
         required: false
         type: string
 
@@ -126,24 +132,13 @@ jobs:
         if: inputs.modo == 'atualizar'
         run: python mediakit/build_mediakit.py
 
-      - name: Conferir o que ficou no PDF
-        if: inputs.modo == 'atualizar'
+      # Trava: os numeros tem que bater nos tres lugares. Divergencia nao
+      # aparece no site, aparece quando a marca compara a pagina com o PDF.
+      - name: Conferir se pagina, JSON e PDF batem
         run: |
           set -euo pipefail
           pip install --quiet pymupdf
-          python - <<'PY'
-          import re, json, io, sys, pymupdf
-          kit = json.load(io.open('mediakit/mediakit.json', encoding='utf-8'))
-          texto = re.sub(r'\s+', ' ', ''.join(
-              p.get_text() for p in pymupdf.open(
-                  'mediakit/midia-kit-rota-com-familia.pdf')))
-          faltando = [n['numero'] for n in kit['numeros']
-                      if n['numero'] not in texto]
-          if faltando:
-              print('::error::Numeros que nao apareceram no PDF: %s' % faltando)
-              sys.exit(1)
-          print('Os %d numeros do JSON estao no PDF.' % len(kit['numeros']))
-          PY
+          python scripts/conferir-numeros.py
 
       - name: Resumo
         run: |
@@ -168,7 +163,8 @@ jobs:
           set -euo pipefail
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add dados/numeros-redes.json mediakit/mediakit.json \
+          git add dados/numeros-redes.json mediakit.html \
+                  mediakit/mediakit.json \
                   mediakit/midia-kit-rota-com-familia.pdf
           if git diff --cached --quiet; then
             echo "Os números informados já eram os que estavam lá. Nada a commitar."

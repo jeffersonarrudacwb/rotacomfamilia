@@ -60,6 +60,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      # Trava antes de publicar: os números das redes precisam bater entre a
+      # página, o JSON e o PDF. Publicar com eles divergentes é o pior caso —
+      # a marca baixa o kit, compara com o site e para de acreditar nos dois.
+      - name: Conferir os números do mídia kit
+        run: |
+          pip install --quiet pymupdf
+          python scripts/conferir-numeros.py
+
       # Monta dist/ com a lista de arquivos publicáveis e falha se alguma
       # foto bruta, arquivo de build ou segredo tentar entrar.
       - name: Montar a pasta de publicação

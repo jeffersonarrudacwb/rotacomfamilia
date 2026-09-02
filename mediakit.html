@@ -170,19 +170,19 @@
 
       <div class="kit-numeros">
         <div class="reveal kit-numero">
-          <div class="kit-numero-val"><span data-num="2111">2.111</span></div>
+          <div class="kit-numero-val"><span data-num="2111" data-metrica="instagram.seguidores">2.111</span></div>
           <div class="kit-numero-rot">seguidores no Instagram</div>
         </div>
         <div class="reveal kit-numero">
-          <div class="kit-numero-val"><span data-num="1950">1.950</span></div>
+          <div class="kit-numero-val"><span data-num="1950" data-metrica="youtube.inscritos">1.950</span></div>
           <div class="kit-numero-rot">inscritos no YouTube</div>
         </div>
         <div class="reveal kit-numero">
-          <div class="kit-numero-val"><span data-num="366">366</span></div>
+          <div class="kit-numero-val"><span data-num="366" data-metrica="youtube.videos">366</span></div>
           <div class="kit-numero-rot">vídeos publicados</div>
         </div>
         <div class="reveal kit-numero">
-          <div class="kit-numero-val"><span data-num="2900">2.900</span><span class="kit-numero-mais">+</span></div>
+          <div class="kit-numero-val"><span data-num="2900" data-metrica="youtube.horas">2.900</span><span class="kit-numero-mais">+</span></div>
           <div class="kit-numero-rot">horas assistidas</div>
         </div>
       </div>
@@ -676,17 +676,15 @@
       });
 
       // Números grandes do topo.
-      const grandes = {
-        2111: ['instagram', 'seguidores'],
-        1950: ['youtube', 'inscritos'],
-        366:  ['youtube', 'videos'],
-        2900: ['youtube', 'horas'],
-      };
-      document.querySelectorAll('[data-num]').forEach((el) => {
-        const par = grandes[el.dataset.num];
-        if (!par) return;
-        const m = redes[par[0]] && redes[par[0]].metricas;
-        const achou = m && m.find((x) => x.chave === par[1]);
+      //
+      // O de-para vem do atributo data-metrica, e não de um mapa indexado
+      // pelo valor do número. Com o mapa, trocar 2.111 por 2.350 fazia a
+      // busca não achar mais nada e a atualização morria calada — logo no
+      // primeiro uso do gatilho que existe justamente para trocar o número.
+      document.querySelectorAll('[data-metrica]').forEach((el) => {
+        const [rede, chave] = el.dataset.metrica.split('.');
+        const m = redes[rede] && redes[rede].metricas;
+        const achou = m && m.find((x) => x.chave === chave);
         if (!achou || achou.valor == null) return;
         el.dataset.num = achou.valor;
         if (el.dataset.pronto) el.textContent = pt(achou.valor);
