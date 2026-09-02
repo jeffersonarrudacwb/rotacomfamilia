@@ -21,9 +21,7 @@
     "  tiktok    - nao. Precisa de app aprovado pela TikTok.",
     "Onde e 'false', o numero e digitado e vale a data de 'verificado_em'."
   ],
-
-  "atualizado_em": "2026-09-01",
-
+  "atualizado_em": "2026-09-02",
   "redes": {
     "youtube": {
       "nome": "YouTube",
@@ -31,14 +29,27 @@
       "url": "https://www.youtube.com/@Rotacomfamilia",
       "canal_id": "UCs-Cl64MWNSlhNZbLKFLW6g",
       "automatico": true,
-      "verificado_em": "2026-09-01",
+      "verificado_em": "2026-09-02",
       "metricas": [
-        { "chave": "inscritos", "valor": 1950, "rotulo": "inscritos", "aprox": true },
-        { "chave": "videos", "valor": 366, "rotulo": "vídeos publicados" },
-        { "chave": "horas", "valor": 2900, "rotulo": "horas assistidas", "sufixo": "+" }
+        {
+          "chave": "inscritos",
+          "valor": 1951,
+          "rotulo": "inscritos",
+          "aprox": true
+        },
+        {
+          "chave": "videos",
+          "valor": 366,
+          "rotulo": "vídeos publicados"
+        },
+        {
+          "chave": "horas",
+          "valor": 2900,
+          "rotulo": "horas assistidas",
+          "sufixo": "+"
+        }
       ]
     },
-
     "instagram": {
       "nome": "Instagram",
       "handle": "@rotacomfamilia",
@@ -46,11 +57,18 @@
       "automatico": false,
       "verificado_em": "2026-09-01",
       "metricas": [
-        { "chave": "seguidores", "valor": 2111, "rotulo": "seguidores" },
-        { "chave": "publicacoes", "valor": 560, "rotulo": "publicações" }
+        {
+          "chave": "seguidores",
+          "valor": 2111,
+          "rotulo": "seguidores"
+        },
+        {
+          "chave": "publicacoes",
+          "valor": 560,
+          "rotulo": "publicações"
+        }
       ]
     },
-
     "tiktok": {
       "nome": "TikTok",
       "handle": "@rotacomfamilia",
@@ -58,14 +76,29 @@
       "automatico": false,
       "verificado_em": null,
       "metricas": [
-        { "chave": "seguidores", "valor": null, "rotulo": "seguidores" }
+        {
+          "chave": "seguidores",
+          "valor": null,
+          "rotulo": "seguidores"
+        }
       ]
     }
   },
-
   "destaques": [
-    { "chave": "paises", "valor": 10, "rotulo": "países visitados" },
-    { "chave": "continentes", "valor": 4, "rotulo": "continentes" },
-    { "chave": "frequencia", "texto": "1/sem", "rotulo": "vídeo por semana" }
+    {
+      "chave": "paises",
+      "valor": 10,
+      "rotulo": "países visitados"
+    },
+    {
+      "chave": "continentes",
+      "valor": 4,
+      "rotulo": "continentes"
+    },
+    {
+      "chave": "frequencia",
+      "texto": "1/sem",
+      "rotulo": "vídeo por semana"
+    }
   ]
 }
