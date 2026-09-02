@@ -1,0 +1,179 @@
+name: Atualizar Mídia Kit
+
+# Só roda quando você clica em "Run workflow".
+#
+# Serve para trocar os números das redes sem abrir editor e sem rodar Python na
+# máquina. Preencha só o que mudou, deixe o resto em branco.
+#
+# O que ele faz, nesta ordem:
+#   1. troca os números em dados/numeros-redes.json  (a página mediakit.html)
+#   2. troca os mesmos números em mediakit/mediakit.json  (o PDF)
+#   3. regera o PDF
+#   4. commita no main
+#
+# Ele NÃO publica. Depois de rodar isto, rode "Publicar site" para o ar.
+# São dois passos de propósito: dá para conferir o PDF no repositório antes de
+# ele chegar na frente de uma marca.
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: 'O que fazer'
+        required: true
+        default: teste
+        type: choice
+        options:
+          - teste       # mostra o que mudaria, não grava nada
+          - atualizar   # grava e commita no main
+      instagram_seguidores:
+        description: 'Instagram · seguidores (em branco = não mexe)'
+        required: false
+        type: string
+      instagram_publicacoes:
+        description: 'Instagram · publicações'
+        required: false
+        type: string
+      youtube_inscritos:
+        description: 'YouTube · inscritos'
+        required: false
+        type: string
+      youtube_videos:
+        description: 'YouTube · vídeos publicados'
+        required: false
+        type: string
+      youtube_horas:
+        description: 'YouTube · horas assistidas (sem o "+")'
+        required: false
+        type: string
+      tiktok_seguidores:
+        description: 'TikTok · seguidores'
+        required: false
+        type: string
+
+# Duas execuções ao mesmo tempo commitariam por cima uma da outra.
+concurrency:
+  group: atualizar-midiakit
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    name: ${{ inputs.modo == 'atualizar' && 'Atualizar e commitar' || 'Teste (não grava nada)' }}
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # necessário para o commit do passo final
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências do PDF
+        run: pip install --quiet reportlab pillow
+
+      # Monta a linha de comando com os campos preenchidos. Campo vazio não
+      # entra, e é isso que faz "deixe em branco" significar "não mexe".
+      - name: Montar os argumentos
+        id: args
+        env:
+          IG_SEG: ${{ inputs.instagram_seguidores }}
+          IG_PUB: ${{ inputs.instagram_publicacoes }}
+          YT_INS: ${{ inputs.youtube_inscritos }}
+          YT_VID: ${{ inputs.youtube_videos }}
+          YT_HOR: ${{ inputs.youtube_horas }}
+          TT_SEG: ${{ inputs.tiktok_seguidores }}
+        run: |
+          set -euo pipefail
+          args=""
+          juntar() {
+            valor="$(echo "$2" | tr -d '[:space:].,')"
+            [ -z "$valor" ] && return 0
+            # Só número. Sem isto, um "2,3 mil" digitado com pressa viraria
+            # erro de Python no meio do job, com traceback em vez de recado.
+            case "$valor" in
+              ''|*[!0-9]*)
+                echo "::error::O campo $1 precisa ser um número inteiro. Veio: '$2'"
+                exit 1 ;;
+            esac
+            args="$args --$1 $valor"
+          }
+          juntar instagram-seguidores  "$IG_SEG"
+          juntar instagram-publicacoes "$IG_PUB"
+          juntar youtube-inscritos     "$YT_INS"
+          juntar youtube-videos        "$YT_VID"
+          juntar youtube-horas         "$YT_HOR"
+          juntar tiktok-seguidores     "$TT_SEG"
+
+          if [ -z "$args" ]; then
+            echo "::error::Nenhum número foi preenchido. Preencha ao menos um campo."
+            exit 1
+          fi
+          echo "args=$args" >> "$GITHUB_OUTPUT"
+
+      - name: Trocar os números
+        run: |
+          set -euo pipefail
+          python scripts/atualizar-numeros.py ${{ steps.args.outputs.args }} \
+            ${{ inputs.modo == 'teste' && '--teste' || '' }} | tee saida.txt
+
+      # O PDF só sai porque mediakit/recortes/ está versionado. As fotos
+      # originais não vêm no checkout, e o build usa os recortes prontos.
+      - name: Regerar o PDF
+        if: inputs.modo == 'atualizar'
+        run: python mediakit/build_mediakit.py
+
+      - name: Conferir o que ficou no PDF
+        if: inputs.modo == 'atualizar'
+        run: |
+          set -euo pipefail
+          pip install --quiet pymupdf
+          python - <<'PY'
+          import re, json, io, sys, pymupdf
+          kit = json.load(io.open('mediakit/mediakit.json', encoding='utf-8'))
+          texto = re.sub(r'\s+', ' ', ''.join(
+              p.get_text() for p in pymupdf.open(
+                  'mediakit/midia-kit-rota-com-familia.pdf')))
+          faltando = [n['numero'] for n in kit['numeros']
+                      if n['numero'] not in texto]
+          if faltando:
+              print('::error::Numeros que nao apareceram no PDF: %s' % faltando)
+              sys.exit(1)
+          print('Os %d numeros do JSON estao no PDF.' % len(kit['numeros']))
+          PY
+
+      - name: Resumo
+        run: |
+          {
+            echo "## Números do mídia kit"
+            echo ""
+            echo '```'
+            cat saida.txt
+            echo '```'
+            if [ "${{ inputs.modo }}" = "teste" ]; then
+              echo ""
+              echo "> Modo **teste**: nada foi gravado. Rode de novo em \`atualizar\` para valer."
+            else
+              echo ""
+              echo "Depois disto, rode **Publicar site** para levar ao ar."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commitar
+        if: inputs.modo == 'atualizar'
+        run: |
+          set -euo pipefail
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add dados/numeros-redes.json mediakit/mediakit.json \
+                  mediakit/midia-kit-rota-com-familia.pdf
+          if git diff --cached --quiet; then
+            echo "Os números informados já eram os que estavam lá. Nada a commitar."
+            exit 0
+          fi
+          git commit -m "Numeros do midia kit atualizados pelo gatilho" \
+                     -m "Pagina e PDF na mesma leva, para nao divergirem."
+          git push

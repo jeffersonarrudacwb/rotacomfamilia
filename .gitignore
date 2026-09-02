@@ -26,6 +26,14 @@ __pycache__/
 !assets/img/**
 !assets/logos/**
 
+# Exceção: os recortes do mídia kit (700 KB).
+#
+# São as fotos já cortadas, reduzidas a 200 DPI e sem EXIF — exatamente as
+# imagens que já estão dentro do PDF que qualquer pessoa baixa do site. Ficam
+# versionadas para o gatilho "Atualizar Mídia Kit" do GitHub conseguir regerar
+# o documento sem ter as fotos originais, que continuam de fora.
+!mediakit/recortes/**
+
 # Pasta montada pelo deploy (regerada a cada publicação)
 dist/
 
@@ -59,10 +67,14 @@ deploy-rotacomfamilia.zip
 ebooks/*.pdf
 !ebooks/pdf/
 
-# Copias reduzidas das fotos, geradas pelo build dos ebooks e do midia kit.
+# Copias reduzidas das fotos, geradas pelo build dos ebooks.
 # Regra explicita de proposito: hoje elas ja caem no *.JPG la de cima, mas
 # depender disso e como o repositorio engoliu as logos dos parceiros sem
 # ninguem ver.
+#
+# O midia kit nao usa mais .cache-img: os recortes dele sao versionados em
+# mediakit/recortes/. A linha antiga fica aqui para nao ressuscitar a pasta
+# em quem ainda tiver ela na maquina.
 ebooks/.cache-img/
 mediakit/.cache-img/
 

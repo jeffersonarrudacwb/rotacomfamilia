@@ -18,6 +18,7 @@ import io
 import json
 import math
 import os
+import re
 import sys
 
 try:
@@ -45,7 +46,7 @@ from framework import (  # noqa: E402
 )
 
 FOTOS = os.path.join(RAIZ, 'fotos')
-CACHE = os.path.join(AQUI, '.cache-img')
+RECORTES = os.path.join(AQUI, 'recortes')
 UTIL = PAGE[0] - 2 * MARGIN
 DPI = 200
 
@@ -70,19 +71,51 @@ def recorte(rel, larg_pt, alt_pt, foco=0.5, fundir=0.0):
     sobrepoem, a opacidade soma e cada emenda virava um risco horizontal mais
     escuro na capa. Aqui a mistura acontece no pixel, antes de o arquivo entrar
     no PDF, e nao sobra transparencia nenhuma para o leitor interpretar.
+
+    ONDE O RECORTE FICA, E POR QUE ELE E VERSIONADO
+
+    Os recortes vao para mediakit/recortes/, que entra no Git. As fotos
+    originais nao entram e nao devem entrar. Sem isso, este PDF so podia ser
+    gerado na maquina do Jefferson, e o gatilho "Atualizar Midia Kit" do
+    GitHub nao teria como refazer o documento depois de mexer nos numeros.
+
+    Versionar o recorte nao expoe nada de novo: e exatamente a imagem que ja
+    esta dentro do PDF que qualquer pessoa baixa do site, cortada, reduzida a
+    200 DPI e sem EXIF. O que fica de fora continua sendo o arquivo da camera,
+    com resolucao cheia, GPS e numero de serie.
+
+    O nome do arquivo vem do pedido (caminho da foto + medidas + foco +
+    fundir), e nao mais do mtime do original. Com mtime no nome, o mesmo
+    recorte ganhava nome novo a cada checkout do repositorio e o servidor
+    nunca acertava o arquivo ja pronto.
     """
     origem = os.path.join(FOTOS, rel)
     px_l = int(math.ceil(larg_pt / 72.0 * DPI))
     px_a = int(math.ceil(alt_pt / 72.0 * DPI))
-    assinatura = '%s|%d|%d|%d|%.2f|%.2f' % (os.path.abspath(origem),
-                                            int(os.path.getmtime(origem)),
-                                            px_l, px_a, foco, fundir)
-    chave = hashlib.md5(assinatura.encode('utf-8')).hexdigest()[:16]
-    destino = os.path.join(CACHE, chave + '.jpg')
+    assinatura = '%s|%d|%d|%.2f|%.2f' % (rel.replace('\\', '/'),
+                                         px_l, px_a, foco, fundir)
+    chave = hashlib.md5(assinatura.encode('utf-8')).hexdigest()[:12]
+    # O nome comeca pela pasta da foto so para dar para reconhecer o arquivo
+    # olhando a pasta; quem decide de verdade e o hash depois do hifen.
+    apelido = re.sub(r'[^a-z0-9]+', '-', rel.split('/')[0].lower()).strip('-')
+    destino = os.path.join(RECORTES, '%s-%s.jpg' % (apelido[:18], chave))
+
+    if not os.path.isdir(RECORTES):
+        os.makedirs(RECORTES)
+
+    if not os.path.exists(origem):
+        # Servidor do GitHub: a foto original nao veio no checkout. O recorte
+        # versionado resolve. Se nem ele existir, para aqui com o motivo, em
+        # vez de gerar um PDF com buraco no lugar da imagem.
+        if os.path.exists(destino):
+            return destino
+        raise SystemExit(
+            'Falta a foto "%s" e nao ha recorte versionado para ela.\n'
+            'Rode o build numa maquina que tenha fotos/ e comite o novo\n'
+            'arquivo em mediakit/recortes/.' % rel)
+
     if os.path.exists(destino):
         return destino
-    if not os.path.isdir(CACHE):
-        os.makedirs(CACHE)
 
     im = PILImage.open(origem)
     try:
@@ -131,6 +164,40 @@ def rampa(tamanho, fracao, curva=1.6):
 
 def foto(rel, larg, alt, foco=0.5):
     return Image(recorte(rel, larg, alt, foco), width=larg, height=alt)
+
+
+def logo(rel, lado_pt):
+    """A logo reduzida, com a transparencia preservada.
+
+    Nao passa pelo recorte() porque aquele corta no formato do espaco: numa
+    logo isso cortaria fora parte do desenho. Aqui so reduz.
+
+    O arquivo em fotos/ tem 1083x1113 e 1,7 MB. O ReportLab embute o arquivo
+    inteiro e so escala na hora de desenhar, entao esses 1,7 MB entravam duas
+    vezes no PDF para aparecer com menos de 3 cm de lado. Reduzir aqui e a
+    mesma economia que fez o kit sair de 14,4 MB para 2,9 MB.
+
+    440 px para um lado de 2,8 cm da 400 DPI, o dobro do resto do documento.
+    Sobra de proposito: e uma logo, e serrilhado em logo aparece.
+    """
+    destino = os.path.join(RECORTES, 'logo-%d.png' % 440)
+    if not os.path.isdir(RECORTES):
+        os.makedirs(RECORTES)
+
+    if not os.path.exists(destino):
+        origem = os.path.join(FOTOS, rel)
+        if not os.path.exists(origem):
+            raise SystemExit(
+                'Falta a logo "%s" e nao ha versao reduzida versionada.\n'
+                'Rode o build numa maquina que tenha fotos/ e comite o\n'
+                'arquivo em mediakit/recortes/.' % rel)
+        im = PILImage.open(origem)
+        if im.mode != 'RGBA':
+            im = im.convert('RGBA')
+        im = im.resize((440, 440), PILImage.LANCZOS)
+        im.save(destino, 'PNG', optimize=True)
+
+    return Image(destino, width=lado_pt, height=lado_pt, mask='auto')
 
 
 # --------------------------------------------------------------------------
@@ -611,8 +678,7 @@ def montar(d):
     st = []
 
     # ------------------------------------------------------------ 1. capa
-    st.append(Image(os.path.join(FOTOS, d['logo']), width=2.5 * cm,
-                    height=2.5 * cm, mask='auto'))
+    st.append(logo(d['logo'], 2.5 * cm))
     st.append(Spacer(1, 0.5 * cm))
     st.append(Paragraph(d['capa']['selo'].upper(), E['capa_selo']))
     st.append(Paragraph(d['capa']['titulo'], E['capa_titulo']))
@@ -712,8 +778,7 @@ def montar(d):
     # --------------------------------------------------------- 7. contato
     st.append(NextPageTemplate('Contato'))
     st.append(PageBreak())
-    st.append(Image(os.path.join(FOTOS, d['logo']), width=2.8 * cm,
-                    height=2.8 * cm, mask='auto'))
+    st.append(logo(d['logo'], 2.8 * cm))
     st.append(Spacer(1, 0.7 * cm))
     st.append(Paragraph('“%s”' % d['contato']['frase'], E['ct_frase']))
     st.append(Spacer(1, 0.7 * cm))
