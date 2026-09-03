@@ -26,11 +26,18 @@ ARQUIVOS = [
     "mediakit.html",
     "privacidade.html",
     "termos.html",
+    # A area de acompanhamento do cliente. Precisa ficar na RAIZ por dois
+    # motivos independentes: o tailwind.config.js tem content: ['./*.html'],
+    # que nao e recursivo, e a regra de URL sem .html do .htaccess so casa um
+    # segmento. E NAO pode existir uma pasta acompanhamento/ ao lado, pelo
+    # mesmo 403 que ebooks/ e mediakit/ ja causaram.
+    "acompanhamento.html",
     # Estilos e scripts
     "styles.css",
     "script.js",
     "assets/tailwind.css",
     "assets/rota-forms.js",
+    "assets/rota-acompanhamento.js",
     # Ponte de inscricao no Brevo. A chave de API NAO vem daqui: fica em
     # rota-config.php, um nivel acima da public_html, fora do deploy.
     "api/inscrever.php",
@@ -39,6 +46,16 @@ ARQUIVOS = [
     # numeros escritos no proprio HTML. Os dois precisam subir juntos.
     "api/numeros.php",
     "dados/numeros-redes.json",
+    # Endpoint da area de acompanhamento.
+    #
+    # ATENCAO: esquecer esta linha NAO quebra o build. O conferir_referencias()
+    # so olha src=, href= e srcset= no HTML, e a URL deste arquivo mora dentro
+    # de um fetch(), que ele nao enxerga. O resultado de esquecer seria build
+    # verde, CI verde, site no ar e 404 na hora em que o cliente salva.
+    #
+    # A senha do banco NAO vem daqui: fica no rota-config.php, um nivel acima
+    # da raiz do site, fora do alcance do FTP de deploy.
+    "api/acompanhamento.php",
     # Configuracao do servidor e SEO
     ".htaccess",
     "robots.txt",
@@ -130,6 +147,7 @@ def montar_zip():
 # tinha o rota-forms.js antigo em cache, e o cadastro caiu no modo manual.
 ASSETS_VERSIONADOS = [
     "assets/rota-forms.js",
+    "assets/rota-acompanhamento.js",
     "assets/tailwind.css",
     "styles.css",
     "script.js",

@@ -88,8 +88,23 @@ qrcodes/
 
 # Propostas de clientes: contem nome, saldo de milhas e datas de viagem de
 # terceiros. O gerador e o modelo sao versionados; os dados e os PDFs nao.
-# Fotos usadas no banner do cliente e os recortes gerados delas.
-propostas/boni_smiles/
 propostas/dados/*.json
 !propostas/dados/MODELO*.json
 propostas/pdf/
+
+# Capturas de tela das contas de milhas do cliente. Sao as telas do saldo e da
+# busca, com nome e programa dele.
+#
+# A regra era so "propostas/boni_smiles/", nomeando UMA pasta. Quando apareceu
+# a propostas/reginaldo_azul/ ela ficou de fora, e teria entrado no primeiro
+# git add que alguem desse com pressa. O padrao abaixo pega qualquer pasta de
+# captura, do cliente que for.
+propostas/*_smiles/
+propostas/*_azul/
+propostas/*_livelo/
+propostas/*_latam/
+propostas/capturas/
+
+# Carga do banco da area de acompanhamento: leva o roteiro e as datas de viagem
+# do cliente dentro. O schema.sql e versionado, este nao.
+sql/seed-*.sql

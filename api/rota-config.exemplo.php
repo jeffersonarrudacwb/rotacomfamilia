@@ -75,4 +75,60 @@ return [
      * automático não está configurado.
      * ----------------------------------------------------------------------- */
     'lista_padrao' => 4,
+
+    /* -----------------------------------------------------------------------
+     * db — o banco da área de acompanhamento do cliente
+     *
+     * Como criar, no cPanel → "Bancos de Dados MySQL":
+     *
+     *   1. "Criar Novo Banco de Dados": nome curto, ex. "rota". O cPanel
+     *      prefixa sozinho e ele vira jeffe095_rota.
+     *   2. "Adicionar Novo Usuário": use a senha gerada pelo próprio painel,
+     *      não invente uma. Copie na hora.
+     *   3. "Adicionar Usuário ao Banco de Dados" → marque TODOS OS PRIVILÉGIOS.
+     *      O cPanel não oferece permissão por tabela, então é tudo ou nada.
+     *   4. Rode o sql/schema.sql do repositório no phpMyAdmin, nesse banco.
+     *
+     * DEIXE "MySQL Remoto" VAZIO no cPanel. Não há motivo para este banco
+     * aceitar conexão de fora do próprio servidor, e cada host liberado ali é
+     * uma porta a mais para uma senha que vive num arquivo de texto.
+     * ----------------------------------------------------------------------- */
+    'db' => [
+        'host'    => 'localhost',
+        'nome'    => 'jeffe095_rota',
+        'usuario' => 'jeffe095_rota',
+        'senha'   => 'COLE_A_SENHA_GERADA_PELO_CPANEL',
+    ],
+
+    /* -----------------------------------------------------------------------
+     * pimenta — o segredo que protege os códigos de acompanhamento
+     *
+     * O banco não guarda o código do cliente em claro. Guarda
+     * SHA-256(pimenta . codigo). Esta string é o que torna um vazamento do
+     * banco inútil: sem ela, os códigos têm 50 bits e cairiam todos em algumas
+     * horas de GPU. Com ela aqui fora, o dump sozinho não vale nada.
+     *
+     * Como gerar (rode uma vez e cole o resultado):
+     *     php -r "echo bin2hex(random_bytes(32)), PHP_EOL;"
+     *
+     * NUNCA troque depois que houver código emitido. Trocar a pimenta invalida
+     * todos os códigos de uma vez, e não há como recuperá-los: seria preciso
+     * emitir e reenviar um novo para cada cliente.
+     * ----------------------------------------------------------------------- */
+    'pimenta' => 'COLE_AQUI_64_CARACTERES_HEXADECIMAIS',
+
+    /* -----------------------------------------------------------------------
+     * token_export — a sua chave para ler o que os clientes marcaram
+     *
+     * A área não tem tela de administração, por escolha. Este token é como
+     * você lê as respostas, sem depender de MySQL remoto:
+     *
+     *     curl -s https://rotacomfamilia.com.br/api/acompanhamento.php \
+     *          -H "Content-Type: application/json" \
+     *          -d '{"acao":"exportar","token":"...","codigo":"..."}'
+     *
+     * Gere do mesmo jeito da pimenta. É segredo de administrador: não vai para
+     * o WhatsApp do cliente, não vai para o navegador, não vai para o Git.
+     * ----------------------------------------------------------------------- */
+    'token_export' => 'COLE_AQUI_OUTROS_64_CARACTERES_HEXADECIMAIS',
 ];
