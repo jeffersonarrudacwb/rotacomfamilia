@@ -2,7 +2,7 @@
    Rota com Família — área de acompanhamento
    =============================================================================
 
-   A página do cliente: ele digita o código do orçamento, vê o planejamento e
+   A página do cliente: ele digita o código do planejamento, vê os voos e
    marca as atrações que quer.
 
    ESTILO: ES5, var, sem arrow function, sem passo de build. É o mesmo do
@@ -364,16 +364,33 @@
   /* --------------------------------------------------------------------------
      Salvar
      ------------------------------------------------------------------------ */
+  /* O que vai para o servidor é o estado COMPLETO da tela, e não o que mudou.
+   *
+   * A primeira versão mandava só o que estava marcado e pulava o resto com um
+   * continue. Parecia certo e tinha um buraco: desmarcar não é ausência de
+   * resposta, é uma resposta. Sem linha no envio, o servidor fazia upsert do
+   * que chegou e não mexia no que não chegou, então a marcação antiga
+   * continuava no banco. Na tela desmarcava, e ao recarregar voltava.
+   *
+   * Agora toda atração sai daqui em uma de três listas, e "sem marcação" tem
+   * a sua. O DOM tem sempre a lista inteira, então mandar tudo é seguro.
+   */
   function coletar() {
-    var escolhas = [], novas = [];
+    var escolhas = [], novas = [], limpar = [];
     var caixas = $('ac-cidades').querySelectorAll('[data-atracao]');
     for (var i = 0; i < caixas.length; i++) {
       var c = caixas[i];
       var id = parseInt(c.getAttribute('data-atracao'), 10);
       var sim = c.querySelector('[data-c="sim"]').classList.contains('chip-active');
       var nao = c.querySelector('[data-c="nao"]').classList.contains('chip-active');
-      if (!sim && !nao) { continue; }          // não respondida fica sem linha
       var q = c.querySelector('[data-c="pessoas"]').value.trim();
+
+      // Atração que o cliente acrescentou agora, ainda sem id do banco. Vai
+      // para novas SEMPRE, marcada ou não.
+      //
+      // A checagem de "respondida" ficava ACIMA desta linha, e engolia junto
+      // a atração nova que ele desmarcasse antes de salvar: ela sumia da tela
+      // no salvamento sem nunca ter chegado a existir.
       if (id < 0) {
         novas.push({
           cidade_id: parseInt(c.getAttribute('data-cidade'), 10),
@@ -381,13 +398,20 @@
         });
         continue;
       }
+
+      // Nenhum dos dois marcado: apagar a linha, se houver.
+      if (!sim && !nao) {
+        limpar.push(id);
+        continue;
+      }
+
       escolhas.push({
         atracao_id: id,
         resposta:   sim ? 'sim' : 'nao',
         pessoas:    (sim && q !== '') ? parseInt(q, 10) : null
       });
     }
-    return { escolhas: escolhas, novas: novas };
+    return { escolhas: escolhas, novas: novas, limpar: limpar };
   }
 
   function salvar() {
@@ -402,6 +426,7 @@
       versao:   estado.versao,
       envio_id: uuid(),
       escolhas: junto.escolhas,
+      limpar:   junto.limpar,
       novas:    junto.novas
     }).then(function (r) {
       ocupado(btn, false);

@@ -2,7 +2,7 @@
 /**
  * Rota com Família — área de acompanhamento do cliente
  * -----------------------------------------------------------------------------
- * O cliente digita o código do orçamento e vê o planejamento dele: descrição,
+ * O cliente digita o código do planejamento e vê o que tem nele: descrição,
  * voos e as atrações que eu cadastrei por cidade. Marca o que quer, diz quantas
  * pessoas vão, e pode acrescentar atração que não estava na lista.
  *
@@ -31,7 +31,7 @@
  *
  * O CÓDIGO É A CREDENCIAL
  *
- * Não há login. O código do orçamento é a senha, e por isso:
+ * Não há login. O código do planejamento é a senha, e por isso:
  *   - nunca entra na URL (só corpo de POST), para não cair no log do Apache,
  *     no histórico do navegador nem num print de tela;
  *   - é guardado no banco como SHA-256(pimenta . código), com a pimenta no
@@ -707,7 +707,11 @@ $versao_cliente = isset($dados['versao']) ? (int) $dados['versao'] : 0;
 
 $escolhas = is_array($dados['escolhas'] ?? null) ? $dados['escolhas'] : [];
 $novas    = is_array($dados['novas'] ?? null)    ? $dados['novas']    : [];
-if (count($escolhas) > RCF_MAX_ESCOLHAS || count($novas) > RCF_MAX_NOVAS) {
+// Os ids que voltaram a "sem resposta". Vem da mesma tela que escolhas, então
+// cabe no mesmo teto: as duas listas juntas nunca passam do total de atrações.
+$limpar   = is_array($dados['limpar'] ?? null)   ? $dados['limpar']   : [];
+if (count($escolhas) > RCF_MAX_ESCOLHAS || count($novas) > RCF_MAX_NOVAS
+    || count($limpar) > RCF_MAX_ESCOLHAS) {
     responder(422, false, 'Envio grande demais.');
 }
 
@@ -873,6 +877,33 @@ try {
                       ':r' => $r, ':q' => $q, ':r2' => $r, ':q2' => $q]);
     }
 
+    /* ---- as desmarcações -------------------------------------------------
+     *
+     * Voltar atrás precisa apagar a linha, e não existia caminho para isso: o
+     * laço acima só faz upsert, então marcação que parasse de chegar ficava
+     * intacta no banco. Na tela desmarcava, e no recarregamento voltava.
+     *
+     * A ausência de linha é o terceiro estado do esquema, "ainda não
+     * respondeu", e é ele que se restaura aqui. Não é o mesmo que 'nao': um é
+     * "não quero", o outro é "não olhei", e a diferença serve para eu saber
+     * quanto ainda falta o cliente responder.
+     *
+     * O WHERE leva planejamento_id junto com o id da atração. Com ele, um
+     * número de outro cliente enfiado no corpo da requisição não casa com
+     * nada. Sem ele, casaria.
+     */
+    $del = $pdo->prepare(
+        'DELETE FROM rcf_escolha WHERE planejamento_id = :p AND atracao_id = :a');
+    $apagadas = 0;
+    foreach ($limpar as $x) {
+        $aid = (int) $x;
+        if ($aid <= 0 || !isset($validas[$aid])) {
+            continue;
+        }
+        $del->execute([':p' => $pid, ':a' => $aid]);
+        $apagadas += $del->rowCount();
+    }
+
     $nova_versao = (int) $atual['versao'] + 1;
     $pdo->prepare('UPDATE rcf_planejamento SET versao = :v WHERE id = :p')
         ->execute([':v' => $nova_versao, ':p' => $pid]);
@@ -882,7 +913,8 @@ try {
             (planejamento_id, versao, envio_id, payload, ip_hash)
          VALUES (:p, :v, :e, :j, :ip)')->execute([
         ':p' => $pid, ':v' => $nova_versao, ':e' => $envio_id,
-        ':j' => json_encode(['escolhas' => $escolhas, 'novas' => $novas],
+        ':j' => json_encode(['escolhas' => $escolhas, 'limpar' => $limpar,
+                             'novas' => $novas],
                             JSON_UNESCAPED_UNICODE),
         ':ip' => hash_ip($pimenta),
     ]);
