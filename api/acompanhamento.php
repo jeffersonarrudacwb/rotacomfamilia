@@ -233,9 +233,42 @@ if ($acao === 'diagnostico') {
         $L[] = '  conectou ............... NÃO';
         $L[] = '  motivo ................. ' . $e->getMessage();
         $L[] = '';
-        $L[] = 'Acesso negado costuma ser o usuário não ligado ao banco. No';
-        $L[] = 'cPanel, "Adicionar Usuário ao Banco de Dados" é um passo à parte';
-        $L[] = 'de criar os dois, e é o que mais passa batido.';
+
+        /* O conselho por CÓDIGO, e não um texto só para toda falha.
+         *
+         * A primeira versão disto dizia "é o usuário não ligado ao banco" para
+         * qualquer erro de conexão, e mandou para o lado errado no primeiro uso
+         * real: o erro era 1045, e 1045 não é isso. Os dois se parecem na tela
+         * e pedem consertos diferentes.
+         *
+         *   1045  autenticação falhou. Usuário ou senha errados.
+         *   1044  autenticou, mas não tem direito NESTE banco. Aí sim é o
+         *         passo "Adicionar Usuário ao Banco de Dados".
+         *   1049  o banco não existe com esse nome.
+         *   2002  não chegou no servidor. Host errado.
+         */
+        $msg = $e->getMessage();
+        if (strpos($msg, '[1045]') !== false) {
+            $L[] = '1045 é senha ou usuário errado, e NÃO é falta de permissão.';
+            $L[] = 'O jeito confiável: cPanel > Bancos de Dados MySQL > na lista';
+            $L[] = 'de usuários, "Alterar Senha". Gere uma nova e cole aqui.';
+            $L[] = '';
+            $L[] = 'Ao gerar, abra "Opções avançadas" e peça uma senha só com';
+            $L[] = 'letras e números. Senha com barra invertida ou apóstrofo';
+            $L[] = 'quebra em silêncio dentro das aspas do PHP, e some espaço no';
+            $L[] = 'fim quando se cola do painel.';
+        } elseif (strpos($msg, '[1044]') !== false) {
+            $L[] = '1044 é o usuário sem direito NESTE banco. A senha está certa.';
+            $L[] = 'No cPanel, "Adicionar Usuário ao Banco de Dados" é um passo à';
+            $L[] = 'parte de criar os dois, e marque TODOS OS PRIVILÉGIOS.';
+        } elseif (strpos($msg, '[1049]') !== false) {
+            $L[] = '1049 é banco inexistente. Confira o nome: o cPanel prefixa';
+            $L[] = 'com a conta, então "rota" vira "jeffe095_rota".';
+        } elseif (strpos($msg, '[2002]') !== false
+                  || strpos($msg, '[2003]') !== false) {
+            $L[] = 'Não chegou no servidor de banco. Em hospedagem compartilhada';
+            $L[] = 'o host é "localhost", e não um endereço de fora.';
+        }
         responder(200, true, 'Diagnóstico.', ['relatorio' => implode("\n", $L)]);
     }
 
