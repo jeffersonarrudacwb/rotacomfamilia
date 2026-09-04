@@ -83,6 +83,25 @@ set_exception_handler(function (Throwable $e): void {
         ['configurar' => true]);
 });
 
+/**
+ * Acha e lê o rota-config.php. Devolve [config, caminho] ou [null, null].
+ *
+ * É função, e não código solto, porque o diagnóstico precisa fazer a MESMA
+ * busca que o fluxo normal. Duas buscas separadas divergem com o tempo, e um
+ * diagnóstico que procura em outro lugar mente justo no dia em que é preciso.
+ */
+function carregar_config(): array
+{
+    foreach ([__DIR__ . '/../../rota-config.php',   // recomendado
+              __DIR__ . '/../rota-config.php'] as $caminho) {
+        if (is_file($caminho)) {
+            $c = require $caminho;
+            return [is_array($c) ? $c : null, $caminho];
+        }
+    }
+    return [null, null];
+}
+
 // ---------------------------------------------------------------------------
 // 1. Constantes
 // ---------------------------------------------------------------------------
@@ -133,8 +152,153 @@ if (!is_array($dados)) {
 }
 
 $acao = (string) ($dados['acao'] ?? '');
-if (!in_array($acao, ['abrir', 'salvar', 'exportar'], true)) {
+if (!in_array($acao, ['abrir', 'salvar', 'exportar', 'diagnostico'], true)) {
     responder(400, false, 'Ação desconhecida.');
+}
+
+/* -----------------------------------------------------------------------------
+ * 2b. diagnostico: por que isto não está funcionando
+ *
+ * Nasceu de uma noite perdida. A área subiu, a página abriu, e o endpoint
+ * respondeu "o sistema está fora do ar" sem dizer mais nada, que é o
+ * comportamento certo para o visitante e péssimo para quem instalou. O motivo
+ * real ia para o error_log, e o error_log de um domínio ADICIONAL não é o que a
+ * página de Erros do cPanel mostra: ela mostra o do domínio principal da conta.
+ * A informação existia e não havia como chegar nela pelo painel.
+ *
+ * Roda ANTES da checagem de formato do código e ANTES da conexão, e abre o
+ * banco por conta própria dentro de try/catch. Tem que ser assim: o que se quer
+ * diagnosticar é justamente a conexão que falha, e o fluxo normal morre nela
+ * antes de conseguir contar o que houve.
+ *
+ * O QUE ELE NÃO REVELA SEM O TOKEN
+ *
+ * Sem configuração, ou sem token_export dentro dela, responde exatamente a
+ * mesma frase do fluxo normal e para por aí. Sem esse cuidado, um varredor
+ * descobriria pelo endpoint se o servidor tem configuração, o nome do banco e a
+ * versão do MySQL, coisas que hoje ele não tem como saber.
+ * -------------------------------------------------------------------------- */
+if ($acao === 'diagnostico') {
+    [$cfg, $de_onde] = carregar_config();
+
+    $token = is_array($cfg) ? (string) ($cfg['token_export'] ?? '') : '';
+    if ($token === '') {
+        // Mesma resposta do fluxo normal: nada de novo vaza.
+        responder(503, false,
+            'A área de acompanhamento ainda não está configurada.',
+            ['configurar' => true]);
+    }
+    if (!hash_equals($token, (string) ($dados['token'] ?? ''))) {
+        responder(401, false, 'Token inválido.');
+    }
+
+    $L = [];
+    $L[] = 'ARQUIVO DE CONFIGURAÇÃO';
+    $L[] = '  achado em .............. ' . $de_onde;
+    $L[] = '  tem db ................. ' . (empty($cfg['db']) ? 'NÃO' : 'sim');
+    $L[] = '  tem pimenta ............ ' . (empty($cfg['pimenta']) ? 'NÃO' : 'sim');
+    // O tamanho, e nunca o valor. A pimenta não sai daqui por porta nenhuma.
+    $L[] = '  tamanho da pimenta ..... '
+           . strlen((string) ($cfg['pimenta'] ?? '')) . ' caracteres, esperado 64';
+    $L[] = '  tem api_key do Brevo ... ' . (empty($cfg['api_key']) ? 'NÃO' : 'sim')
+           . '   <- se vier NÃO, o arquivo foi sobrescrito';
+    $L[] = '';
+    $L[] = 'SERVIDOR';
+    $L[] = '  PHP .................... ' . PHP_VERSION;
+    $L[] = '  extensão pdo_mysql ..... '
+           . (extension_loaded('pdo_mysql') ? 'sim' : 'NÃO, e sem ela nada roda');
+    $L[] = '';
+    $L[] = 'BANCO';
+    $L[] = '  host ................... ' . ($cfg['db']['host'] ?? '(vazio)');
+    $L[] = '  nome ................... ' . ($cfg['db']['nome'] ?? '(vazio)');
+    $L[] = '  usuário ................ ' . ($cfg['db']['usuario'] ?? '(vazio)');
+    $L[] = '  senha preenchida ....... '
+           . (($cfg['db']['senha'] ?? '') === '' ? 'NÃO' : 'sim');
+
+    try {
+        $conn = new PDO(
+            sprintf('mysql:host=%s;dbname=%s;charset=utf8mb4',
+                    $cfg['db']['host'] ?? 'localhost', $cfg['db']['nome'] ?? ''),
+            (string) ($cfg['db']['usuario'] ?? ''),
+            (string) ($cfg['db']['senha'] ?? ''),
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
+        );
+        $L[] = '  conectou ............... SIM';
+        $L[] = '  versão do servidor ..... '
+               . $conn->query('SELECT VERSION()')->fetchColumn();
+    } catch (Throwable $e) {
+        // A mensagem do PDO é justamente o que faltava. Sai só para quem tem o
+        // token, e é o único ponto do endpoint onde erro interno aparece.
+        $L[] = '  conectou ............... NÃO';
+        $L[] = '  motivo ................. ' . $e->getMessage();
+        $L[] = '';
+        $L[] = 'Acesso negado costuma ser o usuário não ligado ao banco. No';
+        $L[] = 'cPanel, "Adicionar Usuário ao Banco de Dados" é um passo à parte';
+        $L[] = 'de criar os dois, e é o que mais passa batido.';
+        responder(200, true, 'Diagnóstico.', ['relatorio' => implode("\n", $L)]);
+    }
+
+    $L[] = '';
+    $L[] = 'TABELAS';
+    $esperadas = ['rcf_planejamento', 'rcf_voo', 'rcf_cidade', 'rcf_atracao',
+                  'rcf_escolha', 'rcf_salvamento', 'rcf_freio', 'rcf_tentativa'];
+    $existem = $conn->query("SHOW TABLES LIKE 'rcf\\_%'")
+                    ->fetchAll(PDO::FETCH_COLUMN);
+    $faltando = array_values(array_diff($esperadas, $existem));
+    foreach ($esperadas as $t) {
+        if (in_array($t, $existem, true)) {
+            // O nome vem da lista fixa acima, nunca da requisição: não há como
+            // um nome de tabela vindo de fora entrar nesta string.
+            $n = (int) $conn->query('SELECT COUNT(*) FROM `' . $t . '`')
+                            ->fetchColumn();
+            $L[] = sprintf('  %-18s %6d linha%s', $t, $n, $n === 1 ? '' : 's');
+        } else {
+            $L[] = sprintf('  %-18s FALTANDO', $t);
+        }
+    }
+    if ($faltando) {
+        $L[] = '';
+        $L[] = 'Importe o sql/schema.sql no phpMyAdmin, DENTRO do banco: clique';
+        $L[] = 'nele na coluna da esquerda antes de abrir a aba Importar.';
+    }
+
+    // A pergunta que mais custa tempo: a pimenta daqui é a mesma que gerou o
+    // seed? Só dá para responder testando um código de verdade.
+    if (!empty($dados['codigo']) && !$faltando) {
+        $L[] = '';
+        $L[] = 'CÓDIGO DE TESTE';
+        $cod = normalizar_codigo((string) $dados['codigo']);
+        if ($cod === null) {
+            $L[] = '  formato ................ inválido, nem chegou a consultar';
+        } else {
+            $st = $conn->prepare(
+                'SELECT apelido, etapa, expira_em, codigo_revogado_em'
+                . ' FROM rcf_planejamento WHERE codigo_hash = ?');
+            $st->execute([hash_codigo($cod, (string) $cfg['pimenta'])]);
+            $achou = $st->fetch();
+            if ($achou) {
+                $L[] = '  encontrou .............. SIM, a pimenta bate';
+                $L[] = '  apelido ................ ' . $achou['apelido'];
+                $L[] = '  etapa .................. ' . $achou['etapa']
+                       . (in_array($achou['etapa'], RCF_ETAPAS_EDITAVEIS, true)
+                          ? '   (aceita gravação)' : '   (só leitura)');
+                $L[] = '  expira em .............. '
+                       . ($achou['expira_em'] ?? 'sem prazo');
+                $L[] = '  revogado ............... '
+                       . ($achou['codigo_revogado_em'] ?? 'não');
+            } else {
+                $L[] = '  encontrou .............. NÃO';
+                $L[] = '';
+                $L[] = 'Com as tabelas carregadas, isto quer dizer que a pimenta';
+                $L[] = 'deste servidor é diferente da que gerou o seed. Rode o';
+                $L[] = 'seed-acompanhamento.py de novo com a pimenta daqui e';
+                $L[] = 'reimporte o SQL.';
+            }
+        }
+    }
+
+    responder(200, true, 'Diagnóstico.', ['relatorio' => implode("\n", $L)]);
 }
 
 /* -----------------------------------------------------------------------------
@@ -166,14 +330,7 @@ if ($codigo === null) {
 // ---------------------------------------------------------------------------
 // 4. Configuração, de fora do public_html
 // ---------------------------------------------------------------------------
-$config = null;
-foreach ([__DIR__ . '/../../rota-config.php',   // recomendado
-          __DIR__ . '/../rota-config.php'] as $caminho) {
-    if (is_file($caminho)) {
-        $config = require $caminho;
-        break;
-    }
-}
+[$config, $config_de] = carregar_config();
 if (!is_array($config) || empty($config['db']) || empty($config['pimenta'])) {
     error_log('[rota] acompanhamento: rota-config.php ausente ou sem db/pimenta');
     responder(503, false,

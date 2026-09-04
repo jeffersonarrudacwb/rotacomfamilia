@@ -127,6 +127,19 @@ return [
      *          -H "Content-Type: application/json" \
      *          -d '{"acao":"exportar","token":"...","codigo":"..."}'
      *
+     * O MESMO token abre o diagnóstico, que é como você descobre por que a
+     * área não está funcionando sem depender do log do servidor:
+     *
+     *     -d '{"acao":"diagnostico","token":"..."}'
+     *
+     * Ele diz onde achou este arquivo, se conectou no banco e por que não, se
+     * as 8 tabelas existem e quantas linhas têm. Passando também um "codigo",
+     * responde se a pimenta daqui é a mesma que gerou aquele código.
+     *
+     * Isso existe porque o log não estava acessível: rotacomfamilia.com.br é
+     * domínio ADICIONAL, e a página de Erros do cPanel mostra o log do domínio
+     * PRINCIPAL da conta, não o nosso.
+     *
      * Gere do mesmo jeito da pimenta. É segredo de administrador: não vai para
      * o WhatsApp do cliente, não vai para o navegador, não vai para o Git.
      * ----------------------------------------------------------------------- */
