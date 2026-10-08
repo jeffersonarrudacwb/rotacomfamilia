@@ -79,7 +79,7 @@ def fundo(canvas, doc):
     canvas.setFont(SANS, 8)
     canvas.drawRightString(w - MARGIN, h - 0.55 * cm, doc.ebook_title)
 
-    skyline.desenhar(canvas, w, base=0.75 * cm, cor=C['gold_d'],
+    doc.silhueta(canvas, w, base=0.75 * cm, cor=C['gold_d'],
                      altura=2.6 * cm, opacidade=0.13)
 
     canvas.setFillColor(C['deep'])
@@ -97,7 +97,23 @@ def fundo(canvas, doc):
 
 
 class Conferencia(BaseDocTemplate):
-    def __init__(self, filename, title, rodape_direita):
+    def __init__(self, filename, title, rodape_direita, silhueta='nova-york',
+                 com_capa=False):
+        """
+        silhueta  o desenho do rodape. Nova York por padrao, para o documento
+                  de emissao do Boni continuar saindo igual ao ja enviado.
+
+        com_capa  poe a capa escura na FRENTE da lista de modelos, e por isso
+                  ela vira a primeira pagina. Fica desligado por padrao: o
+                  documento de conferencia e operacional e nao tem capa de
+                  proposito, porque uma folha inteira dizendo o que o cabecalho
+                  ja diz obriga a rolar para achar o numero do voo. Quem liga
+                  isto e o build_escala.py, onde o documento e de leitura.
+
+        A ORDEM DA LISTA DE MODELOS IMPORTA: o ReportLab comeca no primeiro.
+        Por isso a capa entra na frente quando pedida, e nunca no fim.
+        """
+        self.silhueta = skyline.escolher(silhueta)
         BaseDocTemplate.__init__(
             self, filename, pagesize=PAGE,
             leftMargin=MARGIN, rightMargin=MARGIN,
@@ -108,9 +124,15 @@ class Conferencia(BaseDocTemplate):
         corpo = Frame(MARGIN, 1.15 * cm, PAGE[0] - 2 * MARGIN,
                       PAGE[1] - 2.35 * cm, leftPadding=0, rightPadding=0,
                       topPadding=0.4 * cm, bottomPadding=0, id='corpo')
-        self.addPageTemplates([
-            PageTemplate(id='Corpo', frames=[corpo], onPage=fundo),
-        ])
+        modelos = [PageTemplate(id='Corpo', frames=[corpo], onPage=fundo)]
+        if com_capa:
+            from build_apresentacao import fundo_capa
+            capa = Frame(0, 0, PAGE[0], PAGE[1], leftPadding=2.5 * cm,
+                         rightPadding=2.5 * cm, topPadding=3.2 * cm,
+                         bottomPadding=8 * cm, id='capa')
+            modelos.insert(0, PageTemplate(id='Capa', frames=[capa],
+                                           onPage=fundo_capa))
+        self.addPageTemplates(modelos)
 
 
 # --------------------------------------------------------------------------
