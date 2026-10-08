@@ -15,6 +15,7 @@ Depois de trocar ou adicionar qualquer arquivo:
 | `wise.svg` | símbolo oficial servido pelo próprio site da Wise |
 | `nomad.png` | ícone de 512 px declarado no `<head>` do nomadglobal.com, reduzido para 128 |
 | `holasim.png` | logo do cabeçalho de holasim.com, redimensionado para 72 px de altura |
+| `discovercars.svg` | versão "on dark" publicada em discovercars.com/resources/common/logos, usada sem alteração |
 
 A HolaSim é a única que não publica um símbolo quadrado: o favicon dela só
 existe em 32 px, que fica borrado ampliado. Por isso ali entra o nome escrito,
@@ -41,6 +42,12 @@ cria um anel em volta de uma forma que já estava resolvida.
 Marca que é **desenho sem fundo** (o nome escrito da HolaSim, onde o "SIM" é
 preto) ganha a placa branca, senão parte dela some no fundo escuro do site.
 
-A decisão é da função `tem_fundo_proprio`: canto opaco em PNG, ou um `rect`
-cobrindo o viewBox em SVG. Se algum logo novo cair no lado errado, é essa
-função que precisa de ajuste.
+Existe um terceiro caso, que apareceu com o DiscoverCars: **marca já desenhada
+em branco**, para fundo escuro. Ela não tem fundo próprio e também não quer
+placa, porque branco sobre branco some. Quem reconhece isso é a função
+`e_marca_clara`, que olha se a maioria dos `fill` do SVG é branca. Se o
+parceiro publicar uma versão "on dark", prefira ela.
+
+A decisão é das funções `tem_fundo_proprio` (canto opaco em PNG, ou um `rect`
+cobrindo o viewBox em SVG) e `e_marca_clara`. Se algum logo novo cair no lado
+errado, são essas duas que precisam de ajuste.

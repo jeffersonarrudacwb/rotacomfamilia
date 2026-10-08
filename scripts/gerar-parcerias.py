@@ -76,6 +76,7 @@ def logo_do_parceiro(p):
                             *dimensoes(base + ext)))
             classe = ('parceria-logo parceria-logo-nua'
                       if tem_fundo_proprio(base + ext)
+                      or e_marca_clara(base + ext)
                       else 'parceria-logo parceria-logo-placa')
             return '<span class="%s">%s</span>' % (classe, corpo)
     inicial = escapar(p['nome'][:1].upper())
@@ -124,6 +125,48 @@ def tem_fundo_proprio(caminho):
             return all(c[3] > 250 for c in cantos)
     except Exception:
         return False
+
+
+def _luminancia(cor):
+    """Quao clara e a cor, de 0 (preto) a 1 (branco). None se nao reconhecer."""
+    cor = cor.strip().lower()
+    if cor in ('white', '#fff', '#ffffff'):
+        return 1.0
+    m = re.fullmatch(r'#([0-9a-f]{3}|[0-9a-f]{6})', cor)
+    if not m:
+        return None
+    h = m.group(1)
+    if len(h) == 3:
+        h = ''.join(c * 2 for c in h)
+    r, g, b = (int(h[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def e_marca_clara(caminho):
+    """A arte foi desenhada clara, para viver sobre fundo escuro?
+
+    Terceiro caso, que nao existia quando tem_fundo_proprio foi escrita. O
+    DiscoverCars publica uma versao "on dark" da marca: sem fundo nenhum, com
+    o nome em branco e o simbolo em amarelo. Ela nao precisa de placa, e com
+    placa ela some ou perde o contraste.
+
+    A conta e de luminancia, e nao "e branco?", porque o simbolo amarelo do
+    DiscoverCars sozinho ja seria reprovado por uma regra de branco puro e
+    acabaria dentro da placa, que e justo o que nao se quer.
+
+    So vale para SVG. Em raster a checagem daria falso positivo em qualquer
+    logo com bastante branco por dentro, e nao e isso que se quer saber.
+    """
+    if not caminho.endswith('.svg'):
+        return False
+    svg = io.open(caminho, encoding='utf-8').read()
+    luzes = [_luminancia(f) for f in re.findall(r'fill="([^"]+)"', svg)
+             if f.strip().lower() != 'none']
+    luzes = [x for x in luzes if x is not None]
+    if not luzes:
+        return False
+    claras = sum(1 for x in luzes if x >= 0.6)
+    return claras >= len(luzes) / 2.0
 
 
 def dimensoes(caminho):

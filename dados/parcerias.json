@@ -16,18 +16,28 @@
     "'validade' existe porque promocao de parceiro muda sem avisar. Se voce nao",
     "sabe ate quando vale, deixe null e o card diz que pode mudar."
   ],
-
   "parcerias": [
     {
-      "slug": "wise",
-      "nome": "Wise",
-      "categoria": "Transferência internacional",
-      "beneficio": "Primeira transferência de até R$ 3.500 sem taxa.",
+      "slug": "discovercars",
+      "nome": "DiscoverCars",
+      "categoria": "Aluguel de carro",
+      "beneficio": "Até 70% de desconto comparando as locadoras, com cancelamento grátis até 48 horas antes da retirada.",
       "cupom": null,
-      "url": "https://wise.com/invite/ilpn/jeffersong398",
+      "url": "https://www.discovercars.com/?a_aid=RotacomFamilia&a_bid=f29909e9",
       "validade": null,
-      "porque": "É como a gente manda dinheiro para fora e paga em moeda estrangeira sem o spread do banco. O câmbio é o comercial de verdade, e a taxa aparece antes de você confirmar, o que não acontece em quase nenhum banco brasileiro.",
-      "quando": "Vale a pena quando você precisa pagar algo em dólar ou euro antes da viagem: reserva de hotel fora de plataforma, aluguel de carro, ingresso de parque."
+      "porque": "Aluguel de carro é o item da viagem em que o mesmo carro, nos mesmos dias, custa preços bem diferentes de uma locadora para outra. O DiscoverCars põe as empresas do destino lado a lado e mostra o valor já com as taxas obrigatórias dentro, que é o número que interessa comparar.",
+      "quando": "Reserve cedo e fique com a tarifa que cancela de graça: ela trava o preço e ainda deixa você procurar de novo se aparecer coisa melhor. No balcão, confira a franquia do seguro e a regra do combustível antes de assinar, que é onde a conta costuma crescer."
+    },
+    {
+      "slug": "holasim",
+      "nome": "HolaSim",
+      "categoria": "Chip internacional",
+      "beneficio": "10% de desconto com o cupom ROTACOMFAMILIA.",
+      "cupom": "ROTACOMFAMILIA",
+      "url": "https://holasim.com/es/?ref=3261&wcmlc=USD",
+      "validade": null,
+      "porque": "Chip de internet para usar fora do Brasil sem pagar roaming. Na África do Sul foi o que nos manteve com mapa e tradutor funcionando dentro do carro, em estrada onde não tinha wi-fi em lugar nenhum.",
+      "quando": "Instale e teste ainda no Brasil, um ou dois dias antes de embarcar. Ativar eSIM no aeroporto, com pressa e wi-fi ruim, é pedir para dar errado."
     },
     {
       "slug": "nomad",
@@ -41,15 +51,15 @@
       "quando": "Abra com algumas semanas de antecedência e vá convertendo aos poucos, em vez de tudo de uma vez na véspera."
     },
     {
-      "slug": "holasim",
-      "nome": "HolaSim",
-      "categoria": "Chip internacional",
-      "beneficio": "10% de desconto com o cupom ROTACOMFAMILIA.",
-      "cupom": "ROTACOMFAMILIA",
-      "url": "https://holasim.com/es/?ref=3261&wcmlc=USD",
+      "slug": "wise",
+      "nome": "Wise",
+      "categoria": "Transferência internacional",
+      "beneficio": "Primeira transferência de até R$ 3.500 sem taxa.",
+      "cupom": null,
+      "url": "https://wise.com/invite/ilpn/jeffersong398",
       "validade": null,
-      "porque": "Chip de internet para usar fora do Brasil sem pagar roaming. Na África do Sul foi o que nos manteve com mapa e tradutor funcionando dentro do carro, em estrada onde não tinha wi-fi em lugar nenhum.",
-      "quando": "Instale e teste ainda no Brasil, um ou dois dias antes de embarcar. Ativar eSIM no aeroporto, com pressa e wi-fi ruim, é pedir para dar errado."
+      "porque": "É como a gente manda dinheiro para fora e paga em moeda estrangeira sem o spread do banco. O câmbio é o comercial de verdade, e a taxa aparece antes de você confirmar, o que não acontece em quase nenhum banco brasileiro.",
+      "quando": "Vale a pena quando você precisa pagar algo em dólar ou euro antes da viagem: reserva de hotel fora de plataforma, aluguel de carro, ingresso de parque."
     }
   ]
 }

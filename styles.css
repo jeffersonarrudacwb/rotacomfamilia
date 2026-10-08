@@ -1912,11 +1912,11 @@ picture {
   gap: 1.25rem;
   grid-template-columns: 1fr;
 }
+/* Duas colunas, e para no 2. Com tres, o card ficava estreito demais para o
+   texto do "quando usar", que e a parte util do card, e a quarta parceria
+   descia sozinha numa linha so. */
 @media (min-width: 768px) {
   .parcerias-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (min-width: 1100px) {
-  .parcerias-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 .parceria-card {
@@ -2209,8 +2209,13 @@ picture {
                        HolaSim, onde o "SIM" e preto e desapareceria. Essa
                        ganha a placa branca.
 
-   Quem decide qual e a funcao tem_fundo_proprio do gerador, olhando o arquivo:
-   canto opaco em raster, rect ou circle cobrindo o viewBox em SVG. */
+   Marca ja desenhada em branco, como a versao "on dark" do DiscoverCars,
+   tambem vai sem placa: ela foi feita para fundo escuro, e sobre a placa
+   branca ela sumiria.
+
+   Quem decide sao as funcoes tem_fundo_proprio e e_marca_clara do gerador,
+   olhando o arquivo: canto opaco em raster, rect ou circle cobrindo o viewBox
+   em SVG, ou a maioria dos fill em branco. */
 .parceria-logo {
   flex: 0 0 auto;
   display: inline-flex;
