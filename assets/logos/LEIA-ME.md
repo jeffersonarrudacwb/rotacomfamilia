@@ -16,6 +16,8 @@ Depois de trocar ou adicionar qualquer arquivo:
 | `nomad.png` | ícone de 512 px declarado no `<head>` do nomadglobal.com, reduzido para 128 |
 | `holasim.png` | logo do cabeçalho de holasim.com, redimensionado para 72 px de altura |
 | `discovercars.svg` | versão "on dark" publicada em discovercars.com/resources/common/logos, usada sem alteração |
+| `tioorlando.png` | símbolo do cabeçalho de tioorlando.com.br, reduzido para 128 px |
+| `realseguro.svg` | favicon em SVG de seguroviagem.srv.br, que já vem com o fundo branco |
 
 A HolaSim é a única que não publica um símbolo quadrado: o favicon dela só
 existe em 32 px, que fica borrado ampliado. Por isso ali entra o nome escrito,
@@ -43,10 +45,11 @@ Marca que é **desenho sem fundo** (o nome escrito da HolaSim, onde o "SIM" é
 preto) ganha a placa branca, senão parte dela some no fundo escuro do site.
 
 Existe um terceiro caso, que apareceu com o DiscoverCars: **marca já desenhada
-em branco**, para fundo escuro. Ela não tem fundo próprio e também não quer
-placa, porque branco sobre branco some. Quem reconhece isso é a função
-`e_marca_clara`, que olha se a maioria dos `fill` do SVG é branca. Se o
-parceiro publicar uma versão "on dark", prefira ela.
+clara**, para fundo escuro. Ela não tem fundo próprio e também não quer placa,
+porque claro sobre branco some. Quem reconhece isso é a função
+`e_marca_clara`: em SVG ela mede a luminância dos `fill`, e em PNG a dos
+pixels visíveis, ignorando o transparente. Se o parceiro publicar uma versão
+"on dark", prefira ela.
 
 A decisão é das funções `tem_fundo_proprio` (canto opaco em PNG, ou um `rect`
 cobrindo o viewBox em SVG) e `e_marca_clara`. Se algum logo novo cair no lado

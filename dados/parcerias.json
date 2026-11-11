@@ -29,6 +29,28 @@
       "quando": "Reserve cedo e fique com a tarifa que cancela de graça: ela trava o preço e ainda deixa você procurar de novo se aparecer coisa melhor. No balcão, confira a franquia do seguro e a regra do combustível antes de assinar, que é onde a conta costuma crescer."
     },
     {
+      "slug": "tioorlando",
+      "nome": "Tio Orlando",
+      "categoria": "Ingressos e serviços",
+      "beneficio": "Até 10% de desconto com o cupom ROTACOMFAMILIA.",
+      "cupom": "ROTACOMFAMILIA",
+      "url": "https://www.tioorlando.com.br/",
+      "validade": null,
+      "porque": "É uma empresa brasileira que vende tudo o que a viagem a Orlando pede: ingresso de parque, hospedagem, chip de internet, aluguel de carro e seguro viagem. O atendimento é em português, o que faz diferença no dia em que alguma coisa precisa ser trocada ou cancelada.",
+      "quando": "Dá para deixar a viagem inteira num lugar só: ingresso, carro, chip e seguro na mesma compra, com o cupom valendo em cada item. O desconto chega a 10% e muda conforme o produto: 10% em chip, carro e seguro viagem, 5% em casa e hotel, e 2% em ingresso."
+    },
+    {
+      "slug": "realseguro",
+      "nome": "Real Seguro Viagem",
+      "categoria": "Seguro viagem",
+      "beneficio": "10% de desconto com o cupom ROTACOMFAMILIA10.",
+      "cupom": "ROTACOMFAMILIA10",
+      "url": "https://www.seguroviagem.srv.br/?ag=ieh4r1BWzr&lead_tag=rotayt",
+      "validade": null,
+      "porque": "É um comparador: põe as seguradoras lado a lado para as suas datas e idades e mostra o que cada apólice cobre. Seguro viagem é exigido na entrada de alguns países, e é o tipo de coisa que ninguém quer usar, mas quem já precisou sabe o tamanho da conta de um hospital fora do Brasil.",
+      "quando": "Compre depois de ter as passagens, porque a apólice segue as datas do bilhete. E olhe a cobertura médica antes do preço: o país de destino às vezes exige um mínimo, e a apólice mais barata costuma ser a que cobre menos."
+    },
+    {
       "slug": "holasim",
       "nome": "HolaSim",
       "categoria": "Chip internacional",

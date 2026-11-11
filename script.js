@@ -131,6 +131,16 @@
 
     document.querySelectorAll('#blog .post-card').forEach((card) => {
       card.style.cursor = 'pointer';
+
+      // Card com data-url e artigo publicado: vai direto para o texto. Sem
+      // data-url, o artigo ainda esta sendo escrito e abre a caixa de aviso.
+      // E assim que um texto novo entra no ar: so ganha o atributo.
+      const destino = card.getAttribute('data-url');
+      if (destino) {
+        card.addEventListener('click', () => { window.location.href = destino; });
+        return;
+      }
+
       card.addEventListener('click', () => {
         const img = card.querySelector('.post-media img');
         const tag = card.querySelector('.post-tag');

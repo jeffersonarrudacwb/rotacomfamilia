@@ -142,6 +142,25 @@ def _luminancia(cor):
     return 0.2126 * r + 0.7152 * g + 0.0722 * b
 
 
+def _luminancia_do_raster(caminho):
+    """Media de luminancia dos pixels visiveis, de 0 a 1. Zero se nao abrir."""
+    try:
+        from PIL import Image
+        with Image.open(caminho) as im:
+            im = im.convert('RGBA')
+            dados = (im.get_flattened_data()
+                     if hasattr(im, 'get_flattened_data')
+                     else im.getdata())
+            pixels = [p for p in dados if p[3] > 200]
+            if not pixels:
+                return 0.0
+            soma = sum(0.2126 * p[0] + 0.7152 * p[1] + 0.0722 * p[2]
+                       for p in pixels)
+            return soma / len(pixels) / 255.0
+    except Exception:
+        return 0.0
+
+
 def e_marca_clara(caminho):
     """A arte foi desenhada clara, para viver sobre fundo escuro?
 
@@ -154,11 +173,13 @@ def e_marca_clara(caminho):
     DiscoverCars sozinho ja seria reprovado por uma regra de branco puro e
     acabaria dentro da placa, que e justo o que nao se quer.
 
-    So vale para SVG. Em raster a checagem daria falso positivo em qualquer
-    logo com bastante branco por dentro, e nao e isso que se quer saber.
+    Em raster a conta e a mesma, so que medida nos pixels que aparecem: se a
+    media do que e visivel for clara, a arte foi feita para fundo escuro. O
+    Tio Orlando e esse caso, com o nome escrito em branco e fundo transparente.
+    Pixel transparente fica de fora, senao o fundo vazio dominaria a media.
     """
     if not caminho.endswith('.svg'):
-        return False
+        return _luminancia_do_raster(caminho) >= 0.6
     svg = io.open(caminho, encoding='utf-8').read()
     luzes = [_luminancia(f) for f in re.findall(r'fill="([^"]+)"', svg)
              if f.strip().lower() != 'none']

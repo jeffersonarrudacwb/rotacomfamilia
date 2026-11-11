@@ -311,6 +311,14 @@ picture {
   background: currentColor;
 }
 
+/* Artigo publicado. Mesmo selo, cor da sálvia: "em produção" e "no ar" com a
+   mesma cor fariam o leitor clicar no errado. */
+.post-status-no-ar {
+  background: rgba(169, 180, 126, 0.14);
+  border-color: rgba(169, 180, 126, 0.4);
+  color: var(--fern);
+}
+
 /* ============== PRODUCT CARDS ============== */
 .product-card {
   position: relative;
